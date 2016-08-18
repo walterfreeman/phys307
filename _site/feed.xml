@@ -6,8 +6,8 @@
 </description>
     <link>https://walterfreeman.github.io/phys307/</link>
     <atom:link href="https://walterfreeman.github.io/phys307/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 Aug 2016 18:04:24 -0400</pubDate>
-    <lastBuildDate>Thu, 18 Aug 2016 18:04:24 -0400</lastBuildDate>
+    <pubDate>Thu, 18 Aug 2016 18:17:10 -0400</pubDate>
+    <lastBuildDate>Thu, 18 Aug 2016 18:17:10 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -17,6 +17,8 @@
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
 &lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;p&gt;canary&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;math&lt;/script&gt;
 
