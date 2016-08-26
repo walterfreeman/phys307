@@ -10,7 +10,10 @@ use_math: true
 <center><h1>Notes on Linux</h1></center>
 
 
-For more background information on Linux, see the Wikipedia page at <https://en.wikipedia.org/wiki/Linux>.
+For more background information on Linux, see the Wikipedia page at <https://en.wikipedia.org/wiki/Linux>. The short version: Linux is 
+the operating system that powers my cellphone (and likely yours), many of the computers on the Web, my laptop and maybe yours too,
+any supercomputer anyone cares about,
+the LHC, and even some <a href="https://en.wikipedia.org/wiki/Steam_Machine_(hardware_platform)">video game consoles</a>. 
 
 
 ### 1. Files and directories

@@ -1,6 +1,7 @@
 ---
 layout: page
 navtitle: Syllabus
+category: top
 title: Syllabus
 permalink: syllabus.html
 use_math: true
@@ -18,7 +19,7 @@ use_math: true
     - **Dr. Walter Freeman**, lead instructor: <wafreema@syr.edu>, office Physics Building 215
     - **Prashant Mishra**, <prmishra@syr.edu>, graduate teaching assistant and grader
     - **Patrick Miles**, <pmiles@syr.edu>, and **Aaron Hutchins**, <athutchi@syr.edu>, undergraduate learning assistants
-
+- Course website: http://walterfreeman.github.io/ast307/
 - Email address for homework submissions: <suphysics307@gmail.com> (shared with instructional staff)
 - Course computer: phy-compphysclass.syr.edu
 

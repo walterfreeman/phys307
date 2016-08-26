@@ -77,15 +77,11 @@
             <a class="page-link" href="/phys307/notes/">Notes</a>
             
               
-                <a class="page-sublink" href="/phys307/notes/">Intro to C</a>
+                <a class="page-sublink" href="/phys307/notes/c.html">Intro to C</a>
               
             
               
-                <a class="page-sublink" href="/phys307/notes/">Connecting</a>
-              
-            
-              
-            
+                <a class="page-sublink" href="/phys307/notes/connect.html">Connecting</a>
               
             
               
@@ -93,7 +89,11 @@
               
             
               
-                <a class="page-sublink" href="/phys307/notes/">Intro to Linux</a>
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/linux.html">Intro to Linux</a>
               
             
               
@@ -136,11 +136,11 @@
               
             
               
-                <a class="page-sublink" href="/phys307/projects/">Project 0</a>
+                <a class="page-sublink" href="/phys307/projects/project0.html">Project 0</a>
               
             
               
-                <a class="page-sublink" href="/phys307/projects/">Project 1</a>
+                <a class="page-sublink" href="/phys307/projects/project1.html">Project 1</a>
               
             
               
@@ -149,6 +149,35 @@
             
           
         
+          
+            <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
           
         
       </div>
@@ -270,7 +299,8 @@ remainder, even if the result is later set to a float. This code snippet, for in
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="n">printf</span><span class="p">(</span><span class="s">"3/2 is %f.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//integer division
-</span><span class="n">printf</span><span class="p">(</span><span class="s">"3.0/2.0 is %f.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span> <span class="o">//</span><span class="n">floating</span><span class="o">-</span><span class="n">point</span> <span class="n">division</span></code></pre></figure>
+</span><span class="n">printf</span><span class="p">(</span><span class="s">"3.0/2.0 is %f.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//floating-point division
+</span> </code></pre></figure>
 
 <p>The difference between floating-point division and integer division will matter in your
 first homework assignment!</p>
@@ -360,9 +390,9 @@ following block of code so long as <code class="highlighter-rouge">x</code> is l
   <span class="p">}</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"The number is positive.n</span><span class="se">\"</span><span class="s">);</span><span class="err">
-</span><span class="s">  }</span><span class="err">
-</span><span class="s">}</span><span class="w">
+    <span class="n">printf</span><span class="p">(</span><span class="s">"The number is positive.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>A couple of new things here. The biggest one is the <code class="highlighter-rouge">if</code> statement, of course. Note the

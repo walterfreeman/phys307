@@ -110,6 +110,7 @@ Even numeric constants are treated as type int if they don’t have a decimal. T
 #include <stdio.h>
 printf("3/2 is %f.\n", 3/2); //integer division
 printf("3.0/2.0 is %f.\n", 3.0/2.0); //floating-point division
+ 
 {% endhighlight %}
 
 The difference between floating-point division and integer division will matter in your
@@ -174,7 +175,7 @@ int main()
   }
   if (x > 0)
   {
-    printf("The number is positive.n\");
+    printf("The number is positive.\n");
   }
 }
 {% endhighlight %}
