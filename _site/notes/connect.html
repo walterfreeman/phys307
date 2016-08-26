@@ -8,12 +8,12 @@
 
   <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
 
-  <title>Learning Goals</title>
+  <title>Connecting to the course computer</title>
   <meta name="description" content="Fall 2016, Syracuse University 
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/learning_goals.html">
+  <link rel="canonical" href="/phys307/notes/connect.html">
   <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -159,27 +159,64 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post">
+        <center><h1>Connecting to the course computer</h1></center>
 
-  <header class="post-header">
-    <h1 class="post-title">Learning Goals</h1>
-  </header>
+<p>The Room 115 lab has only Windows computers, but if you want to get real work done in the sciences,
+you need a Unix-like operating system: Linux or a BSD-based operating system like Mac OSX.
+In this class, we have provided you a Linux system named
+phy-compphysclass.syr.edu, located somewhere in an ITS data center. Here are instructions for connecting
+to it:</p>
 
-  <div class="post-content">
-    <h3 id="course-scale-learning-goals">Course-Scale Learning Goals</h3>
+<h3 id="connecting-to-the-computer">Connecting to the computer</h3>
 
-<p>This list represents what we want students to be able to do at the end
-of the course (as opposed to what content is expected to be covered, as in a syllabus).</p>
+<p>The standard way of controlling a Linux computer is by a text interface: you send text to the computer,
+and text comes back, along with any graphical windows you request.</p>
 
-<ol>
-  <li>Students should be able to</li>
-</ol>
+<p>The standard way of connecting to remote Linux machines is via the Secure Shell protocol, abbreviated as <em>ssh</em>.
+This protocol creates an encrypted channel that allows you to communicate securely with another computer.</p>
 
-<h3 id="topic-scale-learning-goals">Topic-Scale Learning Goals</h3>
+<p>Once you establish a ssh session to another computer, you can send and receive text and graphics just as though you were physically
+at the machine. To connect from the machines in room 115, run PuTTY from your SU-Apps folder, type in
+<kbd>phy-compphysclass.syr.edu</kbd>, and click connect.</p>
 
-  </div>
+<p>Linux uses a system called X to handle graphics. X is different than the graphics system in Windows in that the computer
+creating and the computer displaying the graphics can be different. The computer displaying the graphics
+needs a program running called an “X server” that actually creates the graphics on screen. The X server for
+Windows is called Xming; you will need to run it before you launch PuTTY if you want graphics. (It is way down at the bottom of the Applications menu in the lab.)</p>
 
-</article>
+<p>Finally, you will need to tell PuTTY that it should forward graphical output over the connection. To do
+this, you need to check the “Enable X Forwarding” box in the “X11” section of the options before you connect.</p>
+
+<h4 id="connecting-from-elsewhere">Connecting from elsewhere</h4>
+
+<p><strong>From Windows:</strong></p>
+
+<p>The process here is the same as on the lab machines. You only need to download Xming, the Xming Fonts
+package, and PuTTY. All three are open source.</p>
+
+<p>Go to <a href="http://www.straightrunning.com/XmingNotes/">http://www.straightrunning.com/XmingNotes/</a> and scroll down to “Public Domain Releases”.
+Download the <em>xming</em> and <em>xming-fonts</em> packages and install them.</p>
+
+<p>PuTTY lives at <a href="http://www.chiark.greenend.org.uk/sgtatham/putty/download.html">http://www.chiark.greenend.org.uk/sgtatham/putty/download.html</a>.</p>
+
+<p><strong>From Mac OSX or Linux:</strong></p>
+
+<p>OSX is a Unix-based operating system; I believe it comes with a ssh client, and it uses its own X server for
+its own graphics.</p>
+
+<p>To connect, just get a terminal window and type</p>
+
+<p><code class="highlighter-rouge">
+ssh -X phy-compphysclass.syr.edu -l &lt;username&gt;
+</code></p>
+
+<p>If you are on a slow connection, do instead:</p>
+
+<p><code class="highlighter-rouge">
+ssh -XC phy-compphysclass.syr.edu -l &lt;username&gt;
+</code></p>
+
+<p>This may speed up graphics somewhat; the -C option tells the computers to compress graphics, which will use extra computing power to save a little bandwidth.</p>
 
       </div>
     </div>

@@ -1,9 +1,10 @@
 ---
-layout: post
-title: First class, August 30 
-date:   2016-08-16 07:30:38 -0400
-categories: update
+layout: default
+permalink: index.html
 ---
+
+<h1> Welcome to Physics 307!</h1>
+
 
 My goals for today:
 
@@ -12,3 +13,5 @@ My goals for today:
 * ensure everyone can log into the course computer
 * introduce some basic Linux commands and the C programming language
 * guide everyone through writing their first C program!
+
+<iframe width="630" height="465" src="https://www.youtube.com/embed/PrIk6dKcdoU" frameborder="0" allowfullscreen></iframe>

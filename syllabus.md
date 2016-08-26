@@ -1,28 +1,30 @@
 ---
 layout: page
+navtitle: Syllabus
 title: Syllabus
-permalink: index.html
+permalink: syllabus.html
 use_math: true
 ---
 
-### Physics 307: Science and Computers I , aka Computational Physics
+### Physics 307: Science and Computers I, aka Computational Physics
 
-
-<center> Tuesday and Thursday, 11:00-12:20, Physics Building 115 </center>
 
 ---
 
-#### Instructors:
+### At a glance:
 
-- Dr. Walter Freeman, lead instructor: wafreema@syr.edu, office Physics Building 215
-- Prashant Mishra, prmishra@syr.edu, graduate teaching assistant and grader
-- Patrick Miles, pmiles@syr.edu, and Aaron Hutchins, athutchi@syr.edu, undergraduate learning assistants
+- Tuesday and Thursday, 11:00-12:20, Physics Building 115
+- Instructors:
+    - **Dr. Walter Freeman**, lead instructor: <wafreema@syr.edu>, office Physics Building 215
+    - **Prashant Mishra**, <prmishra@syr.edu>, graduate teaching assistant and grader
+    - **Patrick Miles**, <pmiles@syr.edu>, and **Aaron Hutchins**, <athutchi@syr.edu>, undergraduate learning assistants
 
-- Email address for homework submissions: suphysics307@gmail.com (shared with instructional staff)
+- Email address for homework submissions: <suphysics307@gmail.com> (shared with instructional staff)
+- Course computer: phy-compphysclass.syr.edu
 
 ---
 
-#### Asking for help
+### Asking for help
 
 You are encouraged to email the teaching staff with questions that arise outside of class; you will often get a prompt response. I encourage you to 
 cc: the learning assistants on your emails; whichever of us sees your email first will answer. Patrick and Aaron took this class last year, 
@@ -42,7 +44,7 @@ guitars in our class, in fact!)
 
 ---
 
-#### Office hours
+### Office hours
 
 - Tuesdays, 4:30-6:30, and Fridays, 9:30-11:30, and others to be added
 - I’m also often around – feel free to email me and set up an appointment at other times
@@ -51,7 +53,7 @@ or your preference.
 
 ---
 
-#### Course overview:
+### Course overview:
 
 This course is an introduction to the art of using computers to aid in solving problems in physics and other
 sciences. You will learn the basics of programming a computer to do computations and physical simulations,
@@ -77,7 +79,7 @@ supercomputers, and you can transfer these skills to other environments and lang
 
 ---
 
-#### Course philosophy:
+### Course philosophy:
 
 This class is going to be a significant amount of work; I have high standards for what I want you to accomplish. However,
 you have a team of four people on your side to help you. This class is emphatically not a class in which you attend lecture, learn things, go home and work by yourself,
@@ -91,8 +93,9 @@ Also, I want to make sure you all know that my door is always (figuratively) ope
 If you need help in another class or if you just have a question about physics in general, please
 ask me. I am a teaching professor, so it is my full-time job to help students!
 
+---
 
-#### Computing environment:
+### Computing environment:
 
 As you might expect, you will be using computers quite extensively in my class. There is a course computer
 running Linux which you can access via `ssh` to phy-compphysclass.syr.edu. You are welcome to use the
@@ -114,7 +117,9 @@ locally, especially if you live off campus, once we start making 2D and 3D anima
 In general, extensions won’t be given for problems with your own hardware (“my dog ate my laptop”), but
 will of course be given for problems with SU’s equipment or network.
 
-#### Grading:
+---
+
+### Grading:
 - Projects (around ten): 70%
 - Unannounced in-class quizzes: 10%
 - Final exam: 20%
@@ -131,6 +136,8 @@ semester due to unavoidable personal problems. In general, a student is eligible
 come to class or study for a period of two weeks or more, or one week in the last month of class, due to personal illness or injury, 
 illness or injury in the family (including significant others), legal involvement, or international issues. Please contact me if you
 feel that you might need to take an incomplete in my class, and we can discuss your options. 
+
+---
 
 #### Projects
 
@@ -170,17 +177,21 @@ I am very willing to work with students to help them catch up, and I don't want 
 by coursework and were unable to meet deadlines. 
 
 #### Quizzes: 
+
 The quizzes will be short (pencil-and-paper) unannounced quizzes which should be fairly straightforward,
 and should not pose a problem if you have been coming to class. 
 
 
 #### Final exam: 
+
 The final exam will be a written final during the scheduled time period. It will not require
 you to write computer code. However, it will be open-notes; you may use any notes you have taken, any code you have 
 written, or any of the class reference material.
 
+---
 
 #### Students with disabilities:
+
 If you believe that you need accommodations for a disability, please contact the Office of Disability Services
 (ODS), http://disabilityservices.syr.edu, located in Room 309 of 804 University Avenue, or call (315) 443-
 4498 for an appointment to discuss your needs and the process for requesting accommodations. ODS is
@@ -197,6 +208,7 @@ The most common accommodation that students receive is extra time on exams, to i
 If you receive extra time on exams, please discuss your situation with me so we can arrange for you to get enough time
 for the quizzes.
 
+---
 
 #### Academic Integrity:
 
@@ -214,12 +226,13 @@ stored on the course computer for the final exam.
 The complete Syracuse University code of academic integrity can be found at
 http://supolicies.syr.edu/ethics/acad integrity.htm.
 
+---
 
 #### Religious observances:
 
-(The following is common to all SU classes)
+*(The following is common to all SU classes)*
 
-SU's religious observances notification and policy, found at http://hendricks.syr.edu/spiritual-life/index.html,
+SU's religious observances notification and policy, found at <http://hendricks.syr.edu/spiritual-life/index.html>,
 recognizes the diversity of faiths represented among the campus community and protects the rights of students,
 faculty, and staff to observe religious holidays according to their tradition. Under the policy, students are provided
 an opportunity to make up any examination, study, or work requirements that may be missed due to a religious
@@ -227,7 +240,7 @@ observance provided they notify their instructors before the end of the second w
 An online notification process is available for students in My Slice / StudentServices /
 Enrollment / MyReligiousObservances / Add a Notification.
 
-(The following is specific to this class)
+*(The following is specific to this class)*
 
 Events of equal solemnity to major religious observances, occurring on inflexible dates, will be given the same deference as religious observances.
 This includes weddings and commitment ceremonies of immediate family members, funerals, caregiving duties for sick family members, and the like.
