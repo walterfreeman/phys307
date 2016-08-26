@@ -5,201 +5,232 @@ permalink: index.html
 use_math: true
 ---
 
-All aspects of this syllabus and any accompanying pages or references
-are preliminary until this message has been removed.
+### Physics 307: Science and Computers I , aka Computational Physics
 
-three
 
-##### Quick links: <a id="top"></a>
-
-* [Contact Information](#contact)
-* [Textbooks](#books)
-* [Course philosophy](#philosophy)
-* [Course material](#material)
-* [Activities](#activities)
-* [Homework](#homework)
-* [Labs](#labs)
-* [Grading](#grading)
-* [Course policies (students with disabilities, etc.)](#policy)
-
- <a id="contact"></a>
+<center> Tuesday and Thursday, 11:00-12:20, Physics Building 115 </center>
 
 ---
 
-### Contact Information
+#### Instructors:
 
--   Instructor: Dr. Walter Freeman, <wafreema@syr.edu>, Physics Building room 215
--   Class meetings: Tuesdays and Thursdays, 12:30-1:50 or 2:00-3:20 PM, Stolkin Auditorium 
--   Help sessions: Tuesdays, 4:30-6:30, and Fridays, 9:30-11:30, in the Physics Clinic -- or just drop by my office 
--   Web page: http://walterfreeman.github.io/ast101/
--   Lead TA: Scott Bassler, <sdbassle@syr.edu>
+- Dr. Walter Freeman, lead instructor: wafreema@syr.edu, office Physics Building 215
+- Prashant Mishra, prmishra@syr.edu, graduate teaching assistant and grader
+- Patrick Miles, pmiles@syr.edu, and Aaron Hutchins, athutchi@syr.edu, undergraduate learning assistants
 
----
-
-<a id="books"></a>
-
-### Textbooks and required purchases: 
-
-- *Lecture Tutorials for Introductory Astronomy*, 3rd Edition, by Prather, Slater, and Brissenden.
-
-	- This is a small book containing exercises that we will work through in class. It is absolutely essential (more important than the textbook, even!); we will spend a lot of time in class on these tutorials, which give you an opportunity to flex your astronomical-reasoning muscles as you learn the course content. Many of the exam questions will relate directly to the tutorials in this book.
-
-- *The Essential Cosmic Perspective*, 7th edition or any other recent edition, by Bennett et al.
-
-	* This is the main textbook for the course, containing most of the course content. We will follow the book somewhat closely, and there will be suggested readings before each course meeting.
-<a id="philosophy"></a>
+- Email address for homework submissions: suphysics307@gmail.com (shared with instructional staff)
 
 ---
 
-### Course philosophy 
+#### Asking for help
 
-#### 1. Reasoning and synthesis, not memorization
+You are encouraged to email the teaching staff with questions that arise outside of class; you will often get a prompt response. I encourage you to 
+cc: the learning assistants on your emails; whichever of us sees your email first will answer. Patrick and Aaron took this class last year, 
+so they are quite familiar with the material.
+Please put [Phys307] in the subject line, so mail filters will flag your email as important. 
 
-This course is emphatically not a class where you will come to lecture, sit there and listen to a presentation of some facts, and then repeat them back to me on exams. Rather, you wil need to think about how we’ve gained the understanding that we have about our universe, and engage in scientific reasoning based on astronomical principles. You are not going to be learning a list of currently-accepted facts; you are going to be practicing skills and learning to see the universe as scientists see it.
+I encourage you to ask us to help
+you debug your programs once you’ve made an effort to figure it out yourself; while learning to debug code
+is important, I don’t want you to waste six hours trying to track down a missing minus sign or curly brace.
+We are here to help you! As a general rule, if your program isn't compiling, email us after five to ten minutes of trying to figure out
+what is wrong; if there is a bug of another sort, email us after fifteen to thirty minutes of trying to figure it out on your own.
 
-#### 2. Astronomy as a liberal art
-
-Most people’s interest in astronomy begins as children, when they look up at the night sky and say “Wow, that’s gorgeous; I want to know more about that!” Or, perhaps, they watch *Star Trek* or *Battlestar Galactica* and want to know more about the universe outside our world that inspired the storytellers. The ancients’ interest in astronomy began with more pragmatic goals in mind: the night sky can be used to navigate. We’ve been to the moon, we’ve sent robots to the planets, and two lonely spacecraft are floating out to the stars, keeping in fading contact with us for the time being using the dwindling power from their plutonium-powered transmitters. Perhaps, someday, we will follow them? Regardless of the reason, astronomy has captured the imagination of humanity like no other science, and we would be amiss in our study of astronomy not to look at the broader influence that the heavens have had on the larger sweep of human imagination and thought.
-
-Most of you won’t become astrophysicists; you will become designers and businessfolk, architects and reporters, doctors and lawyers, and writers and thinkers, and I hope that you will take some of the inspiration, the poetry, the philosophy, the wisdom, and the wonder of astronomy into your chosen disciplines and your lives.
-
-#### 3. This is your class, too
-
-As part of this philosophy, I welcome your input. If there is some aspect of astronomy that inspires or fascinates you, please ask; if you have feedback for me that will help you enjoy the class more, then please let me know.
-
----
-
- <a id="material"></a>
-
-### Course Material
-
-This course focuses mostly on the astronomy of the solar system, and is divided into four sections:
-
-*1.* **What we can see from Earth:** the stars, the moon, and the sun, how the night sky changes, and why it looks the way it does
-
-*2.* **Celestial motion:** why the planets move in the ways that they do, and the laws of gravity and orbits
-
-*3.* **The nature of light:** what light is, how it tells us about the Universe, and how it affects the heavens
-
-*4.* **Humans and the Universe:** the past, present, and future of spaceflight, and the possibility of life elsewhere
-
-
-<a id="activities"></a>
+We will be covering a great deal of ground in this course, so if you don’t understand something or fall behind,
+ask for help; that’s what I am for. Learning computational physics often involves a lot of personal coaching
+and messy practice – it is more like learning to play the guitar than learning geography. (We will learn something about
+guitars in our class, in fact!)
 
 ---
 
-### Course Activities 
+#### Office hours
 
-#### Readings
-
-
-Reading the text is an essential part of this astronomy class! I encourage you to read the assigned sections on the [calendar](./calendar.html) ahead of time, as that way the presentation of the material in class will serve as reinforcement and enrichment rather than be the first time you see something. 
-
-#### Class Meetings
-
-In the auditorium, we will alternate between presentation and practice. I will first introduce you to the new ideas we are studying, asking questions and getting your answers using colored cards. (These take the place of clickers.) If you have done the reading ahead of class, these presentations will serve as review and enrichment. Questions during the presentation are encouraged and welcome! After the presentation, we will work through the **Lecture Tutorials.** These are activities designed for you to complete in small groups of 2-4; we will allot time in lecture for you to work through them and ask us questions as you proceed. This sort of practice – thinking on your own – will be absolutely necessary for you to do well on the exams, and much of the exam material will be drawn from the tutorials. If you are not sure about the solutions to the tutorials, please ask me during the help sessions (office hours), or talk to your classmates.
-
-####Classroom Etiquette
-
- Please...
-
-* ... arrange to come to class on time and stay until the end; the slamming of the auditorium doors is very annoying to your classmates
-
-* ... do not throw vegetables or fruit at Professor Freeman, except for grapefruit and apples, which he fancies 
-
-* ... do not catch Pidgeys in class
-
-* ... do not use your cellphones for anything else, either
-
-
-#### Homework
-
-You will have assigned homework using the Mastering Astronomy online system, at <http://www.masteringastronomy.com>. You should have a student access code if you bought the package at the bookstore; if you didn’t, you will need to purchase an access code from the website. Further instructions for setting up Mastering Astronomy will be given in the first week of class. Late homework will not be accepted; thus, if you are having technical difficulties accessing the software, please make sure you sort these out well in advance of the deadline. To complete a homework assignment, you need to answer each question and then click submit.Then you need to submit each part of the homework. Once you have submitted all parts, you should see the message You completed this assignment when you view the assignment. If you have questions, see me in office hours before the assignment is due. There will also be periodic written homework that you will submit to your lab TA’s.
-
-
-#### Labs
-
-AST101 satisfies the laboratory course requirement of the liberal arts core and so it has a compulsory lab component. Many important course activities take place in the laboratories, and so attendance at the lab sections is required. This is also a take-home lab that you complete by making observations of the Sun over a period of several weeks. Anyone missing four or more labs (including the take-home lab) will receive a grade of zero for the lab portion of the course! There are NO make-up labs, so if you do not attend a lab or you fail to return your work for grading, you will receive a zero for that lab and it will count as a
-missed lab. A small course fee is charged which helps pay for (i) handouts which are distributed to you; (ii) computers, supplies, small pieces of apparatus, and maintenance for the laboratory and 4observatory; (iii) supplies and apparatus for lecture exercises and demonstrations; and (iv) maintenance of the telescopes used for observing sessions.
-
-Many of the laboratory exercises require a laptop computer to complete. We will provide a loaner laptop to each group in the laboratory, but you are also encouraged to bring your own laptop, if you wish. Laptops can also be borrowed from the library for no cost. It is imperative that you attend the laboratory meeting as scheduled in the syllabus. If you are unable to attend your assigned lab, you may contact your TA in advance and ask if you can attend a different lab session that week. Management of temporary switches is at the discretion of the TAs. If your lab conflicts with a regular class or other appointment, see Patty Whitmore to inquire about switching lab sections. If you temporarily attend another lab section or switch to another lab, you are responsible for ensuring that the TAs have correctly recorded your lab scores. The names and email addresses of the TAs are posted on the door of the lab rooms.
-
-One lab during the semester is a take-home lab which you will complete in your own time, making observations of the Sun over several weeks. This will be introduced in class.
-
-#### Help Sessions
-
-These help sessions are opportunities for you to interact with me and the rest of the teaching team in small groups or individually. (Some folks call them "office hours".) If you have questions or suggestions, need help with your homework or with studying, or just want to chat, this is a great opportunity. They will be held in the Physics Clinic, room 112.
-
-<a id="grading"></a>
+- Tuesdays, 4:30-6:30, and Fridays, 9:30-11:30, and others to be added
+- I’m also often around – feel free to email me and set up an appointment at other times
+- Help session will be announced, and may be changed *ad hoc* to accommodate homework deadlines
+or your preference. 
 
 ---
 
-### Grading and Exams 
+#### Course overview:
 
+This course is an introduction to the art of using computers to aid in solving problems in physics and other
+sciences. You will learn the basics of programming a computer to do computations and physical simulations,
+as well as the equally important skill of interpreting the results that the computer gives. In this course we
+will teach you to use the C programming language on a Linux system, but what you learn here will apply to
+many other languages and architectures. In fact, any of you who know another serious programming language are
+welcome to use it instead of C in my class; this list includes Fortran, Python, Java, Perl, and probably some others
+that I haven't heard of.
 
-| Item       |            Date           | Points           |
-|------------|:-------------------------:|-----------------:|
-| Homework   | Due Fri at start of class |              25  |
-| Exam 1     |         Wed Oct 5         |              25  |
-| Exam 2     |                           |              25  |
-| Exam 3     |         Wed Nov 2         |              25  |
-| Final Exam |   Time and Location TBD   |              50  |
-| Labs       |   Throughout the semester | 25               |
+First we’ll study the basics required to get around a Linux environment and learn some simple C programming. 
+Then we will learn how to use those skills to accomplish some
+mathematical tasks, e.g. integrating functions. As part of our study of numerical integration, we will develop the tools
+required to answer questions like "How well can I trust a numerical calculation?" and "On what things does the numerical result depend?"
+We will then apply these skills to model various physical situations, picking up new programming and computational skills along the way. One of
+the most important is knowing how to interpret results from the computer, and when to suspect that your
+simulation isn’t accurately reproducing what you want it to reproduce.
 
-The lowest of your exam grades and the homework grades will be dropped. (That is, I will drop your lowest exam grade, unless your homework grade is lower than any of them, in which case I will drop it.)
-
-####Homework 
-
-No late homework will be accepted since it is graded electronically, but I will drop the lowest of your homework grades.
-
-####Exams
-
-There will be three exams and a final on the dates shown on the course schedule. These exams will involve multiple choice questions, and may involve free-response questions as well. No makeup exams will ordinarily be given. Students who must miss an exam due to University-sanctioned travel or unavoidable emergencies must inform me as soon as possible; they may take a makeup oral exam or may drop the missed exam as their lowest exam grade. There are no opportunities to make up the final exam, although in extenuating circumstances I may offer an oral final exam (for
-instance: emergent hospitalization).
-
-Exam questions will be drawn from lectures, the text, the homework, and (to a significant degree) the lecture tutorials. You will need to bring only pencils to your exam. If you believe your exam has not been graded correctly, fill out a Regrade Request form within two weeks of the exam date and give it to me during office hours. If you require accommodations for your exam, please contact me in advance so I can arrange for you to get the assistance you need.
-
-####Labs
-
-Labs will be graded on a five point scale:
-
-• 0: Nothing, or nothing relevant
-• 1: A minimal attempt, or severe errors
-• 2: The assignment is partially complete or contains multiple major errors
-• 3: The assignment is complete, but contains errors in the solutions
-• 4: The assignment is complete, but may contain several minor errors
-• 5: The assignment is complete and correct.
-
-**Important: Your grade for the course may be no higher than one letter grade higher than your grade for the lab component.** Thus, if you fail the lab, you cannot get higher than a D for the course. Your lowest lab grade will be dropped.
-
-<a id="policy"></a>
+While we will study computer programming and the Linux environment, and these things are important
+aspects of this course, these are only tools; /the emphasis in this course will always be on the computational
+aspect/, even though you will spend a lot of time programming. However, the C-on-Linux environment we will be using is the gold standard for scientific computing. 
+The tools you will learn in my class are the same tools used to program ten-thousand-processor 
+supercomputers, and you can transfer these skills to other environments and languages (such as Python) if that's what you use in your research.
 
 ---
 
-### Academic integrity
+#### Course philosophy:
 
-While you are encouraged to discuss your homework with your peers, all work you submit must reflect your own understanding. You are not allowed to communicate with or collaborate with anyone other than teaching staff during exams. Consulting a cellphone for any reason during an exam without permission will be considered presumptive evidence of
-academic dishonesty.
+This class is going to be a significant amount of work; I have high standards for what I want you to accomplish. However,
+you have a team of four people on your side to help you. This class is emphatically not a class in which you attend lecture, learn things, go home and work by yourself,
+and submit a fully-formed clean result. Computational physics, and especially the process of learning it, is
+messy. You should ask questions – early and often. The teaching staff and I will all be happy to answer
+your questions in class. Help session hours are a good time to work on your projects, when folks am around to answer
+your questions.
 
-Syracuse University's academic integrity policy reflects the high value that we, as a university community, place on honesty in academic work. The policy defines our expectations for academic honesty and holds students accountable for the integrity of all work they submit. Students should understand that it is their responsibility to learn about course-specific expectations, as well as about university-wide academic integrity expectations. The university policy governs appropriate citation and use of sources, the integrity of work submitted in exams and assignments, and the veracity of signatures on attendance sheets and other verification of participation in class activities. The policy also prohibits students from submitting the same written work in more than one class without receiving written authorization in advance from both instructors. The presumptive penalty for a first instance of academic dishonesty by an undergraduate student is course failure, accompanied by a transcript notation indicating that the failure resulted from a violation of academic integrity policy. The presumptive penalty for a first instance of academic dishonesty by a graduate student is suspension or expulsion. SU students are required to read an online summary of the university's academic integrity expectations and provide an electronic signature agreeing to abide by them twice a year during pre-term check-in on MySlice. For more information and the
-complete policy, see http://academicintegrity.syr.edu/.
 
----
+Also, I want to make sure you all know that my door is always (figuratively) open to help you with whatever other issues arise this semester.
+If you need help in another class or if you just have a question about physics in general, please
+ask me. I am a teaching professor, so it is my full-time job to help students!
 
-### Students with disabilities
 
-If you believe that you need accommodations for a disability, please contact the Office of Disability Services (ODS), http://disabilityservices.syr.edu, located in Room 309 of 8047 University Avenue, or call (315) 443-4498, TDD: (315) 443-1371 for an appointment to discuss your needs and the process for requesting accommodations. ODS is responsible for coordinating disability-related accommodations and will issue students with documented Disabilities Accommodation Authorization Letters, as appropriate. Since accommodations may require early planning and generally are not provided retroactively, please contact ODS as soon as possible.
+#### Computing environment:
 
-More generally, if there is anything I can do to help you, whether it is related to a disability, a medical condition, or anything else, please let me know. I have an excellent working relationship with ODS and will do anything in my power to make your experience in my class a good one.
+As you might expect, you will be using computers quite extensively in my class. There is a course computer
+running Linux which you can access via `ssh` to phy-compphysclass.syr.edu. You are welcome to use the
+machines in the classroom to do this at any time, or you may connect from your personal laptops (running
+any OS; you will need a few pieces of free software if you are on Windows). 
 
----
+You may also do all of your computing on your personal machines. You are welcome to bring your personal
+laptops to class and use those in lieu of the machines provided. If you need any help getting things working
+on your own machines, please ask. 
 
-### Religious observances 
+Macs will be usable without much hassle, since OSX is quite similar to Linux under the hood. If you have a
+Windows machine, it is generally not that difficult to set up a dual-boot Linux environment or a virtual machine; I can help you
+with this, and can provide you with the graphics software installed on the course system. You are welcome
+to use any other C-on-Unix environment you have access to.
 
-*(The following is common to all SU classes)*
+If you have a Mac or a Linux system, you will likely get smoother graphical performance if you run things
+locally, especially if you live off campus, once we start making 2D and 3D animations.
 
-SU’s religious observances notification and policy, found at http://hendricks.syr.edu/spiritual-life/index.html, recognizes the diversity of faiths represented among the campus community and protects the rights of students, faculty, and staff to observe religious holidays according to their tradition. Under the policy, students are provided an opportunity to make up any examination, study, or work requirements that may be missed due to a religious observance provided they notify their instructors before the end of the second week of classes. An online notification process is available for students in My Slice / StudentServices / Enrollment / MyReligiousObservances / Add a Notification.
+In general, extensions won’t be given for problems with your own hardware (“my dog ate my laptop”), but
+will of course be given for problems with SU’s equipment or network.
 
-*(The following is specific to AST101)*
+#### Grading:
+- Projects (around ten): 70%
+- Unannounced in-class quizzes: 10%
+- Final exam: 20%
 
-Events of equal solemnity to major religious observances, occurring on inflexible dates, will be given the same deference as religious observances. This includes weddings and commitment ceremonies of immediate family members, funerals, caregiving duties for sick family members, and the like. If you need to miss class for such a reason, please notify Dr. Freeman as far in advance as practical to discuss arrangements.
+Final grades will be assigned on the following basis:
+
+```
+A     A-    B+    B     B-    C+    C     C-    D    F
+>85 80-85 77-80 73-77 70-73 67-70 63-67 60-63 50-60 <50
+```
+
+*Incompletes:* A grade of "incomplete" is a provisional grade given to any student who is unable to complete the coursework during the 
+semester due to unavoidable personal problems. In general, a student is eligible for an incomplete if they are substantially unable to 
+come to class or study for a period of two weeks or more, or one week in the last month of class, due to personal illness or injury, 
+illness or injury in the family (including significant others), legal involvement, or international issues. Please contact me if you
+feel that you might need to take an incomplete in my class, and we can discuss your options. 
+
+#### Projects
+
+The bulk of your grade will come from the computational projects you will complete throughout
+the semester. You will have time during class to begin your projects, but you will also work on them outside
+of class as homework. When you finish, email all of the code (the .c files), your report, and any auxiliary files (graphs, etc.) to
+suphysics307@gmail.com so we can grade it. Please make our lives easier by putting (for instance)
+“HW2” and your name in the subject line.
+
+The most important part of your project is your report. The format of these reports can be somewhat
+informal; most students in the past have simply typed their report in the body of an email or a plain text
+file. You may also use Markdown to prepare your reports. 
+The informal format should not compromise the quality or rigor of your analysis, however. They should
+be clearly written, as you will be graded on the clarity of your thoughts. Note that code submitted without
+a report will not be graded, even if it works perfectly. 
+
+In these reports, you should discuss any difficulties you encountered in your computational project, the basic
+approach you took, what results you got, and why you got them. Did anything strange happen? Why do
+you think it happened? You should also answer any specific questions asked in the assignment. Other than
+that, we are not looking for any particular things; we expect you to use your own judgment and write about
+things that you consider notable. If in doubt, the following points are often worth addressing, since they get
+to the heart of computational science:
+
+* Why is my calculation/simulation designed in the way that it is?
+* How well does my calculation/simulation approximate physics?
+* How do I know this?
+* Are there any circumstances where the simulation breaks down or encounters difficulty?
+
+Your grade will be based on your report; if it appears that your code is working properly, we may not even
+read the code, especially later in the semester when computational issues will be more important. If something
+goes wrong, of course, we will look at your code to try to figure out what happened.
+
+Projects will be accepted up to 48 hours late for half credit; extensions will be given in extenuating circumstances
+and will be handled on a case-by-case basis. You are more likely to get an extension on your
+homework if you have made substantial progress before the deadline. If you are falling behind, *please ask me for help in advance*.
+I am very willing to work with students to help them catch up, and I don't want anyone's grade to suffer because they got overwhelmed
+by coursework and were unable to meet deadlines. 
+
+#### Quizzes: 
+The quizzes will be short (pencil-and-paper) unannounced quizzes which should be fairly straightforward,
+and should not pose a problem if you have been coming to class. 
+
+
+#### Final exam: 
+The final exam will be a written final during the scheduled time period. It will not require
+you to write computer code. However, it will be open-notes; you may use any notes you have taken, any code you have 
+written, or any of the class reference material.
+
+
+#### Students with disabilities:
+If you believe that you need accommodations for a disability, please contact the Office of Disability Services
+(ODS), http://disabilityservices.syr.edu, located in Room 309 of 804 University Avenue, or call (315) 443-
+4498 for an appointment to discuss your needs and the process for requesting accommodations. ODS is
+responsible for coordinating disability-related accommodations and will issue students with documented
+disabilities Accommodation Authorization Letters, as appropriate. Since accommodations may require early
+planning and generally are not provided retroactively, please contact ODS as soon as possible.
+
+More informally, if there is anything I can do for you, please ask me. I am around to help you, whether that
+is with a disability, disruption due to illness, personal issues, or anything else. I have an excellent
+working relationship with ODS, and am willing to do anything in my capability to ensure that my class is accessible
+and welcoming to all. 
+
+The most common accommodation that students receive is extra time on exams, to include the in-class quizzes we have.
+If you receive extra time on exams, please discuss your situation with me so we can arrange for you to get enough time
+for the quizzes.
+
+
+#### Academic Integrity:
+
+I encourage you to work on your projects in groups, and to receive help from and offer help to your peers. You
+must write your own code. I encourage you to get assistance from your peers with your work, although substituting
+someone else’s understanding for your own constitutes academic dishonesty. In the event that you receive
+substantial help from another student in writing your code, please acknowledge their help in the code comments.
+
+However, you must write your reports independently, and everything you submit must reflect your own
+understanding.
+
+In-class quizzes must be completed without reference to notes. You may use the course website and anything you have 
+stored on the course computer for the final exam.
+
+The complete Syracuse University code of academic integrity can be found at
+http://supolicies.syr.edu/ethics/acad integrity.htm.
+
+
+#### Religious observances:
+
+(The following is common to all SU classes)
+
+SU's religious observances notification and policy, found at http://hendricks.syr.edu/spiritual-life/index.html,
+recognizes the diversity of faiths represented among the campus community and protects the rights of students,
+faculty, and staff to observe religious holidays according to their tradition. Under the policy, students are provided
+an opportunity to make up any examination, study, or work requirements that may be missed due to a religious
+observance provided they notify their instructors before the end of the second week of classes.
+An online notification process is available for students in My Slice / StudentServices /
+Enrollment / MyReligiousObservances / Add a Notification.
+
+(The following is specific to this class)
+
+Events of equal solemnity to major religious observances, occurring on inflexible dates, will be given the same deference as religious observances.
+This includes weddings and commitment ceremonies of immediate family members, funerals, caregiving duties for sick family members, and the like.
+If you need to miss class for such a reason, please notify Dr. Freeman as far in advance as practical to discuss arrangements.
+
+

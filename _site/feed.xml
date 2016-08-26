@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Your awesome title</title>
-    <description>ugh
+    <title>Physics 307</title>
+    <description>Website for Physics 307, Syracuse University 
 </description>
-    <link>https://walterfreeman.github.io/phys307/</link>
-    <atom:link href="https://walterfreeman.github.io/phys307/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 26 Aug 2016 09:08:36 -0400</pubDate>
-    <lastBuildDate>Fri, 26 Aug 2016 09:08:36 -0400</lastBuildDate>
+    <link>/phys307/</link>
+    <atom:link href="/phys307/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 26 Aug 2016 09:45:12 -0400</pubDate>
+    <lastBuildDate>Fri, 26 Aug 2016 09:45:12 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -28,8 +28,8 @@
 
 </description>
         <pubDate>Tue, 16 Aug 2016 07:30:38 -0400</pubDate>
-        <link>https://walterfreeman.github.io/phys307/jekyll/update/2016/08/16/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">https://walterfreeman.github.io/phys307/jekyll/update/2016/08/16/welcome-to-jekyll.html</guid>
+        <link>/phys307/jekyll/update/2016/08/16/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">/phys307/jekyll/update/2016/08/16/welcome-to-jekyll.html</guid>
         
         
         <category>jekyll</category>

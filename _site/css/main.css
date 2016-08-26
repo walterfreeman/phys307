@@ -24,7 +24,7 @@ mark {
  * Basic styling
  */
 body {
-  font: 400 16px/1.5 "Exo 2", sans-serif;
+  font: 400 16px/1.5 "Domine", sans-serif;
   color: #000000;
   background-color: #FFEEDD;
   -webkit-text-size-adjust: 100%;
@@ -162,7 +162,7 @@ pre {
  */
 .site-header {
   border-top: 5px solid #424242;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid #424242;
   min-height: 56px;
   position: relative; }
 

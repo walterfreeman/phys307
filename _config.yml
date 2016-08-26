@@ -6,11 +6,11 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Astronomy 101
+title: Physics 307
 email: wafreema@syr.edu 
 description: > # this means to ignore newlines until "baseurl:"
-  Website for Astronomy 101, Syracuse University 
-baseurl: "/ast101" # the subpath of your site, e.g. /blog
+  Website for Physics 307, Syracuse University 
+baseurl: "/phys307" # the subpath of your site, e.g. /blog
 #url: "http://yourdomain.com" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
 #github_username:  jekyll
