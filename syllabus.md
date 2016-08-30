@@ -16,11 +16,12 @@ use_math: true
 
 - Tuesday and Thursday, 11:00-12:20, Physics Building 115
 - Instructors:
-    - **Dr. Walter Freeman**, lead instructor: <wafreema@syr.edu>, office Physics Building 215
+    - **Walter Freeman**, lead instructor: <wafreema@syr.edu>, office Physics Building 215
     - **Prashant Mishra**, <prmishra@syr.edu>, graduate teaching assistant and grader
     - **Patrick Miles**, <pmiles@syr.edu>, and **Aaron Hutchins**, <athutchi@syr.edu>, undergraduate learning assistants
-- Course website: http://walterfreeman.github.io/ast307/
+- Course website: <http://walterfreeman.github.io/phys307/> (you are likely there already)
 - Email address for homework submissions: <suphysics307@gmail.com> (shared with instructional staff)
+- Email address for questions: <suphysics307questions@gmail.com> (shared with instructional staff)
 - Course computer: phy-compphysclass.syr.edu
 
 ---
@@ -29,8 +30,8 @@ use_math: true
 
 You are encouraged to email the teaching staff with questions that arise outside of class; you will often get a prompt response. I encourage you to 
 cc: the learning assistants on your emails; whichever of us sees your email first will answer. Patrick and Aaron took this class last year, 
-so they are quite familiar with the material.
-Please put [Phys307] in the subject line, so mail filters will flag your email as important. 
+so they are quite familiar with the material. The <suphysics307questions@gmail.com> address was created just for your questions;
+it's the easiest way for us to all collaborate in answering your questions.
 
 I encourage you to ask us to help
 you debug your programs once you’ve made an effort to figure it out yourself; while learning to debug code
