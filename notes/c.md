@@ -9,6 +9,7 @@ use_math: true
 
 <center><h1>A first introduction to C</h1></center>
 
+### 1. Basics
 C is the gold standard of programming languages. It’s quite old, and is used for a
 bewildering array of things. Linux, Windows, most of your favorite computer games, code
 running on 60,000-processor supercomputers, and even `gcc` itself are all written in C.
@@ -49,6 +50,14 @@ C code consists of statements that are executed one at a time in order (like lin
 with control commands that vary that order or indicate other things about the code
 (like line 3). In general, all statements that actually do something, like perform a calculation,
 create a variable, or display text, end with a semicolon; control commands do not.
+
+Remember that you compile the source code `myprogram.c` into something you can run
+by doing `gcc myprogram.c -o myprogram` at the Linux prompt, and run it by doing `./myprogram`.
+
+---
+
+### 2. Math and variables
+
 Here’s a slightly more complicated program that introduces how to do math in C:
 
 {% highlight C linenos %}
@@ -88,8 +97,8 @@ is valid C; it simply means to increase the value of x by one.
 Line 9 is our old friend `printf`. As in `scanf`, the `%d` is a placeholder for an integer value
 to be printed, specified after the text in quotes.
 
-There are other sorts of variables besides `int` that store other sorts of things. Variables
-of type float store floating-point numbers (decimals), for instance. The ”percent code” used
+There are other sorts of variables besides `int` that store other sorts of things. **Variables
+of type `float` store floating-point numbers (decimals)**, for instance. The ”percent code” used
 with `scanf` and `printf` for float numbers is `%f`.
 
 Here’s a gotcha: if you are dividing two integers, C will do integer division and drop the
@@ -118,8 +127,10 @@ first homework assignment!
 
 ---
 
+### 3. Loops: repeating things multiple times
+
 Here’s another program that introduces looping structures: commands that tell the computer
-to repeat chunks of code. Clever use of these is the key to programming: the whole
+to repeat chunks of code. **Clever use of these is the key to programming:** the whole
 point of using a computer is that it can do repetitive, tiresome mathematical tasks quickly.
 
 The `for` statement tells the computer to repeat a block of code until something happens. It looks like this:
@@ -154,6 +165,10 @@ repeat the semicolon over and over (i.e. do nothing) rather than what you wanted
 This `for` statement means ”Before you do this, set `x` equal to 0. Then, repeat the
 following block of code so long as `x` is less than or equal to 20, and after each repetition add
 1 to `x`.” Note that it will run with `x` ranging from 0 to 19, not 1 to 20!
+
+---
+
+### 4. Conditional statements
 
 Here’s one more program that illustrates how to use the `if` statement to make the computer do one thing or another.
 

@@ -45,7 +45,7 @@ package, and PuTTY. All three are open source.
 Go to <http://www.straightrunning.com/XmingNotes/> and scroll down to “Public Domain Releases”.
 Download the *xming* and *xming-fonts* packages and install them.
 
-PuTTY lives at <http://www.chiark.greenend.org.uk/sgtatham/putty/download.html>.
+PuTTY lives at <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>.
 
 **From Mac OSX or Linux:**
 
@@ -65,3 +65,5 @@ ssh -XC phy-compphysclass.syr.edu -l <username>
 ```
 
 This may speed up graphics somewhat; the -C option tells the computers to compress graphics, which will use extra computing power to save a little bandwidth.
+
+**Note for Mac users:** In order to get the `-X` option to work, giving you graphics output, you will need to download something called XQuartz for Mac. I don't know the details, since I don't have a Mac; investigate this, and let me know what you needed to do! 

@@ -190,6 +190,7 @@
       <div class="wrapper">
         <center><h1>A first introduction to C</h1></center>
 
+<h3 id="basics">1. Basics</h3>
 <p>C is the gold standard of programming languages. It’s quite old, and is used for a
 bewildering array of things. Linux, Windows, most of your favorite computer games, code
 running on 60,000-processor supercomputers, and even <code class="highlighter-rouge">gcc</code> itself are all written in C.
@@ -232,8 +233,16 @@ the end instructs the computer to go to a new line at the end of the text.</p>
 <p>C code consists of statements that are executed one at a time in order (like line 5), interspersed
 with control commands that vary that order or indicate other things about the code
 (like line 3). In general, all statements that actually do something, like perform a calculation,
-create a variable, or display text, end with a semicolon; control commands do not.
-Here’s a slightly more complicated program that introduces how to do math in C:</p>
+create a variable, or display text, end with a semicolon; control commands do not.</p>
+
+<p>Remember that you compile the source code <code class="highlighter-rouge">myprogram.c</code> into something you can run
+by doing <code class="highlighter-rouge">gcc myprogram.c -o myprogram</code> at the Linux prompt, and run it by doing <code class="highlighter-rouge">./myprogram</code>.</p>
+
+<hr />
+
+<h3 id="math-and-variables">2. Math and variables</h3>
+
+<p>Here’s a slightly more complicated program that introduces how to do math in C:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -281,8 +290,8 @@ is valid C; it simply means to increase the value of x by one.</p>
 <p>Line 9 is our old friend <code class="highlighter-rouge">printf</code>. As in <code class="highlighter-rouge">scanf</code>, the <code class="highlighter-rouge">%d</code> is a placeholder for an integer value
 to be printed, specified after the text in quotes.</p>
 
-<p>There are other sorts of variables besides <code class="highlighter-rouge">int</code> that store other sorts of things. Variables
-of type float store floating-point numbers (decimals), for instance. The ”percent code” used
+<p>There are other sorts of variables besides <code class="highlighter-rouge">int</code> that store other sorts of things. <strong>Variables
+of type <code class="highlighter-rouge">float</code> store floating-point numbers (decimals)</strong>, for instance. The ”percent code” used
 with <code class="highlighter-rouge">scanf</code> and <code class="highlighter-rouge">printf</code> for float numbers is <code class="highlighter-rouge">%f</code>.</p>
 
 <p>Here’s a gotcha: if you are dividing two integers, C will do integer division and drop the
@@ -307,8 +316,10 @@ first homework assignment!</p>
 
 <hr />
 
+<h3 id="loops-repeating-things-multiple-times">3. Loops: repeating things multiple times</h3>
+
 <p>Here’s another program that introduces looping structures: commands that tell the computer
-to repeat chunks of code. Clever use of these is the key to programming: the whole
+to repeat chunks of code. <strong>Clever use of these is the key to programming:</strong> the whole
 point of using a computer is that it can do repetitive, tiresome mathematical tasks quickly.</p>
 
 <p>The <code class="highlighter-rouge">for</code> statement tells the computer to repeat a block of code until something happens. It looks like this:</p>
@@ -351,6 +362,10 @@ repeat the semicolon over and over (i.e. do nothing) rather than what you wanted
 <p>This <code class="highlighter-rouge">for</code> statement means ”Before you do this, set <code class="highlighter-rouge">x</code> equal to 0. Then, repeat the
 following block of code so long as <code class="highlighter-rouge">x</code> is less than or equal to 20, and after each repetition add
 1 to <code class="highlighter-rouge">x</code>.” Note that it will run with <code class="highlighter-rouge">x</code> ranging from 0 to 19, not 1 to 20!</p>
+
+<hr />
+
+<h3 id="conditional-statements">4. Conditional statements</h3>
 
 <p>Here’s one more program that illustrates how to use the <code class="highlighter-rouge">if</code> statement to make the computer do one thing or another.</p>
 
