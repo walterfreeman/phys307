@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
+
+  <title>samples</title>
+  <meta name="description" content="Fall 2016, Syracuse University 
+">
+
+  <link rel="stylesheet" href="/phys307/css/main.css">
+  <link rel="canonical" href="/phys307/notes/samples.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+
+  <body>
+
+
+    <header class="site-header">
+
+  <div class="largewrapper"> 
+
+    <nav class="site-nav">
+<!--      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a> -->
+
+      <div class="trigger">
+    <a class="logo" href="/phys307/"><img src="/phys307/drum.png" width=200></a>
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="/phys307/notes/">Notes</a>
+            
+              
+                <a class="page-sublink" href="/phys307/notes/c.html">Intro to C</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/connect.html">Connecting</a>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/linux.html">Intro to Linux</a>
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/math.html">Basic Math in C</a>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/samples.html">Sample Codes</a>
+              
+            
+              
+            
+          
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="/phys307/projects/">Projects</a>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/projects/project0.html">Project 0</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/projects/project1.html">Project 1</a>
+              
+            
+              
+            
+              
+            
+              
+            
+          
+        
+          
+        
+          
+            <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+        
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <h1 id="sample-programs-for-some-tasks">Sample programs for some tasks</h1>
+
+<p>This code is meant to give you some inspiration for writing your homework. It’s not stuff you can lift
+and use in your assignments, and copying things directly out of this file is dangerous if you don’t understand
+how they work. (Of course, any code you copy from another source must be cited.) But reading and
+understanding how this code works will help you out quite a lot.</p>
+
+<hr />
+
+<h2 id="checking-to-see-if-a-number-is-a-perfect-square--the-dumb-way">Checking to see if a number is a perfect square – the dumb way</h2>
+
+<p>There are far more efficient ways to do this, but this illustrates a couple of programming concepts.</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td><td class="code"><pre><span class="c1">// We want to see if the number n is a perfect square
+</span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// i is usually used as a generic "counter" variable
+</span><span class="kt">int</span> <span class="n">is_square</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="c1">// We’ll set this to 1 if the number 
+</span>                 <span class="c1">// is a perfect square
+</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">// This could be made a lot faster, of course
+</span><span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">is_square</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// Don’t need the squiggly braces if you only have 
+</span><span class="p">}</span>                  <span class="c1">// one statement after the "if"
+</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">is_square</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d is a perfect square.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="k">else</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d isn’t a perfect square.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>The key here is the use of a flag variable, in this case <code class="highlighter-rouge">is_square</code>: a variable that is equal to 1 
+if something has (or hasn’t)
+happened, and is zero otherwise. Here we set <code class="highlighter-rouge">is_square</code> to 0, and set it to 1 once we discover that the
+number is a perfect square.</p>
+
+<p>Note that this is terrible programming for a lot of reasons. We could use <code class="highlighter-rouge">break;</code> to exit the loop once
+we’ve found that it’s square; <code class="highlighter-rouge">break</code> is a command that immediately breaks you out of a <code class="highlighter-rouge">for</code> loop. 
+The point of showing this is that you will need a similar procedure
+to check numbers for prime-ness.</p>
+
+<hr />
+
+<h2 id="printing-a-multiplication-table">Printing a multiplication table</h2>
+<p>This illustrates the use of one for loop within another.</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="mi">12</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">// because it’s ALWAYS twelve...
+</span><span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="mi">12</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="c1">// What would "j&lt;=i" do?
+</span>  <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%3d "</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">);</span> <span class="c1">// "%3d" means "An integer, but
+</span>  <span class="p">}</span>                     <span class="c1">// leave space for three digits"
+</span>  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">// skip a line after each row
+</span><span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<hr />
+
+<h2 id="eulers-childhood-assignment-adding-the-numbers-from-1-to-100">Euler’s childhood assignment: adding the numbers from 1 to 100</h2>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>    <span class="c1">// note that we must set sum to zero 
+</span>              <span class="c1">// before we add things to it! 
+</span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>   <span class="c1">// note that "i++" is shorthand for "i=i+1"
+</span>  <span class="n">sum</span><span class="o">=</span><span class="n">sum</span><span class="o">+</span><span class="n">i</span><span class="p">;</span>
+
+<span class="n">printf</span><span class="p">(</span><span class="s">"The sum of numbers from 1 to 100 is %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">sum</span><span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<hr />
+
+<h2 id="tracking-the-motion-of-a-falling-body">Tracking the motion of a falling body</h2>
+
+<p>Here, if we already know the analytic answer $x=\frac{1}{2}at^2$, we can just evaluate it. But what if we don’t know how to derive that?</p>
+
+<p>Suppose something is falling from an initial height h, and we want to use time intervals of size dt. These
+variables are assumed to already be defined.</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre><span class="kt">double</span> <span class="n">y</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="p">;</span><span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">)</span> <span class="c1">// This loop will go forever! 
+</span><span class="p">{</span>                  
+  <span class="n">y</span> <span class="o">+=</span> <span class="n">v</span> <span class="o">*</span><span class="n">dt</span><span class="p">;</span>    <span class="c1">// in time dt, the body falls a distance v*dt, if dt is
+</span>                 <span class="c1">// small enough that v is essentially constant
+</span>  <span class="n">v</span> <span class="o">-=</span> <span class="mi">9</span><span class="p">.</span><span class="mi">8</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span> <span class="c1">// in time dt, the velocity decreases by g*dt
+</span>  <span class="n">printf</span><span class="p">(</span><span class="s">"%f</span><span class="se">\t</span><span class="s">%f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">break</span><span class="p">;</span> <span class="c1">// if we’ve hit the ground, break out of the loop
+</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physics 307</li>
+          <li><a href="mailto:wafreema@syr.edu">wafreema@syr.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fall 2016, Syracuse University 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

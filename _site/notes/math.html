@@ -8,12 +8,12 @@
 
   <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
 
-  <title>Project 1</title>
+  <title>samples</title>
   <meta name="description" content="Fall 2016, Syracuse University 
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/projects/project1.html">
+  <link rel="canonical" href="/phys307/notes/math.html">
   <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -208,45 +208,17 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post">
+        <h1 id="notes-on-mathematics-in-c">Notes on mathematics in C</h1>
+<p>Most math functions in C are fairly straightforward. The operators for addition, subtraction,
+multiplication, and division are <code class="highlighter-rouge">+ - * /</code>. C knows about order of operations; parentheses
+work like you would expect. Note that square and curly brackets mean something different in
+C; if you have nested parentheses in a mathematical formula, just use ordinary parentheses
+for them all. The modulus operator is <code class="highlighter-rouge">%</code>; writing <code class="highlighter-rouge">a % b</code> returns the remainder when <code class="highlighter-rouge">a</code> is
+divided by <code class="highlighter-rouge">b</code>. This only works for variables of type <code class="highlighter-rouge">int</code>, and doesn’t do what you want if
+either number is negative. You will need this to check for divisibility when you are finding
+prime numbers. The code</p>
 
-  <header class="post-header">
-    <h1 class="post-title">Project 1</h1>
-  </header>
-
-  <div class="post-content">
-    <center>
-
-<b>Due Tuesday, 13 September, at 11 AM</b><br />
-
-
-See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/samples.html">the file of sample programs</a> for a few hints.
-<br /><br />
-
-</center>
-
-<p><strong>Problem 1:</strong> Write a program that computes definite integrals of any function you supply it by calculating a Riemann sum. Use this to calculate the integral</p>
-
-<script type="math/tex; mode=display">\int_0^2\, e^{-x^2}\, dx.</script>
-
-<p>Then calculate the integral</p>
-
-<script type="math/tex; mode=display">\int_{-\infty}^\infty\, e^{-x^\infty}\, dx.</script>
-
-<p>Be intelligent about how you do this. You want a reasonably accurate answer, but you dont want the computer to take forever doing it. Make sure you discuss how you handled the infinite interval. Do you come reasonably close to the analytic answer of $\sqrt \pi$?</p>
-
-<p>It may be helpful for you to first graph this function if you’re not familiar with it. (You should be able to quickly graph different functions using the code you wrote last week.)</p>
-
-<p><br /><br /></p>
-
-<p><strong>Problem 2:</strong> Write a program that reads in a variable $N$, and then prints out the number of prime numbers less than or equal to $N$. (You may also want to print out the prime numbers themselves to verify that your code is working.) You may do this in any straightforward
-way that you can think of.</p>
-
-<p>As a hint, you might consider using a variable <code class="highlighter-rouge">isprime</code> that is initially set to one, but is set to zero once you locate a factor for each number.</p>
-
-<p>Another hint: You will need two <code class="highlighter-rouge">for</code> loops for this problem: one to loop over numbers whose primacy you are checking, and another to loop over possible divisors as you check them. Remember <code class="highlighter-rouge">%</code> is the modulus operator, and that you can write something like</p>
-
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// check whether the remainder of a/b is zero or not
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// if the remainder of a/b is zero, i.e. its divisible
 </span><span class="p">{</span>
   <span class="k">do</span> <span class="n">something</span><span class="p">;</span>
 <span class="p">}</span>
@@ -255,29 +227,54 @@ way that you can think of.</p>
   <span class="k">do</span> <span class="n">something</span> <span class="k">else</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>to check to see if one number evenly divides another. Note that you do not need the
-<code class="highlighter-rouge">else</code> clause, if you don’t want to do anything in the event that <code class="highlighter-rouge">b</code> does not evenly divide
-<code class="highlighter-rouge">a</code>.</p>
+<p>will do something if <code class="highlighter-rouge">a</code> is divisible by <code class="highlighter-rouge">b</code>, and will do something else otherwise. (This is
+an example of <em>pseudocode</em>: something that looks C-like, and illustrates some feature of
+programming or algorithms, but isn’t actually real code.</p>
+
+<p>To use more sophisticated mathematics, you will need to include the math library with</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;math.h&gt;</span></code></pre></figure>
+
+<p>at the top of your program. Then, to compile, you will need to add
+<code class="highlighter-rouge">-lm</code> at the end of the compile command:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">gcc cake.c -o cake -lm</code></pre></figure>
+
+<p>The functions in the math library are pretty straightforward.</p>
 
 <ul>
-  <li>
-    <p>a) For N = $10^6$, estimate (roughly, but tell me how you got the estimate) how many 
-    arithmetic operations are required to do this with your code, and how long it will
-    take. Go ahead and do it; was your estimate accurate? How long would it take
-    for N = $10^9$? ? Is this a reasonable calculation?</p>
-  </li>
-  <li>
-    <p>b) Can you think of any small modifications to your program that will speed it
-    up? Discuss these modifications and estimate how much each will speed up your
-    calculation (estimates can be of the form “this will make it go twice as fast” or
-“this will make it go drastically faster”). Then make these modifications.</p>
-  </li>
+  <li><code class="highlighter-rouge">sin(x)</code>, <code class="highlighter-rouge">cos(x)</code>, <code class="highlighter-rouge">tan(x)</code> do what you’d expect (angles in radians!)</li>
+  <li><code class="highlighter-rouge">arcsin(x)</code>, <code class="highlighter-rouge">arccos(x)</code>, <code class="highlighter-rouge">arctan(x)</code> do what you’d expect too</li>
+  <li><code class="highlighter-rouge">sqrt(x)</code> returns $\sqrt{x}$</li>
+  <li><code class="highlighter-rouge">pow(x,y)</code> returns $x^y$. Note: it is bad practice to use this to square, cube, etc. variables. Use <code class="highlighter-rouge">x*x</code>, etc., instead.</li>
+  <li><code class="highlighter-rouge">abs(i)</code> returns the absolute value of the integer <code class="highlighter-rouge">i</code></li>
+  <li><code class="highlighter-rouge">fabs(x)</code> returns the absolute value of the floating-point number <code class="highlighter-rouge">x</code></li>
+  <li><code class="highlighter-rouge">exp(x)</code> returns $e^x$</li>
+  <li><code class="highlighter-rouge">hypot(x,y)</code> returns $\sqrt{x^2 + y^2}$ (useful for geometry!)</li>
 </ul>
 
+<p>What about doing more complicated math in C? The rule of thumb is simple: <strong>just make the
+computer do what you learned to do in math class.</strong></p>
 
-  </div>
+<p>This will always get you something that
+is at least okay. This is because in many of the techniques in math class, you are taking
+the limit as something goes to zero or to infinity. Since computers can’t do limits, we have
+to plug in small numbers instead.</p>
 
-</article>
+<p>Think about integrals for a minute: you are supposed to
+add up an infinite number of infinitely small things. This will take the computer an infinite
+amount of time, and then you won’t get your homework in before the deadline.</p>
+
+<p>So instead we add up a finite number of small things (see the wikipedia
+page on “Riemann sum” if youve forgotten how this works), or I will illustrate in class.</p>
+
+<p>Since this is not quite what the mathematics tells us to do, there will be a small error. That
+error will obviously be bigger the further you are away from the mathematically-precise thing
+to do (i.e. the larger your Riemann sum boxes are). If you compute $\int_0^10$ with five Riemann-sum boxes,
+then you will have more error than if you use five thousand or even five million.</p>
+
+<p>You’ll notice that in math-land, where the Riemann sum boxes are infinitely skinny, it doesn’t matter that they have flat tops and fail to reproduce the shape of a 
+function that is curvy. However, when working numerically with finite-width boxes, we have to worry about such things. We will study this in the next two weeks.</p>
 
       </div>
     </div>

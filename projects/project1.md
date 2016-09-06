@@ -8,8 +8,10 @@ use_math: true
 ---
 <center>
 
-<b>Due Tuesday, 6 September, at 11 AM</b><br>
+<b>Due Tuesday, 13 September, at 11 AM</b><br>
 
+
+See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/samples.html">the file of sample programs</a> for a few hints.
 <br><br>
 
 </center>
@@ -24,7 +26,7 @@ $$ \int_{-\infty}^\infty\, e^{-x^\infty}\, dx. $$
 
 Be intelligent about how you do this. You want a reasonably accurate answer, but you dont want the computer to take forever doing it. Make sure you discuss how you handled the infinite interval. Do you come reasonably close to the analytic answer of $\sqrt \pi$?
 
-It may be helpful for you to first graph this function if you’re not familiar with it.
+It may be helpful for you to first graph this function if you’re not familiar with it. (You should be able to quickly graph different functions using the code you wrote last week.)
 
 <br><br>
 
@@ -59,3 +61,5 @@ to check to see if one number evenly divides another. Note that you do not need 
        up? Discuss these modifications and estimate how much each will speed up your
        calculation (estimates can be of the form “this will make it go twice as fast” or
 “this will make it go drastically faster”). Then make these modifications.
+
+
