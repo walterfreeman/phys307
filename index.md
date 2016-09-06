@@ -5,6 +5,15 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 6 September agenda:
+
+* finish up project 0
+* start on project 1
+* discuss a few new programming things:
+   * conditionals: "if this, do that"
+   * a bit more advanced math
+* answer your questions!
+
 ### 1 September agenda:
 
 * go over some basic C commands, involving doing basic math
