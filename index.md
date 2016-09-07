@@ -5,6 +5,15 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### Take-home quiz
+
+Please complete <a href="taylor-series-inventory.pdf">the Taylor series inventory</a> by next Tuesday and bring it to class.
+This will 
+be graded for completion, but not accuracy; anyone turning anything in (even if you don't know any of the answers)
+will get full credit. You should take this at home without referencing the internet or your notes/books; 
+remember, the goal is not to get all the answers right, but to give me information about what you know and don't know.
+
+
 ### 6 September agenda:
 
 * finish up project 0
