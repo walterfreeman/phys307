@@ -8,12 +8,12 @@
 
   <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
 
-  <title>Learning Goals</title>
+  <title>graph-notes</title>
   <meta name="description" content="Fall 2016, Syracuse University 
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/learning_goals.html">
+  <link rel="canonical" href="/phys307/notes/graph.html">
   <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -218,27 +218,45 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <article class="post">
+        <center><h1>Notes on graph</h1></center>
 
-  <header class="post-header">
-    <h1 class="post-title">Learning Goals</h1>
-  </header>
+<p>Here’s the documentation for <code class="highlighter-rouge">graph</code>, our simple plotting tool.</p>
 
-  <div class="post-content">
-    <h3 id="course-scale-learning-goals">Course-Scale Learning Goals</h3>
+<p>To print a graph to the screen, type at the Linux prompt</p>
 
-<p>This list represents what we want students to be able to do at the end
-of the course (as opposed to what content is expected to be covered, as in a syllabus).</p>
+<p><code class="highlighter-rouge">graph &lt;filename&gt;</code></p>
 
-<ol>
-  <li>Students should be able to</li>
-</ol>
+<p>where <code class="highlighter-rouge">&lt;filename&gt;</code> is a file containing pairs of numbers, each on a separate line, for instance</p>
 
-<h3 id="topic-scale-learning-goals">Topic-Scale Learning Goals</h3>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="mi">1</span> <span class="mi">1</span>
+<span class="mi">2</span> <span class="mi">4</span>
+<span class="mi">3</span> <span class="mi">9</span>
+<span class="mi">4</span> <span class="mi">16</span></code></pre></figure>
 
-  </div>
+<p>If you type instead</p>
 
-</article>
+<p><code class="highlighter-rouge">graph &lt;file1&gt; &lt;file2&gt; &lt;file3&gt;</code> …</p>
+
+<p>you’ll get graphs of each file in a diferent color.</p>
+
+<p>There are a few other commands you can use.</p>
+
+<ul>
+  <li>
+    <p>Writing <code class="highlighter-rouge">dots</code> on a line by itself will make <code class="highlighter-rouge">graph</code> display individual points rather than connecting points together
+with lines.</p>
+  </li>
+  <li>
+    <p>Writing <code class="highlighter-rouge">xlabel &lt;text&gt;</code> or <code class="highlighter-rouge">ylabel &lt;text&gt;</code> by themselves on a line will label the axes.</p>
+  </li>
+  <li>
+    <p>Writing <code class="highlighter-rouge">xlog</code> or <code class="highlighter-rouge">ylog</code> will make the x- or y-axes logarithmic. This will be important next week!</p>
+  </li>
+</ul>
+
+<p>To save your graph as a PDF, do</p>
+
+<p><code class="highlighter-rouge">graph &lt;file1&gt; &lt;file2&gt; ... -o &lt;something.pdf&gt;</code>. You can then transfer it to your computer with WinSCP.</p>
 
       </div>
     </div>

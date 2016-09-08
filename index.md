@@ -14,6 +14,11 @@ will get full credit. You should take this at home without referencing the inter
 remember, the goal is not to get all the answers right, but to give me information about what you know and don't know.
 
 
+### 8 September agenda:
+
+* work on projects all day
+* hand out copies of the Taylor series inventory
+
 ### 6 September agenda:
 
 * finish up project 0
