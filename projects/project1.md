@@ -10,8 +10,7 @@ use_math: true
 
 <b>Due Tuesday, 13 September, at 11 AM</b><br>
 
-
-See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/samples.html">the file of sample programs</a> for a few hints.
+See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/samples.html">the file of sample programs</a> for a few hints. Typo in problem 1 fixed.
 <br><br>
 
 </center>
@@ -22,7 +21,7 @@ $$ \int_0^2\, e^{-x^2}\, dx. $$
 
 Then calculate the integral
 
-$$ \int_{-\infty}^\infty\, e^{-x^\infty}\, dx. $$
+$$ \int_{-\infty}^\infty\, e^{-x^2}\, dx. $$
 
 Be intelligent about how you do this. You want a reasonably accurate answer, but you dont want the computer to take forever doing it. Make sure you discuss how you handled the infinite interval. Do you come reasonably close to the analytic answer of $\sqrt \pi$?
 
