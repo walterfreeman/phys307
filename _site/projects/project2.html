@@ -8,12 +8,12 @@
 
   <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
 
-  <title>Connecting to the course computer</title>
+  <title>Project 2</title>
   <meta name="description" content="Fall 2016, Syracuse University 
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/notes/connect.html">
+  <link rel="canonical" href="/phys307/projects/project2.html">
   <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -248,66 +248,46 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <center><h1>Connecting to the course computer</h1></center>
+        <article class="post">
 
-<p>The Room 115 lab has only Windows computers, but if you want to get real work done in the sciences,
-you need a Unix-like operating system: Linux or a BSD-based operating system like Mac OSX.
-In this class, we have provided you a Linux system named
-phy-compphysclass.syr.edu, located somewhere in an ITS data center. Here are instructions for connecting
-to it:</p>
+  <header class="post-header">
+    <h1 class="post-title">Project 2</h1>
+  </header>
 
-<h3 id="connecting-to-the-computer">Connecting to the computer</h3>
+  <div class="post-content">
+    <center>
 
-<p>The standard way of controlling a Linux computer is by a text interface: you send text to the computer,
-and text comes back, along with any graphical windows you request.</p>
+<b>Due Tuesday, 20 September, at 11 AM</b><br />
 
-<p>The standard way of connecting to remote Linux machines is via the Secure Shell protocol, abbreviated as <em>ssh</em>.
-This protocol creates an encrypted channel that allows you to communicate securely with another computer.</p>
+</center>
 
-<p>Once you establish a ssh session to another computer, you can send and receive text and graphics just as though you were physically
-at the machine. To connect from the machines in room 115, run PuTTY from your SU-Apps folder, type in
-<kbd>phy-compphysclass.syr.edu</kbd>, and click connect.</p>
+<p><br /></p>
 
-<p>Linux uses a system called X to handle graphics. X is different than the graphics system in Windows in that the computer
-creating and the computer displaying the graphics can be different. The computer displaying the graphics
-needs a program running called an “X server” that actually creates the graphics on screen. The X server for
-Windows is called Xming; you will need to run it before you launch PuTTY if you want graphics. (It is way down at the bottom of the Applications menu in the lab.)</p>
+<hr />
 
-<p>Finally, you will need to tell PuTTY that it should forward graphical output over the connection. To do
-this, you need to check the “Enable X Forwarding” box in the “X11” section of the options before you connect.</p>
+<p><br /></p>
 
-<h4 id="connecting-from-elsewhere">Connecting from elsewhere</h4>
+<p>Because of my computer problems, for now we’ll work off of the PDF assignment given last year.</p>
 
-<p><strong>From Windows:</strong></p>
+<p>You can find it at <a href="http://suphysics307.wikispaces.com/file/view/hw2.pdf/559276953/hw2.pdf">the old course website</a>.</p>
 
-<p>The process here is the same as on the lab machines. You only need to download Xming, the Xming Fonts
-package, and PuTTY. All three are open source.</p>
+<p>Some hints:</p>
 
-<p>Go to <a href="http://www.straightrunning.com/XmingNotes/">http://www.straightrunning.com/XmingNotes/</a> and scroll down to “Public Domain Releases”.
-Download the <em>xming</em> and <em>xming-fonts</em> packages and install them.</p>
+<ul>
+  <li>Remember that writing <code class="highlighter-rouge">xlog</code> and <code class="highlighter-rouge">ylog</code> before a <code class="highlighter-rouge">graph</code> file will give you logarithmic axes.</li>
+  <li>When computing the error, remember to take the absolute value with <code class="highlighter-rouge">fabs()</code>.</li>
+  <li>If you want to run many different stepsizes at once, consider enclosing your program in a <code class="highlighter-rouge">for</code> loop that changes the stepsize, where you multiply the stepsize by some small value each pass.</li>
+  <li>For higher precision in very small values, use <code class="highlighter-rouge">%e</code> rather than <code class="highlighter-rouge">%f</code> in <code class="highlighter-rouge">printf</code> when printing the error.</li>
+  <li>Remember the “last bin rounding problem” in doing your integral. This matters for second-order methods but not first-order ones (why?)</li>
+  <li>The most important part of your report is a discussion of math and physics (“why did you get the results you did?”), NOT code. You will likely spend more time on analysis than on code in this assignment; start early!</li>
+</ul>
 
-<p>PuTTY lives at <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.</p>
+<p><strong>IGNORE THE DUE DATE</strong> on it – that was for last year, but since my computer melted I haven’t gotten the new one ready yet.</p>
 
-<p><strong>From Mac OSX or Linux:</strong></p>
 
-<p>OSX is a Unix-based operating system; I believe it comes with a ssh client, and it uses its own X server for
-its own graphics.</p>
+  </div>
 
-<p>To connect, just get a terminal window and type</p>
-
-<p><code class="highlighter-rouge">
-ssh -X phy-compphysclass.syr.edu -l &lt;username&gt;
-</code></p>
-
-<p>If you are on a slow connection, do instead:</p>
-
-<p><code class="highlighter-rouge">
-ssh -XC phy-compphysclass.syr.edu -l &lt;username&gt;
-</code></p>
-
-<p>This may speed up graphics somewhat; the -C option tells the computers to compress graphics, which will use extra computing power to save a little bandwidth.</p>
-
-<p><strong>Note for Mac users:</strong> In order to get the <code class="highlighter-rouge">-X</code> option to work, giving you graphics output, you will need to download something called XQuartz for Mac. I don’t know the details, since I don’t have a Mac; investigate this, and let me know what you needed to do!</p>
+</article>
 
       </div>
     </div>
