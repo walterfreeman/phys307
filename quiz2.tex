@@ -1,0 +1,62 @@
+\documentclass[12ampt]{article}
+\setlength\parindent{0pt}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\setlength{\parskip}{4mm}
+\def\LL{\left\langle}   % left angle bracket
+\def\RR{\right\rangle}  % right angle bracket
+\def\LP{\left(}         % left parenthesis
+\def\RP{\right)}        % right parenthesis
+\def\LB{\left\{}        % left curly bracket
+\def\RB{\right\}}       % right curly bracket
+\def\PAR#1#2{ {{\partial #1}\over{\partial #2}} }
+\def\PARTWO#1#2{ {{\partial^2 #1}\over{\partial #2}^2} }
+\def\PARTWOMIX#1#2#3{ {{\partial^2 #1}\over{\partial #2 \partial #3}} }
+\newcommand{\BE}{\begin{displaymath}}
+\newcommand{\EE}{\end{displaymath}}
+\newcommand{\BNE}{\begin{equation}}
+\newcommand{\ENE}{\end{equation}}
+\newcommand{\BEA}{\begin{eqnarray}}
+\newcommand{\EEA}{\nonumber\end{eqnarray}}
+\newcommand{\EL}{\nonumber\\}
+\newcommand{\la}[1]{\label{#1}}
+\newcommand{\ie}{{\em i.e.\ }}
+\newcommand{\eg}{{\em e.\,g.\ }}
+\newcommand{\cf}{cf.\ }
+\newcommand{\etc}{etc.\ }
+\newcommand{\Tr}{{\rm tr}}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\OL}[1]{\overline{#1}\ } % overline
+\newcommand{\OLL}[1]{\overline{\overline{#1}}\ } % double overline
+\newcommand{\OON}{\frac{1}{N}} % "one over N"
+\newcommand{\OOX}[1]{\frac{1}{#1}} % "one over X"
+
+
+
+\begin{document}
+\Large
+\centerline{\sc{Quiz 2}}
+\normalsize
+\centerline{You need only your pencil for this quiz; no calculators or computers are needed.}
+
+\begin{enumerate}
+
+\item Suppose you are using the midpoint rule to calculate an integral. If using a stepsize of $h=10^{-3}$ gives an error $E=2\times10^{-4}$, what will the error be if the stepsize is decreased to $10^{-4}$?
+
+\vspace{3in}
+
+\item Someone gives you a program that they claim uses the trapezoid rule to compute an integral. You decide to test it on an integral whose analytic answer you know.
+
+\bigskip
+
+You observe that for a stepsize of $h=2 \times 10^{-2}$, the error in the integral is about $E=4 \times 10^{-3}$, and for a stepsize of $h=10^{-2}$, the error in the integral is $E=2 \times 10^{-3}$.
+
+\bigskip
+
+Is the program working correctly? How do you know?
+
+
+
+\end{enumerate}
+
+\end{document}
