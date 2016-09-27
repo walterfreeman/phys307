@@ -8,12 +8,12 @@
 
   <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
 
-  <title>samples</title>
+  <title>Notes on perturbative behavior</title>
   <meta name="description" content="Fall 2016, Syracuse University 
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/notes/math.html">
+  <link rel="canonical" href="/phys307/notes/perturbative.html">
   <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -298,73 +298,34 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <h1 id="notes-on-mathematics-in-c">Notes on mathematics in C</h1>
-<p>Most math functions in C are fairly straightforward. The operators for addition, subtraction,
-multiplication, and division are <code class="highlighter-rouge">+ - * /</code>. C knows about order of operations; parentheses
-work like you would expect. Note that square and curly brackets mean something different in
-C; if you have nested parentheses in a mathematical formula, just use ordinary parentheses
-for them all. The modulus operator is <code class="highlighter-rouge">%</code>; writing <code class="highlighter-rouge">a % b</code> returns the remainder when <code class="highlighter-rouge">a</code> is
-divided by <code class="highlighter-rouge">b</code>. This only works for variables of type <code class="highlighter-rouge">int</code>, and doesn’t do what you want if
-either number is negative. You will need this to check for divisibility when you are finding
-prime numbers. The code</p>
+        <h3 id="these-notes-are-still-being-written-and-will-be-finished-by-thursday">These notes are still being written and will be finished by Thursday.</h3>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// if the remainder of a/b is zero, i.e. its divisible
-</span><span class="p">{</span>
-  <span class="k">do</span> <span class="n">something</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">else</span>
-<span class="p">{</span>
-  <span class="k">do</span> <span class="n">something</span> <span class="k">else</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
+<p>This is the most broadly-applicable set of notes in this entire class.</p>
 
-<p>will do something if <code class="highlighter-rouge">a</code> is divisible by <code class="highlighter-rouge">b</code>, and will do something else otherwise. (This is
-an example of <em>pseudocode</em>: something that looks C-like, and illustrates some feature of
-programming or algorithms, but isn’t actually real code.</p>
+<p>The behavior of most phenomena in nature are <em>perturbative.</em> What does that mean? It means that their behavior, speaking very broadly, can be expressed in terms of a power series, where the expansion variable in the power series has something to do with an amplitude, an interaction strength, and so on.</p>
 
-<p>To use more sophisticated mathematics, you will need to include the math library with</p>
+<p>In many cases, we are in the regime where that amplitude or interaction strength is small. For instance, consider a spring. You learned in your introductory physics class that it obeys Hooke’s law, $F=-k\Delta x$. However, you know intuitively that this can’t be strictly true; eventually, as the force
+gets larger and larger, the spring will start behaving in non-Hooke’s-law ways, since as $F \rightarrow \infty$, you know the spring must snap and the force goes to zero. In general, we can write</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;math.h&gt;</span></code></pre></figure>
+<script type="math/tex; mode=display">F_{\rm spring} = k \Delta x + k_2 (\Delta x)^2 + k_3 (\Delta x)^3 + ...</script>
 
-<p>at the top of your program. Then, to compile, you will need to add
-<code class="highlighter-rouge">-lm</code> at the end of the compile command:</p>
+<p>where I have absorbed the $n!$ components of the Taylor series into the definitions of the $k’s$.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">gcc cake.c -o cake -lm</code></pre></figure>
-
-<p>The functions in the math library are pretty straightforward.</p>
+<p>This lets us divide the behavior of the spring into, roughly, three regions:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">sin(x)</code>, <code class="highlighter-rouge">cos(x)</code>, <code class="highlighter-rouge">tan(x)</code> do what you’d expect (angles in radians!)</li>
-  <li><code class="highlighter-rouge">arcsin(x)</code>, <code class="highlighter-rouge">arccos(x)</code>, <code class="highlighter-rouge">arctan(x)</code> do what you’d expect too</li>
-  <li><code class="highlighter-rouge">sqrt(x)</code> returns $\sqrt{x}$</li>
-  <li><code class="highlighter-rouge">pow(x,y)</code> returns $x^y$. Note: it is bad practice to use this to square, cube, etc. variables. Use <code class="highlighter-rouge">x*x</code>, etc., instead.</li>
-  <li><code class="highlighter-rouge">abs(i)</code> returns the absolute value of the integer <code class="highlighter-rouge">i</code></li>
-  <li><code class="highlighter-rouge">fabs(x)</code> returns the absolute value of the floating-point number <code class="highlighter-rouge">x</code></li>
-  <li><code class="highlighter-rouge">exp(x)</code> returns $e^x$</li>
-  <li><code class="highlighter-rouge">hypot(x,y)</code> returns $\sqrt{x^2 + y^2}$ (useful for geometry!)</li>
+  <li>$\Delta x$ very small: spring behaves as given by Hooke’s law. No deviations are measurable. The subsequent terms in the Taylor series are not large enough to matter. Let’s call this the <em>ideal regime</em>.</li>
+  <li>$\Delta x$ somewhat larger: Higher-order terms become important. Deviations from Hooke’s law are measurable, but the spring’s behavior is still well approximated by the first few terms in the power series. This is the <em>pertubative regime</em>, and what this set of notes is about.</li>
+  <li>$\Delta x$ large: The spring behaves in drastically non-Hookian ways. Perhaps it snaps, or the metal is grossly deformed. This is the <em>nonperturbative regime</em>.</li>
 </ul>
 
-<p>What about doing more complicated math in C? The rule of thumb is simple: <strong>just make the
-computer do what you learned to do in math class.</strong></p>
+<p>Many, many, <em>many</em> things in nature behave this way, and the ability to classify phenomena in this way will help you immensely in your career as a scientist, engineer, or otherwise.</p>
 
-<p>This will always get you something that
-is at least okay. This is because in many of the techniques in math class, you are taking
-the limit as something goes to zero or to infinity. Since computers can’t do limits, we have
-to plug in small numbers instead.</p>
+<p>The key idea here is that in the <em>perturbative region</em>, one can classify the relevant effects as subsequent terms in the Taylor series, and think about their structure. This is important, because it gives us a handle on the behavior of things even in the nonideal region. For instance, in your swinging-pendulum
+problem, you will discover that even when the period of a pendulum is measurably different from the ideal value $T_0 = 2\pi\sqrt\frac{L}{g}$, its value is <em>predictable</em>.</p>
 
-<p>Think about integrals for a minute: you are supposed to
-add up an infinite number of infinitely small things. This will take the computer an infinite
-amount of time, and then you won’t get your homework in before the deadline.</p>
+<p>Often, we can use the Taylor series to calculate this behavior, at least to a very good approximation. This is how almost everything in quantum mechanics gets done.</p>
 
-<p>So instead we add up a finite number of small things (see the wikipedia
-page on “Riemann sum” if youve forgotten how this works), or I will illustrate in class.</p>
-
-<p>Since this is not quite what the mathematics tells us to do, there will be a small error. That
-error will obviously be bigger the further you are away from the mathematically-precise thing
-to do (i.e. the larger your Riemann sum boxes are). If you compute $\int_0^10$ with five Riemann-sum boxes,
-then you will have more error than if you use five thousand or even five million.</p>
-
-<p>You’ll notice that in math-land, where the Riemann sum boxes are infinitely skinny, it doesn’t matter that they have flat tops and fail to reproduce the shape of a 
-function that is curvy. However, when working numerically with finite-width boxes, we have to worry about such things. We will study this in the next two weeks.</p>
 
       </div>
     </div>

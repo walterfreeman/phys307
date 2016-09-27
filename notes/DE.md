@@ -7,4 +7,4 @@ permalink: notes/DE.html
 use_math: true
 ---
 
-I am working on converting these to Markdown. In the meantime, they are available as a <a href="DE-notes.pdf">PDF.</a>
+Since this is math-intensive enough, I am leaving it as a LaTeX-rendered PDF so it looks better. See  <a href="DE-notes.pdf">PDF.</a>
