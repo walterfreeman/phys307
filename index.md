@@ -5,6 +5,16 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 6 October agenda:
+
+* Discuss the phenomenology of the swinging pendulum in Project 3
+* Discuss the stability of the pendulum
+* Introduce how to simulate orbits
+
+### 4 October agenda:
+
+We will focus today on working on Project 3... and have a quiz, as promised.
+
 ### 15 September agenda:
 
 We will discuss:
