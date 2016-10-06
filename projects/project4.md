@@ -8,6 +8,6 @@ use_math: true
 ---
 <center>
 
-This assignment is posted as a <a href="projects/hw4.pdf">PDF</a>.
+This assignment is posted as a <a href="hw4.pdf">PDF</a>.
 
 </center>
