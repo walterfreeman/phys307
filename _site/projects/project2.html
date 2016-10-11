@@ -163,7 +163,7 @@
               
             
               
-                <a class="page-sublink" href="/phys307/notes/DE.html">DE's</a>
+                <a class="page-sublink" href="/phys307/notes/symplectic.html">Symplectic solvers</a>
               
             
           
@@ -344,10 +344,10 @@
 <p>Some hints:</p>
 
 <ul>
-  <li>Remember that writing <code class="highlighter-rouge">xlog</code> and <code class="highlighter-rouge">ylog</code> before a <code class="highlighter-rouge">graph</code> file will give you logarithmic axes.</li>
-  <li>When computing the error, remember to take the absolute value with <code class="highlighter-rouge">fabs()</code>.</li>
-  <li>If you want to run many different stepsizes at once, consider enclosing your program in a <code class="highlighter-rouge">for</code> loop that changes the stepsize, where you multiply the stepsize by some small value each pass.</li>
-  <li>For higher precision in very small values, use <code class="highlighter-rouge">%e</code> rather than <code class="highlighter-rouge">%f</code> in <code class="highlighter-rouge">printf</code> when printing the error.</li>
+  <li>Remember that writing <code>xlog</code> and <code>ylog</code> before a <code>graph</code> file will give you logarithmic axes.</li>
+  <li>When computing the error, remember to take the absolute value with <code>fabs()</code>.</li>
+  <li>If you want to run many different stepsizes at once, consider enclosing your program in a <code>for</code> loop that changes the stepsize, where you multiply the stepsize by some small value each pass.</li>
+  <li>For higher precision in very small values, use <code>%e</code> rather than <code>%f</code> in <code>printf</code> when printing the error.</li>
   <li>Remember the “last bin rounding problem” in doing your integral. This matters for second-order methods but not first-order ones (why?)</li>
   <li>The most important part of your report is a discussion of math and physics (“why did you get the results you did?”), NOT code. You will likely spend more time on analysis than on code in this assignment; start early!</li>
 </ul>

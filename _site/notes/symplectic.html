@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Domine" rel="stylesheet">
+
+  <title>Symplectic solvers</title>
+  <meta name="description" content="Fall 2016, Syracuse University 
+">
+
+  <link rel="stylesheet" href="/phys307/css/main.css">
+  <link rel="canonical" href="/phys307/notes/symplectic.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+
+  <body>
+
+
+    <header class="site-header">
+
+  <div class="largewrapper"> 
+
+    <nav class="site-nav">
+<!--      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a> -->
+
+      <div class="trigger">
+    <a class="logo" href="/phys307/"><img src="/phys307/drum.png" width=200></a>
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="/phys307/notes/">Notes</a>
+            
+              
+                <a class="page-sublink" href="/phys307/notes/DE.html">DE's</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/anim.html">Notes on anim</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/c.html">Intro to C</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/connect.html">Connecting</a>
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/function.html">Using functions</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/graph.html">Using graph</a>
+              
+            
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/integration.html">Notes on Integration</a>
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/linux.html">Intro to Linux</a>
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/math.html">Basic Math in C</a>
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/directories.html">Notes on directories</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/perturbative.html">Perturbation theory</a>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/samples.html">Sample Codes</a>
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/symplectic.html">Symplectic solvers</a>
+              
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <a class="page-link" href="/phys307/projects/">Projects</a>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                <a class="page-sublink" href="/phys307/projects/project0.html">Project 0</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/projects/project1.html">Project 1</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/projects/project2.html">Project 2</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/projects/project3.html">Project 3</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/projects/project4.html">Project 4</a>
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+        
+          
+        
+          
+            <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+          
+        
+          
+        
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <h2 id="the-problem">The problem</h2>
+
+<p>Often, when simulating oscillatory systems like pendulums, orbits, guitar strings, drumheads, and many others, we are primarily concerned with <em>stability</em>. A simulation that drifts away from the exact solution over many periods
+is acceptable if it preserves the general character of what it’s supposed to do.</p>
+
+<p>We know that when using Euler and RK2 solvers, we accumulate an error proportional to $dt$ or $dt^2$ over a simulation time $t$. We’ve not discussed how these errors depend on $t$ itself. In general, this is highly dependent
+on exactly what system you are solving, and can be complicated.</p>
+
+<p>As with all physical observables, the energy of the system will also have an error proportional to $dt$ or $dt^2$ for these solvers. Since energy is conserved, even if we can’t write down the exact behavior of our system (for instance,
+with our pendulum there is no analytic answer for $\theta(t)$), we know one property of the exact solution: the energy is a constant. (In this case, the energy is $\frac{1}{2}I\ddot\theta + gL \cos \theta$.)</p>
+
+<p>Here’s the bad news: the violation of conservation of energy is often <strong>exponential</strong> in time. This means that <em>dividing the timestep by 10</em> (making the computer do ten times as much work!) will only produce a linear increase in 
+how long the simulation will run before blowing up. This is very, very bad if we want to simulate an oscillatory or near-oscillatory system for any significant length of time.</p>
+
+<h2 id="symplectic-solvers">Symplectic solvers</h2>
+
+<p>The Euler and RK2 solvers you already learned about are general-purpose: they can be used to solve any system of differential equations, regardless of whether they have their ultimate origin in Newton’s laws of motion or not. However, there
+is a special class of solvers, called <em>symplectic solvers</em>, which can only be used on physical systems whose dynamical variables consist of positions and velocities. Symplectic solvers have the special property that they conserve energy
+far better than their nominal order would reflect, and that in particular they are stable in oscillatory systems.</p>
+
+<h3 id="the-euler-cromer-solver-which-you-may-have-coded-by-accident">The Euler-Cromer solver, which you may have coded by accident</h3>
+
+<p>Consider this seemingly-straightforward implementation of the Euler solver:</p>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+
+<p>This doesn’t actually implement Euler! Recall that the Euler prescription is to update both position and velocity based on the state at the <em>beginning</em> of the step, but here we’ve updated velocity based on the <em>already-updated</em> position! (To see how Euler
+is actually done, see the end of this file.)</p>
+
+<p>This is a different solver, called the <em>semi-implicit Euler method</em>, or the <em>Euler-Cromer</em> method. Like Euler, it is a first-order method. However, it is a <em>symplectic</em> integrator, so it conserves energy much better than we’d expect from a
+first-order method (say, Euler).</p>
+
+<h3 id="the-backwards-euler-cromer-solver">The “backwards” Euler-Cromer solver</h3>
+
+<p>We could also implement Euler-Cromer like this, using the old value of position to update velocity, and the new value to update position:</p>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+
+<p>This is also a first-order symplectic solver.</p>
+
+<h3 id="the-leapfrog-solver">The Leapfrog solver</h3>
+
+<p>In each of these approaches, either the position or the velocity is “ahead” of the other. We might imagine an alternate approach that alternates the two Euler-Cromer methods:</p>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span></code></pre></div>
+
+<p>This method advances both position and velocity by <code>dt</code>, without privileging one over the other. I’ll state, but not prove, that this is a <em>second-order symplectic</em> integrator, and is the one that we’ll use for the rest of this class. 
+This has the advantage of being pretty simple to code (no “half” variables) and of conserving energy better than RK2.</p>
+
+<p>We could of course rewrite this:</p>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span></code></pre></div>
+
+<p>Since evaluating $a(x)$ is the time-intensive part of these calculations, this reduces the workload by half. One could also imagine doing the following:</p>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="nl">Repeat</span><span class="p">:</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+
+<p>This also gives second-order symplectic behavior, but has the disadvantage that you never have access to <code>v</code> and <code>x</code> at the same time.</p>
+
+<h2 id="summary-of-integrators">Summary of integrators</h2>
+
+<h3 id="euler-first-order">Euler: first order</h3>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+  <span class="n">xnew</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">vnew</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">xnew</span><span class="p">;</span>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">ynew</span><span class="p">;</span></code></pre></div>
+
+<h3 id="rk2-second-order">RK2: second order</h3>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+  <span class="n">xhalf</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">vhalf</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">vhalf</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">xhalf</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+
+<h3 id="euler-cromer-position-first-first-order-symplectic">Euler-Cromer, position first: first order symplectic</h3>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+
+<h3 id="euler-cromer-velocity-first-first-order-symplectic">Euler-Cromer, velocity first: first order symplectic</h3>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+
+<h3 id="leapfrog-second-order-symplectic">Leapfrog: second order symplectic</h3>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span></code></pre></div>
+
+<p><strong>IMPORTANT NOTE:</strong> For most physical systems there is more than one pair of dynamical variables. (For instance, $x$, $y$, $v_x$, $v_y$ for the orbit.) In the above descriptions, the <code>x</code> updates are a shorthand to update <em>all</em> position variables, and the 
+<code>v</code> updates a shorthand to update <em>all</em> velocities.</p>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physics 307</li>
+          <li><a href="mailto:wafreema@syr.edu">wafreema@syr.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fall 2016, Syracuse University 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

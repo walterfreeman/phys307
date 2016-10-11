@@ -163,7 +163,7 @@
               
             
               
-                <a class="page-sublink" href="/phys307/notes/DE.html">DE's</a>
+                <a class="page-sublink" href="/phys307/notes/symplectic.html">Symplectic solvers</a>
               
             
           
@@ -323,23 +323,17 @@
 <h3 id="basics">1. Basics</h3>
 <p>C is the gold standard of programming languages. It’s quite old, and is used for a
 bewildering array of things. Linux, Windows, most of your favorite computer games, code
-running on 60,000-processor supercomputers, and even <code class="highlighter-rouge">gcc</code> itself are all written in C.
+running on 60,000-processor supercomputers, and even <code>gcc</code> itself are all written in C.
 Here’s a very simple C program. (The line numbers aren’t part of the program.)</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"Hello, world!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="lineno">1 </span><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="lineno">2 </span>
+<span class="lineno">3 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="lineno">4 </span><span class="p">{</span>
+<span class="lineno">5 </span>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, world!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="lineno">6 </span><span class="p">}</span></code></pre></div>
 
-<p>Line 1 instructs <code class="highlighter-rouge">gcc</code> that it should load the header file for the standard input/output
+<p>Line 1 instructs <code>gcc</code> that it should load the header file for the standard input/output
 library. This will be the first line of all your programs, since you need this to write text to
 the screen.</p>
 
@@ -347,17 +341,17 @@ the screen.</p>
 ideas. Just like punctuation is used in English to make it easier to read, punctuation
 like line-breaks and indentation should be used to make your code easier to read.</p>
 
-<p>Line 3 indicates the beginning of a function called <code class="highlighter-rouge">main</code>. All programs must have a main
+<p>Line 3 indicates the beginning of a function called <code>main</code>. All programs must have a main
 function; the program starts running at the beginning of this function. Soon you will write
 programs that use other functions besides this one, but don’t worry about that now. Likewise,
-don’t worry about the keyword <code class="highlighter-rouge">int</code>; we’ll learn what it’s for later.</p>
+don’t worry about the keyword <code>int</code>; we’ll learn what it’s for later.</p>
 
 <p>Lines 4 and 6 are a matched pair of curly braces, telling the compiler that everything
-between them is part of <code class="highlighter-rouge">main</code>. Curly braces are used in C to indicate that a large (or small)
+between them is part of <code>main</code>. Curly braces are used in C to indicate that a large (or small)
 block of code should be considered as one unit: that it is all part of a function (as it is here),
 that it is all to be repeated ten times, etc.</p>
 
-<p>Line 5 invokes the <code class="highlighter-rouge">printf</code> function to write some text to the screen. The funny <code class="highlighter-rouge">\n</code> at
+<p>Line 5 invokes the <code>printf</code> function to write some text to the screen. The funny <code>\n</code> at
 the end instructs the computer to go to a new line at the end of the text.</p>
 
 <p>C code consists of statements that are executed one at a time in order (like line 5), interspersed
@@ -365,8 +359,8 @@ with control commands that vary that order or indicate other things about the co
 (like line 3). In general, all statements that actually do something, like perform a calculation,
 create a variable, or display text, end with a semicolon; control commands do not.</p>
 
-<p>Remember that you compile the source code <code class="highlighter-rouge">myprogram.c</code> into something you can run
-by doing <code class="highlighter-rouge">gcc myprogram.c -o myprogram</code> at the Linux prompt, and run it by doing <code class="highlighter-rouge">./myprogram</code>.</p>
+<p>Remember that you compile the source code <code>myprogram.c</code> into something you can run
+by doing <code>gcc myprogram.c -o myprogram</code> at the Linux prompt, and run it by doing <code>./myprogram</code>.</p>
 
 <hr />
 
@@ -374,72 +368,60 @@ by doing <code class="highlighter-rouge">gcc myprogram.c -o myprogram</code> at 
 
 <p>Here’s a slightly more complicated program that introduces how to do math in C:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="lineno"> 1 </span><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="lineno"> 4 </span>
+<span class="lineno"> 5 </span><span class="p">{</span>
+<span class="lineno"> 6 </span>  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="n">xsquared</span><span class="p">;</span>
+<span class="lineno"> 7 </span>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter a number:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="lineno"> 8 </span>  <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="lineno"> 9 </span>  <span class="n">xsquared</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+<span class="lineno">10 </span>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The square of x is %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">xsquared</span><span class="p">);</span>
+<span class="lineno">11 </span><span class="p">}</span></code></pre></div>
 
-<span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="n">xsquared</span><span class="p">;</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"Enter a number:</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-  <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-  <span class="n">xsquared</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"The square of x is %d.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">xsquared</span><span class="p">);</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<p>There are some new things here. Line 5 creates two variables of type <code class="highlighter-rouge">int</code>, which store integer values.
+<p>There are some new things here. Line 5 creates two variables of type <code>int</code>, which store integer values.
 Their contents are garbage at the moment, whatever occupied that location in memory
 most recently. This statement merely sets aside enough of the computer’s memory for our
-variables. C variable names, like <code class="highlighter-rouge">xsquared</code> here, can be more than one letter long. You
+variables. C variable names, like <code>xsquared</code> here, can be more than one letter long. You
 should try to use variable names that give some indication of what the variable represents.
-Variable names, like everything else in C, are case sensitive: <code class="highlighter-rouge">X</code> and <code class="highlighter-rouge">x</code> are totally different
+Variable names, like everything else in C, are case sensitive: <code>X</code> and <code>x</code> are totally different
 things to the computer.</p>
 
 <p>Line 6 prompts the user to enter a number, and then line 7 reads in a value from the
-keyboard and stores it in the variable <code class="highlighter-rouge">x</code> using the function <code class="highlighter-rouge">scanf</code>. The <code class="highlighter-rouge">%d</code> in quotes tells the
-computer to read in a single integer value (<code class="highlighter-rouge">%d</code> means ”an integer”), and the <code class="highlighter-rouge">&amp;x</code> tells the
-computer to store it in the variable <code class="highlighter-rouge">x</code>. For now, treat the ampersand as a magic character
-that must be included when you are using <code class="highlighter-rouge">scanf</code>; we’ll learn what it means later.</p>
+keyboard and stores it in the variable <code>x</code> using the function <code>scanf</code>. The <code>%d</code> in quotes tells the
+computer to read in a single integer value (<code>%d</code> means ”an integer”), and the <code>&amp;x</code> tells the
+computer to store it in the variable <code>x</code>. For now, treat the ampersand as a magic character
+that must be included when you are using <code>scanf</code>; we’ll learn what it means later.</p>
 
 <p>Line 8 is an assignment statement. While this may look like an equation, it is not quite
 the same thing. Rather than being a statement of fact that two things are equal, this means
-”compute <code class="highlighter-rouge">x*x</code>, then set <code class="highlighter-rouge">xsquared</code> equal to its value”. <code class="highlighter-rouge">x*x = xsquared</code> is not valid, since
-<code class="highlighter-rouge">x*x</code> is not a single variable that can be set equal to anything! On the other hand, <code class="highlighter-rouge">x = x+1</code>
+”compute <code>x*x</code>, then set <code>xsquared</code> equal to its value”. <code>x*x = xsquared</code> is not valid, since
+<code>x*x</code> is not a single variable that can be set equal to anything! On the other hand, <code>x = x+1</code>
 is valid C; it simply means to increase the value of x by one.</p>
 
-<p>Line 9 is our old friend <code class="highlighter-rouge">printf</code>. As in <code class="highlighter-rouge">scanf</code>, the <code class="highlighter-rouge">%d</code> is a placeholder for an integer value
+<p>Line 9 is our old friend <code>printf</code>. As in <code>scanf</code>, the <code>%d</code> is a placeholder for an integer value
 to be printed, specified after the text in quotes.</p>
 
-<p>There are other sorts of variables besides <code class="highlighter-rouge">int</code> that store other sorts of things. <strong>Variables
-of type <code class="highlighter-rouge">float</code> store floating-point numbers (decimals)</strong>, for instance. The ”percent code” used
-with <code class="highlighter-rouge">scanf</code> and <code class="highlighter-rouge">printf</code> for float numbers is <code class="highlighter-rouge">%f</code>.</p>
+<p>There are other sorts of variables besides <code>int</code> that store other sorts of things. <strong>Variables
+of type <code>float</code> store floating-point numbers (decimals)</strong>, for instance. The ”percent code” used
+with <code>scanf</code> and <code>printf</code> for float numbers is <code>%f</code>.</p>
 
 <p>Here’s a gotcha: if you are dividing two integers, C will do integer division and drop the
 remainder, even if the result is later set to a float. This code snippet, for instance, will print
 ”1” rather than ”1.5” like you might expect:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
-</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
 <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">j</span><span class="o">/</span><span class="n">i</span><span class="p">;</span> <span class="c1">// 3/2 is 1, not 1.5, if you’re doing integer division!
-</span><span class="n">printf</span><span class="p">(</span><span class="s">"x is %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span></code></pre></figure>
+<span class="n">x</span> <span class="o">=</span> <span class="n">j</span><span class="o">/</span><span class="n">i</span><span class="p">;</span> <span class="c1">// 3/2 is 1, not 1.5, if you’re doing integer division!</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;x is %f</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span></code></pre></div>
 
 <p>Even numeric constants are treated as type int if they don’t have a decimal. Try this:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
-</span><span class="n">printf</span><span class="p">(</span><span class="s">"3/2 is %f.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//integer division
-</span><span class="n">printf</span><span class="p">(</span><span class="s">"3.0/2.0 is %f.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//floating-point division
-</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;3/2 is %f.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//integer division</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;3.0/2.0 is %f.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="mf">3.0</span><span class="o">/</span><span class="mf">2.0</span><span class="p">);</span> <span class="c1">//floating-point division</span></code></pre></div>
 
 <p>The difference between floating-point division and integer division will matter in your
 first homework assignment!</p>
@@ -452,7 +434,7 @@ first homework assignment!</p>
 to repeat chunks of code. <strong>Clever use of these is the key to programming:</strong> the whole
 point of using a computer is that it can do repetitive, tiresome mathematical tasks quickly.</p>
 
-<p>The <code class="highlighter-rouge">for</code> statement tells the computer to repeat a block of code until something happens. It looks like this:</p>
+<p>The <code>for</code> statement tells the computer to repeat a block of code until something happens. It looks like this:</p>
 
 <pre>
 for(what to do at the start ; under what conditions to keep going ; what to do after each repeat)
@@ -463,89 +445,59 @@ for(what to do at the start ; under what conditions to keep going ; what to do a
 
 <p>See if you can guess what this program does before you run it:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-  <span class="k">for</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;=</span><span class="mi">20</span><span class="p">;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%d %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="lineno"> 1 </span><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="lineno"> 4 </span><span class="p">{</span>
+<span class="lineno"> 5 </span>  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<span class="lineno"> 6 </span>  <span class="k">for</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;=</span><span class="mi">20</span><span class="p">;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="lineno"> 7 </span>  <span class="p">{</span>
+<span class="lineno"> 8 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
+<span class="lineno"> 9 </span>  <span class="p">}</span>
+<span class="lineno">10 </span><span class="p">}</span></code></pre></div>
 
 <p>Note that there is no semicolon after the for statement in line 6. This is because it is a
 control statement itself, rather than an actual instruction to the computer to do something! 
 A common mistake is to put a semicolon after the for statement; this will make the computer
 repeat the semicolon over and over (i.e. do nothing) rather than what you wanted it to do.</p>
 
-<p>This <code class="highlighter-rouge">for</code> statement means ”Before you do this, set <code class="highlighter-rouge">x</code> equal to 0. Then, repeat the
-following block of code so long as <code class="highlighter-rouge">x</code> is less than or equal to 20, and after each repetition add
-1 to <code class="highlighter-rouge">x</code>.” Note that it will run with <code class="highlighter-rouge">x</code> ranging from 0 to 19, not 1 to 20!</p>
+<p>This <code>for</code> statement means ”Before you do this, set <code>x</code> equal to 0. Then, repeat the
+following block of code so long as <code>x</code> is less than or equal to 20, and after each repetition add
+1 to <code>x</code>.” Note that it will run with <code>x</code> ranging from 0 to 19, not 1 to 20!</p>
 
 <hr />
 
 <h3 id="conditional-statements">4. Conditional statements</h3>
 
-<p>Here’s one more program that illustrates how to use the <code class="highlighter-rouge">if</code> statement to make the computer do one thing or another.</p>
+<p>Here’s one more program that illustrates how to use the <code>if</code> statement to make the computer do one thing or another.</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"Enter a number: </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-  <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"The number is negative.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// note the == rather than =
-</span>  <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"The number is zero.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"The number is positive.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="lineno"> 1 </span><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="lineno"> 2 </span>
+<span class="lineno"> 3 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="lineno"> 4 </span><span class="p">{</span>
+<span class="lineno"> 5 </span>  <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<span class="lineno"> 6 </span>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter a number: </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="lineno"> 7 </span>  <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="lineno"> 8 </span>  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="lineno"> 9 </span>  <span class="p">{</span>
+<span class="lineno">10 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The number is negative.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="lineno">11 </span>  <span class="p">}</span>
+<span class="lineno">12 </span>  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// note the == rather than =</span>
+<span class="lineno">13 </span>  <span class="p">{</span>
+<span class="lineno">14 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The number is zero.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="lineno">15 </span>  <span class="p">}</span>
+<span class="lineno">16 </span>  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="lineno">17 </span>  <span class="p">{</span>
+<span class="lineno">18 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The number is positive.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="lineno">19 </span>  <span class="p">}</span>
+<span class="lineno">20 </span><span class="p">}</span></code></pre></div>
 
-<p>A couple of new things here. The biggest one is the <code class="highlighter-rouge">if</code> statement, of course. Note the
-use of <code class="highlighter-rouge">==</code> rather than <code class="highlighter-rouge">=</code> to check for equality. Single-equals is the assignment operator that
+<p>A couple of new things here. The biggest one is the <code>if</code> statement, of course. Note the
+use of <code>==</code> rather than <code>=</code> to check for equality. Single-equals is the assignment operator that
 changes the value of a variable; double-equals tests to see if two things are equal. Mixing
 these up is a common mistake.</p>
 
-<p>Also notice the text beginning with <code class="highlighter-rouge">//</code>. This is a comment: text that is completely
+<p>Also notice the text beginning with <code>//</code>. This is a comment: text that is completely
 ignored by the compiler and does nothing, but is included just as a note to anyone reading
 the code. Use comments liberally; it’s essential that you or someone else reading your code
 can figure out what it does. At a minimum, any program you submit should have a comment

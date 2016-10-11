@@ -163,7 +163,7 @@
               
             
               
-                <a class="page-sublink" href="/phys307/notes/DE.html">DE's</a>
+                <a class="page-sublink" href="/phys307/notes/symplectic.html">Symplectic solvers</a>
               
             
           
@@ -327,101 +327,101 @@ the LHC, and even some <a href="https://en.wikipedia.org/wiki/Steam_Machine_(har
 
 <h3 id="files-and-directories">1. Files and directories</h3>
 
-<p>The basic unit in Linux is the <em>file</em>, just like on Windows. These files reside in a hierarchical system of directories that work just like folders in other operating systems. However, instead of clicking on them, you refer to files by name, with directories separated by slashes. For instance, the file called <code class="highlighter-rouge">zombie-army-roster.txt</code> in the directory <code class="highlighter-rouge">world-domination</code> itself in the directory <code class="highlighter-rouge">mad-science</code>, which resides in my home directory <code class="highlighter-rouge">/home/wfreeman</code> would be referred to as <code class="highlighter-rouge">/home/wfreeman/mad-science/world-domination/zombie-army-roster.txt</code>. Your home directory can be abbreviated with a tilde, and all paths can be given relative to the current directory.</p>
+<p>The basic unit in Linux is the <em>file</em>, just like on Windows. These files reside in a hierarchical system of directories that work just like folders in other operating systems. However, instead of clicking on them, you refer to files by name, with directories separated by slashes. For instance, the file called <code>zombie-army-roster.txt</code> in the directory <code>world-domination</code> itself in the directory <code>mad-science</code>, which resides in my home directory <code>/home/wfreeman</code> would be referred to as <code>/home/wfreeman/mad-science/world-domination/zombie-army-roster.txt</code>. Your home directory can be abbreviated with a tilde, and all paths can be given relative to the current directory.</p>
 
-<p>So, if I was currently in the directory <code class="highlighter-rouge">/home/wfreeman/mad-science/</code>, then <code class="highlighter-rouge">/home/wfreeman/mad-science/world-domination/zombie-army-roster.txt</code> is equivalent to <code class="highlighter-rouge">world-domination/zombie-army-roster.txt</code>. If you are referring to files in the current directory, you need only give their names.</p>
+<p>So, if I was currently in the directory <code>/home/wfreeman/mad-science/</code>, then <code>/home/wfreeman/mad-science/world-domination/zombie-army-roster.txt</code> is equivalent to <code>world-domination/zombie-army-roster.txt</code>. If you are referring to files in the current directory, you need only give their names.</p>
 
-<p><strong>Important exception:</strong> The exception is when you want to run a program: to run the program <code class="highlighter-rouge">reanimate</code> in the current directory, you must write <code class="highlighter-rouge">./reanimate.</code> (This is for security reasons.)</p>
+<p><strong>Important exception:</strong> The exception is when you want to run a program: to run the program <code>reanimate</code> in the current directory, you must write <code>./reanimate.</code> (This is for security reasons.)</p>
 
 <p>File names in Linux, like everything else, are case sensitive. It’s generally a good idea to use lowercase for everything unless you have a specific reason not to.</p>
 
 <h3 id="some-basic-commands">2. Some basic commands</h3>
 <p>To ask Linux to do something, you use the same syntax as you would use in English for imperative sentences (commands). For instance, if I wanted you to dance, I would say “Dance!”. If I wanted to be more specific about what I wanted you to dance, I’d say “Dance the funky chicken!” I could give you details about how I wanted you to do this: “Dance the funky chicken quickly!” This can be generalized as the following:</p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 [verb] [object] [modifiers]
 </code></p>
 
 <p>Linux works the same general way: a Linux command tends to have the form</p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 [command] [target] [modifiers]
 </code></p>
 
-<p>In short, you simply type the name of the program you want to run, followed by what you want to run it on. For instance, to run Firefox, just type <code class="highlighter-rouge">firefox</code>. (Try it!) If you want a program to run with a particular target, simply say so. For instance, if I want Firefox to tell me what’s going on in the world, I could type</p>
+<p>In short, you simply type the name of the program you want to run, followed by what you want to run it on. For instance, to run Firefox, just type <code>firefox</code>. (Try it!) If you want a program to run with a particular target, simply say so. For instance, if I want Firefox to tell me what’s going on in the world, I could type</p>
 
-<p><code class="highlighter-rouge">firefox news.bbc.co.uk</code>.</p>
+<p><code>firefox news.bbc.co.uk</code>.</p>
 
 <p>Try this! Note that it’s running a bit slowly: this is because the Firefox window, and everything in it, is actually being run elsewhere on campus, and the graphics are being streamed to you.</p>
 
-<p>If I want to run the text editor <code class="highlighter-rouge">nano</code> to edit the file <code class="highlighter-rouge">helloworld.c</code>, I write <code class="highlighter-rouge">nano helloworld.c</code>. (You will do this later today!)</p>
+<p>If I want to run the text editor <code>nano</code> to edit the file <code>helloworld.c</code>, I write <code>nano helloworld.c</code>. (You will do this later today!)</p>
 
-<h4 id="cat-and-less-display-a-file">2.1 <code class="highlighter-rouge">cat</code> and <code class="highlighter-rouge">less</code>: display a file</h4>
-<p>This simply dumps the contents of a file to the screen. For instance, <code class="highlighter-rouge">cat homework1.c</code> will display the file <code class="highlighter-rouge">homework1.c</code>. Note that displaying non-text files will give you gibberish. If the file is too big for the screen, use <code class="highlighter-rouge">less</code> instead; this is just like <code class="highlighter-rouge">cat</code>, but pauses after each screenful of output.</p>
+<h4 id="cat-and-less-display-a-file">2.1 <code>cat</code> and <code>less</code>: display a file</h4>
+<p>This simply dumps the contents of a file to the screen. For instance, <code>cat homework1.c</code> will display the file <code>homework1.c</code>. Note that displaying non-text files will give you gibberish. If the file is too big for the screen, use <code>less</code> instead; this is just like <code>cat</code>, but pauses after each screenful of output.</p>
 
-<h4 id="ls-list-files">2.2 <code class="highlighter-rouge">ls</code>: list files</h4>
-<p><code class="highlighter-rouge">ls</code> shows a list of files in the current directory. <code class="highlighter-rouge">ls -lh</code> shows more information about them. <code class="highlighter-rouge">ls -lt</code> sorts
-files by how new they are. (You can combine these options; try <code class="highlighter-rouge">ls -lth</code>.)</p>
+<h4 id="ls-list-files">2.2 <code>ls</code>: list files</h4>
+<p><code>ls</code> shows a list of files in the current directory. <code>ls -lh</code> shows more information about them. <code>ls -lt</code> sorts
+files by how new they are. (You can combine these options; try <code>ls -lth</code>.)</p>
 
-<h4 id="cd-change-directory">2.3 <code class="highlighter-rouge">cd</code>: change directory</h4>
-<p>This changes your current working directory. Type <code class="highlighter-rouge">cd ..</code> to go up a level, or <code class="highlighter-rouge">cd</code> (with no argument) to go back to your home directory.</p>
+<h4 id="cd-change-directory">2.3 <code>cd</code>: change directory</h4>
+<p>This changes your current working directory. Type <code>cd ..</code> to go up a level, or <code>cd</code> (with no argument) to go back to your home directory.</p>
 
-<h4 id="mkdir-create-a-directory">2.4 <code class="highlighter-rouge">mkdir</code>: create a directory</h4>
+<h4 id="mkdir-create-a-directory">2.4 <code>mkdir</code>: create a directory</h4>
 <p>Does what it says on the tin.</p>
 
-<h4 id="rm-remove-files">2.5 <code class="highlighter-rouge">rm</code>: remove files</h4>
+<h4 id="rm-remove-files">2.5 <code>rm</code>: remove files</h4>
 <p>Removes a list of files. Warning: there is no “trash bin” on Unix like there is on other operating systems.</p>
 
-<h4 id="cp-copy-files">2.6 <code class="highlighter-rouge">cp</code>: copy files</h4>
-<p>Do <code class="highlighter-rouge">cp file-one file-two</code> to make a copy of <code class="highlighter-rouge">file-one</code> called <code class="highlighter-rouge">file-two</code>. If <code class="highlighter-rouge">file-two</code> is a directory, a copy
+<h4 id="cp-copy-files">2.6 <code>cp</code>: copy files</h4>
+<p>Do <code>cp file-one file-two</code> to make a copy of <code>file-one</code> called <code>file-two</code>. If <code>file-two</code> is a directory, a copy
 with the same name will be created in the directory.</p>
 
-<h4 id="mv-move-files">2.7 <code class="highlighter-rouge">mv</code>: move files</h4>
-<p>Works just like <code class="highlighter-rouge">cp</code>, but moves the file instead.</p>
+<h4 id="mv-move-files">2.7 <code>mv</code>: move files</h4>
+<p>Works just like <code>cp</code>, but moves the file instead.</p>
 
 <h4 id="text-editors">2.8 Text editors</h4>
 
-<p><code class="highlighter-rouge">xemacs</code>: Graphical text editor with lots of features (somewhat beginner-friendly, powerful).</p>
+<p><code>xemacs</code>: Graphical text editor with lots of features (somewhat beginner-friendly, powerful).</p>
 
-<p><code class="highlighter-rouge">vim</code> and its graphical cousin <code class="highlighter-rouge">gvim</code>: Another option if you dont like emacs. It is less beginner-friendly but quite powerful. (I am typing this document in <code class="highlighter-rouge">vim</code> right now.) This is what I prefer, and you will see me use it.</p>
+<p><code>vim</code> and its graphical cousin <code>gvim</code>: Another option if you dont like emacs. It is less beginner-friendly but quite powerful. (I am typing this document in <code>vim</code> right now.) This is what I prefer, and you will see me use it.</p>
 
-<p><code class="highlighter-rouge">gedit</code> and <code class="highlighter-rouge">kate</code>: These are more “modern” graphical editors which may run slower over a remote graphics connection from home, but provide an attractive environment for you to code in similar to the things you’re used to in Windows.</p>
+<p><code>gedit</code> and <code>kate</code>: These are more “modern” graphical editors which may run slower over a remote graphics connection from home, but provide an attractive environment for you to code in similar to the things you’re used to in Windows.</p>
 
-<p>As with all programs, you can open a specific file by doing e.g. <code class="highlighter-rouge">gedit helloworld.c</code>.</p>
+<p>As with all programs, you can open a specific file by doing e.g. <code>gedit helloworld.c</code>.</p>
 
-<h4 id="gcc-the-c-compiler">2.9 <code class="highlighter-rouge">gcc</code>, the C compiler</h4>
+<h4 id="gcc-the-c-compiler">2.9 <code>gcc</code>, the C compiler</h4>
 
-<p>You need to use <code class="highlighter-rouge">gcc</code>, yet another Unix program, to turn the source code you write into machine code that the computer can run. To use it, do</p>
+<p>You need to use <code>gcc</code>, yet another Unix program, to turn the source code you write into machine code that the computer can run. To use it, do</p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 gcc program.c -lm -o program
 </code></p>
 
-<p>where <code class="highlighter-rouge">program.c</code> is the name of the file with your source code, and you want the output program (the one that you run) to be called <code class="highlighter-rouge">program</code>.</p>
+<p>where <code>program.c</code> is the name of the file with your source code, and you want the output program (the one that you run) to be called <code>program</code>.</p>
 
-<p><strong>Do not make the mistake</strong> of doing <code class="highlighter-rouge">-o program.c</code> this will overwrite your source code with the output program!</p>
+<p><strong>Do not make the mistake</strong> of doing <code>-o program.c</code> this will overwrite your source code with the output program!</p>
 
-<p>Adding <code class="highlighter-rouge">-lm</code> tells the compiler to link your program with the math library, which contains useful functions that we will use frequently.</p>
+<p>Adding <code>-lm</code> tells the compiler to link your program with the math library, which contains useful functions that we will use frequently.</p>
 
 <h3 id="input-and-output-redirection">3. Input and output redirection</h3>
-<p>This is the key to the versatility of the Linux command-line interface. Normally, when you run a Linux program, it takes input from the keyboard and prints output to the screen. But you can change this behavior with the <code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&gt;</code>, and <code class="highlighter-rouge">|</code> operators.</p>
+<p>This is the key to the versatility of the Linux command-line interface. Normally, when you run a Linux program, it takes input from the keyboard and prints output to the screen. But you can change this behavior with the <code>&lt;</code>, <code>&gt;</code>, and <code>|</code> operators.</p>
 
-<p>The input redirection operator &lt; tells a program to accept input from a file rather than from the keyboard. For instance, suppose I have a program called <code class="highlighter-rouge">wharrgarbl</code> that reads in input from the keyboard and does a calculation. 
-If I’m getting tired of typing in all the input every time, I can put it in a text file called <code class="highlighter-rouge">input</code>,
-and do <code class="highlighter-rouge">wharrgarbl &lt; input</code>.</p>
+<p>The input redirection operator &lt; tells a program to accept input from a file rather than from the keyboard. For instance, suppose I have a program called <code>wharrgarbl</code> that reads in input from the keyboard and does a calculation. 
+If I’m getting tired of typing in all the input every time, I can put it in a text file called <code>input</code>,
+and do <code>wharrgarbl &lt; input</code>.</p>
 
-<p>The output redirection operator &gt; does the same thing, but redirects the <em>output</em> of a program. This can be combined with input redirection. Suppose I have a program called <code class="highlighter-rouge">translate</code> that accepts typed text in one language and prints it in another. I can then use this program to translate a file by doing, for instance,</p>
+<p>The output redirection operator &gt; does the same thing, but redirects the <em>output</em> of a program. This can be combined with input redirection. Suppose I have a program called <code>translate</code> that accepts typed text in one language and prints it in another. I can then use this program to translate a file by doing, for instance,</p>
 
-<p><code class="highlighter-rouge">translate &lt; sindarin-text &gt; westron-text</code>.</p>
+<p><code>translate &lt; sindarin-text &gt; westron-text</code>.</p>
 
-<p>The pipe character <code class="highlighter-rouge">|</code> takes the output from one program and uses it as the input from another. Suppose I want to read in some text, translate it, and then display the output on the screen one page at a time using <code class="highlighter-rouge">less</code>. I can do this by doing <code class="highlighter-rouge">translate &lt; sindarin-text | less</code>. The output of <code class="highlighter-rouge">translate</code> will then be sent to the standard Unix program <code class="highlighter-rouge">less</code>, which will display it one screen at a time.</p>
+<p>The pipe character <code>|</code> takes the output from one program and uses it as the input from another. Suppose I want to read in some text, translate it, and then display the output on the screen one page at a time using <code>less</code>. I can do this by doing <code>translate &lt; sindarin-text | less</code>. The output of <code>translate</code> will then be sent to the standard Unix program <code>less</code>, which will display it one screen at a time.</p>
 
-<h3 id="graphing-using-graph">4. Graphing using <code class="highlighter-rouge">graph</code></h3>
-<p>There is a simple program called <code class="highlighter-rouge">graph</code> installed on the course computer that will make graphs for you. To use it, create a data file consisting of coordinate pairs. (Remember, you can do this using <code class="highlighter-rouge">printf</code> along with output redirection.) Then just type <code class="highlighter-rouge">graph [filename]</code>. If you have multiple files you’d like to graph, just list multiple filenames.</p>
+<h3 id="graphing-using-graph">4. Graphing using <code>graph</code></h3>
+<p>There is a simple program called <code>graph</code> installed on the course computer that will make graphs for you. To use it, create a data file consisting of coordinate pairs. (Remember, you can do this using <code>printf</code> along with output redirection.) Then just type <code>graph [filename]</code>. If you have multiple files you’d like to graph, just list multiple filenames.</p>
 
 <p>By default, the generated graph goes to your screen. If you’d like to save it to a PDF file instead, do</p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 graph [filename1] [filename2] ... -o mygraph.pdf.
 </code></p>
 
@@ -432,9 +432,9 @@ graph [filename1] [filename2] ... -o mygraph.pdf.
 <p>Even if you use long filenames, you dont have to type them out. When typing out a file or directory name at the command prompt, you can type the first few letters (enough to unambiguously identify the name) and hit Tab to have the system fill in the rest. If there are several files that “match”, hitting Tab will fill in all the characters that the names share. Try it!</p>
 
 <h4 id="task-control">5.2 Task control</h4>
-<p>Sometimes you want to run one program and leave it running in the background while you do other stuff at the command prompt. This is especially useful for graphical programs (like <code class="highlighter-rouge">xemacs</code>), since you can edit your program in the graphical window while testing it in the shell. To do this, add an ampersand after the command:</p>
+<p>Sometimes you want to run one program and leave it running in the background while you do other stuff at the command prompt. This is especially useful for graphical programs (like <code>xemacs</code>), since you can edit your program in the graphical window while testing it in the shell. To do this, add an ampersand after the command:</p>
 
-<p><code class="highlighter-rouge">xemacs program.c &amp;</code></p>
+<p><code>xemacs program.c &amp;</code></p>
 
 <p>If you forget to do this, you can suspend a running program with Ctrl-Z, then put it in the background by typing bg. This is equivalent to running it in the background in the first place. If you want to stop a program that’s running (perhaps you’ve written a program that’s stuck), use Control-C.</p>
 

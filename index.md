@@ -12,6 +12,12 @@ Direct download links for Xming:
 
 <h1> Welcome to Physics 307!</h1>
 
+### 11 October agenda:
+
+* Discuss the concept of symplectic integrators
+* Talk about a sample solution to HW3; see my code at <a href="pend-multiple.c">pend-multiple.c</a>
+* Work on HW4
+
 ### 6 October agenda:
 
 * Discuss the phenomenology of the swinging pendulum in Project 3
