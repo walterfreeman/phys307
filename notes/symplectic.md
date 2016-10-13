@@ -126,8 +126,8 @@ Repeat:
 
 {% highlight C %}
 Repeat:
-  x = x + v * dt;
   v = v + a(x) * dt;
+  x = x + v * dt;
 {% endhighlight %}
 
 ### Leapfrog: second order symplectic
