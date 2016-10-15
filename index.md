@@ -12,6 +12,13 @@ Direct download links for Xming:
 
 <h1> Welcome to Physics 307!</h1>
 
+### Sample leapfrog code for pendulum
+
+Here it is: <a href="pendulum.c">pendulum.c</a>
+
+To download this onto the course computer, you may type `curl -O http://walterfreeman.github.io/phys307/pendulum.c`; this will download
+it into the current directory.
+
 ### 11 October agenda:
 
 * Discuss the concept of symplectic integrators

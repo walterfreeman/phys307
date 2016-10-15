@@ -342,9 +342,9 @@ far better than their nominal order would reflect, and that in particular they a
 
 <p>Consider this seemingly-straightforward implementation of the Euler solver:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat:</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
-  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></figure>
 
 <p>This doesn’t actually implement Euler! Recall that the Euler prescription is to update both position and velocity based on the state at the <em>beginning</em> of the step, but here we’ve updated velocity based on the <em>already-updated</em> position! (To see how Euler
 is actually done, see the end of this file.)</p>
@@ -356,9 +356,9 @@ first-order method (say, Euler).</p>
 
 <p>We could also implement Euler-Cromer like this, using the old value of position to update velocity, and the new value to update position:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat:</span>
   <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></figure>
 
 <p>This is also a first-order symplectic solver.</p>
 
@@ -366,70 +366,70 @@ first-order method (say, Euler).</p>
 
 <p>In each of these approaches, either the position or the velocity is “ahead” of the other. We might imagine an alternate approach that alternates the two Euler-Cromer methods:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat:</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
   <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
   <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span></code></pre></div>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span></code></pre></figure>
 
-<p>This method advances both position and velocity by <code>dt</code>, without privileging one over the other. I’ll state, but not prove, that this is a <em>second-order symplectic</em> integrator, and is the one that we’ll use for the rest of this class. 
+<p>This method advances both position and velocity by <code class="highlighter-rouge">dt</code>, without privileging one over the other. I’ll state, but not prove, that this is a <em>second-order symplectic</em> integrator, and is the one that we’ll use for the rest of this class. 
 This has the advantage of being pretty simple to code (no “half” variables) and of conserving energy better than RK2.</p>
 
 <p>We could of course rewrite this:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat:</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
   <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span></code></pre></div>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span></code></pre></figure>
 
 <p>Since evaluating $a(x)$ is the time-intensive part of these calculations, this reduces the workload by half. One could also imagine doing the following:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="nl">Repeat</span><span class="p">:</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">Repeat</span><span class="o">:</span>
   <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></figure>
 
-<p>This also gives second-order symplectic behavior, but has the disadvantage that you never have access to <code>v</code> and <code>x</code> at the same time.</p>
+<p>This also gives second-order symplectic behavior, but has the disadvantage that you never have access to <code class="highlighter-rouge">v</code> and <code class="highlighter-rouge">x</code> at the same time.</p>
 
 <h2 id="summary-of-integrators">Summary of integrators</h2>
 
 <h3 id="euler-first-order">Euler: first order</h3>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat:</span>
   <span class="n">xnew</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
   <span class="n">vnew</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">xnew</span><span class="p">;</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="n">ynew</span><span class="p">;</span></code></pre></div>
+  <span class="n">y</span> <span class="o">=</span> <span class="n">ynew</span><span class="p">;</span> </code></pre></figure>
 
 <h3 id="rk2-second-order">RK2: second order</h3>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat:</span>
   <span class="n">xhalf</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
   <span class="n">vhalf</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">vhalf</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
-  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">xhalf</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">xhalf</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></figure>
 
 <h3 id="euler-cromer-position-first-first-order-symplectic">Euler-Cromer, position first: first order symplectic</h3>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat:</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
-  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></figure>
 
 <h3 id="euler-cromer-velocity-first-first-order-symplectic">Euler-Cromer, velocity first: first order symplectic</h3>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
-  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat:</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span></code></pre></figure>
 
 <h3 id="leapfrog-second-order-symplectic">Leapfrog: second order symplectic</h3>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat</span><span class="p">:</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="nl">Repeat:</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
   <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span></code></pre></div>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span></code></pre></figure>
 
-<p><strong>IMPORTANT NOTE:</strong> For most physical systems there is more than one pair of dynamical variables. (For instance, $x$, $y$, $v_x$, $v_y$ for the orbit.) In the above descriptions, the <code>x</code> updates are a shorthand to update <em>all</em> position variables, and the 
-<code>v</code> updates a shorthand to update <em>all</em> velocities.</p>
+<p><strong>IMPORTANT NOTE:</strong> For most physical systems there is more than one pair of dynamical variables. (For instance, $x$, $y$, $v_x$, $v_y$ for the orbit.) In the above descriptions, the <code class="highlighter-rouge">x</code> updates are a shorthand to update <em>all</em> position variables, and the 
+<code class="highlighter-rouge">v</code> updates a shorthand to update <em>all</em> velocities.</p>
 
       </div>
     </div>

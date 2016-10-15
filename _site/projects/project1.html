@@ -351,22 +351,22 @@ See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/sam
 <p><strong>Problem 2:</strong> Write a program that reads in a variable $N$, and then prints out the number of prime numbers less than or equal to $N$. (You may also want to print out the prime numbers themselves to verify that your code is working.) You may do this in any straightforward
 way that you can think of.</p>
 
-<p>As a hint, you might consider using a variable <code>isprime</code> that is initially set to one, but is set to zero once you locate a factor for each number.</p>
+<p>As a hint, you might consider using a variable <code class="highlighter-rouge">isprime</code> that is initially set to one, but is set to zero once you locate a factor for each number.</p>
 
-<p>Another hint: You will need two <code>for</code> loops for this problem: one to loop over numbers whose primacy you are checking, and another to loop over possible divisors as you check them. Remember <code>%</code> is the modulus operator, and that you can write something like</p>
+<p>Another hint: You will need two <code class="highlighter-rouge">for</code> loops for this problem: one to loop over numbers whose primacy you are checking, and another to loop over possible divisors as you check them. Remember <code class="highlighter-rouge">%</code> is the modulus operator, and that you can write something like</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// check whether the remainder of a/b is zero or not</span>
-<span class="p">{</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// check whether the remainder of a/b is zero or not
+</span><span class="p">{</span>
   <span class="k">do</span> <span class="n">something</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="k">else</span>
 <span class="p">{</span>
   <span class="k">do</span> <span class="n">something</span> <span class="k">else</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>to check to see if one number evenly divides another. Note that you do not need the
-<code>else</code> clause, if you don’t want to do anything in the event that <code>b</code> does not evenly divide
-<code>a</code>.</p>
+<code class="highlighter-rouge">else</code> clause, if you don’t want to do anything in the event that <code class="highlighter-rouge">b</code> does not evenly divide
+<code class="highlighter-rouge">a</code>.</p>
 
 <ul>
   <li>

@@ -321,7 +321,7 @@
         <center><h1>Notes on functions</h1></center>
 
 <p>C programs are broken into functions, each of which does one task. So far you have been writing programs
-that just use one function: <code>main()</code>. Every C program must have a <code>main()</code> function, since it is here that the
+that just use one function: <code class="highlighter-rouge">main()</code>. Every C program must have a <code class="highlighter-rouge">main()</code> function, since it is here that the
 program begins running.</p>
 
 <p>Typically, though, programs will involve tasks that are repeated many times, and it is useful to separate
@@ -329,81 +329,81 @@ out the code for those repetitive tasks without having to write every step each 
 way to compute $\sin(x)$ is with a Taylor series. Instead of writing a for loop to sum a Taylor series every
 time you want to compute the sine of an angle, it’s easier to just write a function that does this. Then you
 can test it, debug it, make sure it works, and then forget about what’s inside and just use it.
-You’ve already been using some of these functions: <code>exp</code>, <code>printf</code>, <code>scanf</code>, and so forth. However, you will
+You’ve already been using some of these functions: <code class="highlighter-rouge">exp</code>, <code class="highlighter-rouge">printf</code>, <code class="highlighter-rouge">scanf</code>, and so forth. However, you will
 need to write your own to make your life easier.</p>
 
-<p>Consider this program that generates a <code>graph</code> data file to plot the value of $\sin(x)$ and its derivative:</p>
+<p>Consider this program that generates a <code class="highlighter-rouge">graph</code> data file to plot the value of $\sin(x)$ and its derivative:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="lineno"> 1 </span><span class="cp">#include &lt;stdio.h&gt;</span>
-<span class="lineno"> 2 </span><span class="cp">#include &lt;math.h&gt;</span>
-<span class="lineno"> 3 </span>
-<span class="lineno"> 4 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="lineno"> 5 </span><span class="p">{</span>
-<span class="lineno"> 6 </span>  <span class="kt">float</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">dydx</span><span class="p">;</span>
-<span class="lineno"> 7 </span>  <span class="kt">float</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">;</span> <span class="c1">// our small value for doing derivatives</span>
-<span class="lineno"> 8 </span>
-<span class="lineno"> 9 </span>  <span class="c1">// first plot sin(x)</span>
-<span class="lineno">10 </span>  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="lineno">11 </span>  <span class="p">{</span>
-<span class="lineno">12 </span>    <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="lineno">13 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%e %e</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-<span class="lineno">14 </span>  <span class="p">}</span>
-<span class="lineno">15 </span>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;color red</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="lineno">16 </span>  
-<span class="lineno">17 </span>  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="lineno">18 </span>  <span class="p">{</span>
-<span class="lineno">19 </span>    <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
-<span class="lineno">20 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%e %e</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
-<span class="lineno">21 </span>  <span class="p">}</span>
-<span class="lineno">22 </span><span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">float</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">dydx</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">;</span> <span class="c1">// our small value for doing derivatives
+</span>
+  <span class="c1">// first plot sin(x)
+</span>  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"color red</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  
+  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
 <p>If we wanted to change the function being studied here, we need to change it in three places, and to do so we need to
 change things in three places. This is more work, and it adds a risk of breaking things.</p>
 
 <p>We have a sub-task here that we could pull out and put into a function, as follows:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="lineno"> 1 </span><span class="cp">#include &lt;stdio.h&gt;</span>
-<span class="lineno"> 2 </span><span class="cp">#include &lt;math.h&gt;</span>
-<span class="lineno"> 3 </span> 
-<span class="lineno"> 4 </span><span class="kt">float</span> <span class="nf">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">)</span>
-<span class="lineno"> 5 </span><span class="p">{</span>
-<span class="lineno"> 6 </span>  <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
-<span class="lineno"> 7 </span>  <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>  
-<span class="lineno"> 8 </span>  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>  
-<span class="lineno"> 9 </span><span class="p">}</span>
-<span class="lineno">10 </span>
-<span class="lineno">11 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="lineno">12 </span><span class="p">{</span>
-<span class="lineno">13 </span>  <span class="kt">float</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">dydx</span><span class="p">;</span>
-<span class="lineno">14 </span>  <span class="kt">float</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">;</span> <span class="c1">// our small value for doing derivatives</span>
-<span class="lineno">15 </span>
-<span class="lineno">16 </span>  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="lineno">17 </span>  <span class="p">{</span>
-<span class="lineno">18 </span>    <span class="n">y</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="lineno">19 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%e %e</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-<span class="lineno">20 </span>  <span class="p">}</span>
-<span class="lineno">21 </span>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;color red</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="lineno">22 </span>
-<span class="lineno">23 </span>  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="lineno">24 </span>  <span class="p">{</span>
-<span class="lineno">25 </span>    <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
-<span class="lineno">26 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%e %e</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
-<span class="lineno">27 </span>  <span class="p">}</span>
-<span class="lineno">28 </span><span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+</span> 
+<span class="kt">float</span> <span class="nf">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
+  <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>  
+  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>  
+<span class="p">}</span>
 
-<p>Now we can change the function being studied without touching <code>main()</code>, or change the way the derivative is calculated without touching the function.</p>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">float</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">dydx</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">;</span> <span class="c1">// our small value for doing derivatives
+</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"color red</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Now we can change the function being studied without touching <code class="highlighter-rouge">main()</code>, or change the way the derivative is calculated without touching the function.</p>
 
 <p>This makes it easier to work with your code, and reduces the risk of introducing bugs when you fiddle with things.</p>
 
 <p>So, how does this work?</p>
 
-<p>As soon as the program gets to <code>f(x)</code>, it jumps out of the <code>main</code> function and into the <code>f</code> function.
-When it does, the value of <code>x</code> is “passed” to <code>f()</code>, and is stored in the variable <code>value</code>. The function header
-<code>float f(float value)</code> means ”This is a function called <code>f</code>; its return type is <code>float</code>, and it has one variable
-passed to it (called an argument) of type <code>float</code> that will be stored in <code>value</code>.”</p>
+<p>As soon as the program gets to <code class="highlighter-rouge">f(x)</code>, it jumps out of the <code class="highlighter-rouge">main</code> function and into the <code class="highlighter-rouge">f</code> function.
+When it does, the value of <code class="highlighter-rouge">x</code> is “passed” to <code class="highlighter-rouge">f()</code>, and is stored in the variable <code class="highlighter-rouge">value</code>. The function header
+<code class="highlighter-rouge">float f(float value)</code> means ”This is a function called <code class="highlighter-rouge">f</code>; its return type is <code class="highlighter-rouge">float</code>, and it has one variable
+passed to it (called an argument) of type <code class="highlighter-rouge">float</code> that will be stored in <code class="highlighter-rouge">value</code>.”</p>
 
-<p>The <code>f()</code> function does its thing, and then will return a value. Back in main, the expression
-<code>f(x)</code> will be replaced by whatever the return value was – just like how you’re used to mathematical
+<p>The <code class="highlighter-rouge">f()</code> function does its thing, and then will return a value. Back in main, the expression
+<code class="highlighter-rouge">f(x)</code> will be replaced by whatever the return value was – just like how you’re used to mathematical
 functions working.</p>
 
 <p>A few points to keep in mind:</p>
@@ -411,14 +411,14 @@ functions working.</p>
 <ol>
   <li>
     <p>A function can have more than one argument. If it does, they are passed in in the order that they are
-entered. For instance, the function declaration <code>int blah(double foo, int bar)</code> declares a function
-that expects a <code>double</code> and an <code>int</code> as arguments, given in that order, and whose return value is an <code>int</code>.</p>
+entered. For instance, the function declaration <code class="highlighter-rouge">int blah(double foo, int bar)</code> declares a function
+that expects a <code class="highlighter-rouge">double</code> and an <code class="highlighter-rouge">int</code> as arguments, given in that order, and whose return value is an <code class="highlighter-rouge">int</code>.</p>
   </li>
   <li>
     <p>Variables within each function are separate. The only ways (that you know of so far) for functions to
 share variables is by passing arguments to functions and return values from functions. In the program
-above, <code>main()</code> has a variable called <code>y</code>, and so does <code>f()</code>. They are completely independent, and in
-fact <code>main()</code> has no way of even knowing what variables are used within the functions it calls.</p>
+above, <code class="highlighter-rouge">main()</code> has a variable called <code class="highlighter-rouge">y</code>, and so does <code class="highlighter-rouge">f()</code>. They are completely independent, and in
+fact <code class="highlighter-rouge">main()</code> has no way of even knowing what variables are used within the functions it calls.</p>
   </li>
   <li>
     <p>A function must be declared before it is used. (This is why main() is at the bottom of my program
@@ -428,33 +428,33 @@ same as the normal function declaration, but it has a semicolon after it. So, fo
   </li>
 </ol>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="lineno"> 1 </span><span class="kt">float</span> <span class="nf">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">);</span> <span class="c1">// prototype</span>
-<span class="lineno"> 2 </span>
-<span class="lineno"> 3 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="lineno"> 4 </span><span class="p">{</span>
-<span class="lineno"> 5 </span>  <span class="kt">float</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">dydx</span><span class="p">;</span>
-<span class="lineno"> 6 </span>  <span class="kt">float</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">;</span> <span class="c1">// our small value for doing derivatives</span>
-<span class="lineno"> 7 </span>
-<span class="lineno"> 8 </span>  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="lineno"> 9 </span>  <span class="p">{</span>
-<span class="lineno">10 </span>    <span class="n">y</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="lineno">11 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%e %e</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-<span class="lineno">12 </span>  <span class="p">}</span>
-<span class="lineno">13 </span>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;color red</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="lineno">14 </span>
-<span class="lineno">15 </span>  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="lineno">16 </span>  <span class="p">{</span>
-<span class="lineno">17 </span>    <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
-<span class="lineno">18 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%e %e</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
-<span class="lineno">19 </span>  <span class="p">}</span>
-<span class="lineno">20 </span><span class="p">}</span>
-<span class="lineno">21 </span>
-<span class="lineno">22 </span><span class="kt">float</span> <span class="nf">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">)</span>
-<span class="lineno">23 </span><span class="p">{</span>
-<span class="lineno">24 </span>  <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
-<span class="lineno">25 </span>  <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
-<span class="lineno">26 </span>  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>     
-<span class="lineno">27 </span><span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">float</span> <span class="n">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">);</span> <span class="c1">// prototype
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">float</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">dydx</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">;</span> <span class="c1">// our small value for doing derivatives
+</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"color red</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">float</span> <span class="nf">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
+  <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">y</span><span class="p">;</span>     
+<span class="p">}</span></code></pre></figure>
 
 
       </div>
