@@ -1,21 +1,21 @@
 <center><h1>Notes on graph</h1></center>
 
-<p>Here’s the documentation for <code>graph</code>, our simple plotting tool.</p>
+<p>Here’s the documentation for <code class="highlighter-rouge">graph</code>, our simple plotting tool.</p>
 
 <p>To print a graph to the screen, type at the Linux prompt</p>
 
-<p><code>graph &lt;filename&gt;</code></p>
+<p><code class="highlighter-rouge">graph &lt;filename&gt;</code></p>
 
-<p>where <code>&lt;filename&gt;</code> is a file containing pairs of numbers, each on a separate line, for instance</p>
+<p>where <code class="highlighter-rouge">&lt;filename&gt;</code> is a file containing pairs of numbers, each on a separate line, for instance</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="mi">1</span> <span class="mi">1</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="mi">1</span> <span class="mi">1</span>
 <span class="mi">2</span> <span class="mi">4</span>
 <span class="mi">3</span> <span class="mi">9</span>
-<span class="mi">4</span> <span class="mi">16</span></code></pre></div>
+<span class="mi">4</span> <span class="mi">16</span></code></pre></figure>
 
 <p>If you type instead</p>
 
-<p><code>graph &lt;file1&gt; &lt;file2&gt; &lt;file3&gt;</code> …</p>
+<p><code class="highlighter-rouge">graph &lt;file1&gt; &lt;file2&gt; &lt;file3&gt;</code> …</p>
 
 <p>you’ll get graphs of each file in a diferent color.</p>
 
@@ -23,17 +23,17 @@
 
 <ul>
   <li>
-    <p>Writing <code>dots</code> on a line by itself will make <code>graph</code> display individual points rather than connecting points together
+    <p>Writing <code class="highlighter-rouge">dots</code> on a line by itself will make <code class="highlighter-rouge">graph</code> display individual points rather than connecting points together
 with lines.</p>
   </li>
   <li>
-    <p>Writing <code>xlabel &lt;text&gt;</code> or <code>ylabel &lt;text&gt;</code> by themselves on a line will label the axes.</p>
+    <p>Writing <code class="highlighter-rouge">xlabel &lt;text&gt;</code> or <code class="highlighter-rouge">ylabel &lt;text&gt;</code> by themselves on a line will label the axes.</p>
   </li>
   <li>
-    <p>Writing <code>xlog</code> or <code>ylog</code> will make the x- or y-axes logarithmic. This will be important next week!</p>
+    <p>Writing <code class="highlighter-rouge">xlog</code> or <code class="highlighter-rouge">ylog</code> will make the x- or y-axes logarithmic. This will be important next week!</p>
   </li>
 </ul>
 
 <p>To save your graph as a PDF, do</p>
 
-<p><code>graph &lt;file1&gt; &lt;file2&gt; ... -o &lt;something.pdf&gt;</code>. You can then transfer it to your computer with WinSCP.</p>
+<p><code class="highlighter-rouge">graph &lt;file1&gt; &lt;file2&gt; ... -o &lt;something.pdf&gt;</code>. You can then transfer it to your computer with WinSCP.</p>

@@ -12,6 +12,12 @@ Direct download links for Xming:
 
 <h1> Welcome to Physics 307!</h1>
 
+# 18 October agenda:
+
+* Have a quiz
+* Talk about orbits in which the Sun isn't fixed at the origin
+* Start HW5
+
 ### Sample leapfrog code for pendulum
 
 Here it is: <a href="pendulum.c">pendulum.c</a>

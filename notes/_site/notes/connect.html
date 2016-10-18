@@ -45,16 +45,14 @@ its own graphics.</p>
 
 <p>To connect, just get a terminal window and type</p>
 
-<p><code>
-ssh -X phy-compphysclass.syr.edu -l &lt;username&gt;
-</code></p>
+<div class="highlighter-rouge">ssh -X phy-compphysclass.syr.edu -l &lt;username&gt;
+</div>
 
 <p>If you are on a slow connection, do instead:</p>
 
-<p><code>
-ssh -XC phy-compphysclass.syr.edu -l &lt;username&gt;
-</code></p>
+<div class="highlighter-rouge">ssh -XC phy-compphysclass.syr.edu -l &lt;username&gt;
+</div>
 
 <p>This may speed up graphics somewhat; the -C option tells the computers to compress graphics, which will use extra computing power to save a little bandwidth.</p>
 
-<p><strong>Note for Mac users:</strong> In order to get the <code>-X</code> option to work, giving you graphics output, you will need to download something called XQuartz for Mac. I don’t know the details, since I don’t have a Mac; investigate this, and let me know what you needed to do!</p>
+<p><strong>Note for Mac users:</strong> In order to get the <code class="highlighter-rouge">-X</code> option to work, giving you graphics output, you will need to download something called XQuartz for Mac. I don’t know the details, since I don’t have a Mac; investigate this, and let me know what you needed to do!</p>

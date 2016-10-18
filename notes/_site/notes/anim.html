@@ -1,26 +1,26 @@
-<h2 id="notes-on-anim-a-simple-animation-utility">Notes on <code>anim</code>, a simple animation utility</h2>
+<h2 id="notes-on-anim-a-simple-animation-utility">Notes on <code class="highlighter-rouge">anim</code>, a simple animation utility</h2>
 
 <p>As we’re going to now focus on simulating things that move, it’s handy to be able to see animations of what they look like. You can do this with a little program
-<code>anim</code> that I wrote. This program reads in lines of text (using <code>scanf</code>), interprets them as instructions to draw on the screen, and then does so.</p>
+<code class="highlighter-rouge">anim</code> that I wrote. This program reads in lines of text (using <code class="highlighter-rouge">scanf</code>), interprets them as instructions to draw on the screen, and then does so.</p>
 
-<p>You can try it by running <code>anim</code> on the course computer, and then typing things in. Here are some simple commands; note that monospace Roman letters <code>like this</code> are
+<p>You can try it by running <code class="highlighter-rouge">anim</code> on the course computer, and then typing things in. Here are some simple commands; note that monospace Roman letters <code class="highlighter-rouge">like this</code> are
 meant to be typed literally, while Italic letters <em>like this</em> are to be replaced with numerical values.</p>
 
 <ul>
-  <li><code>c</code> <em>x</em> <em>y</em> <em>r</em> – draw a circle at location <em>x,y</em> with radius <em>r</em></li>
-  <li><code>l</code> <em>x1 y1 x2 y2</em> – draw a line from <em>x1,y1</em> to <em>x2,y2</em></li>
-  <li><code>C</code> <em>r</em> <em>g</em> <em>b</em> – change color to the RGB triplet given, where each value goes from 0 to 1</li>
-  <li><code>F</code> – flush the frame</li>
+  <li><code class="highlighter-rouge">c</code> <em>x</em> <em>y</em> <em>r</em> – draw a circle at location <em>x,y</em> with radius <em>r</em></li>
+  <li><code class="highlighter-rouge">l</code> <em>x1 y1 x2 y2</em> – draw a line from <em>x1,y1</em> to <em>x2,y2</em></li>
+  <li><code class="highlighter-rouge">C</code> <em>r</em> <em>g</em> <em>b</em> – change color to the RGB triplet given, where each value goes from 0 to 1</li>
+  <li><code class="highlighter-rouge">F</code> – flush the frame</li>
 </ul>
 
-<p>Try it: for instance, run <code>anim</code>, then type the following:</p>
+<p>Try it: for instance, run <code class="highlighter-rouge">anim</code>, then type the following:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">c</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">c</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span>
 <span class="n">C</span> <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span>
-<span class="n">l</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mf">0.5</span> <span class="mf">0.8</span>
-<span class="n">F</span></code></pre></div>
+<span class="n">l</span> <span class="o">-</span><span class="mi">1</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span> <span class="mi">0</span><span class="p">.</span><span class="mi">8</span>
+<span class="n">F</span></code></pre></figure>
 
-<p>Note that the <code>anim</code> window is blank until the first <code>F</code> command, which actually transfers the graphics
+<p>Note that the <code class="highlighter-rouge">anim</code> window is blank until the first <code class="highlighter-rouge">F</code> command, which actually transfers the graphics
 commands you’ve given it to the screen.</p>
 
 <p>These commands, in order, draw a circle with radius 1 at the origin; switch the color to red; draw a line from -1,-1 to 0.5,0.8; and finally send the frame to the display.</p>
@@ -30,76 +30,76 @@ commands you’ve given it to the screen.</p>
 <p>The trick lies in the Linux “pipe” operator. You are already familiar with the output redirection operator 
 $\tt \rangle$, which sends the output of one program to a text file. For instance, you might have run</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="p">.</span><span class="o">/</span><span class="n">trapezoid_rule</span> <span class="o">&gt;</span> <span class="n">trap_err</span><span class="p">.</span><span class="n">txt</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="p">.</span><span class="o">/</span><span class="n">trapezoid_rule</span> <span class="o">&gt;</span> <span class="n">trap_err</span><span class="p">.</span><span class="n">txt</span></code></pre></figure>
 
 <p>for last week’s homework.</p>
 
 <table>
   <tbody>
     <tr>
-      <td>However, what you want to do here is send the output of one program (yours) to another program (<code>anim</code>). This is done with the</td>
+      <td>However, what you want to do here is send the output of one program (yours) to another program (<code class="highlighter-rouge">anim</code>). This is done with the</td>
       <td>operator, for instance</td>
     </tr>
   </tbody>
 </table>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="p">.</span><span class="o">/</span><span class="n">simulate_pendulum</span> <span class="o">|</span> <span class="n">anim</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="p">.</span><span class="o">/</span><span class="n">simulate_pendulum</span> <span class="o">|</span> <span class="n">anim</span></code></pre></figure>
 
-<p>If you then print out <code>anim</code> drawing commands using your program, they will be redirected to <code>anim</code> and you’ll see the animation on screen.</p>
+<p>If you then print out <code class="highlighter-rouge">anim</code> drawing commands using your program, they will be redirected to <code class="highlighter-rouge">anim</code> and you’ll see the animation on screen.</p>
 
-<p>Try running the following program. (If you’d like to paste it into your editor and gedit isn’t letting you cut and paste on the Windows boxes, try using the editors <code>nano</code> or <code>vim</code> instead of <code>gedit</code>.)</p>
+<p>Try running the following program. (If you’d like to paste it into your editor and gedit isn’t letting you cut and paste on the Windows boxes, try using the editors <code class="highlighter-rouge">nano</code> or <code class="highlighter-rouge">vim</code> instead of <code class="highlighter-rouge">gedit</code>.)</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
-<span class="cp">#include &lt;math.h&gt;</span>
-
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+</span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="kt">double</span> <span class="n">theta</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">;</span><span class="n">theta</span><span class="o">+=</span><span class="mf">0.01</span><span class="p">)</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">;</span><span class="n">theta</span><span class="o">+=</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">x</span><span class="o">=</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
     <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;l 0.0 0.0 %e %e</span><span class="se">\n</span><span class="s">,x,y);  // draw a line</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;c %e %e 0.05</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span> <span class="c1">// draw a circle</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;F</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span> <span class="c1">// flush frame</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"l 0.0 0.0 %e %e</span><span class="se">\n</span><span class="s">,x,y);  // draw a line</span><span class="err">
+</span><span class="s">    printf("</span><span class="n">c</span> <span class="o">%</span><span class="n">e</span> <span class="o">%</span><span class="n">e</span> <span class="mi">0</span><span class="p">.</span><span class="mo">05</span><span class="err">\</span><span class="n">n</span><span class="s">",x,y); // draw a circle</span><span class="err">
+</span><span class="s">    printf("</span><span class="n">F</span><span class="err">\</span><span class="n">n</span><span class="s">"); // flush frame</span><span class="err">
+</span><span class="s">  }</span><span class="err">
+</span><span class="s">}</span></code></pre></figure>
 
-<p>Run this program first by piping its output through <code>less</code> to see its output one screen at a time, <em>i.e.</em> <code>./animtest | less</code>. Note what it is doing, and predict what the animation will look like.</p>
+<p>Run this program first by piping its output through <code class="highlighter-rouge">less</code> to see its output one screen at a time, <em>i.e.</em> <code class="highlighter-rouge">./animtest | less</code>. Note what it is doing, and predict what the animation will look like.</p>
 
-<p>Then, run it using <code>anim</code>: <code>./animtest | anim</code>. What does it do? Is this what you expected? This is very similar to what you will do to animate your pendulum, except in this case your angle will be the result 
+<p>Then, run it using <code class="highlighter-rouge">anim</code>: <code class="highlighter-rouge">./animtest | anim</code>. What does it do? Is this what you expected? This is very similar to what you will do to animate your pendulum, except in this case your angle will be the result 
 of solving a differential equation.</p>
 
-<p>Note that even though your program can calculate very fast, <code>anim</code> can only draw 60 frames per second (on most monitors). This means that you may not want to draw every frame to the
+<p>Note that even though your program can calculate very fast, <code class="highlighter-rouge">anim</code> can only draw 60 frames per second (on most monitors). This means that you may not want to draw every frame to the
 screen. You can avoid this by only printing one out of every $N$ frames to the screen, as follows:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="lineno"> 1 </span><span class="cp">#include &lt;stdio.h&gt;</span>
-<span class="lineno"> 2 </span><span class="cp">#include &lt;math.h&gt;</span>
-<span class="lineno"> 3 </span>
-<span class="lineno"> 4 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="lineno"> 5 </span><span class="p">{</span>
-<span class="lineno"> 6 </span>    <span class="kt">double</span> <span class="n">theta</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
-<span class="lineno"> 7 </span>    <span class="kt">int</span> <span class="n">frame_skip</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span><span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="lineno"> 8 </span>    <span class="k">for</span> <span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">;</span><span class="n">theta</span><span class="o">+=</span><span class="mf">0.0001</span><span class="p">)</span>
-<span class="lineno"> 9 </span>      <span class="p">{</span>
-<span class="lineno">10 </span>        
-<span class="lineno">11 </span>        <span class="n">x</span><span class="o">=</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
-<span class="lineno">12 </span>        <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
-<span class="lineno">13 </span>        <span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">%</span> <span class="n">frame_skip</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// if the current frame number is divisible by frame_skip, draw a frame</span>
-<span class="lineno">14 </span>        <span class="p">{</span>
-<span class="lineno">15 </span>          <span class="n">printf</span><span class="p">(</span><span class="s">&quot;l 0.0 0.0 %e %e</span><span class="se">\n</span><span class="s">,x,y);  // draw a line</span>
-<span class="lineno">16 </span>          <span class="n">printf</span><span class="p">(</span><span class="s">&quot;c %e %e 0.05</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span> <span class="c1">// draw a circle</span>
-<span class="lineno">17 </span>          <span class="n">printf</span><span class="p">(</span><span class="s">&quot;F</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span> <span class="c1">// flush frame</span>
-<span class="lineno">18 </span>        <span class="p">}</span>
-<span class="lineno">19 </span>
-<span class="lineno">20 </span>        <span class="n">frame</span><span class="o">++</span><span class="p">;</span>
-<span class="lineno">21 </span>      <span class="p">}</span>
-<span class="lineno">22 </span><span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">theta</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">frame_skip</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span><span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="mi">1</span><span class="p">;</span><span class="n">theta</span><span class="o">+=</span><span class="mi">0</span><span class="p">.</span><span class="mo">0001</span><span class="p">)</span>
+      <span class="p">{</span>
+        
+        <span class="n">x</span><span class="o">=</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">%</span> <span class="n">frame_skip</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// if the current frame number is divisible by frame_skip, draw a frame
+</span>        <span class="p">{</span>
+          <span class="n">printf</span><span class="p">(</span><span class="s">"l 0.0 0.0 %e %e</span><span class="se">\n</span><span class="s">,x,y);  // draw a line</span><span class="err">
+</span><span class="s">          printf("</span><span class="n">c</span> <span class="o">%</span><span class="n">e</span> <span class="o">%</span><span class="n">e</span> <span class="mi">0</span><span class="p">.</span><span class="mo">05</span><span class="err">\</span><span class="n">n</span><span class="s">",x,y); // draw a circle</span><span class="err">
+</span><span class="s">          printf("</span><span class="n">F</span><span class="err">\</span><span class="n">n</span><span class="s">"); // flush frame</span><span class="err">
+</span><span class="s">        }</span><span class="err">
 
-<p>In the preceding code, try changing the <code>frame_skip</code> value and seeing the effect. Altering the skip value in your future simulations will allow you to visualize results at a useful speed, while allowing the computer
+</span><span class="s">        frame++;</span><span class="err">
+</span><span class="s">      }</span><span class="err">
+</span><span class="s">}</span></code></pre></figure>
+
+<p>In the preceding code, try changing the <code class="highlighter-rouge">frame_skip</code> value and seeing the effect. Altering the skip value in your future simulations will allow you to visualize results at a useful speed, while allowing the computer
 to use more than one Euler or RK2 timestep per frame for greater precision.</p>
 
-<p><code>Anim</code> also can be controlled from within the window. Here are some commands that can be used from within <code>anim</code>, while it is running.</p>
+<p><code class="highlighter-rouge">Anim</code> also can be controlled from within the window. Here are some commands that can be used from within <code class="highlighter-rouge">anim</code>, while it is running.</p>
 
 <ul>
   <li>-/=: zoom in and out (also: mousewheel)</li>
@@ -109,62 +109,62 @@ to use more than one Euler or RK2 timestep per frame for greater precision.</p>
   <li>shift-H: show a help screen</li>
 </ul>
 
-<p>There are many more <code>anim</code> commands, including many which draw in three dimensions (more on those when we start doing things in 3D!) Here are some of the others that will be useful to you:</p>
+<p>There are many more <code class="highlighter-rouge">anim</code> commands, including many which draw in three dimensions (more on those when we start doing things in 3D!) Here are some of the others that will be useful to you:</p>
 
 <ul>
-  <li><code>t</code> and <code>T</code>: these commands can be used to draw text on the animation. They are <em>two-line</em> commands. The syntax is</li>
+  <li><code class="highlighter-rouge">t</code> and <code class="highlighter-rouge">T</code>: these commands can be used to draw text on the animation. They are <em>two-line</em> commands. The syntax is</li>
 </ul>
 
 <p><br />
-<code>t</code> <em>x y</em><br />
+<code class="highlighter-rouge">t</code> <em>x y</em><br />
 <em>(displayed text)</em><br /></p>
 
 <p>So, in short, you first print “t” followed by the x,y coordinates of where you want the text to appear, and then on the <em>next line</em>, print the text you’d like to display. For instance, to print “The cake is a lie” at coordinates (0.6, 0.8), you would print</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">t</span> <span class="mf">0.6</span> <span class="mf">0.8</span>
-<span class="n">The</span> <span class="n">cake</span> <span class="n">is</span> <span class="n">a</span> <span class="n">lie</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="n">t</span> <span class="mi">0</span><span class="p">.</span><span class="mi">6</span> <span class="mi">0</span><span class="p">.</span><span class="mi">8</span>
+<span class="n">The</span> <span class="n">cake</span> <span class="n">is</span> <span class="n">a</span> <span class="n">lie</span></code></pre></figure>
 
 <p>What’s the difference between “t” and “T”? Using “t” prints text at particular <em>simulation coordinates</em>, so scrolling around will move your text around the screen. This is particularly useful for labeling points on figures. Using “T” (capital) fixes your text to a particular place in the window
 (whose coordinates are (-1,-1) to (1,1); this is useful for annotating a simulation with the current time, energy, etc.)</p>
 
 <h3 id="output-bypass-read-this">Output bypass (read this!)</h3>
 
-<p><code>Anim</code>, used as detailed above, hijacks your program’s output. When you run <code>./myprogram | anim</code>, you are directing all of the <code>printf</code> statements (sending text to “standard output”) to <code>anim</code> instead of the console. This makes certain things inconvenient:</p>
+<p><code class="highlighter-rouge">Anim</code>, used as detailed above, hijacks your program’s output. When you run <code class="highlighter-rouge">./myprogram | anim</code>, you are directing all of the <code class="highlighter-rouge">printf</code> statements (sending text to “standard output”) to <code class="highlighter-rouge">anim</code> instead of the console. This makes certain things inconvenient:</p>
 
 <ul>
-  <li>you can’t use debugging <code>printf</code>s</li>
-  <li>you can’t redirect output intended for <code>graph</code> to a file</li>
+  <li>you can’t use debugging <code class="highlighter-rouge">printf</code>s</li>
+  <li>you can’t redirect output intended for <code class="highlighter-rouge">graph</code> to a file</li>
 </ul>
 
-<p>How do you get around this? The answer is with the <code>!</code> command in <code>anim</code>. <strong>This is important:</strong> if <code>anim</code> sees any line beginning with a <code>!</code>, it will chop the <code>!</code> off and print it without change to the screen.</p>
+<p>How do you get around this? The answer is with the <code class="highlighter-rouge">!</code> command in <code class="highlighter-rouge">anim</code>. <strong>This is important:</strong> if <code class="highlighter-rouge">anim</code> sees any line beginning with a <code class="highlighter-rouge">!</code>, it will chop the <code class="highlighter-rouge">!</code> off and print it without change to the screen.</p>
 
 <p>Try out this code:</p>
 
-<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="lineno"> 1 </span><span class="cp">#include &lt;stdio.h&gt;</span>
-<span class="lineno"> 2 </span><span class="cp">#include &lt;math.h&gt;</span>
-<span class="lineno"> 3 </span>
-<span class="lineno"> 4 </span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="lineno"> 5 </span><span class="p">{</span>
-<span class="lineno"> 6 </span>  <span class="kt">double</span> <span class="n">theta</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
-<span class="lineno"> 7 </span>  <span class="kt">int</span> <span class="n">frame_skip</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span><span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">circles</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="lineno"> 8 </span>  <span class="k">for</span> <span class="p">(</span><span class="n">circles</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">circles</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span> <span class="n">circles</span><span class="o">++</span><span class="p">)</span>
-<span class="lineno"> 9 </span>  <span class="p">{</span>
-<span class="lineno">10 </span>    <span class="k">for</span> <span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">theta</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">M_PI</span><span class="p">;</span><span class="n">theta</span><span class="o">+=</span><span class="mf">0.0001</span><span class="p">)</span>
-<span class="lineno">11 </span>    <span class="p">{</span>
-<span class="lineno">12 </span>
-<span class="lineno">13 </span>      <span class="n">x</span><span class="o">=</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
-<span class="lineno">14 </span>      <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
-<span class="lineno">15 </span>      <span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">%</span> <span class="n">frame_skip</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// if the current frame number is divisible by frame_skip, draw a frame</span>
-<span class="lineno">16 </span>      <span class="p">{</span>
-<span class="lineno">17 </span>	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;l 0.0 0.0 %e %e</span><span class="se">\n</span><span class="s">,x,y);  // draw a line</span>
-<span class="lineno">18 </span>	  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;c %e %e 0.05</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">*</span><span class="mf">1.05</span><span class="p">,</span><span class="n">y</span><span class="o">*</span><span class="mf">1.05</span><span class="p">);</span> <span class="c1">// draw a circle</span>
-<span class="lineno">19 </span>	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;t %e %e</span><span class="se">\n</span><span class="s">theta = %e</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="o">*</span><span class="mf">1.5</span><span class="p">,</span><span class="n">y</span><span class="o">*</span><span class="mf">1.5</span><span class="p">,</span><span class="n">theta</span><span class="p">);</span> <span class="c1">// notice that this prints two lines</span>
-<span class="lineno">20 </span>	<span class="n">printf</span><span class="p">(</span><span class="s">&quot;F</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span> <span class="c1">// flush frame</span>
-<span class="lineno">21 </span>      <span class="p">}</span>
-<span class="lineno">22 </span>
-<span class="lineno">23 </span>      <span class="n">frame</span><span class="o">++</span><span class="p">;</span>
-<span class="lineno">24 </span>    <span class="p">}</span>
-<span class="lineno">25 </span>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;!Completed %d cycles</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">circles</span><span class="p">);</span>
-<span class="lineno">26 </span>  <span class="p">}</span>
-<span class="lineno">27 </span><span class="p">}</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">double</span> <span class="n">theta</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">frame_skip</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span><span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">circles</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">circles</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">circles</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span> <span class="n">circles</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">theta</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">theta</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">M_PI</span><span class="p">;</span><span class="n">theta</span><span class="o">+=</span><span class="mi">0</span><span class="p">.</span><span class="mo">0001</span><span class="p">)</span>
+    <span class="p">{</span>
+
+      <span class="n">x</span><span class="o">=</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
+      <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">%</span> <span class="n">frame_skip</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// if the current frame number is divisible by frame_skip, draw a frame
+</span>      <span class="p">{</span>
+	<span class="n">printf</span><span class="p">(</span><span class="s">"l 0.0 0.0 %e %e</span><span class="se">\n</span><span class="s">,x,y);  // draw a line</span><span class="err">
+</span><span class="s">	  printf("</span><span class="n">c</span> <span class="o">%</span><span class="n">e</span> <span class="o">%</span><span class="n">e</span> <span class="mi">0</span><span class="p">.</span><span class="mo">05</span><span class="err">\</span><span class="n">n</span><span class="s">",x*1.05,y*1.05); // draw a circle</span><span class="err">
+</span><span class="s">	printf("</span><span class="n">t</span> <span class="o">%</span><span class="n">e</span> <span class="o">%</span><span class="n">e</span><span class="err">\</span><span class="n">ntheta</span> <span class="o">=</span> <span class="o">%</span><span class="n">e</span><span class="err">\</span><span class="n">n</span><span class="s">",x*1.5,y*1.5,theta); // notice that this prints two lines</span><span class="err">
+</span><span class="s">	printf("</span><span class="n">F</span><span class="err">\</span><span class="n">n</span><span class="s">"); // flush frame</span><span class="err">
+</span><span class="s">      }</span><span class="err">
+
+</span><span class="s">      frame++;</span><span class="err">
+</span><span class="s">    }</span><span class="err">
+</span><span class="s">    printf("</span><span class="o">!</span><span class="n">Completed</span> <span class="o">%</span><span class="n">d</span> <span class="n">cycles</span><span class="err">\</span><span class="n">n</span><span class="s">",circles);</span><span class="err">
+</span><span class="s">  }</span><span class="err">
+</span><span class="s">}</span></code></pre></figure>
 
