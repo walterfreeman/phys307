@@ -3,16 +3,19 @@ layout: default
 permalink: index.html
 ---
 
-Direct download links for Xming:
-
-<a href="Xming-6-9-0-31-setup.exe">Xming</a>
-<a href="Xming-fonts-7-7-0-10-setup.exe">Xming-fonts</a>
-
-(These files are licensed under the GNU General Public License; you may obtain source code from Sourceforge.)
-
 <h1> Welcome to Physics 307!</h1>
 
-# 18 October agenda:
+### 20 October agenda:
+
+* Work on Project 5
+* Discuss command line parameters
+
+The sample code I wrote in class demonstrating them is available at 
+<a href="pendulum.c">pendulum.c</a>. 
+
+Notes 
+
+### 18 October agenda:
 
 * Have a quiz
 * Talk about orbits in which the Sun isn't fixed at the origin
