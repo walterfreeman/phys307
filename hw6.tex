@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0pt}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\setlength{\parskip}{4mm}
+\def\LL{\left\langle}   % left angle bracket
+\def\RR{\right\rangle}  % right angle bracket
+\def\LP{\left(}         % left parenthesis
+\def\RP{\right)}        % right parenthesis
+\def\LB{\left\{}        % left curly bracket
+\def\RB{\right\}}       % right curly bracket
+\def\PAR#1#2{ {{\partial #1}\over{\partial #2}} }
+\def\PARTWO#1#2{ {{\partial^2 #1}\over{\partial #2}^2} }
+\def\PARTWOMIX#1#2#3{ {{\partial^2 #1}\over{\partial #2 \partial #3}} }
+\newcommand{\BE}{\begin{displaymath}}
+\newcommand{\EE}{\end{displaymath}}
+\newcommand{\BNE}{\begin{equation}}
+\newcommand{\ENE}{\end{equation}}
+\newcommand{\BEA}{\begin{eqnarray}}
+\newcommand{\EEA}{\nonumber\end{eqnarray}}
+\newcommand{\EL}{\nonumber\\}
+\newcommand{\la}[1]{\label{#1}}
+\newcommand{\ie}{{\em i.e.\ }}
+\newcommand{\eg}{{\em e.\,g.\ }}
+\newcommand{\cf}{cf.\ }
+\newcommand{\etc}{etc.\ }
+\newcommand{\Tr}{{\rm tr}}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\OL}[1]{\overline{#1}\ } % overline
+\newcommand{\OLL}[1]{\overline{\overline{#1}}\ } % double overline
+\newcommand{\OON}{\frac{1}{N}} % "one over N"
+\newcommand{\OOX}[1]{\frac{1}{#1}} % "one over X"
+
+\begin{document}
+\Large
+\centerline{\sc{Physics 307 Homework 6}}
+\centerline{Due Thursday, 5 November, at 11 AM}
+\normalsize
+
+This homework assignment is the first of two parts. I encourage you to try to finish this assignment ahead of time
+and begin the next one before the deadline of this one.
+
+{\bf Please start early.} 
+I am giving you two weeks to do this assignment in order to accommodate anyone who may have some difficulty; the next assignment will be due after one more week, and will consist of answering some questions 
+about vibrating strings using your simulation. This will be a bit more challenging to code than your previous one; please don't put it off until a few days before it's due.
+
+In this assignment, you will model a stretched string (as in a guitar or violin) using a lattice elasticity model, in which point masses (``nodes'') are connected by Hooke's-law springs.
+For reference, the force law on any given node $i$ (given in more detail in class) is:
+
+\begin{align}
+  \dot v_{x_i} &= \frac{1}{m} \left[ k \hat r_{{i,i-1}_x} (r_{i,i-1} - r_0) + k \hat r_{i,i+1} (r_{i,i+1} - r_0) \right] \\
+  \dot v_{y_i} &= \frac{1}{m} \left[ k \hat r_{{i,i-1}_y} (r_{i,i-1} - r_0) + k \hat r_{i,i+1} (r_{i,i+1} - r_0) \right]
+\end{align}
+
+where
+
+$\vec r_{i,j}$ is a vector pointing from the $i$'th node to the $j$'th one, and is thus equal to $(x_j-x_i)\hat i + (y_j-y_i)\hat j$, $k$ is the spring constant of a single spring, $r_0$ is its unstretched length, and $m$ is the mass of each node.
+As before, you can use the ``unit vector trick'' to write $\hat r_{i,j}$ in terms of the dynamical variables in the problem:
+
+\begin{align}
+  \hat r_{{i,j}_x} &= \frac{x_i - x_j}{\sqrt{(x_i-x_j)^2 + (y_i-y_j)^2}}\\
+  \hat r_{{i,j}_y} &= \frac{y_i - y_j}{\sqrt{(x_i-x_j)^2 + (y_i-y_j)^2}}
+\end{align}
+
+
+  
+  A lattice simulation of a stretched string has the following parameters:
+    \begin{itemize}
+      \item{The number of nodes in the simulation $N+1$ (or the number of strings $N$)}
+        \item{The linear mass density of the unstretched string $\mu$}
+        \item{The unstretched length of the string $L_0$}
+        \item{The tension $T$ applied to it to stretch it, which gives you the stretched length $L$}
+        \item{The stiffness $\alpha$ (Young's modulus times cross-sectional area)}
+      \end{itemize}
+
+\begin{enumerate}
+
+  \item{Determine values of $m$, $k$, and $r_0$ (the ``microscopic'' quantities of interest to your simulation) as a function of $N, \mu, L_0$ and $\alpha$ (the ``macroscopic'' quantities).}
+
+  \item{Write a program that simulates the vibrations of a stretched string of uniform density and elasticity, as we will discuss in class. (Notes will be posted on the website, too.)
+      You should be able to easily change (by setting variables) some crucial parameters of your simulation: $N, \mu, L_0$, and $\alpha$.
+
+      You should use the RK2 solver for your simulation, although it might be useful to code it using Euler first as a learning exercise.
+
+    }
+
+  \item{Determine the initial conditions (all of the $x_i$'s; all the $y$-coordinates and velocities will be zero) for a stretched but unexcited string with tension $T$ applied to it. You will first need to determine the stretched length $L'$, then put your $N$
+    masses at equidistant points between $x=0$ and $x=L'$. Implement these initial conditions, and verify that the string doesn't move.} 
+
+  \item{Now stretch your string with sufficient tension to stretch it to around 125\% of its unstretched length, and excite it somehow. You can do this by applying some external force to it at some instant in time, or by choosing initial values for the $y_i$'s.
+    Verify that it moves somewhat realistically.}
+
+  \item{Play around with your initial conditions, along with $N$, the stretch amount, $\mu$, $L$, and so on. Discuss anything interesting that you find.}
+
+  \item{Modify your program to track conservation of energy (recall that the elastic potential energy in each spring is $U=\frac{1}{2}k(r-r_0)^2$) and verify that energy is approximately conserved.}
+\end{enumerate}
+
+\end{document}
