@@ -146,8 +146,61 @@ Verify that your predictions for the period are approximately correct using a sm
 \item All of these things are true only in the limit where you can ``trust'' the simulation -- i.e. where $N$ is large enough and $dt$ is small enough. How do the needed
 values of $N$ and $dt$ depend on $n$ and $T$?
 
+\end{enumerate}
 
- 
+\begin{center}\large Part 3: Departure from the Small-Amplitude Limit (due 17 Nov)\end{center}
+
+All of the things you've learned about the vibrating string -- noninterfering superpositions of normal modes whose frequency is independent of amplitude -- relate to solutions of the ideal wave equation. But deriving this equation from our model requires making the small-angle approximation to trigonometric functions, and this is only valid in the limit $A \rightarrow 0$. Now it's time to do something the pen-and-paper crowd can't do (without a great deal of pain): get away from that limit.
+
+
+\begin{enumerate}
+
+\item Ensure you've finished all of Part 2 -- that is, that your string correctly reproduces the analytic period $\tau_{\rm theoretical} = \frac{2L'}{n} \sqrt{\frac{\mu'}{T}}$ for any values of $L$, $n$, $N$, and $T$ as long as the amplitude is small enough. If not, your results for everything following will be nonsensical.
+
+\item Try running your simulation at higher amplitudes using a variety of initial conditions. Play with this for a while. 
+Do you still see well-defined normal modes with a constant frequency that ``stay put''? Look carefully at the motion of each point; do they still move only up and down? Describe your observations.
+Remember, in the low-amplitude limit (the stuff you can do with pen and paper), the different normal modes do not couple to each other: if you excite a string in the $n=1$ normal mode, 
+the amplitudes of all other normal modes will be zero forever. Is this what you observe here at increasing amplitude? 
+
+As the amplitude increases, does it even make sense to talk about ``the period'' as an unambiguously-defined thing?
+
+Now, for the quantitative study of the nonlinear behavior. Define $\Delta(n,N,A)$ as the relative difference between the analytic period $\tau_{an} = \frac{2\pi}{n}\sqrt{\frac{\mu'}{T}}$ and the observed period, defined as $$\Delta(n,A) = \frac{\tau_{\rm {obs}}-\tau T_{\rm{an}}}{\tau T_{\rm{an}}}$$. This will depend on the normal mode you're looking at, the number of segments $N$ and the amplitude. 
+
+\item We expect $\Delta \rightarrow 0$ as $A \rightarrow 0$ and $N \rightarrow \infty$. For a very small amplitude and a sufficiently large $N$, verify that this is true.
+
+All of your subsequent studies will examine the behavior of $\Delta$ as the amplitude grows and as the number of segments drops.
+
+
+
+\item First, let's look at {\bf the effect of increasing amplitude.} Modify your program to print out $\Delta$ as it measures the period for a variety of different amplitudes. Just as for your integration codes at the beginning of the term, the best
+way to do this is to wrap the entire thing in a {\tt for} loop over amplitude, set to increase the amplitude by a multiplicative factor each time. (For instance, you might write
+{\tt for (amp=1e-5; amp<2; amp *= 1.5)} or similar.) 
+
+Note that there are multiple sources of deviation from the theoretical period in your calculation:
+
+\begin{itemize}
+\item The effect of the amplitude (the thing we want to measure here)
+\item The effect of finite $N$
+\item The effect of finite timestep (unless you use the interpolation method discussed previously to refine your estimate of when $v_y=0$, you're unable to determine the period any
+more precisely than one timestep
+\end{itemize}
+
+Thus you'll need to ensure that you are looking only at the variable you intend: if you're studying the effect of the amplitude, keep $N$ large enough and $dt$ small enough that they 
+don't affect your results.
+
+
+For a value of $N$ large enough that it doesn't affect anything (for instance, $N=200$), simulate the first normal mode at a variety of amplitudes. Plot $\Delta$ as a function of the 
+amplitude on a log/log plot. Comment on the mathematical form of the dependence of the amplitude on the period. How does this compare with the ``conventional wisdom'' that the amplitude
+does not affect the period at all?
+
+Now do the same thing for the $n=4$ normal mode. Is $\Delta$ larger or smaller here? Note that at low amplitude the period of the $n=4$ mode should be precisely 1/4 that of the $n=1$ 
+mode. Is this true as the amplitude increases? 
+
+The bulk of your report should be concerned with this question: ``how does increasing the amplitude affect the behavior of the string?'' Write both about your quantitative observations
+and what you notice qualitatively in the animation. 
+
+\item Second, look at {\bf the effect of decreasing $N$.} At low amplitude, simulate both the $n=1$ and $n=5$ normal modes for values of $N$ ranging from 10 to 200. How does $\Delta$
+depend on $N$? Comment on the need for high resolution in simulations: when can we get away with low-resolution simulations, and when do we need high resolution ones?
 
 
 \end{enumerate}
