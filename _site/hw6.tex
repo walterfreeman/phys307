@@ -34,20 +34,15 @@
 \begin{document}
 \Large
 \centerline{\sc{Physics 307 Homework 6}}
-\centerline{Due date: see belowM}
+\centerline{Due Thursday, 5 November, at 11 AM}
 \normalsize
 
-This homework assignment comes in three parts.
+This homework assignment is the first of two parts. I encourage you to try to finish this assignment ahead of time
+and begin the next one before the deadline of this one.
 
-Your first grade will come from you showing me or Prashant your progress in class by 6PM on Tuesday, 1 November.
-
-Your second grade will involve a project submission before 11AM, 8 November.
-
-Your final grade will involve a substantial report due 11AM, 15 November. The contents of this report will contain some wisdom about physics that even many physicists
-do not know; you should ensure it is very well written (devoting perhaps several hours to its preparation).
-
-{\bf Please start early.} This assignment is the crux of this class.
-This will be a bit more challenging to code than your previous one; please don't put it off until a few days before it's due.
+{\bf Please start early.} 
+I am giving you two weeks to do this assignment in order to accommodate anyone who may have some difficulty; the next assignment will be due after one more week, and will consist of answering some questions 
+about vibrating strings using your simulation. This will be a bit more challenging to code than your previous one; please don't put it off until a few days before it's due.
 
 In this assignment, you will model a stretched string (as in a guitar or violin) using a lattice elasticity model, in which point masses (``nodes'') are connected by Hooke's-law springs.
 For reference, the force law on any given node $i$ (given in more detail in class) is:
@@ -78,10 +73,6 @@ As before, you can use the ``unit vector trick'' to write $\hat r_{i,j}$ in term
         \item{The stiffness $\alpha$ (Young's modulus times cross-sectional area)}
       \end{itemize}
 
-\newpage
-
-\begin{center}\large Checkpoint 1: Make it work (due 1 Nov)\end{center}
-
 \begin{enumerate}
 
   \item{Determine values of $m$, $k$, and $r_0$ (the ``microscopic'' quantities of interest to your simulation) as a function of $N, \mu, L_0$ and $\alpha$ (the ``macroscopic'' quantities).}
@@ -89,7 +80,9 @@ As before, you can use the ``unit vector trick'' to write $\hat r_{i,j}$ in term
   \item{Write a program that simulates the vibrations of a stretched string of uniform density and elasticity, as we will discuss in class. (Notes will be posted on the website, too.)
       You should be able to easily change (by setting variables) some crucial parameters of your simulation: $N, \mu, L_0$, and $\alpha$.
 
-      You should use the leapfrog solver for your simulation.}
+      You should use the RK2 solver for your simulation, although it might be useful to code it using Euler first as a learning exercise.
+
+    }
 
   \item{Determine the initial conditions (all of the $x_i$'s; all the $y$-coordinates and velocities will be zero) for a stretched but unexcited string with tension $T$ applied to it. You will first need to determine the stretched length $L'$, then put your $N$
     masses at equidistant points between $x=0$ and $x=L'$. Implement these initial conditions, and verify that the string doesn't move.} 
@@ -97,57 +90,9 @@ As before, you can use the ``unit vector trick'' to write $\hat r_{i,j}$ in term
   \item{Now stretch your string with sufficient tension to stretch it to around 125\% of its unstretched length, and excite it somehow. You can do this by applying some external force to it at some instant in time, or by choosing initial values for the $y_i$'s.
     Verify that it moves somewhat realistically.}
 
-  \item{Play around with your initial conditions, along with $N$, the stretch amount, $\mu$, $L$, and so on. Be prepared to discuss anything interesting you find with me..}
+  \item{Play around with your initial conditions, along with $N$, the stretch amount, $\mu$, $L$, and so on. Discuss anything interesting that you find.}
 
   \item{Modify your program to track conservation of energy (recall that the elastic potential energy in each spring is $U=\frac{1}{2}k(r-r_0)^2$) and verify that energy is approximately conserved.}
-
-\end{enumerate}
-
-\begin{center}\large Checkpoint 2: Ideal Behavior (due 8 Nov)\end{center}
-
-\begin{enumerate}
-
-\item Modify your initial conditions so that they correspond to a Gaussian ``bump''. In other words, your initial conditions will be $y(x) = A \exp \left( \frac{(x-x_0)^2}{\sigma^2} \right).$
-
-Play around with the values of $x_0$ and $\sigma$. How does the width of the bump correspond to the amount of energy in high normal modes vs. low normal modes?
-
-\item If you have access to a real stringed instrument (guitar, violin, ukelele...), excite the string with both the fat part of your thumb and with your thumbnail. Does what you hear correspond to the answers
-to the previous question?
-
-\item{Modify your initial conditions so that they correspond to a {\it normal mode} of vibration, as discussed in class}
-\item{Verify qualitatively that for small amplitudes your string behaves as expected. Discuss how you verified this and what you saw.}
-\item Now modify your program so that the following parameters can be entered as command line parameters: (see the notes on this)
-
-\begin{itemize}
-\item The timestep $dt$
-\item The number of springs $N$
-\item The linear density $\mu$
-\item The stiffness $\alpha$
-\item The length $L$
-\item The desired normal mode number $n$
-\item (optional) The frameskip value
-\end{itemize}
-
-\item Modify your program so that it calculates (by observing the motion of the string) the period of oscillation. This is most easily done by choosing a mass located at an antinode
-(mass number $N/(2n)$) and watching its velocity; when its velocity changes sign, you've completed a half-period. 
-
-\item If we assume that the wave speed is $v=\sqrt{T/\mu}$ then we expect the period of any given normal mode to be
-
-$$
-T_{\rm theoretical} = \frac{2L'}{n} \sqrt{\mu'}{T}
-$$
-
-For $N$ large enough, this should be independent of $N$. 
-
-Verify that your predictions for the period are approximately correct using a small amplitude and different values of $\mu$, $T$, $L$, $n$, and $N$. 
-
-\item All of these things are true only in the limit where you can ``trust'' the simulation -- i.e. where $N$ is large enough and $dt$ is small enough. How do the needed
-values of $N$ and $dt$ depend on $n$ and $T$?
-
-
- 
-
-
 \end{enumerate}
 
 \end{document}

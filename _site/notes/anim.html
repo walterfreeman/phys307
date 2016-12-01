@@ -86,6 +86,10 @@
           
         
           
+        
+          
+        
+          
             <a class="page-link" href="/phys307/notes/">Notes</a>
             
               
@@ -129,9 +133,17 @@
               
             
               
+                <a class="page-sublink" href="/phys307/notes/lj-notes.html">Thermodynamics project</a>
+              
+            
+              
             
               
                 <a class="page-sublink" href="/phys307/notes/math.html">Basic Math in C</a>
+              
+            
+              
+                <a class="page-sublink" href="/phys307/notes/membrane-notes.html">Membrane project</a>
               
             
               
@@ -141,11 +153,13 @@
               
             
               
-                <a class="page-sublink" href="/phys307/notes/param.html">Cmd-line params</a>
+                <a class="page-sublink" href="/phys307/notes/parameter-notes.html">Cmd-line parameters</a>
               
             
               
                 <a class="page-sublink" href="/phys307/notes/perturbative.html">Perturbation theory</a>
+              
+            
               
             
               
@@ -197,7 +211,13 @@
           
         
           
+        
+          
             <a class="page-link" href="/phys307/projects/">Projects</a>
+            
+              
+            
+              
             
               
             
@@ -264,6 +284,10 @@
               
             
               
+                <a class="page-sublink" href="/phys307/projects/project7.html">Project 7</a>
+              
+            
+              
             
               
             
@@ -277,6 +301,12 @@
         
           
             <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
+            
+              
+            
+              
+            
+              
             
               
             
@@ -423,7 +453,28 @@ of solving a differential equation.</p>
 <p>Note that even though your program can calculate very fast, <code class="highlighter-rouge">anim</code> can only draw 60 frames per second (on most monitors). This means that you may not want to draw every frame to the
 screen. You can avoid this by only printing one out of every $N$ frames to the screen, as follows:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -444,7 +495,8 @@ screen. You can avoid this by only printing one out of every $N$ frames to the s
 
 </span><span class="s">        frame++;</span><span class="err">
 </span><span class="s">      }</span><span class="err">
-</span><span class="s">}</span></code></pre></figure>
+</span><span class="s">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>In the preceding code, try changing the <code class="highlighter-rouge">frame_skip</code> value and seeing the effect. Altering the skip value in your future simulations will allow you to visualize results at a useful speed, while allowing the computer
 to use more than one Euler or RK2 timestep per frame for greater precision.</p>
@@ -490,7 +542,33 @@ to use more than one Euler or RK2 timestep per frame for greater precision.</p>
 
 <p>Try out this code:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -516,7 +594,8 @@ to use more than one Euler or RK2 timestep per frame for greater precision.</p>
 </span><span class="s">    }</span><span class="err">
 </span><span class="s">    printf("</span><span class="o">!</span><span class="n">Completed</span> <span class="o">%</span><span class="n">d</span> <span class="n">cycles</span><span class="err">\</span><span class="n">n</span><span class="s">",circles);</span><span class="err">
 </span><span class="s">  }</span><span class="err">
-</span><span class="s">}</span></code></pre></figure>
+</span><span class="s">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 
       </div>

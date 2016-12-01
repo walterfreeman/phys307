@@ -14,7 +14,28 @@ need to write your own to make your life easier.</p>
 
 <p>Consider this program that generates a <code class="highlighter-rouge">graph</code> data file to plot the value of $\sin(x)$ and its derivative:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -35,14 +56,42 @@ need to write your own to make your life easier.</p>
     <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>If we wanted to change the function being studied here, we need to change it in three places, and to do so we need to
 change things in three places. This is more work, and it adds a risk of breaking things.</p>
 
 <p>We have a sub-task here that we could pull out and put into a function, as follows:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
 </span> 
 <span class="kt">float</span> <span class="nf">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">)</span>
@@ -69,7 +118,8 @@ change things in three places. This is more work, and it adds a risk of breaking
     <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Now we can change the function being studied without touching <code class="highlighter-rouge">main()</code>, or change the way the derivative is calculated without touching the function.</p>
 
@@ -108,7 +158,33 @@ same as the normal function declaration, but it has a semicolon after it. So, fo
   </li>
 </ol>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">float</span> <span class="n">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">);</span> <span class="c1">// prototype
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></td><td class="code"><pre><span class="kt">float</span> <span class="n">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">);</span> <span class="c1">// prototype
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
 <span class="p">{</span>
@@ -134,5 +210,6 @@ same as the normal function declaration, but it has a semicolon after it. So, fo
   <span class="kt">float</span> <span class="n">y</span><span class="p">;</span>
   <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
   <span class="k">return</span> <span class="n">y</span><span class="p">;</span>     
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 

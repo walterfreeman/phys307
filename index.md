@@ -5,6 +5,21 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 1 December announcements:
+
+Note that there are two segments of class notes available for each of the two projects. I expect to be spending a great deal of time working with 
+you all individually (in class and out of it) after this point; most everything you need is in the notes, but these projects are both ambitious
+and customizable. So, dive in, get started coding, build something nifty, and ask for help as you need it.
+
+* Membrane project: <a href="notes/notes-membrane.pdf">[PDF]</a> 
+* Thermodynamics project: <a href="notes/lj-notes.pdf">[PDF]</a>
+
+Most importantly, have fun!
+
+<br><br><br><br>
+
+
+
 ### 20 October agenda:
 
 * Work on Project 5

@@ -1,9 +1,9 @@
 ---
 layout: default
-title: param-notes
+title: parameter-notes.html
 category: Notes
-navtitle: Cmd-line params
-permalink: notes/param.html
+navtitle: Cmd-line parameters 
+permalink: notes/parameter-notes.html
 use_math: true
 ---
 
