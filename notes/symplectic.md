@@ -2,7 +2,6 @@
 layout: default
 category: Notes
 navtitle: Symplectic solvers
-title: Symplectic solvers 
 permalink: notes/symplectic.html
 use_math: true
 ---

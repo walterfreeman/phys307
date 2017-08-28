@@ -1,6 +1,5 @@
 ---
 layout: default
-title: c-notes
 category: Notes
 navtitle: Intro to C
 permalink: notes/c.html

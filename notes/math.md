@@ -1,6 +1,5 @@
 ---
 layout: default
-title: samples 
 category: Notes
 navtitle: Basic Math in C 
 permalink: notes/math.html

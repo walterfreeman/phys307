@@ -1,8 +1,5 @@
 ---
 layout: default
-category: Notes
-navtitle: Notes on anim 
-title: Notes on animation 
 permalink: notes/anim.html
 use_math: true
 ---

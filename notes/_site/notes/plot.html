@@ -1,0 +1,50 @@
+<center><h1>Notes on the plot command</h1></center>
+
+<p>A commonly-used plotting tool for Linux is <code class="highlighter-rouge">gnuplot</code>. However, it is more complicated than we need, and has more features than we need, so I’ve written an interface to it simply called <code class="highlighter-rouge">plot</code>. To use it, first 
+prepare a data file containing the data you want to plot. Most of the time you’ll be doing this using your own code and the output redirection operator <code class="highlighter-rouge">&gt;</code>, but you can also do it by just creating a file in a 
+text editor with the data to be plotted in two columns, like so:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">3</span> <span class="mi">5</span>
+<span class="mi">7</span> <span class="mi">12</span>
+<span class="mi">10</span> <span class="mi">13</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Suppose you save that file and call it <code class="highlighter-rouge">data.txt</code>. You can then make a plot of those data by typing <code class="highlighter-rouge">plot data.txt</code>.</p>
+
+<h2 id="plotting-multiple-files">Plotting multiple files</h2>
+
+<p>If you have multiple data files you want to plot, you can do <code class="highlighter-rouge">plot file1.txt file2.txt ...</code> <code class="highlighter-rouge">Plot</code> will plot them all on the same set of axes in different colors.</p>
+
+<h2 id="plot-options">Plot options</h2>
+
+<p>You can pass options to plot to do a couple of different things:</p>
+
+<h3 id="log-log-plots">Log-log plots</h3>
+
+<p>Use the <code class="highlighter-rouge">-l</code> switch to plot data on a log-log scale:</p>
+
+<p><code class="highlighter-rouge">
+plot -l scaling.txt
+</code></p>
+
+<h3 id="labelling-things">Labelling things</h3>
+
+<p>Use the <code class="highlighter-rouge">-lx</code> and <code class="highlighter-rouge">-ly</code> options to specify labels for the axes, and <code class="highlighter-rouge">-t</code> to title the graph. If your labels or titles are more than one word long, put them in quotes.</p>
+
+<p><code class="highlighter-rouge">
+plot -lx Time -ly Snowfall -title "Snowfall vs. Time"
+</code></p>
+
+<p>Note that <code class="highlighter-rouge">-xl</code> and <code class="highlighter-rouge">-yl</code> work too, so you don’t have to remember which way it goes.</p>
+
+<h3 id="making-pdfs">Making PDF’s</h3>
+
+<p>Ultimately, you’ll need to save your plots to turn them in. Use the <code class="highlighter-rouge">-o</code> option, like you do for the compiler:</p>
+
+<p>```
+plot -lx Time -ly “Covfefe Quotient” -t “Covfefe vs. Time” -o covfefe.pdf</p>
+

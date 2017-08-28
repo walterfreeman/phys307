@@ -12,3 +12,5 @@ use_math: true
 <a href="linux.html">A short introduction to Linux</a>
 
 <a href="c.html">An introduction to the C programming language</a>
+
+<a href="plot.html">Plotting data</a>

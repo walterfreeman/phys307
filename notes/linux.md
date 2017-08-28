@@ -2,7 +2,6 @@
 category: Notes
 layout: default
 navtitle: Intro to Linux
-title: linux-notes
 permalink: notes/linux.html
 use_math: true
 ---
@@ -97,6 +96,8 @@ where `program.c` is the name of the file with your source code, and you want th
 
 Adding `-lm` tells the compiler to link your program with the math library, which contains useful functions that we will use frequently.
 
+You might mix in some C++ ideas with your C code; then you will use `g++` rather than `gcc`.
+
 ### 3. Input and output redirection
 This is the key to the versatility of the Linux command-line interface. Normally, when you run a Linux program, it takes input from the keyboard and prints output to the screen. But you can change this behavior with the `<`, `>`, and `|` operators.
 
@@ -110,14 +111,16 @@ The output redirection operator > does the same thing, but redirects the *output
 
 The pipe character `|` takes the output from one program and uses it as the input from another. Suppose I want to read in some text, translate it, and then display the output on the screen one page at a time using `less`. I can do this by doing `translate < sindarin-text | less`. The output of `translate` will then be sent to the standard Unix program `less`, which will display it one screen at a time.
 
-### 4. Graphing using `graph`
-There is a simple program called `graph` installed on the course computer that will make graphs for you. To use it, create a data file consisting of coordinate pairs. (Remember, you can do this using `printf` along with output redirection.) Then just type `graph [filename]`. If you have multiple files you’d like to graph, just list multiple filenames.
+### 4. Graphing using `plot`
+There is a simple program called `plot` installed on the course computer that will make graphs for you. To use it, create a data file consisting of coordinate pairs. (Remember, you can do this using `printf` along with output redirection.) Then just type `graph [filename]`. If you have multiple files you’d like to graph, just list multiple filenames.
 
 By default, the generated graph goes to your screen. If you’d like to save it to a PDF file instead, do
 
 ```
-graph [filename1] [filename2] ... -o mygraph.pdf.
+plot [filename1] [filename2] ... -o mygraph.pdf.
 ```
+
+See the notes on <a href="plot.md"> for more information.
 
 ### 5. More Unix controls
 
@@ -128,7 +131,7 @@ Even if you use long filenames, you dont have to type them out. When typing out 
 #### 5.2 Task control
 Sometimes you want to run one program and leave it running in the background while you do other stuff at the command prompt. This is especially useful for graphical programs (like `xemacs`), since you can edit your program in the graphical window while testing it in the shell. To do this, add an ampersand after the command: 
 
-```xemacs program.c &```
+```gedit program.c &```
 
 
 If you forget to do this, you can suspend a running program with Ctrl-Z, then put it in the background by typing bg. This is equivalent to running it in the background in the first place. If you want to stop a program that's running (perhaps you've written a program that's stuck), use Control-C.

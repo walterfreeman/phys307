@@ -1,6 +1,5 @@
 ---
 layout: default
-title: membrane-notes.html
 category: Notes
 navtitle: Membrane project 
 permalink: notes/membrane-notes.html

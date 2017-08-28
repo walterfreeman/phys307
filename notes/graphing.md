@@ -2,7 +2,6 @@
 category: Notes
 layout: default
 navtitle: Using graph 
-title: graph-notes 
 permalink: notes/graph.html
 use_math: true
 ---

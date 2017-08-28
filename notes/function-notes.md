@@ -2,7 +2,6 @@
 category: Notes
 layout: default
 navtitle: Using functions 
-title: function-notes 
 permalink: notes/function.html
 use_math: true
 ---

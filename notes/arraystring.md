@@ -1,8 +1,5 @@
 ---
 layout: default
-category: Notes
-navtitle: Arrays and strings
-title: Notes on arrays and strings 
 permalink: notes/arraystring.html
 use_math: true
 ---

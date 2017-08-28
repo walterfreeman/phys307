@@ -1,6 +1,5 @@
 ---
 layout: default
-title: lj-notes.html
 category: Notes
 navtitle: Thermodynamics project
 permalink: notes/lj-notes.html

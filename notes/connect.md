@@ -2,7 +2,6 @@
 layout: default
 category: Notes
 navtitle: Connecting
-title: Connecting to the course computer
 permalink: notes/connect.html
 use_math: true
 ---

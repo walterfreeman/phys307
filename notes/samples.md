@@ -1,6 +1,5 @@
 ---
 layout: default
-title: samples 
 category: Notes
 navtitle: Sample Codes
 permalink: notes/samples.html

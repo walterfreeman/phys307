@@ -1,6 +1,5 @@
 ---
 layout: default
-title: parameter-notes.html
 category: Notes
 navtitle: Cmd-line parameters 
 permalink: notes/parameter-notes.html

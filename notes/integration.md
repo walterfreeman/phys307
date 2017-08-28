@@ -1,6 +1,5 @@
 ---
 layout: default
-title: integration 
 category: Notes
 navtitle: Notes on Integration 
 permalink: notes/integration.html

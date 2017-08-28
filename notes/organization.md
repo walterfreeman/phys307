@@ -2,7 +2,6 @@
 category: Notes
 layout: default
 navtitle: Notes on directories
-title: organization-notes
 permalink: notes/directories.html
 use_math: true
 ---

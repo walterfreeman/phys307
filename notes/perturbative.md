@@ -2,7 +2,6 @@
 layout: default
 category: Notes
 navtitle: Perturbation theory 
-title: Notes on perturbative behavior 
 permalink: notes/perturbative.html
 use_math: true
 ---
