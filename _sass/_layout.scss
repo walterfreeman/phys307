@@ -1,10 +1,10 @@
-
 /**
  * Site header
  */
-
 .site-header {
-    min-width: 1250px;
+    border-top: 5px solid $grey-color-dark;
+    border-bottom: 1px solid $grey-color-light;
+    min-height: 56px;
 
     // Positioning context for the mobile navigation icon
     position: relative;
@@ -20,49 +20,27 @@
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: $grey-color-light;
     }
 }
 
-.logo {
-  display: inline;
-  }
-
-.site-wrapper {
-       min-width: 1000px;
-       position: fixed; 
-       z-index: 1; 
-       float: left;}
-
-
 .site-nav {
-    position: fixed;
-    float: left;
+    float: right;
     line-height: 56px;
-    width: 300px;
+
     .menu-icon {
-        display: inline;
+        display: none;
     }
 
     .page-link {
-        margin-top: 10px;
-        margin-left: 20px;
-        display: block;
         color: $text-color;
         line-height: $base-line-height;
-        font-size: 20px;
-        // Gaps between nav items, but not on the last one
-    }
-    .page-sublink {
-        margin-left: 40px;
-        display: block;
-        color: $text-color;
-        line-height: $base-line-height;
-        font-size: 16px;
-        // Gaps between nav items, but not on the last one
-        
-    }
 
+        // Gaps between nav items, but not on the last one
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
 
     @include media-query($on-palm) {
         position: absolute;
@@ -94,7 +72,7 @@
 
         .trigger {
             clear: both;
-            display: inline;
+            display: none;
         }
 
         &:hover .trigger {
@@ -120,6 +98,7 @@
  * Site footer
  */
 .site-footer {
+    border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
 }
 

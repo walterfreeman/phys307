@@ -24,18 +24,15 @@ mark {
  * Basic styling
  */
 body {
-  font: 400 16px/1.5 "Domine", sans-serif;
+  font: 400 16px/1.5 "Exo 2", sans-serif;
   color: #000000;
-  background-color: #FFEEDD;
+  background-color: #FFDDBB;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -moz-font-feature-settings: "kern" 1;
   -o-font-feature-settings: "kern" 1;
   font-feature-settings: "kern" 1;
-  font-kerning: normal;
-  min-width: 1250px;
-  width: auto !important;
-  width: 1250px; }
+  font-kerning: normal; }
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
@@ -82,10 +79,10 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-  color: #2a7aff;
+  color: #0066FF;
   text-decoration: none; }
   a:visited {
-    color: #0053dd; }
+    color: #0047b3; }
   a:hover {
     color: #000000;
     text-decoration: underline; }
@@ -94,8 +91,8 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: #828282;
-  border-left: 4px solid #e8e8e8;
+  color: #222222;
+  border-left: 4px solid #888888;
   padding-left: 15px;
   font-size: 18px;
   letter-spacing: -1px;
@@ -109,13 +106,12 @@ blockquote {
 pre,
 code {
   font-size: 15px;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #888888;
   border-radius: 3px;
-  background-color: #ffeedd; }
+  background-color: #eef; }
 
 code {
-  padding: 1px 5px;
-  background-color: #ffeedd; }
+  padding: 1px 5px; }
 
 pre {
   padding: 8px 12px;
@@ -129,38 +125,23 @@ pre {
  * Wrapper
  */
 .wrapper {
-  max-width: -webkit-calc(800px - (30px * 2));
-  max-width: calc(800px - (30px * 2));
+  max-width: -webkit-calc(1000px - (30px * 2));
+  max-width: calc(1000px - (30px * 2));
   margin-right: auto;
   margin-left: auto;
   padding-right: 30px;
   padding-left: 30px; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
     .wrapper {
-      max-width: -webkit-calc(800px - (30px));
-      max-width: calc(800px - (30px));
-      padding-right: 15px;
-      padding-left: 15px; } }
-
-.largewrapper {
-  max-width: -webkit-calc(1250px - (30px * 2));
-  max-width: calc(1250px - (30px * 2));
-  min-width: 1250px;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 30px;
-  padding-left: 30px; }
-  @media screen and (max-width: 800px) {
-    .largewrapper {
-      max-width: -webkit-calc(1250px - (30px));
-      max-width: calc(1250px - (30px));
+      max-width: -webkit-calc(1000px - (30px));
+      max-width: calc(1000px - (30px));
       padding-right: 15px;
       padding-left: 15px; } }
 
 /**
  * Clearfix
  */
-.wrapper:after, .largewrapper:after, .footer-col-wrapper:after {
+.wrapper:after, .footer-col-wrapper:after {
   content: "";
   display: table;
   clear: both; }
@@ -174,13 +155,15 @@ pre {
   height: 16px;
   vertical-align: middle; }
   .icon > svg path {
-    fill: #828282; }
+    fill: #222222; }
 
 /**
  * Site header
  */
 .site-header {
-  min-width: 1250px;
+  border-top: 5px solid black;
+  border-bottom: 1px solid #888888;
+  min-height: 56px;
   position: relative; }
 
 .site-title {
@@ -191,44 +174,25 @@ pre {
   margin-bottom: 0;
   float: left; }
   .site-title, .site-title:visited {
-    color: #424242; }
-
-.logo {
-  display: inline; }
-
-.site-wrapper {
-  min-width: 1000px;
-  position: fixed;
-  z-index: 1;
-  float: left; }
+    color: #888888; }
 
 .site-nav {
-  position: fixed;
-  float: left;
-  line-height: 56px;
-  width: 300px; }
+  float: right;
+  line-height: 56px; }
   .site-nav .menu-icon {
-    display: inline; }
+    display: none; }
   .site-nav .page-link {
-    margin-top: 10px;
-    margin-left: 20px;
-    display: block;
     color: #000000;
-    line-height: 1.5;
-    font-size: 20px; }
-  .site-nav .page-sublink {
-    margin-left: 40px;
-    display: block;
-    color: #000000;
-    line-height: 1.5;
-    font-size: 16px; }
+    line-height: 1.5; }
+    .site-nav .page-link:not(:last-child) {
+      margin-right: 20px; }
   @media screen and (max-width: 600px) {
     .site-nav {
       position: absolute;
       top: 9px;
       right: 15px;
-      background-color: #FFEEDD;
-      border: 1px solid #e8e8e8;
+      background-color: #FFDDBB;
+      border: 1px solid #888888;
       border-radius: 5px;
       text-align: right; }
       .site-nav .menu-icon {
@@ -243,10 +207,10 @@ pre {
           width: 18px;
           height: 15px; }
           .site-nav .menu-icon > svg path {
-            fill: #424242; }
+            fill: black; }
       .site-nav .trigger {
         clear: both;
-        display: inline; }
+        display: none; }
       .site-nav:hover .trigger {
         display: block;
         padding-bottom: 5px; }
@@ -261,6 +225,7 @@ pre {
  * Site footer
  */
 .site-footer {
+  border-top: 1px solid #888888;
   padding: 30px 0; }
 
 .footer-heading {
@@ -274,7 +239,7 @@ pre {
 
 .footer-col-wrapper {
   font-size: 15px;
-  color: #828282;
+  color: #222222;
   margin-left: -15px; }
 
 .footer-col {
@@ -294,7 +259,7 @@ pre {
   width: -webkit-calc(45% - (30px / 2));
   width: calc(45% - (30px / 2)); }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .footer-col-1,
   .footer-col-2 {
     width: -webkit-calc(50% - (30px / 2));
@@ -325,7 +290,7 @@ pre {
 
 .post-meta {
   font-size: 14px;
-  color: #828282; }
+  color: #222222; }
 
 .post-link {
   display: block;
@@ -341,7 +306,7 @@ pre {
   font-size: 42px;
   letter-spacing: -1px;
   line-height: 1; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
     .post-title {
       font-size: 36px; } }
 
@@ -349,17 +314,17 @@ pre {
   margin-bottom: 30px; }
   .post-content h2 {
     font-size: 32px; }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1000px) {
       .post-content h2 {
         font-size: 28px; } }
   .post-content h3 {
     font-size: 26px; }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1000px) {
       .post-content h3 {
         font-size: 22px; } }
   .post-content h4 {
     font-size: 20px; }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1000px) {
       .post-content h4 {
         font-size: 18px; } }
 
@@ -367,9 +332,9 @@ pre {
  * Syntax highlighting styles
  */
 .highlight {
-  background: #fed; }
+  background: #fff; }
   .highlighter-rouge .highlight {
-    background: #eee; }
+    background: #eef; }
   .highlight .c {
     color: #998;
     font-style: italic; }

@@ -152,6 +152,9 @@ of your performance on specific assignments.
 * At the end of the semester, your final exam is an opportunity to demonstrate up to three additional objectives of your choice
 that you didn't pick up earlier, to further improve your standing. This exam will be either a written test or an oral presentation
 (depending on what is practical); we'll figure out how this will work as the end of the term approaches.
+
+The rubric can be found <a href="sbg.html">here</a>.
+
 * Your final grade is based on the objectives you complete. The grading rubric has eight tracks each with five levels of mastery,
 giving you a maximum of 40 objectives. Grades will be assigned as follows: 
   * 0-8: F

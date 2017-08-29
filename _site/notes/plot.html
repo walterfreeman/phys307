@@ -13,7 +13,7 @@
 ">
 
   <link rel="stylesheet" href="/phy307/css/main.css">
-  <link rel="canonical" href="/phy307/notes/perturbative.html">
+  <link rel="canonical" href="/phy307/notes/plot.html">
   <link rel="alternate" type="application/rss+xml" title="Physics 307 Fall 2017" href="/phy307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -140,33 +140,56 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <h3 id="these-notes-are-still-being-written-and-will-be-finished-by-thursday">These notes are still being written and will be finished by Thursday.</h3>
+        <center><h1>Notes on the plot command</h1></center>
 
-<p>This is the most broadly-applicable set of notes in this entire class.</p>
+<p>A commonly-used plotting tool for Linux is <code class="highlighter-rouge">gnuplot</code>. However, it is more complicated than we need, and has more features than we need, so I’ve written an interface to it simply called <code class="highlighter-rouge">plot</code>. To use it, first 
+prepare a data file containing the data you want to plot. Most of the time you’ll be doing this using your own code and the output redirection operator <code class="highlighter-rouge">&gt;</code>, but you can also do it by just creating a file in a 
+text editor with the data to be plotted in two columns, like so:</p>
 
-<p>The behavior of most phenomena in nature are <em>perturbative.</em> What does that mean? It means that their behavior, speaking very broadly, can be expressed in terms of a power series, where the expansion variable in the power series has something to do with an amplitude, an interaction strength, and so on.</p>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="mi">1</span> <span class="mi">2</span>
+<span class="mi">3</span> <span class="mi">5</span>
+<span class="mi">7</span> <span class="mi">12</span>
+<span class="mi">10</span> <span class="mi">13</span></code></pre></figure>
 
-<p>In many cases, we are in the regime where that amplitude or interaction strength is small. For instance, consider a spring. You learned in your introductory physics class that it obeys Hooke’s law, $F=-k\Delta x$. However, you know intuitively that this can’t be strictly true; eventually, as the force
-gets larger and larger, the spring will start behaving in non-Hooke’s-law ways, since as $F \rightarrow \infty$, you know the spring must snap and the force goes to zero. In general, we can write</p>
+<p>Suppose you save that file and call it <code class="highlighter-rouge">data.txt</code>. You can then make a plot of those data by typing <code class="highlighter-rouge">plot data.txt</code>.</p>
 
-<script type="math/tex; mode=display">F_{\rm spring} = k \Delta x + k_2 (\Delta x)^2 + k_3 (\Delta x)^3 + ...</script>
+<p>You’ll see the following:</p>
 
-<p>where I have absorbed the $n!$ components of the Taylor series into the definitions of the $k’s$.</p>
+<p><img src="data.png" alt="data" /></p>
 
-<p>This lets us divide the behavior of the spring into, roughly, three regions:</p>
+<h2 id="plotting-multiple-files">Plotting multiple files</h2>
 
-<ul>
-  <li>$\Delta x$ very small: spring behaves as given by Hooke’s law. No deviations are measurable. The subsequent terms in the Taylor series are not large enough to matter. Let’s call this the <em>ideal regime</em>.</li>
-  <li>$\Delta x$ somewhat larger: Higher-order terms become important. Deviations from Hooke’s law are measurable, but the spring’s behavior is still well approximated by the first few terms in the power series. This is the <em>pertubative regime</em>, and what this set of notes is about.</li>
-  <li>$\Delta x$ large: The spring behaves in drastically non-Hookian ways. Perhaps it snaps, or the metal is grossly deformed. This is the <em>nonperturbative regime</em>.</li>
-</ul>
+<p>If you have multiple data files you want to plot, you can do <code class="highlighter-rouge">plot file1.txt file2.txt ...</code> <code class="highlighter-rouge">Plot</code> will plot them all on the same set of axes in different colors.</p>
 
-<p>Many, many, <em>many</em> things in nature behave this way, and the ability to classify phenomena in this way will help you immensely in your career as a scientist, engineer, or otherwise.</p>
+<h2 id="plot-options">Plot options</h2>
 
-<p>The key idea here is that in the <em>perturbative region</em>, one can classify the relevant effects as subsequent terms in the Taylor series, and think about their structure. This is important, because it gives us a handle on the behavior of things even in the nonideal region. For instance, in your swinging-pendulum
-problem, you will discover that even when the period of a pendulum is measurably different from the ideal value $T_0 = 2\pi\sqrt\frac{L}{g}$, its value is <em>predictable</em>.</p>
+<p>You can pass options to plot to do a couple of different things:</p>
 
-<p>Often, we can use the Taylor series to calculate this behavior, at least to a very good approximation. This is how almost everything in quantum mechanics gets done.</p>
+<h3 id="log-log-plots">Log-log plots</h3>
+
+<p>Use the <code class="highlighter-rouge">-l</code> switch to plot data on a log-log scale:</p>
+
+<p><code class="highlighter-rouge">
+plot -l scaling.txt
+</code></p>
+
+<h3 id="labelling-things">Labelling things</h3>
+
+<p>Use the <code class="highlighter-rouge">-lx</code> and <code class="highlighter-rouge">-ly</code> options to specify labels for the axes, and <code class="highlighter-rouge">-t</code> to title the graph. If your labels or titles are more than one word long, put them in quotes.</p>
+
+<p><code class="highlighter-rouge">
+plot -lx Time -ly Snowfall -title "Snowfall vs. Time"
+</code></p>
+
+<p>Note that <code class="highlighter-rouge">-xl</code> and <code class="highlighter-rouge">-yl</code> work too, so you don’t have to remember which way it goes.</p>
+
+<h3 id="making-pdfs">Making PDF’s</h3>
+
+<p>Ultimately, you’ll need to save your plots to turn them in. Use the <code class="highlighter-rouge">-o</code> option, like you do for the compiler:</p>
+
+<p><code class="highlighter-rouge">
+plot -lx Time -ly "Covfefe Quotient" -t "Covfefe vs. Time" -o covfefe.pdf
+</code></p>
 
 
       </div>

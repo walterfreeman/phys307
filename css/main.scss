@@ -6,7 +6,7 @@
 
 
 // Our variables
-$base-font-family: 'Domine', sans-serif; 
+$base-font-family: 'Exo 2', sans-serif; 
 $base-font-size:   16px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
@@ -15,19 +15,18 @@ $base-line-height: 1.5;
 $spacing-unit:     30px;
 
 $text-color:       #000000;
-$background-color: #FFEEDD;
-$brand-color:      #2a7aff;
+$background-color: #FFDDBB;
+$brand-color:      #0066FF;
 
-$grey-color:       #828282;
+$grey-color:       #222222;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
 // Width of the content area
-$content-width:    800px;
-$overall-width:    1250px;
+$content-width:    1000px;
 
 $on-palm:          600px;
-$on-laptop:        800px;
+$on-laptop:        1000px;
 
 
 
@@ -50,4 +49,5 @@ $on-laptop:        800px;
 @import
         "base",
         "layout",
-        "syntax-highlighting";
+        "syntax-highlighting"
+;

@@ -2,7 +2,6 @@
 layout: page
 category: Projects
 navtitle: Project 3
-title: Project 3
 permalink: projects/project3.html
 use_math: true
 ---
