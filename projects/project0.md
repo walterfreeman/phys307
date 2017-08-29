@@ -1,6 +1,6 @@
 ---
 layout: page
-category: Projects
+category: top
 navtitle: Project 0
 title: Project 0
 permalink: projects/project0.html
