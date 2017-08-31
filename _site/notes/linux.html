@@ -12,9 +12,9 @@
   <meta name="description" content="Spring 2017, Syracuse University 
 ">
 
-  <link rel="stylesheet" href="/phy307/css/main.css">
-  <link rel="canonical" href="/phy307/notes/linux.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307 Fall 2017" href="/phy307/feed.xml">
+  <link rel="stylesheet" href="/phys307/css/main.css">
+  <link rel="canonical" href="/phys307/notes/linux.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307 Fall 2017" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -43,7 +43,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/phy307/">Physics 307 Fall 2017</a>
+    <a class="site-title" href="/phys307/">Physics 307 Fall 2017</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -89,7 +89,7 @@
           
         
           
-          <a class="page-link" href="/phy307/notes/">Notes</a>
+          <a class="page-link" href="/phys307/notes/">Notes</a>
           
         
           
@@ -101,7 +101,7 @@
           
         
           
-          <a class="page-link" href="/phy307/projects/project0.html">Project 0</a>
+          <a class="page-link" href="/phys307/projects/project0.html">Project 0</a>
           
         
           
@@ -119,13 +119,15 @@
           
         
           
-          <a class="page-link" href="/phy307/projects/">Projects</a>
+          <a class="page-link" href="/phys307/projects/">Projects</a>
           
         
           
         
           
-          <a class="page-link" href="/phy307/syllabus.html">Syllabus</a>
+        
+          
+          <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
           
         
           
@@ -160,15 +162,13 @@ the LHC, and even some <a href="https://en.wikipedia.org/wiki/Steam_Machine_(har
 <h3 id="some-basic-commands">2. Some basic commands</h3>
 <p>To ask Linux to do something, you use the same syntax as you would use in English for imperative sentences (commands). For instance, if I wanted you to dance, I would say “Dance!”. If I wanted to be more specific about what I wanted you to dance, I’d say “Dance the funky chicken!” I could give you details about how I wanted you to do this: “Dance the funky chicken quickly!” This can be generalized as the following:</p>
 
-<p><code class="highlighter-rouge">
-[verb] [object] [modifiers]
-</code></p>
+<div class="highlighter-rouge">[verb] [object] [modifiers]
+</div>
 
 <p>Linux works the same general way: a Linux command tends to have the form</p>
 
-<p><code class="highlighter-rouge">
-[command] [target] [modifiers]
-</code></p>
+<div class="highlighter-rouge">[command] [target] [modifiers]
+</div>
 
 <p>In short, you simply type the name of the program you want to run, followed by what you want to run it on. For instance, to run Firefox, just type <code class="highlighter-rouge">firefox</code>. (Try it!) If you want a program to run with a particular target, simply say so. For instance, if I want Firefox to tell me what’s going on in the world, I could type</p>
 
@@ -215,9 +215,8 @@ with the same name will be created in the directory.</p>
 
 <p>You need to use <code class="highlighter-rouge">gcc</code>, yet another Unix program, to turn the source code you write into machine code that the computer can run. To use it, do</p>
 
-<p><code class="highlighter-rouge">
-gcc program.c -lm -o program
-</code></p>
+<div class="highlighter-rouge">gcc program.c -lm -o program
+</div>
 
 <p>where <code class="highlighter-rouge">program.c</code> is the name of the file with your source code, and you want the output program (the one that you run) to be called <code class="highlighter-rouge">program</code>.</p>
 
@@ -245,9 +244,8 @@ and do <code class="highlighter-rouge">wharrgarbl &lt; input</code>.</p>
 
 <p>By default, the generated graph goes to your screen. If you’d like to save it to a PDF file instead, do</p>
 
-<p><code class="highlighter-rouge">
-plot [filename1] [filename2] ... -o mygraph.pdf.
-</code></p>
+<div class="highlighter-rouge">plot [filename1] [filename2] ... -o mygraph.pdf.
+</div>
 
 <p>See the notes on <a href="plot.md"> for more information.</a></p>
 

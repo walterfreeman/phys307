@@ -2,7 +2,7 @@
 category: Notes
 layout: default
 navtitle: Using your own laptop
-permalink: notes/plot.html
+permalink: notes/laptop.html
 use_math: true
 ---
 

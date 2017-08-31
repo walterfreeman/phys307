@@ -12,9 +12,9 @@
   <meta name="description" content="Spring 2017, Syracuse University 
 ">
 
-  <link rel="stylesheet" href="/phy307/css/main.css">
-  <link rel="canonical" href="/phy307/notes/plot.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307 Fall 2017" href="/phy307/feed.xml">
+  <link rel="stylesheet" href="/phys307/css/main.css">
+  <link rel="canonical" href="/phys307/notes/plot.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307 Fall 2017" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -43,7 +43,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/phy307/">Physics 307 Fall 2017</a>
+    <a class="site-title" href="/phys307/">Physics 307 Fall 2017</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -89,7 +89,7 @@
           
         
           
-          <a class="page-link" href="/phy307/notes/">Notes</a>
+          <a class="page-link" href="/phys307/notes/">Notes</a>
           
         
           
@@ -101,7 +101,7 @@
           
         
           
-          <a class="page-link" href="/phy307/projects/project0.html">Project 0</a>
+          <a class="page-link" href="/phys307/projects/project0.html">Project 0</a>
           
         
           
@@ -119,13 +119,15 @@
           
         
           
-          <a class="page-link" href="/phy307/projects/">Projects</a>
+          <a class="page-link" href="/phys307/projects/">Projects</a>
           
         
           
         
           
-          <a class="page-link" href="/phy307/syllabus.html">Syllabus</a>
+        
+          
+          <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
           
         
           
@@ -169,17 +171,15 @@ text editor with the data to be plotted in two columns, like so:</p>
 
 <p>Use the <code class="highlighter-rouge">-l</code> switch to plot data on a log-log scale:</p>
 
-<p><code class="highlighter-rouge">
-plot -l scaling.txt
-</code></p>
+<div class="highlighter-rouge">plot -l scaling.txt
+</div>
 
 <h3 id="labelling-things">Labelling things</h3>
 
 <p>Use the <code class="highlighter-rouge">-lx</code> and <code class="highlighter-rouge">-ly</code> options to specify labels for the axes, and <code class="highlighter-rouge">-t</code> to title the graph. If your labels or titles are more than one word long, put them in quotes.</p>
 
-<p><code class="highlighter-rouge">
-plot -lx Time -ly Snowfall -title "Snowfall vs. Time"
-</code></p>
+<div class="highlighter-rouge">plot -lx Time -ly Snowfall -title "Snowfall vs. Time"
+</div>
 
 <p>Note that <code class="highlighter-rouge">-xl</code> and <code class="highlighter-rouge">-yl</code> work too, so you don’t have to remember which way it goes.</p>
 
@@ -187,9 +187,8 @@ plot -lx Time -ly Snowfall -title "Snowfall vs. Time"
 
 <p>Ultimately, you’ll need to save your plots to turn them in. Use the <code class="highlighter-rouge">-o</code> option, like you do for the compiler:</p>
 
-<p><code class="highlighter-rouge">
-plot -lx Time -ly "Covfefe Quotient" -t "Covfefe vs. Time" -o covfefe.pdf
-</code></p>
+<div class="highlighter-rouge">plot -lx Time -ly "Covfefe Quotient" -t "Covfefe vs. Time" -o covfefe.pdf
+</div>
 
 
       </div>

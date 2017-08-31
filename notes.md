@@ -14,3 +14,5 @@ use_math: true
 <a href="c.html">An introduction to the C programming language</a>
 
 <a href="plot.html">Plotting data</a>
+
+<a href="laptop.html">Using your own laptop</a>

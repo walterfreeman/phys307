@@ -4,11 +4,11 @@
     <title>Physics 307 Fall 2017</title>
     <description>Spring 2017, Syracuse University 
 </description>
-    <link>/phy307/</link>
-    <atom:link href="/phy307/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Aug 2017 00:55:59 -0400</pubDate>
-    <lastBuildDate>Tue, 29 Aug 2017 00:55:59 -0400</lastBuildDate>
-    <generator>Jekyll v3.0.1</generator>
+    <link>/phys307/</link>
+    <atom:link href="/phys307/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 31 Aug 2017 12:12:35 -0400</pubDate>
+    <lastBuildDate>Thu, 31 Aug 2017 12:12:35 -0400</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>First class, August 30</title>
@@ -23,8 +23,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 16 Aug 2016 07:30:38 -0400</pubDate>
-        <link>/phy307/update/2016/08/16/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">/phy307/update/2016/08/16/welcome-to-jekyll.html</guid>
+        <link>/phys307/update/2016/08/16/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">/phys307/update/2016/08/16/welcome-to-jekyll.html</guid>
         
         
         <category>update</category>

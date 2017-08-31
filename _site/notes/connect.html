@@ -12,9 +12,9 @@
   <meta name="description" content="Spring 2017, Syracuse University 
 ">
 
-  <link rel="stylesheet" href="/phy307/css/main.css">
-  <link rel="canonical" href="/phy307/notes/connect.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307 Fall 2017" href="/phy307/feed.xml">
+  <link rel="stylesheet" href="/phys307/css/main.css">
+  <link rel="canonical" href="/phys307/notes/connect.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307 Fall 2017" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -43,7 +43,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/phy307/">Physics 307 Fall 2017</a>
+    <a class="site-title" href="/phys307/">Physics 307 Fall 2017</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -89,7 +89,7 @@
           
         
           
-          <a class="page-link" href="/phy307/notes/">Notes</a>
+          <a class="page-link" href="/phys307/notes/">Notes</a>
           
         
           
@@ -101,7 +101,7 @@
           
         
           
-          <a class="page-link" href="/phy307/projects/project0.html">Project 0</a>
+          <a class="page-link" href="/phys307/projects/project0.html">Project 0</a>
           
         
           
@@ -119,13 +119,15 @@
           
         
           
-          <a class="page-link" href="/phy307/projects/">Projects</a>
+          <a class="page-link" href="/phys307/projects/">Projects</a>
           
         
           
         
           
-          <a class="page-link" href="/phy307/syllabus.html">Syllabus</a>
+        
+          
+          <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
           
         
           
@@ -187,15 +189,13 @@ its own graphics.</p>
 
 <p>To connect, just get a terminal window and type</p>
 
-<p><code class="highlighter-rouge">
-ssh -X phy-compphysclass.syr.edu -l &lt;username&gt;
-</code></p>
+<div class="highlighter-rouge">ssh -X phy-compphysclass.syr.edu -l &lt;username&gt;
+</div>
 
 <p>If you are on a slow connection, do instead:</p>
 
-<p><code class="highlighter-rouge">
-ssh -XC phy-compphysclass.syr.edu -l &lt;username&gt;
-</code></p>
+<div class="highlighter-rouge">ssh -XC phy-compphysclass.syr.edu -l &lt;username&gt;
+</div>
 
 <p>This may speed up graphics somewhat; the -C option tells the computers to compress graphics, which will use extra computing power to save a little bandwidth.</p>
 
