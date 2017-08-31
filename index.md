@@ -7,6 +7,7 @@ permalink: index.html
 
 ### 1 September agenda:
 
+* discuss what computational physics is about
 * go over some basic C commands, involving doing basic math
 * discuss how to plot functions
 * get started on Project 0!
@@ -19,7 +20,6 @@ permalink: index.html
 
 
 ### 30 August agenda:
-* discuss what computational physics is about
 * discuss the unusual way I am grading you this semester (see <a href="sbg.html">the rubric</a> and the syllabus)
 * introduce you to the folks teaching this class
 * ensure everyone can log into the course computer
