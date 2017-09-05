@@ -1,0 +1,114 @@
+#!/usr/bin/perl
+while (@ARGV)
+{
+  $arg=shift;
+  if ($arg eq "-o")
+  {
+    $outfile=shift;
+      if ($outfile =~ /^"/)
+    {
+      while (!($outfile =~ /$"/))
+      {
+        $newword=shift;
+        $outfile="$outfile $newword";
+      }
+    }
+ print "Plot output to file $outfile\n";
+  }
+  elsif ($arg eq "-f") {$fast=1;}
+  elsif ($arg eq "-t")
+  {
+    $title=shift;
+    if ($title =~ /^"/)
+    {
+      while (!($title =~ /$"/))
+      {
+        $newword=shift;
+        $title="$title $newword";
+      }
+    }
+  }
+  elsif ($arg eq "-yl" || $arg eq "-ly")
+  {
+    $ylabel=shift;
+     if ($ylabel =~ /^"/)
+    {
+      while (!($ylabel =~ /$"/))
+      {
+        $newword=shift;
+        $ylabel="$ylabel $newword";
+      }
+    }
+}
+  elsif ($arg eq "-xl" || $arg eq "-lx")
+  {
+    $xlabel=shift;
+     if ($xlabel =~ /^"/)
+    {
+      while (!($xlabel =~ /$"/))
+      {
+        $newword=shift;
+        $xlabel="$xlabel $newword";
+      }
+    }
+  }
+  elsif ($arg eq "-l")
+  {
+    $logs=1;
+  }
+  else
+  {
+    $filelist[$nfiles]=$arg; 
+    print "Reading file $filelist[$nfiles]\n";
+    $nfiles++;
+  }
+}
+
+$uid=int(rand(1e8));
+$tempfile=".plottemp$uid";
+
+if ($nfiles == 0)
+{
+  open Data,">$tempfile";
+  while (<STDIN>)
+  {
+    print Data $_;
+  }
+  $nfiles=1;
+  $filelist[0]=$tempfile;
+}
+
+$scriptfile=".plotscript$uid";
+open Script,">$scriptfile";
+
+if ($outfile)
+{
+  print Script "set terminal pdf size 8,6\nset output \"$outfile\"\n";
+} 
+elsif ($fast)
+{
+	  print Script "set terminal x11\n";
+}
+
+print Script "set title \"$title\"\n" if ($title);
+print Script "set xlabel \"$xlabel\"\n" if ($xlabel);
+print Script "set ylabel \"$ylabel\"\n" if ($ylabel);
+print Script "set logscale\n" if ($logs==1);
+print Script "plot ";
+$i=1;
+foreach $file (@filelist)
+{
+  if ($nfiles > 1) {print Script "\"$file\" with linespoints,";}
+  else {print Script "\"$file\" with linespoints notitle";}
+
+  $i++;
+}
+
+`gnuplot -persist $scriptfile`;
+
+print "-- gnuplot script file --\n";
+system("cat $scriptfile");
+print "\n";
+
+if (-e $tempfile) {`rm $tempfile`;}
+`rm $scriptfile`;
