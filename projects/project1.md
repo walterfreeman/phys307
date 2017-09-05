@@ -1,7 +1,7 @@
 ---
 layout: page
 category: top
-navtitle: Project 1
+title: Project 1
 permalink: projects/project1.html
 use_math: true
 ---
