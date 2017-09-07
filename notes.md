@@ -7,6 +7,8 @@ permalink: notes/
 use_math: true
 ---
 
+<a href="samples.html">Sample programs</a>
+
 <a href="connect.html">Connecting to the course computer</a>
 
 <a href="linux.html">A short introduction to Linux</a>

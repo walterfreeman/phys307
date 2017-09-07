@@ -5,6 +5,13 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 7 September agenda:
+
+* talk about conditionals (if/then/else) and a few odds and ends you need to 
+do next week's homework
+* talk about how we're going to grade Project 0
+* work on Project 1
+
 ### 5 September agenda:
 
 * talk about models of computing in this class (using your own laptop, different operating systems, and so on)

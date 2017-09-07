@@ -16,6 +16,28 @@ understanding how this code works will help you out quite a lot.
 
 ---
 
+## Checking to see if a number is odd or even
+
+To see if a number is divisible by something else, use the ```%``` operator
+to check the remainder when that number is divided by your divisor.
+
+**Note:** The modulus operator does strange things with negative numbers,
+and doesn't work with floats. This is one of my few annoyances with the C
+language.
+
+{% highlight C linenos %}
+// We want to see if the number n is even or odd
+
+if (n % 2 == 0) // examine the remainder when n is divided by 2
+{
+  printf("%d is even\n",n);
+}
+else
+{
+  printf("%d is odd.\n",n);
+}
+{% endhighlight %}
+
 ## Checking to see if a number is a perfect square – the dumb way
 
 There are far more efficient ways to do this, but this illustrates a couple of programming concepts.
