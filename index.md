@@ -12,6 +12,8 @@ do next week's homework
 * talk about how we're going to grade Project 0
 * work on Project 1
 
+New notes: make sure you look at [the sample programs](notes/samples.html).
+
 ### 5 September agenda:
 
 * talk about models of computing in this class (using your own laptop, different operating systems, and so on)
