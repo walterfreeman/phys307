@@ -63,7 +63,6 @@ Here’s a slightly more complicated program that introduces how to do math in C
 #include <stdio.h>
 
 int main()
-
 {
   int x,xsquared;
   printf("Enter a number:\n");
