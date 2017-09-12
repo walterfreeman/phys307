@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0pt}
+\usepackage{fullpage}
+\setlength{\parskip}{4mm}
+\def\LL{\left\langle}   % left angle bracket
+\def\RR{\right\rangle}  % right angle bracket
+\def\LP{\left(}         % left parenthesis
+\def\RP{\right)}        % right parenthesis
+\def\LB{\left\{}        % left curly bracket
+\def\RB{\right\}}       % right curly bracket
+\def\PAR#1#2{ {{\partial #1}\over{\partial #2}} }
+\def\PARTWO#1#2{ {{\partial^2 #1}\over{\partial #2}^2} }
+\def\PARTWOMIX#1#2#3{ {{\partial^2 #1}\over{\partial #2 \partial #3}} }
+\newcommand{\BE}{\begin{displaymath}}
+\newcommand{\EE}{\end{displaymath}}
+\newcommand{\BNE}{\begin{equation}}
+\newcommand{\ENE}{\end{equation}}
+\newcommand{\BEA}{\begin{eqnarray}}
+\newcommand{\EEA}{\nonumber\end{eqnarray}}
+\newcommand{\EL}{\nonumber\\}
+\newcommand{\la}[1]{\label{#1}}
+\newcommand{\ie}{{\em i.e.\ }}
+\newcommand{\eg}{{\em e.\,g.\ }}
+\newcommand{\cf}{cf.\ }
+\newcommand{\etc}{etc.\ }
+\newcommand{\Tr}{{\rm tr}}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\OL}[1]{\overline{#1}\ } % overline
+\newcommand{\OLL}[1]{\overline{\overline{#1}}\ } % double overline
+\newcommand{\OON}{\frac{1}{N}} % "one over N"
+\newcommand{\OOX}[1]{\frac{1}{#1}} % "one over X"
+
+\begin{document}
+\Large
+\centerline{\sc{Physics 307 Final Project}}
+\centerline{Due Tuesday, 15 December}
+\normalsize
+
+Your final project is intended to be a capstone project both synthesizing the things you have learned and exploring something new.
+
+Here I propose two projects to you in detail: examining the normal mode spectrum of the vibrating membrane, and examining the thermodynamics of a collection of atoms interacting by a simple potential. You can also propose your own projects that have a similar 
+level of depth to these.
+
+Students proposing a particularly in-depth project, or an extension of one of these projects that is in depth, can {\bf omit the final exam}, spending the time they would have spent studying on making something nifty instead.
+
+\section{Thermodynamics}
+
+Atoms, in general, repel each other very strongly at short distances, but attract each other weakly at intermediate distances. A simple model for this sort of interatomic interaction is the Lennard-Jones potential,
+
+$$
+V(r) = 4\varepsilon \left[ \left(\frac{r_0}{r}\right)^{12} - \left(\frac{r_0}{r}\right)^{6} \right]
+$$
+
+
+
+where $\varepsilon$ is the ``depth'' of the potential well and $r_0$ is the characteristic distance at which the potential becomes strongly repulsive.
+
+In this project, you will model a collection ($\mathcal O(10^2)$) of atoms interacting {\it via} this potential in a box, and look at values for the pressure and temperature averaged over a long time. For low densities and high temperatures you expect the ideal gas law $P = \frac{NkT}{V}$ to hold; 
+away from this limit you will see departures from the ideal behavior. 
+
+The computational approach here is straightforward:
+
+\begin{itemize}
+   \item{In your gravity simulation, you learned to simulate two objects interacting by a distance-dependent force;}
+   \item{In your string simulation, you learned to simulate a large collection of objects}
+   \item{... now you just put those two ideas together.}
+\end{itemize}
+
+
+Here is one example of a set of things for you to explore. If you'd like to investigate something else, then we can modify the project as you wish.
+
+\begin{enumerate}
+  \item{Make the simulation work. First code it for just a few particles, and verify that it conserves energy. (As always, you will need to empirically determine how small of a timestep you need.) Once you have done this, see how many particles you can simulate before things bog down too much. Note that the work required to simulate $N$ 
+    particles is proportional to $N^2$ per timestep, since you have $N(N-1)/2$ force pairs to evaluate!}
+
+  \item{Modify your program to track the time-averaged temperature and pressure. I will explain how to do this in class.}
+
+  \item{Qualitatively explore what happens as you vary the temperature $kT$ and the particle density. You should see a drastic phase change from gas to liquid as the temperature decreases, and potentially a further one from liquid to solid.}
+
+  \item{Run a simulation at low density and high temperature, and compare your values of $P$ vs. $kT \frac{N}{V}$ to the predictions from the ideal gas law.}
+  
+  \item{Now run simulations for a variety of temperatures, going from your high temperature down past the critical point where you see condensation/freezing. Again plot $P$ vs. $kT \frac{N}{V}$, and comment on the limits of validity of the ideal gas law.}
+
+  \item{Finally, run simulations at high temperature but at increasing densities (changing $V$). Again plot $P$ vs. $kT \frac{N}{V}$, and comment on the limits of validity of the ideal gas law for dense gases. (You may find it interesting to read the Wikipedia page on the ``van der Waals gas''.)}
+
+  \item{At very low temperature, investigate what happens in the solid phase. There are lots of things you could do here; talk to me about ideas.}
+
+  \item{Simulate in 3D rather than 2D}
+
+  \item{Modify your code to not worry about the forces between particles that are very distant. This can {\it greatly} speed up your simulation; I will provide you some code to facilitate this. See if you get the same results as with fewer particles.}
+
+\end{enumerate}
+
+
+
+
+\section{The vibrating membrane}
+
+In your previous assignment you simulated a one-dimensional elastic object oscillating in a second dimension. Here you will simulate a two-dimensional elastic object (a membrane) oscillating in a third dimension, and study the frequencies and character of the normal modes for both a square membrane and a circular one.
+
+The square membrane is a straightforward extension of the vibrating string; here you will have a two-dimensional array of masses, with each point connected to its four neighbors.
+
+The circular membrane works the same way. However, here you will need to modify your ``boundary conditions''; rather than having only the edges unable to move, you will need to ensure that only points within a circle move.  
+
+Again, here is one example of a set of things for you to explore. If you'd like to investigate something else, then we can modify the project as you wish.
+
+\begin{enumerate}
+  \item{Simulate the square membrane. Animate your simulation, and verify that energy is conserved.}
+
+  \item{As with the vibrating string, modify the initial conditions of your simulation to simulate a normal mode of your choice. Do so for a variety of normal modes, and note their periods/frequencies. (You can determine the period using the same tricks as for the vibrating string.) What mathematical formula
+        gives you the period of the ($n_x,n_y$ normal mode?)}
+
+  \item{Now, modify your initial conditions to apply a Gaussian deformation, with variable amplitude, width, and location, as your initial condition. Qualitatively, how does the observed behavior depend on these parameters?}
+
+  \item{Now, modify your code to simulate a circular membrane. This is actually not that hard; you can just not move particles outside a central circular region, just like you aren't moving the edges of the square.}
+
+  \item{Investigate the normal modes of the circular membrane. You can do this in one of several ways, which we will discuss in class.}
+    
+\end{enumerate}
+
+\end{document}

@@ -6,4 +6,8 @@ permalink: notes/integration.html
 use_math: true
 ---
 
-Because of my computer problems, for now, please use the notes from last year, available <a href="http://suphysics307.wikispaces.com/file/view/integration-notes.pdf/559507409/integration-notes.pdf">here</a>. 
+The notes on numerical integration involve some specially-formatted math equations that won't look good as a webpage, so I'm posting them as a PDF.
+See <a href="integration-notes.pdf">integration-notes.pdf</a>.
+
+<b>Graduate students</b> (or anyone else): The best way to learn the typesetting language LaTeX is by example. So, you can find the LaTeX source of these
+notes online as well, at <a href="integration-notes.tex">integration-notes.tex</a>.

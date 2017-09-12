@@ -20,7 +20,7 @@ can test it, debug it, make sure it works, and then forget about what’s inside
 You’ve already been using some of these functions: `exp`, `printf`, `scanf`, and so forth. However, you will
 need to write your own to make your life easier.
 
-Consider this program that generates a `graph` data file to plot the value of $\sin(x)$ and its derivative:
+Consider this program that prints the value of $\sin(x)$ and its derivative:
 
 {% highlight C linenos %}
 #include <stdio.h>
@@ -35,20 +35,14 @@ int main(void)
   for (x=0;x<10;x=x+0.01)
   {
     y=sin(x);
-    printf("%e %e\n",x,y);
-  }
-  printf("color red\n");
-  
-  for (x=0;x<10;x=x+0.01)
-  {
     dydx=(sin(x+epsilon)-sin(x-epsilon))/(2*epsilon);
-    printf("%e %e\n",x,dydx);
+    printf("x = %e     sin(x) = %e    derivative = %e\n",x,y,dydx);
   }
 }
 {% endhighlight %}
 
 If we wanted to change the function being studied here, we need to change it in three places, and to do so we need to
-change things in three places. This is more work, and it adds a risk of breaking things.
+modify three different pieces of code. This is more work, and it adds a risk of breaking things.
 
 We have a sub-task here that we could pull out and put into a function, as follows:
 
@@ -71,19 +65,14 @@ int main(void)
   for (x=0;x<10;x=x+0.01)
   {
     y=f(x);
-    printf("%e %e\n",x,y);
-  }
-  printf("color red\n");
-
-  for (x=0;x<10;x=x+0.01)
-  {
     dydx=(f(x+epsilon)-f(x-epsilon))/(2*epsilon);
-    printf("%e %e\n",x,dydx);
+    printf("x = %e     sin(x) = %e    derivative = %e\n",x,y,dydx);
   }
 }
 {% endhighlight %}
 
 Now we can change the function being studied without touching `main()`, or change the way the derivative is calculated without touching the function.
+You might imagine this being far more meaningful if you were using a function that took many lines to compute, rather than just `sin(x)`!
 
 This makes it easier to work with your code, and reduces the risk of introducing bugs when you fiddle with things.
 
@@ -117,7 +106,7 @@ same as the normal function declaration, but it has a semicolon after it. So, fo
 {% highlight C linenos %}
 float f(float value); // prototype
 
-int main(void)
+int main()
 {
   float x,y,dydx;
   float epsilon=1e-4; // our small value for doing derivatives
@@ -126,13 +115,6 @@ int main(void)
   {
     y=f(x);
     printf("%e %e\n",x,y);
-  }
-  printf("color red\n");
-
-  for (x=0;x<10;x=x+0.01)
-  {
-    dydx=(f(x+epsilon)-f(x-epsilon))/(2*epsilon);
-    printf("%e %e\n",x,dydx);
   }
 }
 

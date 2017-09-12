@@ -1,0 +1,58 @@
+<center>
+
+<b>Due Tuesday, 12 September, at 11 AM</b><br />
+
+See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/samples.html">the file of sample programs</a> for a few hints. Typo in problem 1 fixed.
+<br /><br />
+
+</center>
+
+<p><strong>Problem 1:</strong> Write a program that computes definite integrals of any function you supply it by calculating a Riemann sum. Use this to calculate the integral</p>
+
+<script type="math/tex; mode=display">\int_0^2\, e^{-x^2}\, dx.</script>
+
+<p>Then calculate the integral</p>
+
+<script type="math/tex; mode=display">\int_{-\infty}^\infty\, e^{-x^2}\, dx.</script>
+
+<p>Be intelligent about how you do this. You want a reasonably accurate answer, but you don’t want the computer to take forever doing it. Make sure you discuss how you handled the infinite interval. Do you come reasonably close to the analytic answer of $\sqrt \pi$?</p>
+
+<p>It may be helpful for you to first graph this function if you’re not familiar with it. (You should be able to quickly graph different functions using the code you wrote last week.)</p>
+
+<p><br /><br /></p>
+
+<p><strong>Problem 2:</strong> Write a program that reads in a variable $N$, and then prints out the number of prime numbers less than or equal to $N$. (You may also want to print out the prime numbers themselves to verify that your code is working.) You may do this in any straightforward
+way that you can think of.</p>
+
+<p>As a hint, you might consider using a variable <code class="highlighter-rouge">isprime</code> that is initially set to one, but is set to zero once you locate a factor for each number.</p>
+
+<p>Another hint: You will need two <code class="highlighter-rouge">for</code> loops for this problem: one to loop over numbers whose primacy you are checking, and another to loop over possible divisors as you check them. Remember <code class="highlighter-rouge">%</code> is the modulus operator, and that you can write something like</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// check whether the remainder of a/b is zero or not
+</span><span class="p">{</span>
+  <span class="k">do</span> <span class="n">something</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+  <span class="k">do</span> <span class="n">something</span> <span class="k">else</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>to check to see if one number evenly divides another. Note that you do not need the
+<code class="highlighter-rouge">else</code> clause, if you don’t want to do anything in the event that <code class="highlighter-rouge">b</code> does not evenly divide
+<code class="highlighter-rouge">a</code>.</p>
+
+<ul>
+  <li>
+    <p>a) For N = $10^6$, estimate (roughly, but tell me how you got the estimate) how many 
+    arithmetic operations are required to do this with your code, and how long it will
+    take. Go ahead and do it; was your estimate accurate? How long would it take
+    for N = $10^9$? ? Is this a reasonable calculation?</p>
+  </li>
+  <li>
+    <p>b) Can you think of any small modifications to your program that will speed it
+    up? Discuss these modifications and estimate how much each will speed up your
+    calculation (estimates can be of the form “this will make it go twice as fast” or
+ “this will make it go drastically faster”). Then make these modifications.</p>
+  </li>
+</ul>
+

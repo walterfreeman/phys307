@@ -73,6 +73,16 @@
           
         
           
+          <a class="page-link" href="/phys307/projects/project2hints.html">Project 2 Hints</a>
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/project2.html">Project 2</a>
+          
+        
+          
+        
+          
         
           
         
@@ -100,8 +110,6 @@
         
           
         
-          
-          <a class="page-link" href="/phys307/projects/project0.html">Project 0</a>
           
         
           
@@ -158,7 +166,7 @@ can test it, debug it, make sure it works, and then forget about what’s inside
 You’ve already been using some of these functions: <code class="highlighter-rouge">exp</code>, <code class="highlighter-rouge">printf</code>, <code class="highlighter-rouge">scanf</code>, and so forth. However, you will
 need to write your own to make your life easier.</p>
 
-<p>Consider this program that generates a <code class="highlighter-rouge">graph</code> data file to plot the value of $\sin(x)$ and its derivative:</p>
+<p>Consider this program that prints the value of $\sin(x)$ and its derivative:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
@@ -172,19 +180,13 @@ need to write your own to make your life easier.</p>
 </span>  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">y</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"color red</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-  
-  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
-  <span class="p">{</span>
     <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"x = %e     sin(x) = %e    derivative = %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
 <p>If we wanted to change the function being studied here, we need to change it in three places, and to do so we need to
-change things in three places. This is more work, and it adds a risk of breaking things.</p>
+modify three different pieces of code. This is more work, and it adds a risk of breaking things.</p>
 
 <p>We have a sub-task here that we could pull out and put into a function, as follows:</p>
 
@@ -206,18 +208,13 @@ change things in three places. This is more work, and it adds a risk of breaking
   <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">y</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"color red</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-
-  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
-  <span class="p">{</span>
     <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"x = %e     sin(x) = %e    derivative = %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Now we can change the function being studied without touching <code class="highlighter-rouge">main()</code>, or change the way the derivative is calculated without touching the function.</p>
+<p>Now we can change the function being studied without touching <code class="highlighter-rouge">main()</code>, or change the way the derivative is calculated without touching the function.
+You might imagine this being far more meaningful if you were using a function that took many lines to compute, rather than just <code class="highlighter-rouge">sin(x)</code>!</p>
 
 <p>This makes it easier to work with your code, and reduces the risk of introducing bugs when you fiddle with things.</p>
 
@@ -256,7 +253,7 @@ same as the normal function declaration, but it has a semicolon after it. So, fo
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">float</span> <span class="n">f</span><span class="p">(</span><span class="kt">float</span> <span class="n">value</span><span class="p">);</span> <span class="c1">// prototype
 </span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="kt">float</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">dydx</span><span class="p">;</span>
   <span class="kt">float</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">;</span> <span class="c1">// our small value for doing derivatives
@@ -265,13 +262,6 @@ same as the normal function declaration, but it has a semicolon after it. So, fo
   <span class="p">{</span>
     <span class="n">y</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"color red</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-
-  <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">dydx</span><span class="o">=</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">epsilon</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">epsilon</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">epsilon</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%e %e</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">dydx</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 

@@ -5,6 +5,18 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 12 September agenda:
+
+* Do a retrospective of Project 1 and see how far you all are
+* Talk about numerical integration methods and introduce Project 2
+* Introduce the idea of power-law scaling and log/log plots
+* Introduce functions in C
+
+New notes:
+
+* <a href="notes/function.c">Functions in C</a>
+* <a href="integration-notes.pdf">Analysis of integration methods</a>
+
 ### 7 September agenda:
 
 * talk about conditionals (if/then/else) and a few odds and ends you need to 

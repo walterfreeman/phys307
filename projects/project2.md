@@ -2,12 +2,12 @@
 layout: page
 category: Projects
 navtitle: Project 2
-permalink: projects/project2.html
+permalink: projects/project2-old.html
 use_math: true
 ---
 <center>
 
-<b>Due Tuesday, 20 September, at 11 AM</b><br>
+<b>Due Thursday, 21 September, at 11 AM</b><br>
 
 </center>
 
@@ -32,5 +32,4 @@ Some hints:
 * The most important part of your report is a discussion of math and physics ("why did you get the results you did?"), NOT code. You will likely spend more time on analysis than on code in this assignment; start early!
 
 
-**IGNORE THE DUE DATE** on it -- that was for last year, but since my computer melted I haven't gotten the new one ready yet.
 

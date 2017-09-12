@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+
+  <title>Project 2 Hints</title>
+  <meta name="description" content="Spring 2017, Syracuse University 
+">
+
+  <link rel="stylesheet" href="/phys307/css/main.css">
+  <link rel="canonical" href="/phys307/projects/project2hints.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307 Fall 2017" href="/phys307/feed.xml">
+
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/phys307/">Physics 307 Fall 2017</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/project2hints.html">Project 2 Hints</a>
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/project2.html">Project 2</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/notes/">Notes</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/project1.html">Project 1</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/">Projects</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Project 2 Hints</h1>
+  </header>
+
+  <div class="post-content">
+    <ol>
+  <li>
+    <p>This may be some extra work, but it will save time in the long run by making your program as modular as possible. That way, you can change what function you want 
+to integrate without needing to mess with your actual integrator, or vice versa.</p>
+  </li>
+  <li>A couple of hints here:
+    <ul>
+      <li>The computer incurs round-off error whenever it does floating-point math. If you add 0.1 to itself ten times, you won’t get 1.00000, but something either slightly less
+ or slightly greater. This means that the stopping condition for your integrator shouldn’t be <code class="highlighter-rouge">x&lt;xmax</code>, but <code class="highlighter-rouge">x&lt;xmax-0.5</code>, ensuring that you won’t do one more
+ bin than you wanted and “drive off the right side” of the interval.</li>
+      <li>Remember that your bin size needs to go into the size of your interval evenly – using bins of width 0.3 while integrating from 0 to 2 isn’t going to do what you want!</li>
+      <li>In making your error plot, it will probably be easiest if you automate the selection of different stepsizes by using a <code class="highlighter-rouge">for</code> loop 
+ to cycle through various values. Since the stepsizes you want span many orders of magnitude, you may want to modify the stepsize by a <em>multiplicative</em>, rather than
+ additive, factor each time through the loop. Don’t forget the previous hint, though, and don’t forget to reset your accumulator after each integral. Specifically,
+ you can do something like <code class="highlighter-rouge">for (h=1; h&gt;1e-6; h=h*0.5)</code>.</li>
+      <li>You’ll need to compute the absolute value of your error using <code class="highlighter-rouge">fabs</code> to make a log-log plot, since you can’t take the logarithm of a negative. Look at the
+ notes for plotting to see how to make a log-log plot.</li>
+      <li>When calculating the error, <em>don’t</em> hard-code a number for the exact answer; instead, put in an expression for it. Your numerical integration algorithm may give you an answer
+ that is precise to twelve digits, so you want lots of precision.</li>
+      <li>Since you’ll be dealing with errors that are very small, use <code class="highlighter-rouge">%e</code> to print them in scientific notation.</li>
+    </ul>
+  </li>
+  <li>
+    <p>For these problems, please feel free to compare your data to your neighbors and show them to the instructors to discuss what you’re seeing. The behavior is not 
+ completely obvious!</p>
+  </li>
+  <li>
+    <p>It’ll be useful to plot all the error plots on the same axes to better interpret them.</p>
+  </li>
+  <li>Once you understand the peculiar behavior you’ll see in the previous problems, you’ll understand why using <code class="highlighter-rouge">double</code> variables makes a difference. Plot 
+the error vs. stepsize for <code class="highlighter-rouge">double</code> and <code class="highlighter-rouge">float</code> on top of each other.</li>
+</ol>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physics 307 Fall 2017</li>
+          <li><a href="mailto:wafreema@syr.edu">wafreema@syr.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Spring 2017, Syracuse University 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
