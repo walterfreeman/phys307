@@ -7,6 +7,9 @@ permalink: notes/
 use_math: true
 ---
 
+<a href="DE-notes.pdf">Notes on solving differential equations</a> (Please read 
+at least the first two sections by Tuesday's class)
+
 <a href="function.html">Functions in C</a>
 
 <a href="integration-notes.pdf">Analysis of integration methods</a> (as pdf because of typeset mathematics)

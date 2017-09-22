@@ -10,3 +10,5 @@ use_math: true
 <a href="project0.html">Project 0, due Tuesday, September 5, at 11 AM</a> 
 
 <a href="project1.html">Project 1, due Tuesday, September 12, at 11 AM</a> 
+
+<a href="project2.html">Project 2, due Tuesday, September 26, at 11 AM</a> 

@@ -5,6 +5,13 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 21 September assignment
+
+Please read the <a href="notes/DE-notes.pdf">notes on differential equations</a>
+before Tuesday's class. You might also be interested in a draft of
+<a href="projects/hw3.pdf">Project 3</a>; it will be revised before Tuesday,
+but this is the gist.
+
 ### 12 September agenda:
 
 * Do a retrospective of Project 1 and see how far you all are
