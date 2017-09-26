@@ -5,6 +5,13 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 26 September agenda
+
+* Do a retrospective of Project 2
+* Summarize the high points of what you read for homework over the weekend
+* Get started on Project 3
+* New notes: on <a href="notes/DE-notes.pdf">differential equation solvers</a> and <a href="notes/anim.html">making animations</a>.
+
 ### 21 September assignment
 
 Please read the <a href="notes/DE-notes.pdf">notes on differential equations</a>
