@@ -7,7 +7,7 @@ permalink: notes/
 use_math: true
 ---
 
-<a href-"anim.html">Notes on making animations</a>
+<a href="anim.html">Notes on making animations</a>
 
 <a href="DE-notes.pdf">Notes on solving differential equations</a> (Please read 
 at least the first two sections by Tuesday's class)
