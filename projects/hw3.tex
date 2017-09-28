@@ -91,28 +91,28 @@ t_1 + \left(\left.\PAR{T}{t}\right|_{t_1}\right)^{-1} (T_1-T_f)
 }
 
 
-\item Now we will solve a DE that we can't do with pen and paper. The equation of motion for a pendulum is
-
-\begin{equation}
-\PARTWO{\theta}{t}=-\frac{g}{L} \sin \theta
-\end{equation}
-
-In mechanics class you solved this by taking the small-angle approximation $\sin \theta \approx \theta$; the equation then has a solution
-
-\begin{equation}
-\theta(t) = A \sin (\omega t + \phi)
-\end{equation}
-
-where $\omega=\sqrt\frac{g}{L}$ giving a period $T=2\pi\sqrt\frac{L}{g}$. This is valid only in the limit $\theta \rightarrow 0$.
-
-This equation is very difficult to solve without making this approximation using pen and paper, but you have a computer! 
-
-Before Tuesday I'd like to see you at least code this using the Euler algorithm, and possibly the RK2 algorithm, using {\tt anim} to animate your results. We will do more with the pendulum in Project 4.
-
+%\item Now we will solve a DE that we can't do with pen and paper. The equation of motion for a pendulum is
 %
-%\begin{enumerate}
+%\begin{equation}
+%\PARTWO{\theta}{t}=-\frac{g}{L} \sin \theta
+%\end{equation}
 %
-%\item{Without making the small-angle approximation, 
+%In mechanics class you solved this by taking the small-angle approximation $\sin \theta \approx \theta$; the equation then has a solution
+%
+%\begin{equation}
+%\theta(t) = A \sin (\omega t + \phi)
+%\end{equation}
+%
+%where $\omega=\sqrt\frac{g}{L}$ giving a period $T=2\pi\sqrt\frac{L}{g}$. This is valid only in the limit $\theta \rightarrow 0$.
+%
+%This equation is very difficult to solve without making this approximation using pen and paper, but you have a computer! 
+%
+%Before Tuesday I'd like to see you at least code this using the Euler algorithm, and possibly the RK2 algorithm, using {\tt anim} to animate your results. We will do more with the pendulum in Project 4.
+%
+%%
+%%\begin{enumerate}
+%%
+%%\item{Without making the small-angle approximation, 
 %write a computer program that solves Newton's law (rotational form) to compute the oscillation of a swinging pendulum using the RK2 algorithm. (It may be helpful to code Euler as a first step.)}
 %
 %\item{Animate your pendulum using {\tt anim}.}
