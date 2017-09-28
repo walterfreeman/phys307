@@ -13,6 +13,9 @@ permalink: index.html
   * Read the notes on <a href="notes/anim.html">animation</a>
   * Read the notes on <a href="notes/DE-notes.pdf">differential equation solvers</a>
   * Read the notes on <a href="notes/symplectic.html">symplectic solvers</a>
+  * Look over Project 4 (posted Fri/Sat)
+
+
 
 ### 26 September agenda
 
