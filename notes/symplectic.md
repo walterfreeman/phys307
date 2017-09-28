@@ -40,7 +40,7 @@ This doesn't actually implement Euler! Recall that the Euler prescription is to 
 is actually done, see the end of this file.)
 
 This is a different solver, called the *semi-implicit Euler method*, or the *Euler-Cromer* method. Like Euler, it is a first-order method. However, it is a *symplectic* integrator, so it conserves energy much better than we'd expect from a
-first-order method (say, Euler).
+first-order method (say, Euler). Why this is is not obvious and is somewhat beyond the scope of this class; it's good enough to know that it is the case.
 
 ### The "backwards" Euler-Cromer solver
 

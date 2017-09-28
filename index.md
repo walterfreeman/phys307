@@ -5,6 +5,15 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 28 September agenda
+
+* Discuss animation
+* Finish working on Project 3
+* Discuss what you should do over the weekend:
+  * Read the notes on <a href="notes/anim.html">animation</a>
+  * Read the notes on <a href="notes/DE-notes.pdf">differential equation solvers</a>
+  * Read the notes on <a href="notes/symplectic.html">symplectic solvers</a>
+
 ### 26 September agenda
 
 * Do a retrospective of Project 2
