@@ -15,7 +15,7 @@ If you have a Mac or Linux laptop that you're using for my class, you'll first n
 2. In your terminal, go to the directory where you saved the file. This is an ordinary C file, so you can look at it if you want (or make changes!)
 3. Compile it:
   * Linux: `gcc anim.c -lm -lGL -lGLU -lglut -o anim`
-  * Mac: `gcc anim-mac.c -framework GLUT -framework OpenGL -framework Cocoa -o`
+  * Mac: `gcc anim-mac.c -framework GLUT -framework OpenGL -framework Cocoa -o anim`
 4. Copy it to your system directory: `sudo cp anim /usr/local/bin/`
 
 You can try it by running `anim` on the course computer, and then typing things in. Here are some simple commands; note that monospace Roman letters `like this` are

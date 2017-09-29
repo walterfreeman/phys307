@@ -63,7 +63,7 @@ void myColor4f(double r, double g, double b, double a)
 void transform(float x, float y, float z, float *X, float *Y, float *Z);
 
 
-double cachetrig()
+void cachetrig()
 {
   if (td==0) return;
   costheta=cos(theta);

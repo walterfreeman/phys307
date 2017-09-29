@@ -34,7 +34,7 @@ Brew is a package manager for macOS that allows you to easily install software f
 
 First, you'll want to install xquartz, which will give you nice graphical output from gnuplot. To do this, type ```brew cask install xquartz```.
 
-Then in the terminal just type ```brew install gnuplot --with-x11```. 
+Then in the terminal just type ```brew install gnuplot --with-qt```. 
 And you are done. In fact you can use brew in future for any package installation. Just type in the terminal ```brew install <packagename>```.
 
 Then, grab a copy of ```plot``` from the 
