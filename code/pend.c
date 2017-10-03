@@ -49,8 +49,8 @@ int main(void)
   int N=1000;
   double th;
   double om;
-  double dt=4e-3,t;
-  int frameskip=1,i=0,j;
+  double dt=4e-4,t;
+  int frameskip=1000,i=0,j;
 
   th=1; om=0;
 
@@ -58,7 +58,7 @@ int main(void)
   {
     for (j=0; j<N; j++)
     {
-      rk2(th,om,dt);
+      eulercromer(th,om,dt);
     }
     if (i % frameskip == 0)
     {
@@ -67,7 +67,7 @@ int main(void)
         printf("l 0 0 %e %e\n",sin(th), -cos(th));
       }
       printf("F\n");
-      printf("!energy: %e\n",E(th,om));
+      printf("!%e %e\n",t,E(th,om)-E(1,0));
     } 
     i++;
   }

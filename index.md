@@ -5,9 +5,13 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
-### 28 September agenda
+### 3 October agenda
 
 * Discuss animation
+* Introduce <a href="projects/hw-pendulum.pdf">Project 4</a>
+
+### 28 September agenda
+
 * Finish working on Project 3
 * Discuss what you should do over the weekend:
   * Read the notes on <a href="notes/anim.html">animation</a>
