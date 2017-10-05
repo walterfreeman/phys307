@@ -57,9 +57,9 @@ int main(void)
   {
     th[i]=0.1*i+0.2;
     om[i]=0;
-    r[i]=drand48()+0.2;
-    g[i]=drand48()+0.2;
-    b[i]=drand48()+0.2;
+    r[i]=drand48()+0.4;
+    g[i]=drand48()+0.4;
+    b[i]=drand48()+0.4;
   }
 
   for (t=0; 1; t+=dt)
