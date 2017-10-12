@@ -9,7 +9,7 @@ permalink: index.html
 
 * discuss planetary orbits and how to simulate them
 * Notes for this are still in the long file on <a href="notes/DE-notes.pdf">differential equation solvers</a>
-* New notes: <a href="notes/cplusplus.html">C++ tricks</a>, <a href="notes/organization.md">organizing your stuff</a>
+* New notes: <a href="notes/cplusplus.html">C++ tricks</a>, <a href="notes/organization.html">organizing your stuff</a>
 * Project 5 posted
 
 ### 3 October agenda
