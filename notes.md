@@ -7,6 +7,8 @@ permalink: notes/
 use_math: true
 ---
 
+<a href="cplusplus.html">A few C++ tricks</a>
+
 <a href="symplectic.html">Notes on symplectic solvers</a>
 
 <a href="anim.html">Notes on making animations</a>

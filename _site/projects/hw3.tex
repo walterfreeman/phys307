@@ -77,7 +77,7 @@ Note that in order to achieve second-order accuracy, you will need to correct fo
 Briefly, if you discover that the temperature is $T_1$ (greater than 70 degrees) at $t_1$, and $T_2$ (less than 70 degrees) at $t_2$, in order to achieve second-order precision you need to interpolate to figure out at what time you actually hit 70 degrees. That time is given by
 
 \begin{equation}
-t_1 + \frac{t_1-t_2}{T_1-T_2} (T_1-T_f)
+t_1 - \frac{t_1-t_2}{T_1-T_2} (T_1-T_f)
 \end{equation}
 
 or alternatively
@@ -90,57 +90,61 @@ t_1 + \left(\left.\PAR{T}{t}\right|_{t_1}\right)^{-1} (T_1-T_f)
 
 }
 
-\item{Now we will solve a DE that we can't do with pen and paper. The equation of motion for a pendulum is
 
-\begin{equation}
-\PARTWO{\theta}{t}=-\frac{g}{L} \sin \theta
-\end{equation}
-
-In mechanics class you solved this by taking the small-angle approximation $\sin \theta \approx \theta$; the equation then has a solution
-
-\begin{equation}
-\theta(t) = A \sin (\omega t + \phi)
-\end{equation}
-
-where $\omega=\sqrt\frac{g}{L}$ giving a period $T=2\pi\sqrt\frac{L}{g}$. This is valid only in the limit $\theta \rightarrow 0$.
-
-This equation is very difficult to solve without making this approximation using pen and paper, but you have a computer! 
-
-\begin{enumerate}
-
-\item{Without making the small-angle approximation, 
-write a computer program that solves Newton's law (rotational form) to compute the oscillation of a swinging pendulum using the RK2 algorithm. (It may be helpful to code Euler as a first step.)}
-
-\item{Animate your pendulum using {\tt anim}.}
-
-\item{Modify your program to determine the period of the pendulum and print it out. You can determine when a period has elapsed by looking for sign changes in $\omega$.}
-
-\item{Suppose a pendulum clock keeps accurate time when $\theta_{\rm max}=5^\circ$. How many seconds will it gain or lose per day if it is swinging at an angle of  $\theta_{\rm max}=20^\circ$?}
-
-\item{Now, make a plot of the fractional deviation in the period, defined as $\Delta = \frac{T-T_0}{T_0}$. Here $T_0$ is the small-angle-limiting period, $T_0=2\pi\sqrt\frac{L}{g}$. Calculate this for a range of $\theta_{\rm max}$ from $10^{-5}$ to 2 (radians). Make a log-log plot of $\Delta$ vs. $\theta_{\rm max}$.
-Based on what you know about the power series expansion of $\sin(x)$, comment on its appearance. Is it what you expect?}
-
-\item{{\bf Graduate students and ambitious undergraduates:} A further assignment for you is coming, and will be posted Thursday.
-
-
-%\item{{\bf Graduate students and ambitious undergraduates:} Looking at the animation from the previous, you'll notice that the pendulum still oscillates essentially
-%sinusoidally, but with a frequency that now depends on the amplitude. 
+%\item Now we will solve a DE that we can't do with pen and paper. The equation of motion for a pendulum is
 %
-%This information still doesn't let us get an exact solution to the differential 
-%equation
+%\begin{equation}
+%\PARTWO{\theta}{t}=-\frac{g}{L} \sin \theta
+%\end{equation}
 %
-%$$\ddot \theta = -k^2 \sin \theta$$
+%In mechanics class you solved this by taking the small-angle approximation $\sin \theta \approx \theta$; the equation then has a solution
 %
-%where $k^2 = \sqrt{g/L}$ for simplicity.
+%\begin{equation}
+%\theta(t) = A \sin (\omega t + \phi)
+%\end{equation}
 %
-%However, for small amplitude, we can obtain an approximate solution using
-%perturbation theory. You can do this by expanding everything out to 
-%next-to-next-to-leading-order (written NNLO) in power series in $\theta$
-%-- both the DE and your guess for its solution.
+%where $\omega=\sqrt\frac{g}{L}$ giving a period $T=2\pi\sqrt\frac{L}{g}$. This is valid only in the limit $\theta \rightarrow 0$.
 %
-%This means that the differential equation becomes
+%This equation is very difficult to solve without making this approximation using pen and paper, but you have a computer! 
 %
-%$$\ddot \theta = -k^2 \left( \theta - \frac{1}{6}\theta \right).$$
+%Before Tuesday I'd like to see you at least code this using the Euler algorithm, and possibly the RK2 algorithm, using {\tt anim} to animate your results. We will do more with the pendulum in Project 4.
+%
+%%
+%%\begin{enumerate}
+%%
+%%\item{Without making the small-angle approximation, 
+%write a computer program that solves Newton's law (rotational form) to compute the oscillation of a swinging pendulum using the RK2 algorithm. (It may be helpful to code Euler as a first step.)}
+%
+%\item{Animate your pendulum using {\tt anim}.}
+%
+%\item{Modify your program to determine the period of the pendulum and print it out. You can determine when a period has elapsed by looking for sign changes in $\omega$.}
+%
+%\item{Suppose a pendulum clock keeps accurate time when $\theta_{\rm max}=5^\circ$. How many seconds will it gain or lose per day if it is swinging at an angle of  $\theta_{\rm max}=20^\circ$?}
+%
+%\item{Now, make a plot of the fractional deviation in the period, defined as $\Delta = \frac{T-T_0}{T_0}$. Here $T_0$ is the small-angle-limiting period, $T_0=2\pi\sqrt\frac{L}{g}$. Calculate this for a range of $\theta_{\rm max}$ from $10^{-5}$ to 2 (radians). Make a log-log plot of $\Delta$ vs. $\theta_{\rm max}$.
+%Based on what you know about the power series expansion of $\sin(x)$, comment on its appearance. Is it what you expect?}
+%
+%\item{{\bf Graduate students and ambitious undergraduates:} A further assignment for you is coming, and will be posted Thursday.
+%
+%
+%%\item{{\bf Graduate students and ambitious undergraduates:} Looking at the animation from the previous, you'll notice that the pendulum still oscillates essentially
+%%sinusoidally, but with a frequency that now depends on the amplitude. 
+%%
+%%This information still doesn't let us get an exact solution to the differential 
+%%equation
+%%
+%%$$\ddot \theta = -k^2 \sin \theta$$
+%%
+%%where $k^2 = \sqrt{g/L}$ for simplicity.
+%%
+%%However, for small amplitude, we can obtain an approximate solution using
+%%perturbation theory. You can do this by expanding everything out to 
+%%next-to-next-to-leading-order (written NNLO) in power series in $\theta$
+%%-- both the DE and your guess for its solution.
+%%
+%%This means that the differential equation becomes
+%%
+%%$$\ddot \theta = -k^2 \left( \theta - \frac{1}{6}\theta \right).$$
 %
 %What about its solution? You might guess that it's still sinusoidal (which you
 %can write as a complex exponential for simplicity), but now the frequency
@@ -165,12 +169,6 @@ Based on what you know about the power series expansion of $\sin(x)$, comment on
 
 
 
-}
-
-
-
-\end{enumerate}
-}
 \end{enumerate}
 
 \end{document}

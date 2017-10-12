@@ -3,6 +3,20 @@
 <p>As we’re going to now focus on simulating things that move, it’s handy to be able to see animations of what they look like. You can do this with a little program
 <code class="highlighter-rouge">anim</code> that I wrote. This program reads in lines of text (using <code class="highlighter-rouge">scanf</code>), interprets them as instructions to draw on the screen, and then does so.</p>
 
+<p>If you have a Mac or Linux laptop that you’re using for my class, you’ll first need to get <code class="highlighter-rouge">anim</code> on your computer. You can do this as follows:</p>
+
+<ol>
+  <li>Download the source code to <code class="highlighter-rouge">anim</code>. For a Linux machine, it’s <a href="anim.c">here</a>, and for a Mac, it’s <a href="anim-mac.c">here</a>.</li>
+  <li>In your terminal, go to the directory where you saved the file. This is an ordinary C file, so you can look at it if you want (or make changes!)</li>
+  <li>Compile it:
+    <ul>
+      <li>Linux: <code class="highlighter-rouge">gcc anim.c -lm -lGL -lGLU -lglut -o anim</code></li>
+      <li>Mac: <code class="highlighter-rouge">gcc anim-mac.c -framework GLUT -framework OpenGL -framework Cocoa -o anim</code></li>
+    </ul>
+  </li>
+  <li>Copy it to your system directory: <code class="highlighter-rouge">sudo cp anim /usr/local/bin/</code></li>
+</ol>
+
 <p>You can try it by running <code class="highlighter-rouge">anim</code> on the course computer, and then typing things in. Here are some simple commands; note that monospace Roman letters <code class="highlighter-rouge">like this</code> are
 meant to be typed literally, while Italic letters <em>like this</em> are to be replaced with numerical values.</p>
 
@@ -34,14 +48,7 @@ $\tt \rangle$, which sends the output of one program to a text file. For instanc
 
 <p>for last week’s homework.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>However, what you want to do here is send the output of one program (yours) to another program (<code class="highlighter-rouge">anim</code>). This is done with the</td>
-      <td>operator, for instance</td>
-    </tr>
-  </tbody>
-</table>
+<p>However, what you want to do here is send the output of one program (yours) to another program (<code class="highlighter-rouge">anim</code>). This is done with the <code class="highlighter-rouge">|</code> operator, for instance</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="p">.</span><span class="o">/</span><span class="n">simulate_pendulum</span> <span class="o">|</span> <span class="n">anim</span></code></pre></figure>
 
