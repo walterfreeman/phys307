@@ -1,0 +1,174 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0pt}
+\usepackage{fullpage}
+\setlength{\parskip}{4mm}
+\def\LL{\left\langle}   % left angle bracket
+\def\RR{\right\rangle}  % right angle bracket
+\def\LP{\left(}         % left parenthesis
+\def\RP{\right)}        % right parenthesis
+\def\LB{\left\{}        % left curly bracket
+\def\RB{\right\}}       % right curly bracket
+\def\PAR#1#2{ {{\partial #1}\over{\partial #2}} }
+\def\PARTWO#1#2{ {{\partial^2 #1}\over{\partial #2}^2} }
+\def\PARTWOMIX#1#2#3{ {{\partial^2 #1}\over{\partial #2 \partial #3}} }
+\newcommand{\BE}{\begin{displaymath}}
+\newcommand{\EE}{\end{displaymath}}
+\newcommand{\BNE}{\begin{equation}}
+\newcommand{\ENE}{\end{equation}}
+\newcommand{\BEA}{\begin{eqnarray}}
+\newcommand{\EEA}{\nonumber\end{eqnarray}}
+\newcommand{\EL}{\nonumber\\}
+\newcommand{\la}[1]{\label{#1}}
+\newcommand{\ie}{{\em i.e.\ }}
+\newcommand{\eg}{{\em e.\,g.\ }}
+\newcommand{\cf}{cf.\ }
+\newcommand{\etc}{etc.\ }
+\newcommand{\Tr}{{\rm tr}}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\OL}[1]{\overline{#1}\ } % overline
+\newcommand{\OLL}[1]{\overline{\overline{#1}}\ } % double overline
+\newcommand{\OON}{\frac{1}{N}} % "one over N"
+\newcommand{\OOX}[1]{\frac{1}{#1}} % "one over X"
+
+\begin{document}
+\Large
+\centerline{\sc{Physics 307 Project 3}}
+\centerline{Due Tuesday, 3 October, at 11 AM}
+\normalsize
+
+\begin{enumerate}
+\item{
+
+First we will study a DE that we can solve analytically so we can compute error as a function of stepsize.
+
+Newton's law of cooling says that the rate of temperature loss is proportional to the temperature difference between the cooling object and the ambient temperature $T_a$; that is,
+
+\begin{equation}
+\PAR{T}{t} = -k(T-T_a)
+\end{equation}
+
+where $k$ is a proportionality constant that depends on the materials involved and their surface area. The analytic solution to this DE is
+
+\begin{equation}
+T(t) = T_a + (T(0) - T_a)e^{-kt}
+\end{equation}
+  
+Consider a cooling cup of tea. When the water is removed from the heat, it is at $100^\circ$. Suppose that room temperature is $30^\circ$, and that $k=0.1 {\rm {min}}^{-1}$.
+
+\begin{enumerate}
+
+\item{Write a program that solves the differential equation above for the temperature $T$ as a function of time using Euler's method. Plot this function vs. time for stepsizes $dt$ of 1 minute, 10 seconds, and 1 second, along
+with the analytic solution. Does your numeric solution do a good job of capturing the behavior of the system?}
+
+\item{Now, investigate the error in a rigorous way. Using a range of stepsizes $dt$, compute the temperature after five minutes and compute the error in each value. 
+Make a log-log plot of the error vs. the stepsize. Is the scaling what you expect it to be?}
+
+Note: You should actually solve the DE numerically using Euler's method; the exact solution given above is just so you can compute the error. This is the second-to-last thing we will study in this class that has an easy, obvious analytic solution!
+
+\end{enumerate}
+}
+
+\item{Repeat the preceding problem with the second-order Runge-Kutta method.}
+
+\item{Now, using RK2, answer the question ``How long does it take the tea to cool to $T_f=70^\circ$?'' Make a plot of the error in your result vs. stepsize and verify that you're seeing second-order scaling. 
+
+Note that in order to achieve second-order accuracy, you will need to correct for ``overshoot'', as we will discuss in class. 
+
+Briefly, if you discover that the temperature is $T_1$ (greater than 70 degrees) at $t_1$, and $T_2$ (less than 70 degrees) at $t_2$, in order to achieve second-order precision you need to interpolate to figure out at what time you actually hit 70 degrees. That time is given by
+
+\begin{equation}
+t_1 - \frac{t_1-t_2}{T_1-T_2} (T_1-T_f)
+\end{equation}
+
+or alternatively
+
+\begin{equation}
+t_1 + \left(\left.\PAR{T}{t}\right|_{t_1}\right)^{-1} (T_1-T_f)
+\end{equation}
+
+(I find the second more intuitive and easier to apply, since you already have been calculating $\PAR{T}{t}$ many times already.)
+
+}
+
+
+%\item Now we will solve a DE that we can't do with pen and paper. The equation of motion for a pendulum is
+%
+%\begin{equation}
+%\PARTWO{\theta}{t}=-\frac{g}{L} \sin \theta
+%\end{equation}
+%
+%In mechanics class you solved this by taking the small-angle approximation $\sin \theta \approx \theta$; the equation then has a solution
+%
+%\begin{equation}
+%\theta(t) = A \sin (\omega t + \phi)
+%\end{equation}
+%
+%where $\omega=\sqrt\frac{g}{L}$ giving a period $T=2\pi\sqrt\frac{L}{g}$. This is valid only in the limit $\theta \rightarrow 0$.
+%
+%This equation is very difficult to solve without making this approximation using pen and paper, but you have a computer! 
+%
+%Before Tuesday I'd like to see you at least code this using the Euler algorithm, and possibly the RK2 algorithm, using {\tt anim} to animate your results. We will do more with the pendulum in Project 4.
+%
+%%
+%%\begin{enumerate}
+%%
+%%\item{Without making the small-angle approximation, 
+%write a computer program that solves Newton's law (rotational form) to compute the oscillation of a swinging pendulum using the RK2 algorithm. (It may be helpful to code Euler as a first step.)}
+%
+%\item{Animate your pendulum using {\tt anim}.}
+%
+%\item{Modify your program to determine the period of the pendulum and print it out. You can determine when a period has elapsed by looking for sign changes in $\omega$.}
+%
+%\item{Suppose a pendulum clock keeps accurate time when $\theta_{\rm max}=5^\circ$. How many seconds will it gain or lose per day if it is swinging at an angle of  $\theta_{\rm max}=20^\circ$?}
+%
+%\item{Now, make a plot of the fractional deviation in the period, defined as $\Delta = \frac{T-T_0}{T_0}$. Here $T_0$ is the small-angle-limiting period, $T_0=2\pi\sqrt\frac{L}{g}$. Calculate this for a range of $\theta_{\rm max}$ from $10^{-5}$ to 2 (radians). Make a log-log plot of $\Delta$ vs. $\theta_{\rm max}$.
+%Based on what you know about the power series expansion of $\sin(x)$, comment on its appearance. Is it what you expect?}
+%
+%\item{{\bf Graduate students and ambitious undergraduates:} A further assignment for you is coming, and will be posted Thursday.
+%
+%
+%%\item{{\bf Graduate students and ambitious undergraduates:} Looking at the animation from the previous, you'll notice that the pendulum still oscillates essentially
+%%sinusoidally, but with a frequency that now depends on the amplitude. 
+%%
+%%This information still doesn't let us get an exact solution to the differential 
+%%equation
+%%
+%%$$\ddot \theta = -k^2 \sin \theta$$
+%%
+%%where $k^2 = \sqrt{g/L}$ for simplicity.
+%%
+%%However, for small amplitude, we can obtain an approximate solution using
+%%perturbation theory. You can do this by expanding everything out to 
+%%next-to-next-to-leading-order (written NNLO) in power series in $\theta$
+%%-- both the DE and your guess for its solution.
+%%
+%%This means that the differential equation becomes
+%%
+%%$$\ddot \theta = -k^2 \left( \theta - \frac{1}{6}\theta \right).$$
+%
+%What about its solution? You might guess that it's still sinusoidal (which you
+%can write as a complex exponential for simplicity), but now the frequency
+%is also a power series in the amplitude $A$. 
+%
+%and your guess at its solution can be written
+%
+%$$\theta(t) = A \exp{\left[i\left(\omega_0 + A \omega_1 + A^2 \omega_2\right)t\right]}$$
+%
+%Here $\omega_0$ is the low-amplitude limiting frequency, and $\omega_1$
+%and $\omega_2$ are amplitude-dependent corrections. The approach we will 
+%take here is {\it classical perturbation theory}, a more generalized form of
+%what you learned in your quantum mechanics class.
+%
+%You can proceed as follows:
+%
+%\begin{itemize}
+%\item Differentiate $\theta(t)$ to get $\ddot \theta$
+%\item Substitute the resulting expression back into the differential equation, 
+%
+
+
+
+
+\end{enumerate}
+
+\end{document}

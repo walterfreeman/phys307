@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0pt}
+\usepackage{fullpage}
+\setlength{\parskip}{4mm}
+\def\LL{\left\langle}   % left angle bracket
+\def\RR{\right\rangle}  % right angle bracket
+\def\LP{\left(}         % left parenthesis
+\def\RP{\right)}        % right parenthesis
+\def\LB{\left\{}        % left curly bracket
+\def\RB{\right\}}       % right curly bracket
+\def\PAR#1#2{ {{\partial #1}\over{\partial #2}} }
+\def\PARTWO#1#2{ {{\partial^2 #1}\over{\partial #2}^2} }
+\def\PARTWOMIX#1#2#3{ {{\partial^2 #1}\over{\partial #2 \partial #3}} }
+\newcommand{\BE}{\begin{displaymath}}
+\newcommand{\EE}{\end{displaymath}}
+\newcommand{\BNE}{\begin{equation}}
+\newcommand{\ENE}{\end{equation}}
+\newcommand{\BEA}{\begin{eqnarray}}
+\newcommand{\EEA}{\nonumber\end{eqnarray}}
+\newcommand{\EL}{\nonumber\\}
+\newcommand{\la}[1]{\label{#1}}
+\newcommand{\ie}{{\em i.e.\ }}
+\newcommand{\eg}{{\em e.\,g.\ }}
+\newcommand{\cf}{cf.\ }
+\newcommand{\etc}{etc.\ }
+\newcommand{\Tr}{{\rm tr}}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\OL}[1]{\overline{#1}\ } % overline
+\newcommand{\OLL}[1]{\overline{\overline{#1}}\ } % double overline
+\newcommand{\OON}{\frac{1}{N}} % "one over N"
+\newcommand{\OOX}[1]{\frac{1}{#1}} % "one over X"
+
+\begin{document}
+\Large
+\centerline{\sc{Physics 307 Homework 4}}
+\centerline{Due Tuesday, 10 October, at 11 AM}
+\normalsize
+
+
+\begin{center}
+\it Note: See the notes on symplectic integrators for summaries of the different solvers used in this project.
+\end{center}
+
+Now we will solve a DE that we can't do with pen and paper. The equation of motion for a pendulum is
+
+
+\begin{equation}
+\PARTWO{\theta}{t}=-\frac{g}{L} \sin \theta
+\end{equation}
+
+In mechanics class you solved this by taking the small-angle approximation $\sin \theta \approx \theta$; the equation then has a solution
+
+\begin{equation}
+\theta(t) = A \sin (\omega t + \phi)
+\end{equation}
+
+where $\omega=\sqrt\frac{g}{L}$ giving a period $T=2\pi\sqrt\frac{L}{g}$. This is valid only in the limit $\theta \rightarrow 0$.
+
+This equation is very difficult to solve without making this approximation using pen and paper, but you have a computer! 
+
+\begin{enumerate}
+
+\item Without making the small-angle approximation, 
+write a computer program that solves Newton's law (rotational form) to compute the oscillation of a swinging pendulum using the Euler-Cromer algorithm, which 
+is a first-order symplectic integrator. (It is perhaps the easiest to code of all of them.
+)
+\item Animate your pendulum using {\tt anim}.
+
+\item Modify your program to determine the period of the pendulum and print it out. You can determine when a period has elapsed by looking for sign changes in $\omega$.
+
+\item Does your program give you the result you expect (\ie $T=2\pi\sqrt\frac{L}{g}$) in the limit where the initial amplitude is small?
+
+\item Modify your program to use the leapfrog algorithm, which is a second-order symplectic integrator.
+
+\item Suppose a pendulum clock keeps accurate time when $\theta_{\rm max}=5^\circ$. How many seconds will it gain or lose per day if it is swinging at an angle of  $\theta_{\rm max}=20^\circ$?
+
+\item Make a plot of the fractional deviation in the period, defined as $\Delta = \frac{T-T_0}{T_0}$. Here $T_0$ is the small-angle-limiting period, $T_0=2\pi\sqrt\frac{L}{g}$. Calculate this for a range of $\theta_{\rm max}$ from $10^{-5}$ to 2 (radians). Make a log-log plot of $\Delta$ vs. $\theta_{\rm max}$. Your plot should
+cover amplitudes from around $10^{-6}$ to 2 radians. Here you might see
+deviations from the small-angle period from two sources: actual physical effects, and error in your numerical solution. You should take whatever steps you can to minimize
+the latter (using a reasonable stepsize, using interpolation to determine the period as you did in HW3, etc.), and then correctly interpret your data in light of the fact
+that you may still have errors related to your numerical solution.
+
+Based on what you know about the power series expansion of $\sin(x)$, comment on its appearance. Is it what you expect?
+
+\item {\bf Graduate students and ambitious undergrads:} Modify your program to keep track of the energy anomaly $E(t) - E(0)$ (the amount by which conservation of energy is violated)
+as the simulation progresses. (The potential and kinetic energy are what you think they should be -- see the symplectic integrator notes.) You can print the energy anomaly while your program is animating
+using the ! passthrough character; ask me if this isn't clear from the notes on animation.
+
+Conduct both a qualitative (i.e. watch the animation) and qualitative (plot the energy anomaly) study of the performance of the Euler, Euler-Cromer, RK2, and leapfrog
+integrators for the pendulum. How large of a stepsize can you trust for short runtimes (just one period)? What about long runtimes (many thousands of periods)?
+
+Note that I am not telling you exactly what to measure, or what to plot against what.
+
+{\it Anyone working on this project may collaborate in figuring this out!}
+
+
+\end{enumerate}
+
+
+
+\end{document}
