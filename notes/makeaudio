@@ -1,0 +1,74 @@
+#!/usr/bin/perl
+use POSIX;
+
+$output=shift;
+unless ($output =~ /.wav$/) {$output = "$output.wav";}
+$mult=shift;
+if ($mult == 0) {$mult=1;}
+$samplerate = 22050;
+$max=-1e10; $min=1e10;
+
+
+open Temp,">.tempsounddata";
+
+$rms=0;
+while (<STDIN>)
+{
+  chomp; @w=split;
+  $t[$i]=$w[0]/$mult;
+  $in[$i]=$w[1];
+  $rms+=$w[1]*$w[1];
+  $i++;
+  if ($i % 100000 == 0) {printf STDERR "Read $i points so far = %f sec\n",$i * ($t[1]-$t[0]);}
+  if (abs($w[1]) > $max) {$max=abs($w[1]);}
+}
+$n=$i;
+$dt=$t[1]-$t[0];
+$outdt = 1/$samplerate;
+$datmax=floor($samplerate * ($i*$dt));
+
+$rms=sqrt($rms/$n);
+
+
+if ($max > $rms * 12) 
+{
+  print STDERR "Using alternate method to set volume (clipping outliers)...\n"; 
+  $max=$rms*4;
+  for ($i=0; $i<$n; $i++)
+  {
+    if ($in[$i] > $max) {$in[$i] = $max; $nc++;}
+    if ($in[$i] < $max) {$in[$i] = -$max; $nc++;}
+  }
+  print STDERR "$nc points clipped.\n";
+}
+
+#print "$i points, max $max\n";
+
+printf STDERR "\n\nDone reading.\n$n points covering %f sec, speed multiplier $mult, samples $datmax, %f samples per data point\n",$i*$dt,$dt/$outdt;
+if ($dt/$outdt > 4)
+{
+  print STDERR "***WARNING***: low resolution data. The file you created is still playable but it may contain audible artifacts.\n";
+  printf STDERR "For good quality, either speed your data up by at least a factor of %.3f, or increase the data resolution by this factor.\n",$dt/$outdt;
+}
+print Temp "$datmax\n";
+for ($i=0; $i<$datmax; $i++)
+{
+  $datum = $i * ($outdt/$dt) + 1e-6;
+
+  $top=ceil($datum); $tw=$datum-floor($datum);
+  $bot=floor($datum); $bw=ceil($datum)-$datum;
+#  printf "sample $i reading from datum $datum (time %f)\n",$datum*$dt;
+#  print "Weights: $tw on point $top, $bw on point $bot\n";
+  
+  $t = $i * ($outdt);
+  $amp=1;
+  if ($t < 1e-2) {$amp = ($t/1e-2)**2;}
+  if ($datmax*$outdt - $t < 1e-2) {$amp = (($datmax*$outdt - $t)/1e-2)**2;}
+
+  printf Temp "%e\n",($in[$top]*$tw + $in[$bot]*$bw)*$amp/$max;
+}
+print STDERR "Writing $output to disk, speedup $mult\n";
+
+system("wavewrite < .tempsounddata > $output");
+
+system ("rm .tempsounddata");
