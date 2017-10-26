@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+
+  <title>Physics 307 Fall 2017</title>
+  <meta name="description" content="Spring 2017, Syracuse University 
+">
+
+  <link rel="stylesheet" href="/phys307/css/main.css">
+  <link rel="canonical" href="/phys307/notes/cplusplus.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307 Fall 2017" href="/phys307/feed.xml">
+
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/phys307/">Physics 307 Fall 2017</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/notes/">Notes</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/project5.html">Project 5</a>
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/project6.html">Project 6</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/">Projects</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <center><h1>A few C++ tricks</h1></center>
+
+<p>So far, all the things we have learned have been part of the vanilla C language. C++ is an extension to C that adds some <em>object-oriented programming</em> features;
+this is a collection of programming methods that are mostly useful to allow large groups of programmers to collaborate on huge projects (say, <strong>Skyrim</strong>).</p>
+
+<p>In our class we are not going to be using object-oriented programming. However, there are some C++ tricks that can make your lives much simpler. To use these, you’ll need
+to compile your code with <code class="highlighter-rouge">g++</code> rather than <code class="highlighter-rouge">gcc</code>.</p>
+
+<p>Trick #1: initializing variables inside a for loop</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d squared is %d.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">);</span></code></pre></figure>
+
+<p>Trick #2: ``pass-by-reference’’ to functions</p>
+
+<p>You know how to use a function that takes a bunch of inputs and returns an output:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">double</span> <span class="nf">hypotenuse</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Sometimes, though, you want to write a function that <em>changes</em> its inputs, or that returns more than one thing. You can’t do this with <code class="highlighter-rouge">return</code>, since this only lets you send one value back.</p>
+
+<p>Ordinary parameters are <em>passed by value</em>. This means that C takes the number and creates new variables (in the function above, <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code>) that hold those numbers inside the function.</p>
+
+<p>But in C++ you can also pass variables themselves by putting an ampersand before the variable name. When you do this, there is no second copy created; this means that if you change the variable
+inside the function, it “stays changed”. Consider the following function:</p>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">leapfrog</span><span class="p">(</span><span class="kt">double</span> <span class="o">&amp;</span><span class="n">theta</span><span class="p">,</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">omega</span><span class="p">,</span> <span class="kt">double</span> <span class="n">dt</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="n">omega</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span> <span class="c1">// take g and L to be 1
+</span>  <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The utility of something like this should be obvious.</p>
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physics 307 Fall 2017</li>
+          <li><a href="mailto:wafreema@syr.edu">wafreema@syr.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Spring 2017, Syracuse University 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
