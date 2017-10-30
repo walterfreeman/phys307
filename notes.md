@@ -7,6 +7,10 @@ permalink: notes/
 use_math: true
 ---
 
+<a href="string-notes.pdf">Notes on the vibrating string project</a>
+
+<a href="array-notes.pdf">Notes on using arrays</a>
+
 <a href="audio.html">Notes on audio output</a>
 
 <a href="cplusplus.html">A few C++ tricks</a>

@@ -5,6 +5,14 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 30 October agenda
+
+* discuss the vibrating string and how to model it
+* discuss the use of arrays to implement this model
+* introduce <a href="projects/hw6.pdf">Project 6</a> and <a href="projects/hw7.pdf">Project 7</a>.
+
+New notes: <a href="notes/string-notes.pdf">hints for the vibrating string project</a> and <a href="notes/array-notes.pdf">notes on arrays</a>.
+
 ### 12 October agenda
 
 * discuss planetary orbits and how to simulate them

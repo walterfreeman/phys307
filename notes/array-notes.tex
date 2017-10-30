@@ -1,0 +1,114 @@
+\documentclass[12ampt]{article}
+\setlength\parindent{0pt}
+\usepackage{fullpage}
+\usepackage{amsmath}
+\setlength{\parskip}{4mm}
+\def\LL{\left\langle}   % left angle bracket
+\def\RR{\right\rangle}  % right angle bracket
+\def\LP{\left(}         % left parenthesis
+\def\RP{\right)}        % right parenthesis
+\def\LB{\left\{}        % left curly bracket
+\def\RB{\right\}}       % right curly bracket
+\def\PAR#1#2{ {{\partial #1}\over{\partial #2}} }
+\def\PARTWO#1#2{ {{\partial^2 #1}\over{\partial #2}^2} }
+\def\PARTWOMIX#1#2#3{ {{\partial^2 #1}\over{\partial #2 \partial #3}} }
+\newcommand{\BE}{\begin{displaymath}}
+\newcommand{\EE}{\end{displaymath}}
+\newcommand{\BNE}{\begin{equation}}
+\newcommand{\ENE}{\end{equation}}
+\newcommand{\BEA}{\begin{eqnarray}}
+\newcommand{\EEA}{\nonumber\end{eqnarray}}
+\newcommand{\EL}{\nonumber\\}
+\newcommand{\la}[1]{\label{#1}}
+\newcommand{\ie}{{\em i.e.\ }}
+\newcommand{\eg}{{\em e.\,g.\ }}
+\newcommand{\cf}{cf.\ }
+\newcommand{\etc}{etc.\ }
+\newcommand{\Tr}{{\rm tr}}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\OL}[1]{\overline{#1}\ } % overline
+\newcommand{\OLL}[1]{\overline{\overline{#1}}\ } % double overline
+\newcommand{\OON}{\frac{1}{N}} % "one over N"
+\newcommand{\OOX}[1]{\frac{1}{#1}} % "one over X"
+
+
+
+\begin{document}
+\Large
+\centerline{\sc{Notes on using arrays in C}} 
+\normalsize
+
+In mathematics we often use indices to refer to an entire list of variables
+in one symbol. In linear algebra such lists are called ``vectors''; the 
+Cartesian vectors you are familiar withm, with three components, are just
+an example. We write particular elements within that list with subscripts; 
+for instance, the tenth number within the collection $x$ is called $x_{10}$.
+
+We have been using this notation in class for a while; in the binary star system,
+our dynamical variables were $x_1, y_1, x_2, y_2, v_{x_1}, v_{y_1}, v_{x_2}$, and $v_{y_2}$. However,
+if we wanted to replicate that galaxy simulation from the beginning of class, we might have ten thousand
+stars, and sixty thousand dynamical variables:
+
+\begin{itemize}
+  \item{Ten thousand $x$'s}
+  \item{Ten thousand $y$'s}
+  \item{Ten thousand $z$'s}
+  \item{Ten thousand $v_x$'s}
+  \item{Ten thousand $v_y$'s}
+  \item{Ten thousand $v_z$'s}
+\end{itemize}
+
+Obviously we aren't going to write 180,000 lines of code whenever we want to do a leapfrog update. What we need is a way to collect all ten thousand $x$ 
+variables into one C object and manipulate them at once.
+
+You can do this; it's called an {\it array}. Since we can't write subscripts in C, we use square brackets.
+
+You declare an array with N elements like this:
+
+\begin{verbatim}
+  double x[N];
+\end{verbatim}
+
+{\bf IMPORTANT:} These N elements are called \verb|x[0]| through \verb|x[N-1]|. There is no \verb|x[N]|; attempts to access it will fail.
+
+Typically, we use integer counter variables (traditionally called {\texttt{i,j,k...}}) 
+and a {\texttt{for}} loop to cycle through all the elements of an array. For instance, the following code
+sets all the elements of two arrays to zero:
+
+\begin{verbatim} 
+  double vx[N],vy[N];
+  int i;
+
+  for (i=0;i<N;i++)
+    vx[i]=vy[i]=0; // yes, you can do this!
+\end{verbatim}
+
+{\bf ALSO IMPORTANT:} Arrays work differently with functions than other variables. When you pass another variable to a function, the function creates its
+own local copy of it, completely independent of the copy in the calling function. However, when you pass an array, only the location in memory is passed
+to the function. So, {\it if you manipulate an element of an array parameter within a function, it is changed outside the function as well}. You can pass
+{\it elements} of an array to a function without anything different happening; this new behavior happens only when you pass an entire array. For instance:
+
+\begin{verbatim}
+
+void f(int i, int j[]) // this is how you pass an array
+{
+  i=3;
+  j[2]=10; // will be changed in the calling function as well!
+}
+
+int main(void)
+{
+  int x,y[10];
+  x=1;
+  y[0]=3;
+  y[2]=5;
+
+  f(x,y);   // this will change y[2], but leave x alone
+  f(y[0],y); // this will also change y[2] (since it was passed as part of an array),
+             // but leave y[0] alone (since it was passed as a single number)
+}
+\end{verbatim}
+\end{document}
+
+
+\end{document}

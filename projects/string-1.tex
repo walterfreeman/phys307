@@ -34,11 +34,15 @@
 \begin{document}
 \Large
 \centerline{\sc{Physics 307 Homework 6}}
-\centerline{Due Thursday, 5 November, at 11 AM}
+\centerline{Due Thursday, 9 November, at 11 AM}
 \normalsize
 
 This homework assignment is the first of two parts. I encourage you to try to finish this assignment ahead of time
-and begin the next one before the deadline of this one.
+and begin the next one before the deadline of this one. This assignment requires you to write some code; the next assignment will involve using that code to study
+some physics.
+
+Your ``report'' for this assignment will just consist of keeping us up-to-date on your progress; next Thursday we'd like to see where you are, and will come around
+and check on you.
 
 {\bf Please start early.} 
 I am giving you two weeks to do this assignment in order to accommodate anyone who may have some difficulty; the next assignment will be due after one more week, and will consist of answering some questions 
@@ -66,7 +70,7 @@ As before, you can use the ``unit vector trick'' to write $\hat r_{i,j}$ in term
   
   A lattice simulation of a stretched string has the following parameters:
     \begin{itemize}
-      \item{The number of nodes in the simulation $N+1$ (or the number of strings $N$)}
+      \item{The number of nodes in the simulation $N+1$ (or the number of springs $N$)}
         \item{The linear mass density of the unstretched string $\mu$}
         \item{The unstretched length of the string $L_0$}
         \item{The tension $T$ applied to it to stretch it, which gives you the stretched length $L$}
@@ -80,7 +84,7 @@ As before, you can use the ``unit vector trick'' to write $\hat r_{i,j}$ in term
   \item{Write a program that simulates the vibrations of a stretched string of uniform density and elasticity, as we will discuss in class. (Notes will be posted on the website, too.)
       You should be able to easily change (by setting variables) some crucial parameters of your simulation: $N, \mu, L_0$, and $\alpha$.
 
-      You should use the RK2 solver for your simulation, although it might be useful to code it using Euler first as a learning exercise.
+      You should use the leapfrog solver for your simulation, although it might be useful to code it using Euler-Cromer first as a learning exercise.
 
     }
 
