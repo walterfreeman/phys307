@@ -9,7 +9,7 @@ permalink: index.html
 
 * discuss the vibrating string and how to model it
 * discuss the use of arrays to implement this model
-* introduce <a href="projects/hw6.pdf">Project 6</a> and <a href="projects/hw7.pdf">Project 7</a>.
+* introduce <a href="projects/string-1.pdf">Project 7</a> and <a href="projects/string-2.pdf">Project 8</a>.
 
 New notes: <a href="notes/string-notes.pdf">hints for the vibrating string project</a> and <a href="notes/array-notes.pdf">notes on arrays</a>.
 
