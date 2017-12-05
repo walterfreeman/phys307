@@ -5,6 +5,10 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### One last project
+
+Here you'll estimate pi: see <a href="projects/hw9.pdf">.
+
 ### 30 October agenda
 
 * discuss the vibrating string and how to model it

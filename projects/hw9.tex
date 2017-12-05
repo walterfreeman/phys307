@@ -1,0 +1,129 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0pt}
+\usepackage{fullpage}
+\setlength{\parskip}{4mm}
+\def\LL{\left\langle}   % left angle bracket
+\def\RR{\right\rangle}  % right angle bracket
+\def\LP{\left(}         % left parenthesis
+\def\RP{\right)}        % right parenthesis
+\def\LB{\left\{}        % left curly bracket
+\def\RB{\right\}}       % right curly bracket
+\def\PAR#1#2{ {{\partial #1}\over{\partial #2}} }
+\def\PARTWO#1#2{ {{\partial^2 #1}\over{\partial #2}^2} }
+\def\PARTWOMIX#1#2#3{ {{\partial^2 #1}\over{\partial #2 \partial #3}} }
+\newcommand{\BE}{\begin{displaymath}}
+\newcommand{\EE}{\end{displaymath}}
+\newcommand{\BNE}{\begin{equation}}
+\newcommand{\ENE}{\end{equation}}
+\newcommand{\BEA}{\begin{eqnarray}}
+\newcommand{\EEA}{\nonumber\end{eqnarray}}
+\newcommand{\EL}{\nonumber\\}
+\newcommand{\la}[1]{\label{#1}}
+\newcommand{\ie}{{\em i.e.\ }}
+\newcommand{\eg}{{\em e.\,g.\ }}
+\newcommand{\cf}{cf.\ }
+\newcommand{\etc}{etc.\ }
+\newcommand{\Tr}{{\rm tr}}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\OL}[1]{\overline{#1}\ } % overline
+\newcommand{\OLL}[1]{\overline{\overline{#1}}\ } % double overline
+\newcommand{\OON}{\frac{1}{N}} % "one over N"
+\newcommand{\OOX}[1]{\frac{1}{#1}} % "one over X"
+
+\begin{document}
+\Large
+\centerline{\sc{One Last Project}}
+
+\normalsize
+
+This project is substantially easier than the last one, and should be doable in a week. If you have not yet finished the vibrating string project but are close to finishing, you're probably better off finishing it rather than starting on this one;
+this project is mostly intended for people who have already finished the previous one. 
+
+
+
+\section{Overview}
+
+In this project you will calculate $\pi$ using as simple a method as you could imagine, taking advantage of random numbers.
+
+If you inscribe a circle of radius 1 inside a square of side 2, the area of the circle is $\pi$ and the area of the square is 4; thus, the ratio of their areas is $\pi/4$. 
+
+This means that if you choose a point randomly inside the square, there is a $\pi/4$ chance that it will lie within the circle -- and, if you choose many such points, the fraction that will appear inside the circle
+is also $\pi/4$. Thus, given a lot of random numbers, you can compute $\pi$!
+
+\section{Coding: random numbers}
+
+C has a built-in random number generator called {\tt drand48()}; it returns pseudorandom numbers between 0 and 1. (To produce numbers in another range, you can do things like {\tt x=drand48()*2-1;}, which will
+produce a random number between -1 and 1.)
+
+This is a {\it pseudorandom} number generator. Since computers are deterministic, the PRNG will produce the same sequence of random numbers each time unless ``seeded'' with the function {\tt srand48()}. The same seed
+produces the same sequence; this is useful if you want a predictable way to test your program. If you want a ``truly'' random sequence, you should do something like this:
+
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void)
+{
+  srand48(clock()); // use current clock time (in microseconds) to seed drand48
+  int i;
+  double x;
+  for (i=0; i<100; i++)
+  {
+    x=drand48();
+    printf("Random number: %f\n",x);
+  }
+}
+\end{verbatim}
+
+Note that I had to include two new headers: {\tt stdlib.h}, which contains the random number functions, and {\tt time.h}, to use {\tt clock()}.
+
+\section{The assignment}
+
+\begin{enumerate}
+
+\item Write a function, {\tt estimatepi(int N)}, that generates $N$ random $(x,y)$ pairs within the square (-1, -1) - (1, 1), computes the fraction of those that lie within the unit circle, and then estimates $\pi$ as four
+times that fraction. (You should not need arrays or anything fancy to do this.)
+
+\item Run this function for $N=10$ to $10^7$ and make a table of your estimates of $\pi$. Does the trend match what you expect?
+
+\item Now, evaluate the accuracy of your predictions in a rigorous way. Taking $N=10^5$, call your function 100 times to produce 100 estimates of $\pi$. Compute the mean and standard error of the mean of those estimates (I'll discuss this 
+in class; notes on how to do this are forthcoming Thursday). Quote a central value and error estimate for $\pi$. Is your result consistent with the analytical value of $\pi$?
+
+\item Ambitious students and grad students: Starting with the definition of the variance $\sigma^2 = \LL x^2 \RR - \LL x \RR^2$ in a single random number (which you can compute analytically), calculate the expected standard 
+deviation of your $N=10^5$ estimates of $\pi$. Do they match the observed standard deviation when you actually did the 100 estimates in the previous part? Recall the difference between standard deviation and standard error.
+\end{enumerate}
+
+
+%
+%\section{Statistics}
+%
+%You can use this program to compute an estimate for $\pi$, but how accurate is it? To determine this without knowing the value of $\pi$ {\it a priori}, you can repeat the calculation many times to get many estimates for $\pi$,
+%then see how much those estimates fluctuate around their average.
+%
+%Let me define a few statistical quantities here along the way toward a computation of ``how much estimates fluctuate around the average''. In the discussion that follows, $\overline x$ means the average of $x$, and 
+%$\LL something\RR$ means the average of $something$.
+%
+%\subsection{The variance}
+%
+%{\bf Variance} means ``the average of the squared difference from the mean'', and is written $\sigma^2$. The variance of many numbers $x$ is $$\sigma^2(x) = \LL (x - \overline x)^2 \RR = \LL x^2 \RR - 2\LL x\overline x\RR + \overline x^2 = \LL x^2 \RR - \LL x \RR^2.$$
+%
+%(This last formula is the useful one.)
+%
+%Note that we can use the idea of variance in two ways. We can use the variance to describe how much a collection of numbers fluctuates, but -- if we have a certain number drawn from that collection -- we can use the variance
+%to characterize how much that number will likely change if we choose another one. This last is going to be the key in the development of statistics as a way to measure uncertainty.
+%
+%For instance, let's compute the variance of the roll of a four-sided die. The average squared value is $(1^2 + 2^2 + 3^2 + 4^2)/4 = 7.5$; the average value is 2.5. This means that the variance is (average squared value) - (average value squared = $7.5 - 2.5^2 = 1.25$.
+%
+%
+%The variance is useful because of a simple property: the variance of the sum of things is the sum of their individual variances. For instance, if I wanted to know the variance of the sum of {\it ten} four-sided dice, I can say
+%right away that it is 12.5 -- ten times the variance of a single die.
+%
+%\subsection{The standard deviation}
+%
+%The standard deviation, represented by the letter $\sigma$, of a collection of values is just the square root of the variance. The standard deviation is, formally, ``the square root of the average squared difference from
+%the mean''; informally, it gives you an average deviation of each value from their average.
+%
+%For our four-sided dice, 
+%
+\end{document}
