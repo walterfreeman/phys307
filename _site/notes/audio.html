@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+
+  <title>Physics 307</title>
+  <meta name="description" content="Fall 2018, Syracuse University 
+">
+
+  <link rel="stylesheet" href="/phys307/css/main.css">
+  <link rel="canonical" href="/phys307/notes/audio.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/phys307/">Physics 307</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/notes/">Notes</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/project0.html">Project 0</a>
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/project1.html">Project 1</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/">Projects</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <center><h1>Notes on sound output</h1></center>
+
+<p>In this assignment, you have the option of making audio output of the behavior of your simulation. I’m providing you a program to do this; it comes in two parts, which
+you’ll need to download and install if you’re working on your own laptop. The instructions for this are at the end of the file.</p>
+
+<h3 id="generating-the-data">Generating the data</h3>
+
+<p>A computer sound file consists of a set of data for “sound pressure vs. time”. So, you can take <em>any</em> data file you have and tell the computer it contains data for 
+pressure vs. time and play it over your speakers. However, you’ll need to convert it into a computer audio format first. I’ve written a program that will do that.</p>
+
+<p>My program:</p>
+
+<ul>
+  <li>automatically normalized the data, so you don’t need to worry about that. If your data contains a very large “spike”, it will attempt to do the intelligent thing
+and clip it.</li>
+  <li>removes “pops” at the beginning and end of your data, so you don’t need to worry about that</li>
+  <li>allows you to speed up or slow down your data, so it lies within the range of human hearing</li>
+</ul>
+
+<p>It is most certainly not</p>
+
+<ul>
+  <li>pretty.</li>
+</ul>
+
+<p>The input format is simply two columns of numbers: time and (whatever else). The program assumes that the time values are evenly spaced in time.
+So, for instance, if you wanted to convert the oscillations of your neutron stars into
+sound, you could just write something like <code class="highlighter-rouge">printf ("%e %e\n",t,vx1);</code> in your code – this is the same format that <code class="highlighter-rouge">plot</code> uses, so you can plot the same data.</p>
+
+<h3 id="data-you-can-hear">Data you can hear</h3>
+
+<p>The human hearing range is from 20 Hz to 20 kHz. However, laptop speakers have difficulty playing sounds below 125 Hz or so, and headphones will have difficulty below
+40 or 50 Hz unless they are very high quality. (This is why people have subwoofers and such.) You should consider what the frequency (1/period) of your input signal is
+and then use the “speed factor” option in <code class="highlighter-rouge">makeaudio</code> to ensure that you can hear your signal.</p>
+
+<h3 id="using-makeaudio">Using makeaudio</h3>
+
+<p>The command is <code class="highlighter-rouge">makeaudio (filename) (speed factor)</code>. <em>Filename</em> is the name of the file you want to create; this program creates sound files in the .wav format,
+so if your filename doesn’t end in .wav, that will be appended. The speed factor is how much to speed up or slow the signal down by; this can be used to frequency-shift
+your input signal to match the range of human hearing.</p>
+
+<p>The program expects some data on its standard input, much like <code class="highlighter-rouge">anim</code>, so you can use it with a command like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>makeaudio test.wav 3 &lt; timedata.txt
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./my_simulation | makeaudio test.wav 3
+</code></pre></div></div>
+
+<p>which will take the data either from the input file <code class="highlighter-rouge">timedata.txt</code> or the output of your program <code class="highlighter-rouge">my_simulation</code>, 
+speed it up by a factor of 3, and create the file <code class="highlighter-rouge">test.wav</code>.</p>
+
+<p>You’ll see some output like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Read 100000 points so far = 3.333333 sec
+
+
+Done reading.
+123700 points covering 4.123333 sec, speed multiplier 3, samples 90919, 0.735000 samples per data point
+Writing test.wav to disk, speedup 3
+</code></pre></div></div>
+
+<p>The output will tell you how long your sound file will be (in this case 4.12 seconds), what speedup result you gave, and then some details about the resampling
+to a 22.050kHz audio file. (The thing you need to know: if the number of samples per data point is much bigger than 1, you will get bad quality. The program
+will throw a warning at that point and tell you to print out your value more often.)</p>
+
+<h3 id="getting-makeaudio">Getting makeaudio</h3>
+
+<p>To get a copy of makeaudio, download the C program <a href="wavewrite.c">here</a> and the Perl frontend to it <a href="makeaudio">here</a>. Save those into your 
+Physics 307 directory, and…</p>
+
+<ul>
+  <li>Compile wavewrite: <code class="highlighter-rouge">gcc wavewrite.c -o wavewrite -O4</code></li>
+  <li>Make sure that makeaudio has execute permissions: <code class="highlighter-rouge">chmod +x makeaudio</code></li>
+  <li>Copy wavewrite and makeaudio to your system directory: <code class="highlighter-rouge">sudo cp wavewrite makeaudio /usr/local/bin</code></li>
+</ul>
+
+<p>That’s it!</p>
+
+<p>If you want a command-line tool to play sound files on Linux, get a copy of sox: <code class="highlighter-rouge">sudo apt install sox</code>. Then you can just say <code class="highlighter-rouge">play something.wav</code>.</p>
+
+<p>If you have a Mac, Google says <code class="highlighter-rouge">afplay</code> works. Or you can click on it in Finder…</p>
+
+<p>On a Windows box, you’ll need to use winscp to copy it to your local machine and then doubleclick on it.</p>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physics 307</li>
+          <li><a href="mailto:wafreema@syr.edu">wafreema@syr.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fall 2018, Syracuse University 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

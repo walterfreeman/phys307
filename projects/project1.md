@@ -2,13 +2,14 @@
 layout: page
 title: Project 1
 permalink: projects/project1.html
+category: top
 use_math: true
 ---
 <center>
 
-<b>Due Tuesday, 12 September, at 11 AM</b><br>
+<b>Due Tuesday, 11 September, by 5 PM</b><br>
 
-See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/samples.html">the file of sample programs</a> for a few hints. Typo in problem 1 fixed.
+See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/samples.html">the file of sample programs</a> for a few hints. 
 <br><br>
 
 </center>

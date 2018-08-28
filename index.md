@@ -100,7 +100,9 @@ and so on. <b>Project 0 is due at the end of class, just as a checkpoint for thi
 
 
 ### 30 August agenda:
-* discuss the unusual way I am grading you this semester (see <a href="sbg.html">the rubric</a> and the syllabus)
+* talk briefly about what this class will be, and what you can expect
+  * I gave a talk on [SU's Physics 307 class](aaptsummer2018.pdf) at the American Association of Physics Teachers conference this summer; here are the slides 
+if anyone'd like to read them.
 * introduce you to the folks teaching this class
 * ensure everyone can log into the course computer
 * introduce some basic Linux commands and the C programming language

@@ -169,6 +169,18 @@ If you are comfortable with any other programming languages (Python, Fortran, Ja
 graphics tools we will be using don't care what language generated the data.
 
 ---
+### Learning objectives
+
+After this class, students will be able to:
+
+* model physical systems in ways suitable for computational attack
+* make and defend an informed choice of a numerical algorithm to simulate these models
+* implement these algorithms using tools like those used in professional research, such as C, Linux, and gnuplot
+* visualize the data from their simulations in ways that contribute to "data storytelling"
+* validate and interrogate simulation results, since numerics often involve many approximations
+* synthesize insights about general principles of physics from their simulations
+
+---
 ### Students with disabilities:
 
 If you believe that you need accommodations for a disability, please contact the <a href="http://disabilityservices.syr.edu">Office of Disability Services (ODS)</a>, located in Room 309 of 804 University Avenue, or call (315) 443- 4498 for an appointment to discuss your needs and the process for requesting accommodations. ODS is responsible for coordinating disability-related accommodations and will issue students with documented disabilities Accommodation Authorization Letters, as appropriate. Since accommodations may require early planning and generally are not provided retroactively, please contact ODS as soon as possible.

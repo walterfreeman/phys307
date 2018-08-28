@@ -1,6 +1,5 @@
 ---
 layout: page
-category: top 
 title: Project 6
 permalink: projects/project6.html
 use_math: true
