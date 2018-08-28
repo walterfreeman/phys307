@@ -5,6 +5,7 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+<!---
 ### One last project
 
 Here you'll estimate pi: see <a href="projects/hw9.pdf">.
@@ -89,6 +90,7 @@ and so on. <b>Project 0 is due at the end of class, just as a checkpoint for thi
 * go over some basic C commands, involving doing basic math
 * discuss how to plot functions
 * get started on Project 0!
+-->
 
 **Notes that might be helpful:**
 
@@ -104,4 +106,4 @@ and so on. <b>Project 0 is due at the end of class, just as a checkpoint for thi
 * introduce some basic Linux commands and the C programming language
 * guide everyone through writing their first C program!
 
-<iframe width="630" height="465" src="https://www.youtube.com/embed/PrIk6dKcdoU" frameborder="0" allowfullscreen></iframe>
+<iframe width="630" height="465" src="https://www.youtube.com/embed/W-csPZKAQc8" frameborder="0" allowfullscreen></iframe>
