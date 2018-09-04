@@ -26,9 +26,9 @@ at least the first two sections by Tuesday's class)
 <a href="function.html">Functions in C</a>
 
 <a href="integration-notes.pdf">Analysis of integration methods</a> (as pdf because of typeset mathematics)
+-->
 
 <a href="samples.html">Sample programs</a>
--->
 
 <a href="connect.html">Connecting to the course computer</a>
 

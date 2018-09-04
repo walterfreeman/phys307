@@ -297,7 +297,7 @@ have two ideas for what I should do:
 
 We'll talk about the equivalent to the midpoint rule later. Smaller steps help, as
 you might expect. Here I'm using a step of 0.5 minute on the left, 
-and 0.5 minute on the right:
+and 1 minute on the right:
 
 \begin{minipage}{0.5\textwidth}
 \includegraphics[width=0.9\textwidth]{figbetter-crop.pdf}
@@ -485,33 +485,33 @@ where I have used some new notation that should be easy to figure out.
 
 The approach here is just the same. The only trick is that you must take {\it both} half-steps together, since you need both $y$ and $\dot y$ evaluated at the halfway point to take the full step. The algorithm can be written
 
-  \begin{align}
+  \begin{align*}
     y\left(t+h/2\right) =& y(t) + \frac{h}{2} \dot y(t) \\
     \dot y\left(t+h/2\right) =& \dot y(t) + \frac{h}{2} f\left[y(t),\dot y(t)\right] \\
     y(t+h) =& y(t) + h \dot y(t+h/2) \\
    \dot y(t+h) =& \dot y(t) + h f\left[y\left(t+h/2\right),\dot y\left(t+h/2\right)\right]
-  \end{align}
+  \end{align*}
 
 For the pendulum in particular, our $y$ is the angle $\theta$ and $\dot y$ is the angular velocity $\omega$. Thus we have:
 
-\begin{align}
+\begin{align*}
   \theta_{1/2} =& \theta_{old} + \frac{h}{2} \omega_{old} \\
   \omega_{1/2} =& \omega_{old} - \frac{h}{2} \frac{g}{L} \sin \theta_{old} \\
   \theta_{new} =& \theta_{old} + h \omega_{1/2} \\
   \omega_{new} =& \omega_{old} - h \frac{g}{L} \sin \theta_{1/2} \\
-\end{align}
+\end{align*}
 
   
 \section{Euler's method for a system of many DE's}
 
 In general, a large system of DE's with $N$ dynamical variables (which may be a combination of velocities and positions, as in the previous example, or may be something else) may be written
 
-\begin{equation}
-  \PAR{y_1}{t} = f_1(y_1,y_2,y_3,y_4...)\\
-  \PAR{y_2}{t} = f_2(y_1,y_2,y_3,y_4...)\\
-  \PAR{y_3}{t} = f_3(y_1,y_2,y_3,y_4...)\\
-  \PAR{y_4}{t} = f_4(y_1,y_2,y_3,y_4...),
-\end{equation}
+\begin{align*}
+  \PAR{y_1}{t} =& f_1(y_1,y_2,y_3,y_4...)\\
+  \PAR{y_2}{t} =& f_2(y_1,y_2,y_3,y_4...)\\
+  \PAR{y_3}{t} =& f_3(y_1,y_2,y_3,y_4...)\\
+  \PAR{y_4}{t} =& f_4(y_1,y_2,y_3,y_4...),
+\end{align*}
 
 where each rate of change $f_i$ depends on {\it all} of the dynamical variables $y_i$. In compact vector form, we can represent the vector of dynamical variables as $\vec y$ and their rates of change as $\vec f(\vec y)$. 
 This is a vector function (it gives us a rate of change for each $y_i$) which has a vector parameter (it needs the value of all $y_i$'s). Then the collection of DE's can be written simply as 

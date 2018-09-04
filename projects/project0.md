@@ -36,11 +36,10 @@ with the following information:
     - What math classes have you taken/are you taking? (Do not list calculus classes if you are beyond the calculus sequence.
     - Are there any physical systems you are interested in modeling in this course?
 
-   Try to do this tonight or Wednesday, so I can see the results by Thursday's class.
-
 2. Write a C program that reads in a temperature in Celsius and prints the equivalent in Fahrenheit.
 Discuss any issues that arose in writing your code. (Even if there weren't any, include a note saying so.
 All of your programs should be submitted with some accompanying discussion.)
+
 
 3. Write a C program that prints two columns of numbers, corresponding to x and $\sin x$ over some
 interesting range. Save the output to a file. Then modify your program to generate values for another

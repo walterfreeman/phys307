@@ -1,7 +1,8 @@
 ---
-layout: default
+layout: page
 category: top
 navtitle: Sample Codes
+title: Sample Codes
 permalink: notes/samples.html
 use_math: true
 ---
