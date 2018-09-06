@@ -14,7 +14,7 @@ See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/sam
 
 </center>
 
-**Problem 1:** Write a program that computes definite integrals of any function you supply it by calculating a Riemann sum. Use this to calculate the integral
+**Problem 1:** Write a program that computes definite integrals by calculating a Riemann sum. Use this to calculate the integral
 
 $$ \int_0^2\, e^{-x^2}\, dx. $$
 
@@ -50,14 +50,19 @@ to check to see if one number evenly divides another. Note that you do not need 
 `else` clause, if you don’t want to do anything in the event that `b` does not evenly divide
 `a`.
 
- * a) For N = $10^6$, estimate (roughly, but tell me how you got the estimate) how many 
+* a) Test your code. Does it correctly detect prime numbers? Describe how you tested it in your writeup.
+
+* b) For N = $5 \times 10^5$, estimate (roughly, but tell me how you got the estimate) how many 
        arithmetic operations are required to do this with your code, and how long it will
        take. Go ahead and do it; was your estimate accurate? How long would it take
-       for N = $10^9$? ? Is this a reasonable calculation?
+       for N = $10^9$? ? Is this a reasonable calculation to perform? (Note that if you do this the naive way, it may take fifteen minutes or so to run! You can leave it running while you do something else. 
+       Note that you can time how long a particular program takes to complete by saying, for instance, `time ./prime`.
 
- * b) Can you think of any small modifications to your program that will speed it
+* c) Can you think of any small modifications to your program that will speed it
        up? Discuss these modifications and estimate how much each will speed up your
        calculation (estimates can be of the form “this will make it go twice as fast” or
-	“this will make it go drastically faster”). Then make these modifications.
+	“this will make it go drastically faster”). Then make these modifications. 
+       There are two modifications I have in mind.
 
-
+* d) As a hint for optimizing your program (part c), the C command `break;` immediately exits the innermost `for` loop. There is some inspiration for how to use it in the sample programs linked on the website. There is a 
+     second optimization I have in mind that involves a very small change, but will also greatly speed up the program!

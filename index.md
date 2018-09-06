@@ -66,31 +66,15 @@ New notes:
 
 * <a href="notes/function.c">Functions in C</a>
 * <a href="integration-notes.pdf">Analysis of integration methods</a>
+-->
 
-### 7 September agenda:
+### 6 September agenda:
 
 * talk about conditionals (if/then/else) and a few odds and ends you need to 
 do next week's homework
-* talk about how we're going to grade Project 0
 * work on Project 1
 
 New notes: make sure you look at [the sample programs](notes/samples.html).
-
-### 5 September agenda:
-
-* talk about models of computing in this class (using your own laptop, different operating systems, and so on)
-* make sure everyone is able to do the basic tasks of Project 0: write and run code, graph data, send code to us, 
-and so on. <b>Project 0 is due at the end of class, just as a checkpoint for this.</b>
-* make sure that people who want to use their own laptops, whether Linux, Mac, or Windows, have the tools to do that (see [the notes](notes/laptop.html))
-
-
-### 1 September agenda:
-
-* discuss what computational physics is about
-* go over some basic C commands, involving doing basic math
-* discuss how to plot functions
-* get started on Project 0!
--->
 
 **Notes that might be helpful:**
 
