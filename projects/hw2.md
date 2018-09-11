@@ -1,16 +1,20 @@
 ---
 layout: page
 title: Project 2
+Category: top
 permalink: projects/project2.html
 use_math: true
 ---
 <center>
 
-<b>Due Thursday, 21 September, at 11 AM</b><br>
+<b>Due Thursday, 20 September, at 5 AM</b><br>
 
 </center>
 
 This week, you will extend and modify your integration routine to study the numerical error in integration. There are hints available <a href="project2hints.html">here</a>.
+
+0. Post your favorite meme on the #suphysics channel on Slack. This is mandatory -- the point is to make sure that everyone knows how to use the Slack channel. Change your username there to your name, while you're at it.
+We will not accept your homework assignment without a meme. :)
 
 1. Modify your integration routine to call a function when evaluating the function to be integrated. This will make things easier in the long run.
 
@@ -26,10 +30,10 @@ This week, you will extend and modify your integration routine to study the nume
   Hint: Compare this to a similar plot for $$\int_1^2 \sqrt{x}\,dx.$$ **Graduate students:** Consider the proof that the trapezoid/midpoint rule is second order.
 Is that proof still valid for $\int_0^2 \sqrt{x}\,dx$? Why or why not?
 
-7. **Graduate students/extra credit:** Write an integrator that uses Simpson's rule. As we will discuss in class, the easiest way to do the Simpson's rule computation is to take 1/3 of the trapezoid
+7. **Extra credit:** Write an integrator that uses Simpson's rule. As we will discuss in class, the easiest way to do the Simpson's rule computation is to take 1/3 of the trapezoid
   rule result and add it to 2/3 of the midpoint rule result. Make the log-log error plot as before. Does it perform as you expect?
 
-8. **Graduate students/extra credit:** By using a linear combination of the trapezoid rule and the midpoint rule, you can cancel out the leading order error terms
+8. **Extra credit:** By using a linear combination of the trapezoid rule and the midpoint rule, you can cancel out the leading order error terms
 in the trapezoid rule and the midpoint rule to form Simpson's rule. Since this cancels out the second-order error, this makes Simpson's rule a third-order method... or 
 does it? Actually, by a miracle of symmetry, the *third-order* errors cancel as well, so Simpson's rule is actually *fourth-order*. By a similar process to that in
 the <a href="../notes/integration-notes.pdf">notes</a>, but carrying the Taylor series to one more order, prove that the third-order error term cancels as well.
