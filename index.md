@@ -56,6 +56,16 @@ before Tuesday's class. You might also be interested in a draft of
 but this is the gist.
 -->
 
+### 20 September agenda:
+
+* Do a retrospective of Project 2
+* Talk about differential equations and how to solve them
+* Get started on <a href="projects/hw3.pdf">Project 3</a>
+
+New notes: on <a href="notes/DE-notes.pdf">differential equation solvers</a>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/v-pbGAts_Fg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ### 11 September agenda:
 
 * Do a retrospective of Project 1 and see how far you all are

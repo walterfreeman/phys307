@@ -39,6 +39,8 @@
 This week, you will extend and modify your integration routine to study the numerical error in integration.
 \begin{enumerate}
 
+\item Post your favorite meme to the \#physics307 channel on Slack. (This is mandatory and we will not accept the assignment until you do this. The point is to make sure everyone is on the Slack channel!)
+
 \item{Modify your integration routine to call a function when evaluating the function to be integrated. This will make things easier in the long run.}
 
 \item{Analytically compute the value of $$\int_{0}^{2} \sin x\, dx.$$ Then use your integration routine to compute it numerically, using a range of Riemann sum stepsizes from $10^{0}$
@@ -61,4 +63,33 @@ Ensure that the interval (0,2) can be divided evenly into intervals of the steps
 
 \item{Extra credit: Write an integrator that uses Simpson's rule. As we will discuss in class, the easiest way to do the Simpson's rule computation is to take 1/3 of the trapezoid
   rule result and add it to 2/3 of the midpoint rule result. Make the log-log error plot as before. Does it perform as you expect?}
-  \end{enumerate} \end{document}
+  \end{enumerate} 
+
+
+FAQ:
+
+\begin{itemize}
+
+\item {\it Some of my data don't show! I get errors when I try to plot!}
+
+\begin{itemize}
+\item Look at your data file and make sure your values are sensible. Remember that if you're making a log-log plot, you can only plot positive values -- you may need the {\tt fabs()} function to take absolute values.
+\end{itemize}
+
+\item {\it I get funny data! My error goes down for smaller stepsizes like I expect, but then back up again!} 
+
+\begin{itemize}
+\item Did you finish the fifth part, where you use {\tt double} variables? What happens then? Does it behave like you expect now? Does this give you any insight into what is going on?
+\end{itemize}
+\item {\it What stepsizes should I use?} 
+
+\begin{itemize}
+\item You want a range that's evenly scattered -- in {\it logarithmic space} -- in the range. So, instead of {\it adding} a fixed value to your stepsize in your outer {\tt for} loop, maybe you could {\it multiply} (or divide) by a fixed value?
+\end{itemize}
+\item {\it My error bounces around strangely!} 
+
+\begin{itemize}
+\item Remember the ``last step bug'' that we talked about in class. In brief, you want {\tt for(x=a; x<b-dx/2; x=x+dx)} to avoid the rounding issue that happens at the last step.
+\end{itemize}
+\end{itemize}
+\end{document}
