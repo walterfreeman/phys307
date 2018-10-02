@@ -14,15 +14,5 @@ use_math: true
 <a href="project2.html">Project 2, due Thursday, September 20, at 5 PM</a> 
 
 <a href="project3.html">Project 3, due Tuesday, October 2, at 5 PM</a> 
-<!---
 
-<a href="project4.html">Project 4, due Thursday, October 12, at 11 AM</a> 
-
-<a href="project5.html">Project 5, due Tuesday, October 24, at 11 AM</a> 
-
-<a href="project6.html">Project 6, due Tuesday, October 31, at 11 AM</a> 
-
-<a href="string-1.pdf">Project 7, due Thursday, November 9, at 11 AM</a> 
-
-<a href="string-2.pdf">Project 8, due Thursday, November 16, by the end of the day (ideally)</a> 
--->
+<a href="project4.html">Project 4, due Thursday, October 11, at 5 PM</a>

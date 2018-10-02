@@ -56,6 +56,16 @@ before Tuesday's class. You might also be interested in a draft of
 but this is the gist.
 -->
 
+### 2 October agenda
+
+* Do a retrospective of Project 3
+* Talk about dealing with second order differential equations
+* Get started on <a href="projects/hw-pendulum.pdf">Project 4</a>
+
+New notes: on <a href="notes/symplectic.md">symplectic solvers</a> and <a href="notes/anim.html">making animations</a>
+
+**Note:** To install anim on your computer, see the instructions <a href="anim-install.html">here</a>
+
 ### 20 September agenda:
 
 * Do a retrospective of Project 2

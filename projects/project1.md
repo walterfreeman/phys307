@@ -2,7 +2,6 @@
 layout: page
 title: Project 1
 permalink: projects/project1.html
-category: top
 use_math: true
 ---
 <center>

@@ -33,7 +33,7 @@
 \begin{document}
 \Large
 \centerline{\sc{Physics 307 Homework 4}}
-\centerline{Due Tuesday, 10 October, at 11 AM}
+\centerline{Due Thursday, 11 October, by 5 PM}
 \normalsize
 
 
@@ -41,8 +41,7 @@
 \it Note: See the notes on symplectic integrators for summaries of the different solvers used in this project.
 \end{center}
 
-Now we will solve a DE that we can't do with pen and paper. The equation of motion for a pendulum is
-
+Now we will graduate to second-order differential equations, and solve a DE that we can't do with pen and paper. The equation of motion for a pendulum is
 
 \begin{equation}
 \PARTWO{\theta}{t}=-\frac{g}{L} \sin \theta
@@ -58,40 +57,43 @@ where $\omega=\sqrt\frac{g}{L}$ giving a period $T=2\pi\sqrt\frac{L}{g}$. This i
 
 This equation is very difficult to solve without making this approximation using pen and paper, but you have a computer! 
 
+In this project, you will create and animate a computer simulation of a swinging pendulum, and study how its swing period depends on the angle at which it is swinging.
+In order to do this, you will need to be able to distinguish small effects {\it caused by physics} (a small shift in the period of your simulation caused by the change in
+amplitude) from small effects {\it caused by numerical artifacts} (a small shift in the period of your simulation caused by the fact that numerical solutions are always
+approximations). The first one is what we are interested in studying; the second one is just a distraction.
+
+{\bf Nota bene:} While I've asked you to do a few other things, the primary purpose of this project is the last question -- to examine the nonlinearities in a swinging pendulum. Your report should focus on this. 
+The overarching question is: {\it How does the period of a swinging pendulum depend on its amplitude, and how can computer simulations answer this question in a way that pen-and-paper calculations cannot?} 
+
 \begin{enumerate}
 
 \item Without making the small-angle approximation, 
 write a computer program that solves Newton's law (rotational form) to compute the oscillation of a swinging pendulum using the Euler-Cromer algorithm, which 
-is a first-order symplectic integrator. (It is perhaps the easiest to code of all of them.
-)
+is a first-order symplectic integrator. (It is perhaps the easiest to code of all of them.)
+
 \item Animate your pendulum using {\tt anim}.
 
-\item Modify your program to determine the period of the pendulum and print it out. You can determine when a period has elapsed by looking for sign changes in $\omega$.
+\item Use your program to make graphs of $\theta(t)$ and $\omega(t)$ as a function of time for a few periods, and plot them on top of each other. Do your 
+data make sense? As a note, familiarize yourself with the {\tt !} bypass feature of {\tt anim}, which will make it easy for you to get both animation and graphical
+output at the same time.
 
-\item Does your program give you the result you expect (\ie $T=2\pi\sqrt\frac{L}{g}$) in the limit where the initial amplitude is small?
+\item Modify your program to determine the period of the pendulum and print it out. You can determine when a period has elapsed by looking for sign changes in $\omega$; look at the graphs you 
+made in the last step for a reminder of how to do this.
 
-\item Modify your program to use the leapfrog algorithm, which is a second-order symplectic integrator.
+\item Does your program give you the result you expect (\ie $T \approx 2\pi\sqrt\frac{L}{g}$) in the limit where the initial amplitude is small?
 
 \item Suppose a pendulum clock keeps accurate time when $\theta_{\rm max}=5^\circ$. How many seconds will it gain or lose per day if it is swinging at an angle of  $\theta_{\rm max}=20^\circ$?
 
-\item Make a plot of the fractional deviation in the period, defined as $\Delta = \frac{T-T_0}{T_0}$. Here $T_0$ is the small-angle-limiting period, $T_0=2\pi\sqrt\frac{L}{g}$. Calculate this for a range of $\theta_{\rm max}$ from $10^{-5}$ to 2 (radians). Make a log-log plot of $\Delta$ vs. $\theta_{\rm max}$. Your plot should
+\item Modify your program to use the leapfrog algorithm, which is a second-order symplectic integrator that you will use for the rest of the semester. (This should be an easy, fast modification.) Note that if you want the added precision from the
+use of a second-order solver, you should use the second-order interpolation mechanism for $\omega$ that you worked out in Project 2.
+
+\item Make a plot of the fractional deviation in the period, defined as $\Delta = \frac{\tau-\tau_0}{\tau_0}$. Here $\tau_0$ is the small-angle-limiting period, $\tau_0=2\pi\sqrt\frac{L}{g}$. Calculate this for a range of $\theta_{\rm max}$ from $10^{-5}$ to 2 (radians). Make a log-log plot of $\Delta$ vs. $\theta_{\rm max}$. Your plot should
 cover amplitudes from around $10^{-6}$ to 2 radians. Here you might see
 deviations from the small-angle period from two sources: actual physical effects, and error in your numerical solution. You should take whatever steps you can to minimize
 the latter (using a reasonable stepsize, using interpolation to determine the period as you did in HW3, etc.), and then correctly interpret your data in light of the fact
 that you may still have errors related to your numerical solution.
 
 Based on what you know about the power series expansion of $\sin(x)$, comment on its appearance. Is it what you expect?
-
-\item {\bf Graduate students and ambitious undergrads:} Modify your program to keep track of the energy anomaly $E(t) - E(0)$ (the amount by which conservation of energy is violated)
-as the simulation progresses. (The potential and kinetic energy are what you think they should be -- see the symplectic integrator notes.) You can print the energy anomaly while your program is animating
-using the ! passthrough character; ask me if this isn't clear from the notes on animation.
-
-Conduct both a qualitative (i.e. watch the animation) and qualitative (plot the energy anomaly) study of the performance of the Euler, Euler-Cromer, RK2, and leapfrog
-integrators for the pendulum. How large of a stepsize can you trust for short runtimes (just one period)? What about long runtimes (many thousands of periods)?
-
-Note that I am not telling you exactly what to measure, or what to plot against what.
-
-{\it Anyone working on this project may collaborate in figuring this out!}
 
 
 \end{enumerate}

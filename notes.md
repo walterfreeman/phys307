@@ -24,6 +24,9 @@ use_math: true
 
 <a href="integration-notes.pdf">Analysis of integration methods</a> (as pdf because of typeset mathematics)
 
+<a href="symplectic.html">Notes on symplectic solvers</a>
+
+<a href="anim.html">Notes on making animations</a>
 
 
 #### Old notes
@@ -39,9 +42,6 @@ as a reference for past students.
 
 <a href="cplusplus.html">A few C++ tricks</a>
 
-<a href="symplectic.html">Notes on symplectic solvers</a>
-
-<a href="anim.html">Notes on making animations</a>
 
 
 
