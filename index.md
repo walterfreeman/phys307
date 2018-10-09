@@ -62,7 +62,7 @@ but this is the gist.
 * Talk about dealing with second order differential equations
 * Get started on <a href="projects/hw-pendulum.pdf">Project 4</a>
 
-New notes: on <a href="notes/symplectic.md">symplectic solvers</a> and <a href="notes/anim.html">making animations</a>
+New notes: on <a href="notes/symplectic.html">symplectic solvers</a> and <a href="notes/anim.html">making animations</a>
 
 **Note:** To install anim on your computer, see the instructions <a href="anim-install.html">here</a>
 

@@ -1,0 +1,178 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0pt}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{textcomp}
+\setlength{\parskip}{4mm}
+\def\LL{\left\langle}   % left angle bracket
+\def\RR{\right\rangle}  % right angle bracket
+\def\LP{\left(}         % left parenthesis
+\def\RP{\right)}        % right parenthesis
+\def\LB{\left\{}        % left curly bracket
+\def\RB{\right\}}       % right curly bracket
+\def\PAR#1#2{ {{\partial #1}\over{\partial #2}} }
+\def\PARTWO#1#2{ {{\partial^2 #1}\over{\partial #2}^2} }
+\def\PARTWOMIX#1#2#3{ {{\partial^2 #1}\over{\partial #2 \partial #3}} }
+\newcommand{\BE}{\begin{displaymath}}
+\newcommand{\EE}{\end{displaymath}}
+\newcommand{\BNE}{\begin{equation}}
+\newcommand{\ENE}{\end{equation}}
+\newcommand{\BEA}{\begin{eqnarray}}
+\newcommand{\EEA}{\nonumber\end{eqnarray}}
+\newcommand{\EL}{\nonumber\\}
+\newcommand{\la}[1]{\label{#1}}
+\newcommand{\ie}{{\em i.e.\ }}
+\newcommand{\eg}{{\em e.\,g.\ }}
+\newcommand{\cf}{cf.\ }
+\newcommand{\etc}{etc.\ }
+\newcommand{\Tr}{{\rm tr}}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\OL}[1]{\overline{#1}\ } % overline
+\newcommand{\OLL}[1]{\overline{\overline{#1}}\ } % double overline
+\newcommand{\OON}{\frac{1}{N}} % "one over N"
+\newcommand{\OOX}[1]{\frac{1}{#1}} % "one over X"
+\def\LT{\textlangle{}}
+\def\RT{\textrangle{}}
+
+
+\begin{document}
+\Large
+\centerline{\sc{Physics 307 Homework 5}}
+\centerline{Due Tuesday, 18 October, at 11 AM}
+\normalsize
+
+In this homework assignment, you will simulate the Earth going around the Sun,
+and then generalize your work to other orbits. There is a hints section at the end.
+
+To review the discussion in class: 
+For an orbit in the x-y plane, you have four dynamical variables $x$, $y$,
+$v_x$, and $v_y$. The four differential equations that govern them are
+
+\begin{align}
+\dot x =& v_x\\
+\dot y =& v_y\\
+\dot v_x =& -\frac{GMx}{r^3} \\
+\dot v_y =& -\frac{GMy}{r^3} 
+\end{align}
+
+where $M$ is the mass of the Sun.
+
+\begin{enumerate}
+\item{First we will pretend that the Earth is in an exactly circular orbit;
+this is approximately the case. If we measure distance in astronomical units
+and time in years,
+\begin{itemize}
+\item{what initial conditions for the Earth's position and velocity 
+vectors will give a circular orbit with the correct radius, and}
+\item{what is the numerical value of GM?}
+\end{itemize}
+
+}
+
+\item Write code that simulates the Earth's orbit around the Sun using the leapfrog algorithm. (If you like, you can code Euler-Cromer-Aspel first.) 
+Animate your simulation.
+
+\item{Now, let's check to see if the simulation is accurate. Since you put in initial conditions that are explicitly designed to simulate a planet orbiting in a circular
+orbit with a period of one year, you can check a couple of things:
+
+\begin{enumerate}
+\item Does your planet stay at a fixed distance from the origin?
+\item Does your planet complete an orbit in one year?
+\item Does your planet's orbit conserve energy?
+\end{enumerate}
+
+Remember, you will see {\it some} deviation from these ideals because of ``finite timestep error''. That's okay, as long as those errors get small as $dt \rightarrow 0$.
+
+I'll let you test these things in any way you want.
+
+The total energy per unit mass (``specific orbital energy'') is given by the sum of the potential and kinetic energy
+
+\begin{equation}
+E_{\rm spec}=\frac{1}{2}(v_x^2+v_y^2) - \frac{GM}{r}.
+\end{equation}
+
+Modify your code to display the energy on the screen as the animation runs. You can do this with the {\tt T} animation command. 
+}
+
+
+\item{Modify your initial conditions to simulate a non-circular orbit, changing the initial velocity and position of the Earth. (Note that if the total energy becomes positive, the Earth will escape the Sun's gravity.) What shape do these orbits take? At what part of the planet's orbit does it move faster? Spend at 
+least half an hour playing around with different initial conditions and seeing
+what happens, and write about that in your report. In particular, how does the planet move if the total energy is very negative? Small and negative? Small and positive?}
+
+\item With initial conditions appropriate for an elliptical orbit, modify Newton's law of gravity a bit. Specifically, change the force law to $F_g = \frac{GMm}{r^{2 \pm \epsilon}}$, where $\epsilon$ is some small value. Simulate your orbit again, ensuring that the planet leaves trails behind it. What happens?\footnote{
+It turns out there is some history here. In regions of very strong gravity, Einstein's general relativity modifies the force from gravity in a similar way. The orbit of 
+Mercury is close enough to the Sun that GR causes its orbit to precess about one percent of one degree every century; this was known to astronomers and unexplained at the
+time of Einstein. Einstein was aware of this, and concluded his paper introducing GR by pointing out that his correction to the law of gravity explains exactly the 
+anomaly in the precession of Mercury's orbit.}
+
+
+
+\item{Finally, consider what happens if you move the Sun away from the origin. Suppose you put the Sun at coordinates (0.2, 0.3). Change your code to simulate orbits around a star not at the origin.}
+
+\end{enumerate}
+\newpage
+\section{Hints}
+
+
+\begin{itemize}
+\item {\bf Computing $GM$:} Remember your freshman physics; what is $v^2/r$? I know some of you 
+took or taught Physics 211 with me or Physics 215 with Prof. Laiho; treat it as a 215 problem! If you're not 
+sure how to go about this, discuss with other students, but tell me how this goes on your report.)
+
+\item {\bf Debugging:} If something is wrong with ...
+
+\begin{itemize}
+\item Animation? Run your program without {\tt anim} and see what it is printing out
+\item The physics (``planet disappears''): print out everything your algorithm is doing, and examine the very first step in detail. (You can see output one page at a time
+with {\tt ./myprogram | less}.
+\item Elliptical orbits: is your total energy positive or negative?
+\end{itemize}
+
+\item {\bf Animation:}
+
+\begin{itemize}
+\item { You can make your planet leave behind a ``trail'' so you can visualize its orbit with the {\tt ct3} animation command. Its syntax is 
+     {\tt ct3 \LT trail index\RT  \LT x\RT  \LT y\RT  \LT z\RT  \LT radius\RT }, where:
+\begin{itemize}
+\item {\tt \LT trail index\RT} controls which trail you are adding to in this case you only want to leave behind one trail, so just set this to 0
+\item {\tt \LT (x,y,z)\RT} is the location to draw the object. Since you are simulating orbits in the $xy$-plane, just set $z$ to zero.
+\item {\tt \LT r\RT} is the radius of the ball to draw.
+\end{itemize}
+}
+\item Since the Sun doesn't move, you can draw it at the origin with the {\tt c3} command.
+\item If your simulation runs too fast, reduce the timestep; if it runs too slowly, you can draw only one animation frame every 10, 100, etc. timesteps.
+To do this you might write something like:
+
+\begin{verbatim}
+
+int steps=0, stepsperframe=10;
+...
+
+for (loop over time...)
+{
+  steps++;   // note that this means the same as "steps=steps+1"
+  if (steps % stepsperframe)
+  {
+    <do anim things>
+  }
+  <do physics update (Euler-Cromer-Aspel, leapfrog, etc.)>
+}
+\end{verbatim}  
+\end{itemize} 
+
+
+\item {\bf Displaying the energy (or whatever else) on the simulation:} An example of an elaborate way to do this 
+would be:
+
+\begin{verbatim}
+printf("T 0.9 -0.9\n");
+printf("Energy (U + V = E): %e + %e = %e\n",potential,kinetic,potential+kinetic);
+\end{verbatim}
+
+(Notice that this is a {\it two-line} {\tt anim} command: the first line ({\tt T 0.9 -0.9}) instructs the computer to print some text at a specified point in the window,
+in this case near the top left. The second line contains the text to be printed.) Remember, the more information you have about what your code is doing, the more
+physics you can learn from it, and the easier it will be to fix bugs.
+
+\end{itemize}
+
+\end{document}
