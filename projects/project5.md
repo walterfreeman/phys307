@@ -7,6 +7,6 @@ use_math: true
 ---
 <center>
 
-This assignment is posted as a <a href="hw5-gravity.pdf">PDF</a>.
+This assignment is posted as a <a href="hw-gravity.pdf">PDF</a>.
 
 </center>
