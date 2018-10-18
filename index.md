@@ -56,6 +56,12 @@ before Tuesday's class. You might also be interested in a draft of
 but this is the gist.
 -->
 
+### 18 October agenda
+
+* Do a bit of a retrospective of Project 4 
+* Talk about a few programming tricks from C++
+* Talk about Project 6 and get started
+
 ### 2 October agenda
 
 * Do a retrospective of Project 3

@@ -6,6 +6,8 @@ title: Notes
 permalink: notes/
 use_math: true
 ---
+<a href="cplusplus.html">A few C++ tricks</a>
+
 <a href="DE-notes.pdf">Notes on solving differential equations</a> 
 
 <a href="samples.html">Sample programs</a>
@@ -40,7 +42,6 @@ as a reference for past students.
 
 <a href="audio.html">Notes on audio output</a>
 
-<a href="cplusplus.html">A few C++ tricks</a>
 
 
 

@@ -1,0 +1,144 @@
+\documentclass[12pt]{article}
+\setlength\parindent{0pt}
+\usepackage{amsmath}
+\usepackage{fullpage}
+\setlength{\parskip}{4mm}
+\def\LL{\left\langle}   % left angle bracket
+\def\RR{\right\rangle}  % right angle bracket
+\def\LP{\left(}         % left parenthesis
+\def\RP{\right)}        % right parenthesis
+\def\LB{\left\{}        % left curly bracket
+\def\RB{\right\}}       % right curly bracket
+\def\PAR#1#2{ {{\partial #1}\over{\partial #2}} }
+\def\PARTWO#1#2{ {{\partial^2 #1}\over{\partial #2}^2} }
+\def\PARTWOMIX#1#2#3{ {{\partial^2 #1}\over{\partial #2 \partial #3}} }
+\newcommand{\BE}{\begin{displaymath}}
+\newcommand{\EE}{\end{displaymath}}
+\newcommand{\BNE}{\begin{equation}}
+\newcommand{\ENE}{\end{equation}}
+\newcommand{\BEA}{\begin{eqnarray}}
+\newcommand{\EEA}{\nonumber\end{eqnarray}}
+\newcommand{\EL}{\nonumber\\}
+\newcommand{\la}[1]{\label{#1}}
+\newcommand{\ie}{{\em i.e.\ }}
+\newcommand{\eg}{{\em e.\,g.\ }}
+\newcommand{\cf}{cf.\ }
+\newcommand{\etc}{etc.\ }
+\newcommand{\Tr}{{\rm tr}}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\OL}[1]{\overline{#1}\ } % overline
+\newcommand{\OLL}[1]{\overline{\overline{#1}}\ } % double overline
+\newcommand{\OON}{\frac{1}{N}} % "one over N"
+\newcommand{\OOX}[1]{\frac{1}{#1}} % "one over X"
+
+\begin{document}
+\Large
+\centerline{\sc{Physics 307 Homework 6}}
+\centerline{Due Thursday, 25 October, at 5 PM}
+\normalsize
+
+In this homework assignment, you will use your orbit program to simulate
+a highly elliptical orbits, and then a binary star.
+
+\begin{enumerate}
+
+  \item{Consider a highly elliptical orbit such as a comet. At aphelion, Halley's comet is 35.1 AU from the Sun and has a velocity of 0.193 AU/year.
+    Use your program to simulate the orbit of Halley's comet. How close does it come to the Sun at perihelion, and how fast is it traveling there? 
+    
+    About how many timesteps are required to simulate this orbit reasonably accurately? Compare this to the value for a circular orbit that you determined
+
+\item{{\bf Extra credit:} Can you think of any way to mitigate this and simulate the orbit with fewer timesteps? Implement it.}
+
+  last week. What makes cometary orbits so much harder to simulate accurately?}
+
+\item If you're not familiar with Kepler's laws of orbital motion, look them up. Does the
+behavior of your simulation reflect Kepler's second law (qualitatively; you do not need
+to measure areas!)
+  
+\item{Now, modify your program to simulate a binary star system with two stars
+of unequal mass-- that is, two objects
+responding to each other's gravity. 
+
+    Hints:
+
+    \begin{itemize}
+      \item{If you measure mass in solar masses, $G$ still has a value of $4\pi^2$.}
+      \item{You will now need to use $\vec F=m\vec a$ and $\vec F=\frac{Gm_1m_2}{r_{12}^2}$
+             together to find the accelerations.}
+      \item{Your count of dynamical variables has now doubled to eight:
+          \begin{itemize}
+            \item{$x_1, y_1, v_{x_1}, v_{y_1}$ for the first star}
+            \item{$x_2, y_2, v_{x_2}, v_{y_2}$ for the second star}
+          \end{itemize}
+       }
+     \item {
+          The leapfrog prescription is still the same: 
+            \begin{enumerate}
+              \item Evolve the position variables (all four of them!) forward by $dt/2$
+              \item Evolve the velocity variables (all four of them!) forward by $dt$ (this is the hard part)
+              \item Evolve the position variables forward by $dt/2$ again
+            \end{enumerate}
+            Your cut-and-paste skills will come in handy here, as you will be typing
+            multiple copies of very similar code. But be careful of editing errors when doing this!
+          }
+  
+      \item{The radius vector that appears in the differential equations is now the {\it separation vector} between the two stars. The origin no longer plays any special role in the dynamics.}
+      \item{Since the $x$ and $y$ that appear explicitly in the differential equations come from the components of $\hat r_{12}$, they will become $x_1-x_2$, etc.}
+    \end{itemize}
+
+\item Important: if you don't want your simulation to ``drift'' out of the viewport, 
+then you will want to ensure that the total momentum is zero. See the end of this document
+for how to do this.
+
+   Run your simulation, and monitor conservation of total energy to ensure that it is behaving properly. You now can't compute energy per unit mass, since you have two masses; the total energy will be
+
+   \begin{equation}
+     E = \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2 - \frac{Gm_1m_2}{r_{12}}
+   \end{equation}
+
+\item Now, finally, modify your code to simulate the gravitational interactions of {\it 
+three} bodies. This is no more complicated than two; you just have some copy-paste work
+to do, since each object now feels the force from {\it two} neighbors, rather than just one.
+
+Play around with what you can create -- make things move in three dimensions, etc. Note that if two bodies get too close together,
+they will experience a very large force that is probably too big for your timestep to accurately simulate. Can you make a stable
+sun-planet-moon system?
+
+}
+  \end{enumerate}
+
+\bigskip
+\bigskip
+
+\begin{center}
+\Large Avoiding solar system drift
+\end{center}
+
+\normalsize
+
+The total momentum of a system of two stars is
+
+$$
+\vec p =m_1 \vec v_1 + m_2 \vec v_2
+$$
+
+This gives a center-of-mass velocity of 
+
+$$\vec v_{\rm com} = \frac{m_1 \vec v_1 + m_2 \vec v_2}{m_1+m_2}$$
+
+By calculating this value and subtracting it from each of your objects' initial velocities,
+you ensure that the total center-of-mass velocity (and thus the total momentum) is zero,
+and your simulation won't drift. This can be done with code like the following:
+
+\begin{verbatim}
+double vxc,vyc; //center-of-mass velocities
+vxc = (m1*vx1 + m2*vx2) / (m1+m2); 
+vyc = (m1*vy1 + m2*vy2) / (m1+m2); 
+vx1 = vx1 - vxc;
+vy1 = vy1 - vyc;
+vx2 = vx2 - vxc;
+vy2 = vy2 - vyc;
+\end{verbatim}
+
+\end{document}
+
