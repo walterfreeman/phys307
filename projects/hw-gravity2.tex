@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \setlength\parindent{0pt}
 \usepackage{amsmath}
+\usepackage{graphicx}
 \usepackage{fullpage}
 \setlength{\parskip}{4mm}
 \def\LL{\left\langle}   % left angle bracket
@@ -31,14 +32,16 @@
 \newcommand{\OON}{\frac{1}{N}} % "one over N"
 \newcommand{\OOX}[1]{\frac{1}{#1}} % "one over X"
 
+\pagenumbering{gobble}
+
 \begin{document}
 \Large
 \centerline{\sc{Physics 307 Homework 6}}
-\centerline{Due Thursday, 25 October, at 5 PM}
+\centerline{Due Tuesday, 30 October, at 5 PM}
 \normalsize
 
 In this homework assignment, you will use your orbit program to simulate
-a highly elliptical orbits, and then a binary star.
+a highly elliptical orbits, and then some other things. If you don't finish by Tuesday, turn in what you have, and let Nick know when you'll have the finished product. 
 
 \begin{enumerate}
 
@@ -101,17 +104,85 @@ three} bodies. This is no more complicated than two; you just have some copy-pas
 to do, since each object now feels the force from {\it two} neighbors, rather than just one.
 
 Play around with what you can create -- make things move in three dimensions, etc. Note that if two bodies get too close together,
-they will experience a very large force that is probably too big for your timestep to accurately simulate. Can you make a stable
-sun-planet-moon system?
-
+they will experience a very large force that is probably too big for your timestep to accurately simulate. 
 }
   \end{enumerate}
+
+Then, I want you to do one (or both) of the following:
+
+\section{Option 1: Detection of exoplanets}
+
+Planets are small, close to stars, and don't give off their own light. They are very difficult to see directly with telescopes, although we can get some signatures if they go directly in front of their stars and block a bit of the light.
+
+The easiest way to detect {\it exoplanets} -- planets around stars other than our own -- is to look for stars that are wobbling around a bit due to the influence of their {\it planets'} gravity. Even the gravity from the Earth causes the Sun to move. 
+It turns out it is quite easy to detect changes in whether a star is moving toward or away from us using {\it Doppler spectroscopy}. Waves (light or sound) coming from an object moving toward us are shifted toward higher frequency (and thus bluer color); 
+waves coming from an object moving away from us are shifted toward lower frequency (redder color). Gases in the atmospheres of stars emit and absorb very precise wavelengths of light based on the energy levels in the atoms; by very precise measurements of how these
+wavelengths shift around, we can use the Doppler effect to detect ``wobbling stars'' -- ones that likely have planets. Modern spectrometers can detect radial motion of stars as little as one meter per second, with an extra factor of ten in sensitivity coming soon
+(0.1 m/s!)
+
+Yep, that's right -- we soon should be able to see stars hundreds of light years away moving at ten centimeters per second by looking very closely at their colors. 
+
+Simulate the following and look at the motion of the star. Plot one component of its velocity and determine the size of the fluctuations. Comment on (1) the possibility of detecting such a planet using this method, and (2) any interesting consequences you think
+such a detection would have for the possibility of extraterrestrial life.
+
+\begin{itemize}
+\item Earth orbiting the Sun. Earth has a mass of $3 \times 10^{-6}$ solar masses.
+\item Jupiter orbiting the Sun. Jupiter has a mass of 0.001 solar mass (300 Earths) and orbits roughly 5 AU from the Sun. (You'll need to work out initial conditions for a nearly-circular orbit with radius 5 AU.)
+\item A ``super-Earth'' of mass $1.5 \times 10^{-5}$ solar masses (5 times the mass of the Earth) orbiting Proxima Centauri, a small star with a mass of 0.12 solar mass, at a radius of 0.1 AU away
+\end{itemize}
+
+\section{Option 2: Milankovitch cycles}
+
+The Earth's orbit is a little bit elliptical, but its eccentricity is not constant; instead, its eccentricity fluctuates over timescales of hundreds of thousands of years because of the gravitational influence of Jupiter (mostly) and Saturn.
+These fluctuations in eccentricity are responsible for the recent cycle of ice ages and interglacial periods, as I'll talk about in class.
+
+Simulate the Earth, Sun, and Jupiter. (Earth has a mass of $3 \times 10^{-6}$ solar masses; Jupiter has a mass of 0.001 solar mass and orbits about 5 AU away.)
+
+Jupiter's orbit is a little bit elliptical and this is important for this simulation; to simulate this, set Jupiter's initial velocity to $2\pi / \sqrt{r_J} \times 0.95$. The first bit is the initial condition that gives a circular orbit; the factor of 0.95 
+controls the eccentricity.
+
+Then, you'll need to modify your code to track the eccentricity of the Earth. The eccentricity depends on the aphelion and perihelion (furthest and closest distance to the Sun) -- the wider the spread, the more eccentric. 
+It took me a bit to figure out how to do this; I wound up using the following code that keeps track of the distance of the Sun on {\it three} successive timesteps to look for extrema, and prints out the eccentricity every
+hundred orbits. (You may copy this code, modifying it as you need.)
+
+\begin{verbatim}
+    r_old_old=r_old;
+    r_old=r_now;
+    r_now=hypot(x1-x2, y1-y2);
+
+    if (r_old < r_old_old && r_old < r_now) // we are at perihelion
+    {
+      r_peri = r_old;
+    }
+
+    if (r_old > r_old_old && r_old > r_now) // we are at aphelion
+    {
+      aphs++;
+      if (aphs % 100 == 0)
+        eccentricity = (r_aph-r_peri)/(r_aph+r_peri);
+        printf("!%e %e\n",t, eccentricity);
+      r_aph = r_old;
+    }
+\end{verbatim}
+
+One challenge for this project is that you will need to simulate many tens of thousands of years to see the eccentricity drift. You will need to use a small enoguh timestep to accurately simulate the small changes in eccentricity; I found that $10^{-4}$ years was
+sufficient. But you'll need to run it for a very long time; this means you'll need to run for quite a while to accumulate enough data. You'll need to either not animate your results or use a large frameskip to achieve this.
+
+Show a plot of eccentricity vs. time like the one I showed in class. Then compare this to the actual fluctuations of the Earth's eccentricity, the first green trace on the plot on the next page. Are they similar in character? How do they differ? Look at the 
+Wikipedia page on ``Milankovitch cycles'' for background if you want.
+
+\bigskip
+\begin{center}
+\includegraphics[width=6in]{milankovitch.png}
+\end{center}
+
+\newpage
 
 \bigskip
 \bigskip
 
 \begin{center}
-\Large Avoiding solar system drift
+\Large Hints: Avoiding solar system drift
 \end{center}
 
 \normalsize
