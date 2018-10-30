@@ -1,13 +1,12 @@
 ---
 layout: page
-title: Projects 7/8
+title: Project 7
 permalink: projects/project7.html
+category: top
 use_math: true
 ---
 <center>
 
 String part 1: <a href="string-1.pdf">PDF</a>.
-
-String part 2: <a href="string-2.pdf">PDF</a>.
 
 </center>

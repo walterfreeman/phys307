@@ -112,12 +112,32 @@ As alluded to above, we’re going to approximate the flexible string as a seque
 law to describe each individual piece. This will give us the overall behavior we’re going for,
 and the large number of pieces will give us the flexibility we want.
 
+\subsection{Notation reference}
+
+\begin{tabular}{|c|c|c|}
+\hline
+Quantity & Symbol & Type \\ \hline
+Unstretched length of string & $L$ & Macroscopic \\ \hline
+Stretched length of string & $L'$ & Macroscopic \\ \hline
+Tension applied to string & $T$ & Macroscopic \\ \hline
+Linear density & $\mu$ & Macroscopic \\ \hline
+Cross-sectional area & $A$ & Macroscopic\\ \hline
+Young's modulus & $E$ & Macroscopic \\ \hline
+Stiffness & $\alpha \equiv EA$& Macroscopic \\ \hline
+Spring constant of whole string & $\overline k$ & Macroscopic \\ \hline
+Number of segments & $N$ & Microscopic \\ \hline
+Mass of one segment & $m$ & Microscopic \\ \hline
+Spring constant of one segment & $k$ & Microscopic \\ \hline
+Equilibrium length of one segment & $r_0$ & Microscopic \\ \hline
+\end{tabular}
+
 \subsection{Deriving the microscopic properties from the macroscopic ones}
 
 What properties does a guitar string have? Here we aren’t looking for quantities like ``total mass'',
 since that is different depending on the length of the string; we want to describe the properties that the string has in a way independent of its total length.
 
 Going back to freshman physics and materials science, a string has the following properties at first order:
+
 
 \begin{itemize}
   \item{Length}
@@ -127,7 +147,7 @@ Going back to freshman physics and materials science, a string has the following
 \end{itemize}
 
 These last two are dependent only on the material of which it is made.  Recall that
-$k = \frac{EA}{L}$, where $E$ is the Young’s modulus of the material. 
+$\overline k = \frac{EA}{L}$, where $E$ is the Young’s modulus of the material. 
 
 Now, we’re not attempting to model the area of the string.  We only care about the quantities $A \rho$ (mass per length) and
 $EA$ (spring constant times length). So now we have the following list:
@@ -137,6 +157,8 @@ $EA$ (spring constant times length). So now we have the following list:
       \item{Linear density $\mu$}
       \item{Young's modulus times cross-sectional area, which I'll call $\alpha$ (the ``stiffness'')}
 \end{itemize}
+
+
 
 However, we are dividing our string into
 $N$ point masses connected by $N-1$ ideal Hooke’s law springs. So what are their
@@ -149,24 +171,24 @@ parameters? We need to know their length, mass, and spring constant, along with 
 
 
      The spring constant is more difficult. If we want our full string to have a spring constant
-     $k$, what is the spring constant of each element? The key is that the force exerted by each
+     $\overline k$, what is the spring constant $k$ of each element? The key is that the force exerted by each
      subelement must equal the force exerted by the whole string, since the tension in a little
      piece of the string is the same as the tension in the whole thing. (Tension is an intensive
      quantity, if you know what that means).
 
      If the whole string is stretched by an amount $\Delta x$, then each element
      is stretched by an amount $\Delta x/N$. Hooke's law for the whole string
-     gives us $T=k\Delta x$, and for each element gives $T=k'(\Delta x/N)$, 
-     where $k'$ is the spring constant of each element. Equating these gives us
-     $k'=k/N$. (A shorter way to say this is that spring constants ``add like capacitors” rather
+     gives us $T=\overline k\Delta x$, and for each element gives $T=k(\Delta x/N)$, 
+     where $k$ is the spring constant of each element and $\overline k$ is the spring constant of the whole string. Equating these gives us
+     $\overline k=k/N$. (A shorter way to say this is that spring constants ``add like capacitors” rather
      than ``adding like resistors”, if you’ve taken circuits.)
 
-     Recall that the spring constant for the whole string is $k=\alpha/L$. 
-     However, it's $k'$ that will appear in our simulations, so we can 
+     Recall that the spring constant for the whole string is $\overline k=\alpha/L$. 
+     However, it's $k$ that will appear in our simulations, so we can 
      substitute this into the previous equation to get
 
      \begin{itemize}
-       \item{Spring constant for each element: $k'=N\alpha/L$}
+       \item{Spring constant for each element: $k=N\alpha/L$}
      \end{itemize}
 
      If you are going to model a stretched string, you have to know how far to stretch it to get the correct amount of tension. This is easy; you just do it with Hooke’s law.
@@ -174,10 +196,10 @@ If the string has an unstretched length $L$ and you want to apply a tension $T$,
 this will stretch it to a larger length $L'$. Hooke's law tells us
 
 \begin{equation}
-  T = k(L'-L)
+  T = \overline k(L'-L)
 \end{equation}
 
-where $k=\alpha/L$.
+where $\overline k=\alpha/L$.
 
 \section{The force law}
 

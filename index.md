@@ -5,56 +5,14 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
-<!---
-### One last project
-
-Here you'll estimate pi: see <a href="projects/hw9.pdf">.
+New notes: <a href="notes/string-notes.pdf">hints for the vibrating string project</a> and <a href="notes/array-notes.pdf">notes on arrays</a>.
 
 ### 30 October agenda
 
 * discuss the vibrating string and how to model it
 * discuss the use of arrays to implement this model
-* introduce <a href="projects/string-1.pdf">Project 7</a> and <a href="projects/string-2.pdf">Project 8</a>.
+* introduce <a href="projects/string-1.pdf">Project 7</a> and where we are headed with it
 
-New notes: <a href="notes/string-notes.pdf">hints for the vibrating string project</a> and <a href="notes/array-notes.pdf">notes on arrays</a>.
-
-### 12 October agenda
-
-* discuss planetary orbits and how to simulate them
-* Notes for this are still in the long file on <a href="notes/DE-notes.pdf">differential equation solvers</a>
-* New notes: <a href="notes/cplusplus.html">C++ tricks</a>, <a href="notes/organization.html">organizing your stuff</a>
-* Project 5 posted
-
-### 3 October agenda
-
-* Discuss animation
-* Introduce <a href="projects/hw-pendulum.pdf">Project 4</a>
-
-### 28 September agenda
-
-* Finish working on Project 3
-* Discuss what you should do over the weekend:
-  * Read the notes on <a href="notes/anim.html">animation</a>
-  * Read the notes on <a href="notes/DE-notes.pdf">differential equation solvers</a>
-  * Read the notes on <a href="notes/symplectic.html">symplectic solvers</a>
-  * Look over Project 4 (posted Fri/Sat)
-
-
-
-### 26 September agenda
-
-* Do a retrospective of Project 2
-* Summarize the high points of what you read for homework over the weekend
-* Get started on Project 3
-* New notes: on <a href="notes/DE-notes.pdf">differential equation solvers</a> and <a href="notes/anim.html">making animations</a>.
-
-### 21 September assignment
-
-Please read the <a href="notes/DE-notes.pdf">notes on differential equations</a>
-before Tuesday's class. You might also be interested in a draft of
-<a href="projects/hw3.pdf">Project 3</a>; it will be revised before Tuesday,
-but this is the gist.
--->
 
 ### 18 October agenda
 
