@@ -5,6 +5,8 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+Note that the <a href="projects/string-2.pdf">next part of the vibrating string project</a> has been added.
+
 New notes: <a href="notes/string-notes.pdf">hints for the vibrating string project</a> and <a href="notes/array-notes.pdf">notes on arrays</a>.
 
 ### 30 October agenda
