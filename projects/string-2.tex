@@ -113,9 +113,9 @@ Discuss the validity of the ``normal mode'' idea outside of the limit of small a
 
 
 
-\item{\st{Plot amplitude vs. period for several different values of the amplitude at moderate tension ($L/L_0 \approx 1.1$), going roughly from small $A$ to $A=0.4L$. (Include enough points that the character is clear.) Does your period give you the expected value for small amplitude?
+\st{Plot amplitude vs. period for several different values of the amplitude at moderate tension ($L/L_0 \approx 1.1$), going roughly from small $A$ to $A=0.4L$. (Include enough points that the character is clear.) Does your period give you the expected value for small amplitude?
 Do this for both the fundamental mode and the $n=4$ mode (which should have one-quarter the period). Make three plots: period vs. 
-amplitude for each, and the ratio of the periods. (You may do this either with some fancy {\tt for} loop over amplitudes, resetting your initial conditions each time, or by just running your program multiple times and recording the results.)}}
+amplitude for each, and the ratio of the periods. (You may do this either with some fancy {\tt for} loop over amplitudes, resetting your initial conditions each time, or by just running your program multiple times and recording the results.)}
 
 \item{Calculate the {\it fractional difference} between your measured period and the analytic period for different values for the amplitude, going roughly from small $A$ to $A=0.4L$. (Include enough points that the character is clear). As a reminder, the analytic value
 for the period, correct for small amplitude, is $$\tau_{\rm {an}}=\frac{2L_s}{n} \sqrt{\mu_s}{T}.$$ Thus the fractional difference $\Delta \tau$ can be defined as
@@ -123,7 +123,10 @@ for the period, correct for small amplitude, is $$\tau_{\rm {an}}=\frac{2L_s}{n}
 $$\Delta \tau = \frac{\left |\tau_{\rm an} - \tau_{\rm num}\right|}{\tau_{\rm num}}$$
 
 where $\tau_{\rm num}$ is the numeric period you measure with your program. This should give you a $\Delta \tau$ value close to zero for small amplitude. (For small amplitudes, the difference will be dominated by modeling error and numerical error in your 
-simulation, rather than by any amplitude effects. You will want to minimize these as best you can.) How does $\Delta \tau$ depend on amplitude? Comment on similarities and differences between this project and the pendulum project.
+simulation, rather than by any amplitude effects. You will want to minimize these as best you can.) 
+
+Now, since both $\Delta \tau$ and $A$ are small for small amplitude, you can plot your data on a log-log plot to really see what is going on. Do so; how does $\Delta \tau$ depend on amplitude? 
+Comment on similarities and differences between this project and the pendulum project.
 
 Gather two sets of data: one for the $n=1$ and one for the $n=4$ mode. Plot them on top of each other, and determine which normal mode is most subject to large-amplitude effects.}
 
