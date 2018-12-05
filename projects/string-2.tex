@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \setlength\parindent{0pt}
 \usepackage{fullpage}
+\usepackage{soul}
 \setlength{\parskip}{4mm}
 \def\LL{\left\langle}   % left angle bracket
 \def\RR{\right\rangle}  % right angle bracket
@@ -110,16 +111,24 @@ oscillation of your string. Does the observed behavior match the expected sound?
 \item{Now we're going to deviate from the limit of small amplitude (i.e. ``what you learned in pencil-and-paper physics class'') and look at the non-ideal behavior. Simulate a few different normal modes at a range of amplitudes (ranging up to $A \simeq L$), and also vary the tension.
 Discuss the validity of the ``normal mode'' idea outside of the limit of small amplitude: {\it does} your simulation now exhibit independent normal modes, each with a definite frequency?}
 
-\item{Plot amplitude vs. period for several different values of the amplitude at moderate tension ($L/L_0 \approx 1.1$), going roughly from small $A$ to $A=0.4L$. (Include enough points that the character is clear.) Does your period give you the expected value for small amplitude?
+
+
+\item{\st{Plot amplitude vs. period for several different values of the amplitude at moderate tension ($L/L_0 \approx 1.1$), going roughly from small $A$ to $A=0.4L$. (Include enough points that the character is clear.) Does your period give you the expected value for small amplitude?
 Do this for both the fundamental mode and the $n=4$ mode (which should have one-quarter the period). Make three plots: period vs. 
-amplitude for each, and the ratio of the periods. (You may do this either with some fancy {\tt for} loop over amplitudes, resetting your initial conditions each time, or by just running your program multiple times and recording the results.)}
+amplitude for each, and the ratio of the periods. (You may do this either with some fancy {\tt for} loop over amplitudes, resetting your initial conditions each time, or by just running your program multiple times and recording the results.)}}
 
-\item{If a musician excites a string when playing an instrument, the string's amplitude will decay from its initial value down to zero as the oscillations are slowly damped, so each note will cover a range of amplitudes. 
-Given that a deviation in frequency of 5\% is ``grossly out of tune'' and a deviation of 1\% is audibly out of tune, speculate on the impact of the amplitude-frequency connection on music.
+\item{Calculate the {\it fractional difference} between your measured period and the analytic period for different values for the amplitude, going roughly from small $A$ to $A=0.4L$. (Include enough points that the character is clear). As a reminder, the analytic value
+for the period, correct for small amplitude, is $$\tau_{\rm {an}}=\frac{2L_s}{n} \sqrt{\mu_s}{T}.$$ Thus the fractional difference $\Delta \tau$ can be defined as
 
-Extra credit: look up the values for tension, linear mass density, and stiffness for an actual guitar string.
-At what amplitude must the player pluck this string for (i) the fundamental, and (ii) the 8th normal mode to deviate from 
-their expected frequency by 1\%?}
+$$\Delta \tau = \frac{\left |\tau_{\rm an} - \tau_{\rm num}\right|}{\tau_{\rm num}}$$
+
+where $\tau_{\rm num}$ is the numeric period you measure with your program. This should give you a $\Delta \tau$ value close to zero for small amplitude. (For small amplitudes, the difference will be dominated by modeling error and numerical error in your 
+simulation, rather than by any amplitude effects. You will want to minimize these as best you can.) How does $\Delta \tau$ depend on amplitude? Comment on similarities and differences between this project and the pendulum project.
+
+Gather two sets of data: one for the $n=1$ and one for the $n=4$ mode. Plot them on top of each other, and determine which normal mode is most subject to large-amplitude effects.}
+
+\item{{\it Extra credit:} If a musician excites a string when playing an instrument, the string's amplitude will decay from its initial value down to zero as the oscillations are slowly damped, so each note will cover a range of amplitudes. 
+Given that a deviation in frequency of 5\% is ``grossly out of tune'' and a deviation of 1\% is audibly out of tune, speculate on the impact of the amplitude-frequency connection on music.}
 
  \end{enumerate}
 \end{document}
