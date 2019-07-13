@@ -18,3 +18,9 @@ use_math: true
 <a href="project4.html">Project 4, due Thursday, October 11, at 5 PM</a>
 
 <a href="project5.html">Project 5, due Thursday, October 18, at 5 PM</a>
+
+<a href="hw-gravity2.pdf">Project 6</a>
+
+<a href="string-1.pdf">Project 7, part 1</a>
+
+<a href="string-2.pdf">Project 7, part 2</a>
