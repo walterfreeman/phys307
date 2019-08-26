@@ -54,6 +54,7 @@ else
 
 There are far more efficient ways to do this, but this illustrates a couple of programming concepts.
 
+Here it is in C:
 {% highlight C linenos %}
 
 // We want to see if the number n is a perfect square
@@ -105,7 +106,7 @@ to check numbers for prime-ness.
 ---
 
 ## Printing a multiplication table
-This illustrates the use of one for loop within another.
+This illustrates the use of one for loop within another. Here it is in C:
 
 {% highlight C linenos %}
 int i,j;
@@ -119,10 +120,20 @@ for (i=1;i<=12;i++) // because it’s ALWAYS twelve...
 }
 {% endhighlight %}
 
+... and in Python:
+
+{% highlight python linenos %}
+for i in range(13):
+  for j in range (13):
+    print ("%d" % (i*j), end=" ")
+  print () # create a newline 
+{% endhighlight %}
+
 ---
 
 ## Euler's childhood assignment: adding the numbers from 1 to 100
 
+In C:
 {% highlight C linenos %}
 int sum=0;    // note that we must set sum to zero 
               // before we add things to it! 
@@ -134,6 +145,14 @@ for (i=1; i<=100; i++)   // note that "i++" is shorthand for "i=i+1"
 printf("The sum of numbers from 1 to 100 is %d\n",sum);
 {% endhighlight %}
 
+
+... and in Python:
+{% highlight python linenos %}
+sum=0
+for i in range(1,101):
+  sum=sum+i
+print ("The sum of the numbers from 1 to 100 is",sum)
+{% endhighlight %}
 ---
 
 ## Tracking the motion of a falling body
@@ -143,8 +162,10 @@ Here, if we already know the analytic answer $x=\frac{1}{2}at^2$, we can just ev
 Suppose something is falling from an initial height h, and we want to use time intervals of size dt. These
 variables are assumed to already be defined.
 
+
+Here it is in C:
 {% highlight C linenos %}
-double y=h,t=0,v=0;
+double y=h,t=0,v=0,dt=0.01;
 for(t=0; ;t += dt) // This loop will go forever! 
 {                  
   y += v *dt;    // in time dt, the body falls a distance v*dt, if dt is
@@ -156,3 +177,22 @@ for(t=0; ;t += dt) // This loop will go forever!
 
 }
 {% endhighlight %}
+
+... and in Python:
+{% highlight python linenos %}
+y=h
+t=0
+v=0
+dt=0.1
+
+while True:
+  y += v * dt    // in time dt, the body falls a distance v*dt, if dt is
+                 // small enough that v is essentially constant
+  v -= 9.8 * dt  // in time dt, the velocity decreases by g*dt
+  t += dt
+  print (t, y)
+  if (y < 0):
+    break // if we’ve hit the ground, break out of the loop
+{% endhighlight %}
+
+
