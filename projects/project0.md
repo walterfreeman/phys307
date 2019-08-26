@@ -1,12 +1,13 @@
 ---
 layout: page
 title: Project 0
+category: top
 permalink: projects/project0.html
 use_math: true
 ---
 <center>
 
-<b>Due Tuesday, 4 September, at 5 PM</b><br>
+<b>Due Tuesday, 3 September, at 5 PM</b><br>
 
 </center>
 
@@ -21,19 +22,23 @@ be a larger and larger portion of your submission as the semester goes on.
 
 <br>
 
-1. Use a text editor to create a file with the following information, and send it in an email to suphysics307@gmail.com
-with the following information:
+0. Join the [suphysics.slack.com](Slack team for Syracuse Physics). Say hi -- introduce yourself, be silly, and ask questions! This is one of the best places for you to get help with your code, from your classmates or from me.
+
+1. Use a text editor to create a file in your home directory with the following information:
 
     - Your name, NetID, major, and academic year
-    - Do you have any programming experience? If so, in which languages?
+    - Do you have any programming experience? If so, in which languages? (Will you use any of them for this class?)
     - Are you interested in using your own laptop for this class? If you are, which of the following are you interested in doing:
       - Using a Mac and running everything on your own computer
       - Using a Windows machine to connect to the course computer, like we do with the lab machines
       - Running a Linux system inside a "virtual machine" on your Windows box
-      - Installing Linux on your own laptop 
+      - Doing all your work off of a Linux system that lives on a USB key
+      - Installing Linux on your own laptop alongside Windows
     - What physics classes have you taken/are you taking now?
-    - What math classes have you taken/are you taking? (Do not list calculus classes if you are beyond the calculus sequence.
+    - What math classes have you taken/are you taking? (Do not list calculus classes if you are beyond the calculus sequence.)
     - Are there any physical systems you are interested in modeling in this course?
+
+Include this file with your submission.
 
 2. Write a C program that reads in a temperature in Celsius and prints the equivalent in Fahrenheit.
 Discuss any issues that arose in writing your code. (Even if there weren't any, include a note saying so.
@@ -48,10 +53,14 @@ containing both functions, and submit your graph.
 4. Think of a way to test (roughly) how many arithmetic operations your computer (either the course
 computer, or your own) can perform per second. Note that printing things to the screen is a far bigger
 task for the computer than adding or multiplying, so don't slow the computer down by requesting lots
-of output. There are hard ways to do this -- and one very simple one. Choose the simple one!
+of output. There are hard ways to do this -- and one very simple one. Choose the simple one! (Hint: Ask it 
+to do a lot of things and see how long it takes.)
 Discuss how your code measures this and how accurate you think your measurement is.
 Can you think of any factors that might cause you to get a lower result than you might otherwise?
 You should keep this value in your head throughout the semester as an order-of-magnitude estimate
 for how long calculations will take.
 
-5. Join the [suphysics.slack.com](Slack team for Syracuse Physics). Say hi -- introduce yourself, be silly, and ask questions! This is one of the best places for you to get help with your code, from your classmates or from me.
+5. Create a directory called `project0` in your home directory using `mkdir`, then move all the files you have 
+created for this project into the new directory. 
+
+

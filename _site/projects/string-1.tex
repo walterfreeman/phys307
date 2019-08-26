@@ -33,11 +33,12 @@
 
 \begin{document}
 \Large
-\centerline{\sc{Physics 307 Homework 6}}
-\centerline{Due Thursday, 9 November, at 11 AM}
+\centerline{\sc{Physics 307 Homework 7}}
+\centerline{Due Tuesday, 13 November, at 5 PM}
+\centerline{Progress report due 6 November before class}
 \normalsize
 
-This homework assignment is the first of two parts. I encourage you to try to finish this assignment ahead of time
+This homework assignment is the first of three parts. I encourage you to try to finish this assignment ahead of time
 and begin the next one before the deadline of this one. This assignment requires you to write some code; the next assignment will involve using that code to study
 some physics.
 
@@ -45,8 +46,10 @@ Your ``report'' for this assignment will just consist of keeping us up-to-date o
 and check on you.
 
 {\bf Please start early.} 
-I am giving you two weeks to do this assignment in order to accommodate anyone who may have some difficulty; the next assignment will be due after one more week, and will consist of answering some questions 
-about vibrating strings using your simulation. This will be a bit more challenging to code than your previous one; please don't put it off until a few days before it's due.
+I am giving you two weeks to do this assignment in order to accommodate anyone who may have some difficulty.
+This will be a bit more challenging to code than your previous one; please don't put it off until a few days before it's due.
+We'll be doing a check-in in a week for a grade; you'll be given a grade based on how well your code works at that point. We don't
+expect it to be perfect, only that you're making good progress.
 
 In this assignment, you will model a stretched string (as in a guitar or violin) using a lattice elasticity model, in which point masses (``nodes'') are connected by Hooke's-law springs.
 For reference, the force law on any given node $i$ (given in more detail in class) is:
@@ -91,12 +94,21 @@ As before, you can use the ``unit vector trick'' to write $\hat r_{i,j}$ in term
   \item{Determine the initial conditions (all of the $x_i$'s; all the $y$-coordinates and velocities will be zero) for a stretched but unexcited string with tension $T$ applied to it. You will first need to determine the stretched length $L'$, then put your $N$
     masses at equidistant points between $x=0$ and $x=L'$. Implement these initial conditions, and verify that the string doesn't move.} 
 
-  \item{Now stretch your string with sufficient tension to stretch it to around 125\% of its unstretched length, and excite it somehow. You can do this by applying some external force to it at some instant in time, or by choosing initial values for the $y_i$'s.
-    Verify that it moves somewhat realistically.}
+  \item{Now stretch your string with sufficient tension to stretch it by 25-100\% of its unstretched length, and excite it somehow. You can do this by applying some external force to it at some instant in time, or by choosing initial values for the $y_i$'s.
+    Verify that it moves realistically. A simple initial condition that you can use is a Gaussian deformation, in which 
 
-  \item{Play around with your initial conditions, along with $N$, the stretch amount, $\mu$, $L$, and so on. Discuss anything interesting that you find.}
+$$y(x) = exp \left[ A \frac {-(x-x_c)^2}{\sigma^2} \right]$$
+
+where $x_c$ is the center of the excitation, $\sigma$ is its width, $A$ is its amplitude, and $\sigma$ and $x_c$ are chosen so that
+the Gaussian dies down before you get to the ends of the string. You may use any other initial conditions you like for testing.
+
+}
+
+  \item{Play around with your initial conditions, along with $N$, the stretch amount, $\mu$, $L$, and so on. Discuss anything interesting that you find. Note that your behavior ought to be relatively independent of $N$. Your report should contain 
+descriptions of all the stuff you did and what happened.}
 
   \item{Modify your program to track conservation of energy (recall that the elastic potential energy in each spring is $U=\frac{1}{2}k(r-r_0)^2$) and verify that energy is approximately conserved.}
+
 \end{enumerate}
 
 \end{document}

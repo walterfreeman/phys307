@@ -6,6 +6,22 @@ title: Notes
 permalink: notes/
 use_math: true
 ---
+
+<a href="connect.html">Connecting to the course computer</a>
+
+<a href="linux.html">A short introduction to Linux</a>
+
+<a href="c.html">An introduction to the C programming language</a>
+
+<a href="python.html">An introduction to the Python programming language</a>
+
+<a href="language-comparison.html">A comparison of C and Python</a>
+
+<a href="plot.html">Plotting data</a>
+
+<a href="laptop.html">Using your own laptop</a>
+
+<!--
 <a href="string-notes.pdf">Notes on the vibrating string project</a>
 
 <a href="array-notes.pdf">Notes on using arrays</a>
@@ -15,16 +31,6 @@ use_math: true
 <a href="DE-notes.pdf">Notes on solving differential equations</a> 
 
 <a href="samples.html">Sample programs</a>
-
-<a href="connect.html">Connecting to the course computer</a>
-
-<a href="linux.html">A short introduction to Linux</a>
-
-<a href="c.html">An introduction to the C programming language</a>
-
-<a href="plot.html">Plotting data</a>
-
-<a href="laptop.html">Using your own laptop</a>
 
 <a href="function.html">Functions in C</a>
 
@@ -43,7 +49,7 @@ as a reference for past students.
 
 <a href="audio.html">Notes on audio output</a>
 
-
+-->
 
 
 

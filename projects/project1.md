@@ -6,7 +6,7 @@ use_math: true
 ---
 <center>
 
-<b>Due Tuesday, 11 September, by 5 PM</b><br>
+<b>Due Tuesday, 10 September, by 5 PM</b><br>
 
 See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/samples.html">the file of sample programs</a> for a few hints. 
 <br><br>

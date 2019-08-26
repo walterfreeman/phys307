@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+
+  <title>Physics 307</title>
+  <meta name="description" content="Fall 2018, Syracuse University 
+">
+
+  <link rel="stylesheet" href="/phys307/css/main.css">
+  <link rel="canonical" href="/phys307/notes/python.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+    }
+  });
+</script>
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/phys307/">Physics 307</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/notes/">Notes</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/project0.html">Project 0</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/projects/">Projects</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/notes/samples.html">Sample Codes</a>
+          
+        
+          
+          <a class="page-link" href="/phys307/notes/samples.html">Sample Codes</a>
+          
+        
+          
+        
+          
+        
+          
+          <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <center><h1>A first introduction to Python</h1></center>
+
+<h3 id="1-basics">1. Basics</h3>
+
+<p>Python is a newer programming language that is designed to be flexible and accessible.
+It is much slower than C, but modern computers are so fast that this doesn’t matter much
+for many of the things that you will do. Python is good at manipulating text,
+which is difficult in C; thus, Python is commonly used by scientists to do data analysis.</p>
+
+<p>You can run Python code in two different ways:</p>
+
+<ul>
+  <li>
+    <p>Type <code class="highlighter-rouge">python</code> at the command line, then type Python code directly into the terminal. The
+computer will execute each line as you input it. (This environment is called a “REPL”, for
+“Read, Evaluate, Print Loop”).</p>
+  </li>
+  <li>
+    <p>Create a text file containing Python code. Conventionally, these files have names ending in <code class="highlighter-rouge">.py</code>, for instance
+<code class="highlighter-rouge">program.py</code>. You then run them by saying <code class="highlighter-rouge">python program.py</code> at the command line.</p>
+  </li>
+</ul>
+
+<p>Here is the simplest possible Python program:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">)</span></code></pre></figure>
+
+<hr />
+
+<h3 id="2-math-and-variables">2. Math and variables</h3>
+
+<p>Here’s a slightly more complicated program that introduces how to do math in Python:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter a number: "</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter another number: "</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="s">"The hypotenuse of a triangle with legs of length"</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="s">"and"</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s">"is"</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></code></pre></figure>
+
+<p>There are some new things here.</p>
+
+<p>Line 1 imports functions from the <code class="highlighter-rouge">numpy</code> module. One of the great strengths of Python is the enormous
+range of modules available for it that do different things. NumPy, short for <em>numerical Python</em>, is a set
+of mathematics functions. We will need it in order to have access to the <code class="highlighter-rouge">sqrt</code> function which we’ll use later.</p>
+
+<p>Line 3 sets the variable <code class="highlighter-rouge">a</code> equal to a number that the user enters. The function <code class="highlighter-rouge">input()</code> reads some text from the keyboard.
+So writing <code class="highlighter-rouge">a = input("Enter a number: ")</code> prompts the user to type something, and then stores whatever the user types
+in the variable <code class="highlighter-rouge">a</code>.</p>
+
+<p>So, what’s this <code class="highlighter-rouge">float</code> business?</p>
+
+<p>Variables and other objects in Python can have many different types. A variable like <code class="highlighter-rouge">a</code> can represent an integer, a decimal number 
+(called <code class="highlighter-rouge">float</code>, for “floating-point”, i.e. scientific notation), some text (called a “string”), a list of numbers or strings of text, or even more 
+complicated things.</p>
+
+<p>The <code class="highlighter-rouge">input()</code> function returns a string – that is, text. Note that there is a difference between <em>the number 5.0</em> and <em>a string of text comprised of
+the characters “5.0”</em>. Specifically, the computer knows how to do mathematics with numbers, but doesn’t know how to do math with text – even if that
+text describes a number. So, in order to do math with the things we have read from the keyboard, we must
+convert them into numbers. The <code class="highlighter-rouge">float()</code> function converts text into floating-point (i.e. decimal) numbers, which does exactly 
+what we want here.</p>
+
+<p>So line 3:</p>
+
+<ul>
+  <li>Prompts the user to enter a number</li>
+  <li>Converts whatever they type to a value of type <em>float</em></li>
+  <li>Stores that value in the variable <code class="highlighter-rouge">a</code>.</li>
+</ul>
+
+<p><strong>Important</strong>: The <code class="highlighter-rouge">=</code> operator in Python is called the <em>assignment</em> operator. It does not mean that one thing must forever be equal to another thing.
+Instead, it does something much more mundane: it takes the value on the right-hand side of the <code class="highlighter-rouge">=</code> and stores it in the variable on the left-hand
+side of the <code class="highlighter-rouge">=</code>. Thus, statements like <code class="highlighter-rouge">x = x + 1</code> are perfectly valid Python: this just means “make x bigger by 1”.</p>
+
+<p>Line 4 does the same thing for another number, storing it in <code class="highlighter-rouge">b</code>.</p>
+
+<p>Line 5 does some mathematics. Notice that <code class="highlighter-rouge">**</code> is the exponentiation operator, so <code class="highlighter-rouge">a**2</code> means $a^2$, not <code class="highlighter-rouge">a^2</code>. Remember line 1, where we 
+imported the <code class="highlighter-rouge">numpy</code> module? The <code class="highlighter-rouge">sqrt</code> function lives inside it, which we use now.</p>
+
+<p>Finally, line 7 prints out the result. Notice that you can easily mix text and numbers in the <code class="highlighter-rouge">print()</code> function.</p>
+
+<hr />
+
+<h3 id="3-loops-repeating-things-multiple-times">3. Loops: repeating things multiple times</h3>
+
+<p>Here’s another program that introduces looping structures: commands that tell the computer
+to repeat chunks of code. <strong>Clever use of these is the key to programming:</strong> the whole
+point of using a computer is that it can do repetitive, tiresome mathematical tasks quickly.</p>
+
+<p>The <code class="highlighter-rouge">for</code> statement tells the computer to repeat a block of code multiple times. Python has a 
+special type of object called an <em>iterable</em>, which you can think of as “an instruction for how
+to repeat something”.</p>
+
+<p>For now, we need one iterable, which is the <code class="highlighter-rouge">range</code> function. It generates a range of numbers;
+<code class="highlighter-rouge">range(5)</code> generates the set of numbers <code class="highlighter-rouge">(0, 1, 2, 3, 4)</code>.</p>
+
+<p>See if you can guess what this program does before you run it:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s">"squared is"</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s">"All done!"</span><span class="p">)</span></code></pre></figure>
+
+<p>Then run this code, and see how it works!</p>
+
+<p>Notice a few things:</p>
+
+<ul>
+  <li>
+    <p>There is a colon after the <code class="highlighter-rouge">for</code> statement. Statements like <code class="highlighter-rouge">for</code>, <code class="highlighter-rouge">if</code>, and <code class="highlighter-rouge">while</code> are called <em>control statements</em>.
+They tell the computer how to repeat, or whether to run, a block of code that follows them. In Python, they end with a colon.</p>
+  </li>
+  <li>
+    <p>The block of code to be repeated is <em>indented</em>. Indentation in Python is used to describe blocks of code, and Python will
+complain if you don’t indent every line in a block of code by the same amount. Tabs and spaces are <em>not</em> the same: just because
+two things look like they’re indented the same amount, if one uses tabs and another uses spaces, Python will complain.</p>
+  </li>
+</ul>
+
+<p>Here’s another way to do the same thing:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s">"squared is"</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="p">(</span><span class="s">"All done!"</span><span class="p">)</span></code></pre></figure>
+
+<hr />
+
+<h3 id="4-conditional-statements">4. Conditional statements</h3>
+
+<p>Here’s one more program that illustrates how to use the <code class="highlighter-rouge">if</code> statement to make the computer do one thing or another.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># use the int() function to change text to integer</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter an integer: "</span><span class="p">))</span>  
+
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"The number is positive"</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"The number is negative"</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"The number is zero"</span><span class="p">)</span></code></pre></figure>
+
+<p>A couple of new things here. The biggest one is the <code class="highlighter-rouge">if</code> statement, of course. Note the
+use of <code class="highlighter-rouge">==</code> rather than <code class="highlighter-rouge">=</code> to check for equality. Single-equals is the assignment operator that
+changes the value of a variable; double-equals tests to see if two things are equal. Mixing
+these up is a common mistake.</p>
+
+<p>Also notice the text beginning with <code class="highlighter-rouge">#</code>. This is a comment: text that is completely
+ignored by the compiler and does nothing, but is included just as a note to anyone reading
+the code. Use comments liberally; it’s essential that you or someone else reading your code
+can figure out what it does. At a minimum, any program you submit should have a comment
+at the top telling who wrote it and what it does.</p>
+
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physics 307</li>
+          <li><a href="mailto:wafreema@syr.edu">wafreema@syr.edu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Fall 2018, Syracuse University 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
