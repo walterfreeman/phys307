@@ -13,4 +13,15 @@ if anyone'd like to read them to get an idea of what this class will be like.
 * introduce some basic Linux commands and the C and/or Python programming languages
 * guide everyone through writing their first program!
 
+In more detail, here are the instructions for the first day:
+
+* First decide if you want to use your own laptop or our computers for the course:
+  * If you have a Linux or Mac laptop, then you should probably use it right away for everything
+* Join the Slack channel at [suphysics.slack.com](https://suphysics.slack.com) and send memes/say hi
+* Get started writing code in C, Python, or both:
+  * You can find notes about both C and Python on the [notes](notes.html) page, along with a comparison of the two. I'll also demonstrate
+    both.
+* If you have time, experiment with plotting things. I'll demonstrate this if we have time. 
+
+
 <iframe width="630" height="465" src="https://www.youtube.com/embed/W-csPZKAQc8" frameborder="0" allowfullscreen></iframe>

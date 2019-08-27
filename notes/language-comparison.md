@@ -21,6 +21,8 @@ Compiled languages are **much faster** than interpreted ones. In general, C code
 for tasks that it is good at, then Python might be "only" five times slower than C. Modern computers are very fast, and you can use Python for
 everything in my class ... but, if you ever find yourself running simulations where performance matters, you'll likely be using C or a language like it.
 
+As a test, I asked the computer in my office to add up the first billion integers. This took 0.78 seconds in C and 72 seconds in Python.
+
 ## Explicit vs. implicit typing
 
 In C, *every* variable must be created before using it, and its type declared explicitly. To create a floating-point variable called `x` and an integer called `i`,

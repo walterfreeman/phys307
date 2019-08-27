@@ -9,12 +9,12 @@
   <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 
   <title>Physics 307</title>
-  <meta name="description" content="Fall 2018, Syracuse University 
+  <meta name="description" content="Fall 2019, Syracuse University 
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/notes/connect.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/phys307/notes/connect.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="http://localhost:4000/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -101,8 +101,6 @@
           
         
           
-        
-          
           <a class="page-link" href="/phys307/notes/">Notes</a>
           
         
@@ -137,8 +135,6 @@
           
         
           
-          <a class="page-link" href="/phys307/notes/samples.html">Sample Codes</a>
-          
         
           
           <a class="page-link" href="/phys307/notes/samples.html">Sample Codes</a>
@@ -150,6 +146,12 @@
         
           
           <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
+          
+        
+          
+        
+          
+        
           
         
           
@@ -166,7 +168,7 @@
       <div class="wrapper">
         <center><h1>Connecting to the course computer</h1></center>
 
-<p>The Room 115 lab has only Windows computers, but if you want to get real work done in the sciences,
+<p>The classroom has only Windows computers, but if you want to get real work done in the sciences,
 you need a Unix-like operating system: Linux or a BSD-based operating system like Mac OSX.
 In this class, we have provided you a Linux system named
 phy-compphysclass.syr.edu, located somewhere in an ITS data center. Here are instructions for connecting
@@ -181,8 +183,12 @@ and text comes back, along with any graphical windows you request.</p>
 This protocol creates an encrypted channel that allows you to communicate securely with another computer.</p>
 
 <p>Once you establish a ssh session to another computer, you can send and receive text and graphics just as though you were physically
-at the machine. To connect from the machines in room 115, run PuTTY from your SU-Apps folder, type in
+at the machine. To connect from the machines in LSB 215, run PuTTY from your SU-Apps folder, type in
 <kbd>phy-compphysclass.syr.edu</kbd>, and click connect.</p>
+
+<p>You will first need to download PuTTY. (ITS, for whatever reason, hasn’t installed that for us.) Download the program 
+at <a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe">https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe</a>.
+Then create a folder called “SU-Apps” on your desktop and copy the PuTTY file in there.</p>
 
 <p>Linux uses a system called X to handle graphics. X is different than the graphics system in Windows in that the computer
 creating and the computer displaying the graphics can be different. The computer displaying the graphics
@@ -207,9 +213,10 @@ Download the <em>xming</em> and <em>xming-fonts</em> packages and install them.<
 <p><strong>From Mac OSX or Linux:</strong></p>
 
 <p>OSX is a Unix-based operating system; I believe it comes with a ssh client, and it uses its own X server for
-its own graphics.</p>
+its own graphics. However, if you have a Mac or Linux system, you will be much better off using your own computer
+for everything!</p>
 
-<p>To connect, just get a terminal window and type</p>
+<p>But if you want to connect, just get a terminal window and type</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -X phy-compphysclass.syr.edu -l &lt;username&gt;
 </code></pre></div></div>
@@ -248,7 +255,7 @@ its own graphics.</p>
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>Fall 2018, Syracuse University 
+        <p>Fall 2019, Syracuse University 
 </p>
       </div>
     </div>

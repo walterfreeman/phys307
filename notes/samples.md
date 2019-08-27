@@ -98,7 +98,8 @@ if something has (or hasn’t)
 happened, and is zero otherwise. Here we set `is_square` to 0, and set it to 1 once we discover that the
 number is a perfect square.
 
-Note that this is terrible programming for a lot of reasons. We could use `break;` to exit the loop once
+Note that this is terrible programming for a lot of reasons. We could use `break;` (or `break`, without the semicolon, in Python)
+ to exit the loop once
 we’ve found that it’s square; `break` is a command that immediately breaks you out of a `for` loop. 
 The point of showing this is that you will need a similar procedure
 to check numbers for prime-ness.
@@ -186,13 +187,13 @@ v=0
 dt=0.1
 
 while True:
-  y += v * dt    // in time dt, the body falls a distance v*dt, if dt is
-                 // small enough that v is essentially constant
-  v -= 9.8 * dt  // in time dt, the velocity decreases by g*dt
+  y += v * dt    # in time dt, the body falls a distance v*dt, if dt is
+                 # small enough that v is essentially constant
+  v -= 9.8 * dt  # in time dt, the velocity decreases by g*dt
   t += dt
   print (t, y)
   if (y < 0):
-    break // if we’ve hit the ground, break out of the loop
+    break # if we’ve hit the ground, break out of the loop
 {% endhighlight %}
 
 

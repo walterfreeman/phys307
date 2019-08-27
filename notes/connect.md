@@ -8,7 +8,7 @@ use_math: true
 
 <center><h1>Connecting to the course computer</h1></center>
 
-The Room 115 lab has only Windows computers, but if you want to get real work done in the sciences,
+The classroom has only Windows computers, but if you want to get real work done in the sciences,
 you need a Unix-like operating system: Linux or a BSD-based operating system like Mac OSX.
 In this class, we have provided you a Linux system named
 phy-compphysclass.syr.edu, located somewhere in an ITS data center. Here are instructions for connecting
@@ -23,8 +23,12 @@ The standard way of connecting to remote Linux machines is via the Secure Shell 
 This protocol creates an encrypted channel that allows you to communicate securely with another computer. 
 
 Once you establish a ssh session to another computer, you can send and receive text and graphics just as though you were physically
-at the machine. To connect from the machines in room 115, run PuTTY from your SU-Apps folder, type in
+at the machine. To connect from the machines in LSB 215, run PuTTY from your SU-Apps folder, type in
 <kbd>phy-compphysclass.syr.edu</kbd>, and click connect.
+
+You will first need to download PuTTY. (ITS, for whatever reason, hasn't installed that for us.) Download the program 
+at <a href="https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe">https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe</a>.
+Then create a folder called "SU-Apps" on your desktop and copy the PuTTY file in there.
 
 Linux uses a system called X to handle graphics. X is different than the graphics system in Windows in that the computer
 creating and the computer displaying the graphics can be different. The computer displaying the graphics
@@ -49,9 +53,10 @@ PuTTY lives at <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>
 **From Mac OSX or Linux:**
 
 OSX is a Unix-based operating system; I believe it comes with a ssh client, and it uses its own X server for
-its own graphics.
+its own graphics. However, if you have a Mac or Linux system, you will be much better off using your own computer
+for everything!
 
-To connect, just get a terminal window and type
+But if you want to connect, just get a terminal window and type
 
 ```
 ssh -X phy-compphysclass.syr.edu -l <username>
