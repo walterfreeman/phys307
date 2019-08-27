@@ -54,17 +54,15 @@ containing both functions, and submit your graph.
 computer, or your own) can perform per second. Note that printing things to the screen is a far bigger
 task for the computer than adding or multiplying, so don't slow the computer down by requesting lots
 of output. There are hard ways to do this -- and one very simple one. Choose the simple one! (Hint: Ask it 
-to do a lot of things and see how long it takes.) You should do this in *both Python and in C*. How does
-the speed of Python compare to the speed of C? 
-
-  You can measure how long a program takes to run by doing `time <command>` at the Linux command line. 
-
-  Discuss how your code measures this and how accurate you think your measurement is.
-  Can you think of any factors that might cause you to get a lower result than you might otherwise?
-  You should keep this value in your head throughout the semester as an order-of-magnitude estimate
-  for how long calculations will take.
-
-  From now on, you may use *any language you like* to do all the assignments for this class. Whenever it is time
+to do a lot of things and see how long it takes.) 
+<br><br>
+Talk to your classmates who have used different programming languages. (If you used C, talk to someone
+who used Python, and vice versa.) How does
+the speed of Python compare to the speed of C? <br><br> You can measure how long a program takes to run by doing `time <command>` at the Linux command line. 
+<br><br> Discuss how your code measures this and how accurate you think your measurement is.
+<br><br>Can you think of any factors that might cause you to get a lower result than you might otherwise?
+You should keep this value in your head throughout the semester as an order-of-magnitude estimate
+for how long calculations will take.<br><br>  From now on, you may use *any language you like* to do all the assignments for this class. Whenever it is time
   to learn a new programming idea, we will make sure to teach you whatever you need to know in both C and Python.
 
 5. Create a directory called `project0` in your home directory using `mkdir`, then move all the files you have 

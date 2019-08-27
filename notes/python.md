@@ -24,7 +24,7 @@ You can run Python code in two different ways:
 * Create a text file containing Python code. Conventionally, these files have names ending in `.py`, for instance
   `program.py`. You then run them by saying `python program.py` at the command line.
 
-Here is the simplest possible Python program:
+Here is a very simple but complete Python program that you can try:
 {% highlight python linenos %}
 print ("Hello, world!")
 {% endhighlight %}
