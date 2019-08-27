@@ -11,7 +11,7 @@ use_math: true
 The classroom has only Windows computers, but if you want to get real work done in the sciences,
 you need a Unix-like operating system: Linux or a BSD-based operating system like Mac OSX.
 In this class, we have provided you a Linux system named
-phy-compphysclass.syr.edu, located somewhere in an ITS data center. Here are instructions for connecting
+`phy-compphysclass.syr.edu`, located somewhere in an ITS data center. Here are instructions for connecting
 to it: 
 
 ### Connecting to the computer
@@ -37,6 +37,8 @@ Windows is called Xming; you will need to run it before you launch PuTTY if you 
 
 Finally, you will need to tell PuTTY that it should forward graphical output over the connection. To do
 this, you need to check the “Enable X Forwarding” box in the “X11” section of the options before you connect.
+
+You can save these settings in PuTTY so you won't need to type this in every time, or click the little box.
 
 #### Connecting from elsewhere
 
