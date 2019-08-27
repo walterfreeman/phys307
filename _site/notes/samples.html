@@ -9,12 +9,12 @@
   <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 
   <title>Sample Codes</title>
-  <meta name="description" content="Fall 2019, Syracuse University 
+  <meta name="description" content="Fall 2018, Syracuse University 
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/phys307/notes/samples.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="http://localhost:4000/phys307/feed.xml">
+  <link rel="canonical" href="/phys307/notes/samples.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -150,12 +150,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
       </div>
     </nav>
 
@@ -193,41 +187,25 @@ language.</p>
 
 <p>In Python:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="c1"># We want to see if the number n is even or odd
-</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span> <span class="c1"># examine the remainder when n is divided by 2
-</span>    <span class="k">print</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="s">"is even"</span><span class="p">)</span> 
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># We want to see if the number n is even or odd</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span> <span class="c"># examine the remainder when n is divided by 2</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="s">"is even"</span><span class="p">)</span> 
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="s">"is odd"</span><span class="p">)</span> </pre></td></tr></tbody></table></code></pre></figure>
+    <span class="k">print</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="s">"is odd"</span><span class="p">)</span> </code></pre></figure>
 
 <p>In C:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre><span class="c1">// We want to see if the number n is even or odd</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// examine the remainder when n is divided by 2</span>
-<span class="p">{</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// We want to see if the number n is even or odd
+</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// examine the remainder when n is divided by 2
+</span><span class="p">{</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">"%d is even</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">else</span>
 <span class="p">{</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">"%d is odd.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span></code></pre></figure>
 
 <h2 id="checking-to-see-if-a-number-is-a-perfect-square--the-dumb-way">Checking to see if a number is a perfect square – the dumb way</h2>
 
@@ -235,63 +213,36 @@ language.</p>
 
 <p>Here it is in C:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="c1">// We want to see if the number n is a perfect square</span>
-<span class="kt">int</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// i is usually used as a generic "counter" variable</span>
-<span class="kt">int</span> <span class="n">is_square</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="c1">// We’ll set this to 1 if the number </span>
-                 <span class="c1">// is a perfect square</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">// This could be made a lot faster, of course</span>
-<span class="p">{</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="c1">// We want to see if the number n is a perfect square
+</span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span> <span class="c1">// i is usually used as a generic "counter" variable
+</span><span class="kt">int</span> <span class="n">is_square</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="c1">// We’ll set this to 1 if the number 
+</span>                 <span class="c1">// is a perfect square
+</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">// This could be made a lot faster, of course
+</span><span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">is_square</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// Don’t need the squiggly braces if you only have </span>
-<span class="p">}</span>                  <span class="c1">// one statement after the "if"</span>
-
+    <span class="n">is_square</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// Don’t need the squiggly braces if you only have 
+</span><span class="p">}</span>                  <span class="c1">// one statement after the "if"
+</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">is_square</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">"%d is a perfect square.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
 <span class="k">else</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"%d isn’t a perfect square.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span></pre></td></tr></tbody></table></code></pre></figure>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d isn’t a perfect square.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">n</span><span class="p">);</span></code></pre></figure>
 
 <p>In Python:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-</pre></td><td class="code"><pre><span class="c1"># We want to see if the number n is a perfect square
-</span><span class="n">is_square</span><span class="o">=</span><span class="mi">0</span>  <span class="c1"># We’ll set this to 1 if the number 
-</span>             <span class="c1"># is a perfect square
-</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># count from 0 to n 
-</span>    <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="o">==</span> <span class="n">n</span><span class="p">):</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># We want to see if the number n is a perfect square</span>
+<span class="n">is_square</span><span class="o">=</span><span class="mi">0</span>  <span class="c"># We’ll set this to 1 if the number </span>
+             <span class="c"># is a perfect square</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c"># count from 0 to n </span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="o">==</span> <span class="n">n</span><span class="p">):</span>
         <span class="n">is_square</span> <span class="o">=</span> <span class="mi">1</span> 
 
 <span class="k">if</span> <span class="p">(</span><span class="n">is_square</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
     <span class="k">print</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="s">"is a perfect square"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="s">"is not a perfect square"</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
+    <span class="k">print</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="s">"is not a perfect square"</span><span class="p">)</span></code></pre></figure>
 
 <p>The key here is the use of a flag variable, in this case <code class="highlighter-rouge">is_square</code>: a variable that is equal to 1 
 if something has (or hasn’t)
@@ -309,35 +260,22 @@ to check numbers for prime-ness.</p>
 <h2 id="printing-a-multiplication-table">Printing a multiplication table</h2>
 <p>This illustrates the use of one for loop within another. Here it is in C:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-</pre></td><td class="code"><pre><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="mi">12</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">// because it’s ALWAYS twelve...</span>
-<span class="p">{</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="mi">12</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="c1">// What would "j&lt;=i" do?</span>
-  <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"%3d "</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">);</span> <span class="c1">// "%3d" means "An integer, but</span>
-  <span class="p">}</span>                     <span class="c1">// leave space for three digits"</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">// skip a line after each row</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="mi">12</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">// because it’s ALWAYS twelve...
+</span><span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="mi">12</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="c1">// What would "j&lt;=i" do?
+</span>  <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"%3d "</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">);</span> <span class="c1">// "%3d" means "An integer, but
+</span>  <span class="p">}</span>                     <span class="c1">// leave space for three digits"
+</span>  <span class="n">printf</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">// skip a line after each row
+</span><span class="p">}</span></code></pre></figure>
 
 <p>… and in Python:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">):</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">):</span>
   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">13</span><span class="p">):</span>
     <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="si">%</span><span class="s">d"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span>
-  <span class="k">print</span> <span class="p">()</span> <span class="c1"># create a newline </span></pre></td></tr></tbody></table></code></pre></figure>
+  <span class="k">print</span> <span class="p">()</span> <span class="c"># create a newline </span></code></pre></figure>
 
 <hr />
 
@@ -345,33 +283,21 @@ to check numbers for prime-ness.</p>
 
 <p>In C:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-</pre></td><td class="code"><pre><span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>    <span class="c1">// note that we must set sum to zero </span>
-              <span class="c1">// before we add things to it! </span>
-<span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>    <span class="c1">// note that we must set sum to zero 
+</span>              <span class="c1">// before we add things to it! 
+</span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
 
-<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>   <span class="c1">// note that "i++" is shorthand for "i=i+1"</span>
-  <span class="n">sum</span><span class="o">=</span><span class="n">sum</span><span class="o">+</span><span class="n">i</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>   <span class="c1">// note that "i++" is shorthand for "i=i+1"
+</span>  <span class="n">sum</span><span class="o">=</span><span class="n">sum</span><span class="o">+</span><span class="n">i</span><span class="p">;</span>
 
-<span class="n">printf</span><span class="p">(</span><span class="s">"The sum of numbers from 1 to 100 is %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">sum</span><span class="p">);</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="n">printf</span><span class="p">(</span><span class="s">"The sum of numbers from 1 to 100 is %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">sum</span><span class="p">);</span></code></pre></figure>
 
 <p>… and in Python:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="nb">sum</span><span class="o">=</span><span class="mi">0</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="nb">sum</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">):</span>
   <span class="nb">sum</span><span class="o">=</span><span class="nb">sum</span><span class="o">+</span><span class="n">i</span>
-<span class="k">print</span> <span class="p">(</span><span class="s">"The sum of the numbers from 1 to 100 is"</span><span class="p">,</span><span class="nb">sum</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="k">print</span> <span class="p">(</span><span class="s">"The sum of the numbers from 1 to 100 is"</span><span class="p">,</span><span class="nb">sum</span><span class="p">)</span></code></pre></figure>
 
 <hr />
 
@@ -384,57 +310,33 @@ variables are assumed to already be defined.</p>
 
 <p>Here it is in C:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-</pre></td><td class="code"><pre><span class="kt">double</span> <span class="n">y</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">dt</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">;</span>
-<span class="k">for</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="p">;</span><span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">)</span> <span class="c1">// This loop will go forever! </span>
-<span class="p">{</span>                  
-  <span class="n">y</span> <span class="o">+=</span> <span class="n">v</span> <span class="o">*</span><span class="n">dt</span><span class="p">;</span>    <span class="c1">// in time dt, the body falls a distance v*dt, if dt is</span>
-                 <span class="c1">// small enough that v is essentially constant</span>
-  <span class="n">v</span> <span class="o">-=</span> <span class="mi">9</span><span class="p">.</span><span class="mi">8</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span> <span class="c1">// in time dt, the velocity decreases by g*dt</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"%f</span><span class="se">\t</span><span class="s">%f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">double</span> <span class="n">y</span><span class="o">=</span><span class="n">h</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">v</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">dt</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mo">01</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="p">;</span><span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span><span class="p">)</span> <span class="c1">// This loop will go forever! 
+</span><span class="p">{</span>                  
+  <span class="n">y</span> <span class="o">+=</span> <span class="n">v</span> <span class="o">*</span><span class="n">dt</span><span class="p">;</span>    <span class="c1">// in time dt, the body falls a distance v*dt, if dt is
+</span>                 <span class="c1">// small enough that v is essentially constant
+</span>  <span class="n">v</span> <span class="o">-=</span> <span class="mi">9</span><span class="p">.</span><span class="mi">8</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span> <span class="c1">// in time dt, the velocity decreases by g*dt
+</span>  <span class="n">printf</span><span class="p">(</span><span class="s">"%f</span><span class="se">\t</span><span class="s">%f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="k">break</span><span class="p">;</span> <span class="c1">// if we’ve hit the ground, break out of the loop</span>
-
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+    <span class="k">break</span><span class="p">;</span> <span class="c1">// if we’ve hit the ground, break out of the loop
+</span>
+<span class="p">}</span></code></pre></figure>
 
 <p>… and in Python:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre><span class="n">y</span><span class="o">=</span><span class="n">h</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">y</span><span class="o">=</span><span class="n">h</span>
 <span class="n">t</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">v</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span>
 
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-  <span class="n">y</span> <span class="o">+=</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span>    <span class="c1"># in time dt, the body falls a distance v*dt, if dt is
-</span>                 <span class="c1"># small enough that v is essentially constant
-</span>  <span class="n">v</span> <span class="o">-=</span> <span class="mf">9.8</span> <span class="o">*</span> <span class="n">dt</span>  <span class="c1"># in time dt, the velocity decreases by g*dt
-</span>  <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span>
+  <span class="n">y</span> <span class="o">+=</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span>    <span class="c"># in time dt, the body falls a distance v*dt, if dt is</span>
+                 <span class="c"># small enough that v is essentially constant</span>
+  <span class="n">v</span> <span class="o">-=</span> <span class="mf">9.8</span> <span class="o">*</span> <span class="n">dt</span>  <span class="c"># in time dt, the velocity decreases by g*dt</span>
+  <span class="n">t</span> <span class="o">+=</span> <span class="n">dt</span>
   <span class="k">print</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="k">break</span> <span class="c1"># if we’ve hit the ground, break out of the loop</span></pre></td></tr></tbody></table></code></pre></figure>
+    <span class="k">break</span> <span class="c"># if we’ve hit the ground, break out of the loop</span></code></pre></figure>
 
 
   </div>
@@ -466,7 +368,7 @@ variables are assumed to already be defined.</p>
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>Fall 2019, Syracuse University 
+        <p>Fall 2018, Syracuse University 
 </p>
       </div>
     </div>

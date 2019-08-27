@@ -9,12 +9,12 @@
   <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 
   <title>Project 0</title>
-  <meta name="description" content="Fall 2018, Syracuse University 
+  <meta name="description" content="Fall 2019, Syracuse University 
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/projects/project0.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/phys307/projects/project0.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="http://localhost:4000/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -150,6 +150,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       </div>
     </nav>
 
@@ -186,7 +192,7 @@ be a larger and larger portion of your submission as the semester goes on.</p>
 
 <ol>
   <li>
-    <p>Join the <a href="Slack team for Syracuse Physics">suphysics.slack.com</a>. Say hi – introduce yourself, be silly, and ask questions! This is one of the best places for you to get help with your code, from your classmates or from me.</p>
+    <p>Join the <a href="https://suphysics.slack.com">Slack team for Syracuse University Physics</a>. Say hi – introduce yourself, be silly, and ask questions! This is one of the best places for you to get help with your code, from your classmates or from me. We are sharing this Slack team with some other classes, so make sure you join the #physics307 channel and talk there, rather than in #general</p>
   </li>
   <li>
     <p>Use a text editor to create a file in your home directory with the following information:</p>
@@ -196,7 +202,7 @@ be a larger and larger portion of your submission as the semester goes on.</p>
       <li>Do you have any programming experience? If so, in which languages? (Will you use any of them for this class?)</li>
       <li>Are you interested in using your own laptop for this class? If you are, which of the following are you interested in doing:
         <ul>
-          <li>Using a Mac and running everything on your own computer</li>
+          <li>Using a Mac or Linux system and running everything on your own computer</li>
           <li>Using a Windows machine to connect to the course computer, like we do with the lab machines</li>
           <li>Running a Linux system inside a “virtual machine” on your Windows box</li>
           <li>Doing all your work off of a Linux system that lives on a USB key</li>
@@ -214,12 +220,12 @@ be a larger and larger portion of your submission as the semester goes on.</p>
 
 <ol>
   <li>
-    <p>Write a C program that reads in a temperature in Celsius and prints the equivalent in Fahrenheit.
+    <p>Write a program that reads in a temperature in Celsius and prints the equivalent in Fahrenheit.
 Discuss any issues that arose in writing your code. (Even if there weren’t any, include a note saying so.
 All of your programs should be submitted with some accompanying discussion.)</p>
   </li>
   <li>
-    <p>Write a C program that prints two columns of numbers, corresponding to x and $\sin x$ over some
+    <p>Write a program that prints two columns of numbers, corresponding to x and $\sin x$ over some
 interesting range. Save the output to a file. Then modify your program to generate values for another
 function of your choice over that range. Finally, use the <code class="highlighter-rouge">plot</code> tool to generate a PDF of a graph 
 containing both functions, and submit your graph.</p>
@@ -229,16 +235,25 @@ containing both functions, and submit your graph.</p>
 computer, or your own) can perform per second. Note that printing things to the screen is a far bigger
 task for the computer than adding or multiplying, so don’t slow the computer down by requesting lots
 of output. There are hard ways to do this – and one very simple one. Choose the simple one! (Hint: Ask it 
-to do a lot of things and see how long it takes.)
-Discuss how your code measures this and how accurate you think your measurement is.
+to do a lot of things and see how long it takes.) You should do this in <em>both Python and in C</em>. How does
+the speed of Python compare to the speed of C?</p>
+  </li>
+</ol>
+
+<p>You can measure how long a program takes to run by doing <code class="highlighter-rouge">time &lt;command&gt;</code> at the Linux command line.</p>
+
+<p>Discuss how your code measures this and how accurate you think your measurement is.
 Can you think of any factors that might cause you to get a lower result than you might otherwise?
 You should keep this value in your head throughout the semester as an order-of-magnitude estimate
 for how long calculations will take.</p>
-  </li>
-  <li>
-    <p>Create a directory called <code class="highlighter-rouge">project0</code> in your home directory using <code class="highlighter-rouge">mkdir</code>, then move all the files you have 
-created for this project into the new directory.</p>
-  </li>
+
+<p>From now on, you may use <em>any language you like</em> to do all the assignments for this class. Whenever it is time
+to learn a new programming idea, we will make sure to teach you whatever you need to know in both C and Python.</p>
+
+<ol>
+  <li>Create a directory called <code class="highlighter-rouge">project0</code> in your home directory using <code class="highlighter-rouge">mkdir</code>, then move all the files you have 
+created for this project into the new directory using <code class="highlighter-rouge">mv</code>. (Note that <code class="highlighter-rouge">*</code> is the wildcard character, so you can say
+something like <code class="highlighter-rouge">mv * project0/</code> to move every file in the current directory.)</li>
 </ol>
 
 
@@ -271,7 +286,7 @@ created for this project into the new directory.</p>
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>Fall 2018, Syracuse University 
+        <p>Fall 2019, Syracuse University 
 </p>
       </div>
     </div>

@@ -9,12 +9,12 @@
   <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 
   <title>Physics 307</title>
-  <meta name="description" content="Fall 2018, Syracuse University 
+  <meta name="description" content="Fall 2019, Syracuse University 
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/notes/linux.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/phys307/notes/linux.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="http://localhost:4000/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -150,6 +150,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       </div>
     </nav>
 
@@ -175,7 +181,8 @@ the LHC, and even some <a href="https://en.wikipedia.org/wiki/Steam_Machine_(har
 
 <p><strong>Important exception:</strong> The exception is when you want to run a program: to run the program <code class="highlighter-rouge">reanimate</code> in the current directory, you must write <code class="highlighter-rouge">./reanimate.</code> (This is for security reasons.)</p>
 
-<p>File names in Linux, like everything else, are case sensitive. It’s generally a good idea to use lowercase for everything unless you have a specific reason not to.</p>
+<p>File names in Linux, like everything else, are case sensitive. It’s generally a good idea to use lowercase for everything unless you have a specific reason not to. They can contain spaces, but this is a giant pain in the butt and you shouldn’t do it; use dashes or underscores
+instead.</p>
 
 <h3 id="2-some-basic-commands">2. Some basic commands</h3>
 <p>To ask Linux to do something, you use the same syntax as you would use in English for imperative sentences (commands). For instance, if I wanted you to dance, I would say “Dance!”. If I wanted to be more specific about what I wanted you to dance, I’d say “Dance the funky chicken!” I could give you details about how I wanted you to do this: “Dance the funky chicken quickly!” This can be generalized as the following:</p>
@@ -192,7 +199,8 @@ the LHC, and even some <a href="https://en.wikipedia.org/wiki/Steam_Machine_(har
 
 <p><code class="highlighter-rouge">firefox news.bbc.co.uk</code>.</p>
 
-<p>Try this! Note that it’s running a bit slowly: this is because the Firefox window, and everything in it, is actually being run elsewhere on campus, and the graphics are being streamed to you.</p>
+<p>Try this! Note that it’s running a bit slowly: this is because the Firefox window, and everything in it, is actually being run elsewhere on campus, and the graphics are being streamed to you. Years before Twitch was invented, Linux computers were happily streaming graphics
+to each other.</p>
 
 <p>If I want to run the text editor <code class="highlighter-rouge">nano</code> to edit the file <code class="highlighter-rouge">helloworld.c</code>, I write <code class="highlighter-rouge">nano helloworld.c</code>. (You will do this later today!)</p>
 
@@ -203,8 +211,9 @@ the LHC, and even some <a href="https://en.wikipedia.org/wiki/Steam_Machine_(har
 <p><code class="highlighter-rouge">ls</code> shows a list of files in the current directory. <code class="highlighter-rouge">ls -lh</code> shows more information about them. <code class="highlighter-rouge">ls -lt</code> sorts
 files by how new they are. (You can combine these options; try <code class="highlighter-rouge">ls -lth</code>.)</p>
 
-<h4 id="23-cd-change-directory">2.3 <code class="highlighter-rouge">cd</code>: change directory</h4>
-<p>This changes your current working directory. Type <code class="highlighter-rouge">cd ..</code> to go up a level, or <code class="highlighter-rouge">cd</code> (with no argument) to go back to your home directory.</p>
+<h4 id="23-cd-and-pwd-change-directory-and-print-working-directory">2.3 <code class="highlighter-rouge">cd</code> and <code class="highlighter-rouge">pwd</code>: change directory, and print working directory</h4>
+<p>This changes your current working directory. Type <code class="highlighter-rouge">cd ..</code> to go up a level, or <code class="highlighter-rouge">cd</code> (with no argument) to go back to your home directory.
+If you ever want to know what directory you’re in, type <code class="highlighter-rouge">pwd</code>.</p>
 
 <h4 id="24-mkdir-create-a-directory">2.4 <code class="highlighter-rouge">mkdir</code>: create a directory</h4>
 <p>Does what it says on the tin.</p>
@@ -225,11 +234,11 @@ with the same name will be created in the directory.</p>
 
 <p><code class="highlighter-rouge">vim</code> and its graphical cousin <code class="highlighter-rouge">gvim</code>: Another option if you dont like emacs. It is less beginner-friendly but quite powerful. (I am typing this document in <code class="highlighter-rouge">vim</code> right now.) This is what I prefer, and you will see me use it.</p>
 
-<p><code class="highlighter-rouge">gedit</code> and <code class="highlighter-rouge">kate</code>: These are more “modern” graphical editors which may run slower over a remote graphics connection from home, but provide an attractive environment for you to code in similar to the things you’re used to in Windows.</p>
+<p><code class="highlighter-rouge">kate</code> and <code class="highlighter-rouge">gedit</code>: These are more “modern” graphical editors which may run slower over a remote graphics connection from home, but provide an attractive environment for you to code in similar to the things you’re used to in Windows.</p>
 
 <p>As with all programs, you can open a specific file by doing e.g. <code class="highlighter-rouge">gedit helloworld.c</code>.</p>
 
-<h4 id="29-gcc-the-c-compiler">2.9 <code class="highlighter-rouge">gcc</code>, the C compiler</h4>
+<h4 id="29-g-the-c-compiler">2.9 <code class="highlighter-rouge">g++</code>, the C compiler</h4>
 
 <p>You need to use <code class="highlighter-rouge">gcc</code>, yet another Unix program, to turn the source code you write into machine code that the computer can run. To use it, do</p>
 
@@ -243,6 +252,11 @@ with the same name will be created in the directory.</p>
 <p>Adding <code class="highlighter-rouge">-lm</code> tells the compiler to link your program with the math library, which contains useful functions that we will use frequently.</p>
 
 <p>You might mix in some C++ ideas with your C code; then you will use <code class="highlighter-rouge">g++</code> rather than <code class="highlighter-rouge">gcc</code>.</p>
+
+<h4 id="210-python-the-python-interpreter">2.10 <code class="highlighter-rouge">python</code>, the Python interpreter</h4>
+
+<p>If you want to run Python code, there is no compiler. Instead just put your code in a file ending in <code class="highlighter-rouge">.py</code>, and say for instance
+<code class="highlighter-rouge">python program.py</code>. If you want to test out Python commands, you can invoke the REPL by just saying <code class="highlighter-rouge">python</code>.</p>
 
 <h3 id="3-input-and-output-redirection">3. Input and output redirection</h3>
 <p>This is the key to the versatility of the Linux command-line interface. Normally, when you run a Linux program, it takes input from the keyboard and prints output to the screen. But you can change this behavior with the <code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&gt;</code>, and <code class="highlighter-rouge">|</code> operators.</p>
@@ -265,6 +279,16 @@ and do <code class="highlighter-rouge">wharrgarbl &lt; input</code>.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plot [filename1] [filename2] ... -o mygraph.pdf.
 </code></pre></div></div>
 
+<p>You may also pipe text to <code class="highlighter-rouge">plot</code> by doing something like</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./myprogram | plot
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python myprogram.py | plot
+</code></pre></div></div>
+
 <p>See the notes on <a href="plot.md"> for more information.</a></p>
 
 <h3 id="5-more-unix-controls">5. More Unix controls</h3>
@@ -274,11 +298,11 @@ and do <code class="highlighter-rouge">wharrgarbl &lt; input</code>.</p>
 <p>Even if you use long filenames, you dont have to type them out. When typing out a file or directory name at the command prompt, you can type the first few letters (enough to unambiguously identify the name) and hit Tab to have the system fill in the rest. If there are several files that “match”, hitting Tab will fill in all the characters that the names share. Try it!</p>
 
 <h4 id="52-task-control">5.2 Task control</h4>
-<p>Sometimes you want to run one program and leave it running in the background while you do other stuff at the command prompt. This is especially useful for graphical programs (like <code class="highlighter-rouge">xemacs</code>), since you can edit your program in the graphical window while testing it in the shell. To do this, add an ampersand after the command:</p>
+<p>Sometimes you want to run one program and leave it running in the background while you do other stuff at the command prompt. This is especially useful for graphical programs (like <code class="highlighter-rouge">kate</code>), since you can edit your program in the graphical window while testing it in the shell. To do this, add an ampersand after the command:</p>
 
 <p><code class="highlighter-rouge">gedit program.c &amp;</code></p>
 
-<p>If you forget to do this, you can suspend a running program with Ctrl-Z, then put it in the background by typing bg. This is equivalent to running it in the background in the first place. If you want to stop a program that’s running (perhaps you’ve written a program that’s stuck), use Control-C.</p>
+<p>If you forget to do this, you can suspend a running program with Ctrl-Z, then put it in the background by typing <code class="highlighter-rouge">bg</code>. This is equivalent to running it in the background in the first place. If you want to stop a program that’s running (perhaps you’ve written a program that’s stuck), use Control-C.</p>
 
       </div>
     </div>
@@ -305,7 +329,7 @@ and do <code class="highlighter-rouge">wharrgarbl &lt; input</code>.</p>
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>Fall 2018, Syracuse University 
+        <p>Fall 2019, Syracuse University 
 </p>
       </div>
     </div>

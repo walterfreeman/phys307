@@ -9,12 +9,12 @@
   <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
 
   <title>Physics 307</title>
-  <meta name="description" content="Fall 2018, Syracuse University 
+  <meta name="description" content="Fall 2019, Syracuse University 
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/notes/perturbative.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/phys307/">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="http://localhost:4000/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -150,6 +150,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       </div>
     </nav>
 
@@ -160,34 +166,40 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <h3 id="these-notes-are-still-being-written-and-will-be-finished-by-thursday">These notes are still being written and will be finished by Thursday.</h3>
-
-<p>This is the most broadly-applicable set of notes in this entire class.</p>
-
-<p>The behavior of most phenomena in nature are <em>perturbative.</em> What does that mean? It means that their behavior, speaking very broadly, can be expressed in terms of a power series, where the expansion variable in the power series has something to do with an amplitude, an interaction strength, and so on.</p>
-
-<p>In many cases, we are in the regime where that amplitude or interaction strength is small. For instance, consider a spring. You learned in your introductory physics class that it obeys Hooke’s law, $F=-k\Delta x$. However, you know intuitively that this can’t be strictly true; eventually, as the force
-gets larger and larger, the spring will start behaving in non-Hooke’s-law ways, since as $F \rightarrow \infty$, you know the spring must snap and the force goes to zero. In general, we can write</p>
-
-<script type="math/tex; mode=display">F_{\rm spring} = k \Delta x + k_2 (\Delta x)^2 + k_3 (\Delta x)^3 + ...</script>
-
-<p>where I have absorbed the $n!$ components of the Taylor series into the definitions of the $k’s$.</p>
-
-<p>This lets us divide the behavior of the spring into, roughly, three regions:</p>
-
+        <h1> Welcome to Physics 307!</h1>
+<h3 id="27-august-agenda">27 August agenda:</h3>
 <ul>
-  <li>$\Delta x$ very small: spring behaves as given by Hooke’s law. No deviations are measurable. The subsequent terms in the Taylor series are not large enough to matter. Let’s call this the <em>ideal regime</em>.</li>
-  <li>$\Delta x$ somewhat larger: Higher-order terms become important. Deviations from Hooke’s law are measurable, but the spring’s behavior is still well approximated by the first few terms in the power series. This is the <em>pertubative regime</em>, and what this set of notes is about.</li>
-  <li>$\Delta x$ large: The spring behaves in drastically non-Hookian ways. Perhaps it snaps, or the metal is grossly deformed. This is the <em>nonperturbative regime</em>.</li>
+  <li>talk briefly about what this class will be, and what you can expect
+    <ul>
+      <li>I gave a talk on <a href="/phys307/aaptsummer2018.pdf">SU’s Physics 307 class</a> at the American Association of Physics Teachers conference last summer; here are the slides 
+if anyone’d like to read them to get an idea of what this class will be like.</li>
+    </ul>
+  </li>
+  <li>introduce you to the folks teaching this class</li>
+  <li>ensure everyone can log into the course computer</li>
+  <li>introduce some basic Linux commands and the C and/or Python programming languages</li>
+  <li>guide everyone through writing their first program!</li>
 </ul>
 
-<p>Many, many, <em>many</em> things in nature behave this way, and the ability to classify phenomena in this way will help you immensely in your career as a scientist, engineer, or otherwise.</p>
+<p>In more detail, here are the instructions for the first day:</p>
 
-<p>The key idea here is that in the <em>perturbative region</em>, one can classify the relevant effects as subsequent terms in the Taylor series, and think about their structure. This is important, because it gives us a handle on the behavior of things even in the nonideal region. For instance, in your swinging-pendulum
-problem, you will discover that even when the period of a pendulum is measurably different from the ideal value $T_0 = 2\pi\sqrt\frac{L}{g}$, its value is <em>predictable</em>.</p>
+<ul>
+  <li>First decide if you want to use your own laptop or our computers for the course:
+    <ul>
+      <li>If you have a Linux or Mac laptop, then you should probably use it right away for everything</li>
+    </ul>
+  </li>
+  <li>Join the Slack channel at <a href="https://suphysics.slack.com">suphysics.slack.com</a> and send memes/say hi</li>
+  <li>Get started writing code in C, Python, or both:
+    <ul>
+      <li>You can find notes about both C and Python on the <a href="notes.html">notes</a> page, along with a comparison of the two. I’ll also demonstrate
+both.</li>
+    </ul>
+  </li>
+  <li>If you have time, experiment with plotting things. I’ll demonstrate this if we have time.</li>
+</ul>
 
-<p>Often, we can use the Taylor series to calculate this behavior, at least to a very good approximation. This is how almost everything in quantum mechanics gets done.</p>
-
+<iframe width="630" height="465" src="https://www.youtube.com/embed/W-csPZKAQc8" frameborder="0" allowfullscreen=""></iframe>
 
       </div>
     </div>
@@ -214,7 +226,7 @@ problem, you will discover that even when the period of a pendulum is measurably
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>Fall 2018, Syracuse University 
+        <p>Fall 2019, Syracuse University 
 </p>
       </div>
     </div>

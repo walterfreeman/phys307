@@ -18,11 +18,14 @@ use_math: true
 - Instructors:
     - **Walter Freeman**, lead instructor: <wafreema@syr.edu>, office Physics Building 215
     - **Nicholas Didio**, <nadidio@syr.edu>, graduate teaching assistant and grader
-    - **Solomon Bloch** (<swbloch@syr.edu>), **Nguyen Phuc Nguyen** (<npnguyen@syr.edu>), and Aaron Trowbridge (<atrowbri@syr.edu>), undergraduate learning assistants
+    - **Solomon Bloch** (<swbloch@syr.edu>), **Nguyen Phuc Nguyen** (<npnguyen@syr.edu>), and **Aaron Trowbridge** (<atrowbri@syr.edu>), undergraduate learning assistants
+- Office hours: Wednesdays 2-4PM and Friday 10-12AM or by appointment. Note that these office hours are shared with AST101 students,
+and there are a lot more of them than there are of you. If you would like to work intensively on PHY307 material with me, I'd be 
+happy to arrange a session for you outside these times.
 - Course website: <http://walterfreeman.github.io/phys307/> (you are likely here now)
-- Email address for questions: <suphysics307questions@gmail.com> (shared between instructors)
 - Email address for homework submissions: <suphysics307@gmail.com> 
-* Slack team for questions and conversation: <a href="https://suphysics.slack.com">suphysics.slack.com</a>
+- Slack team for questions and conversation: <a href="https://suphysics.slack.com">suphysics.slack.com</a>
+  - Slack is the best way to ask technical questions and get a quick answer.
 - Course computer: phy-compphysclass.syr.edu
 
 ---
@@ -30,8 +33,9 @@ use_math: true
 ### Asking for help
 
 Please contact any of us with questions that arise outside of class; you will often get a prompt response. The best way for you to get help
-is to send a message to the #physics307 channel on the Slack team; otherwise, you can email us at <suphysics307questions@gmail.com>,
-or stop by my office at Physics Building 215. 
+is to send a message to the #physics307 channel on the Slack team; otherwise, you can email me at <wafreema@syr.edu> 
+or stop by my office at Physics Building 215. Please *don't* email questions to <suphysics307@gmail.com>, since we generally
+only check that when we go to grade your work.
 
 I encourage you to ask us to help
 you debug your programs once you’ve made an effort to figure it out yourself; while learning to debug code
@@ -62,10 +66,10 @@ using your favorite tool (Google Hangouts, Discord, Skype, etc.), so long as it 
 This course is an introduction to the art of using computers to aid in solving problems in physics and other
 sciences. You will learn the basics of programming a computer to do computations and physical simulations,
 as well as the equally important skill of interpreting the results that the computer gives. In this course we
-will teach you to use the C programming language on a Linux system, but what you learn here will apply to
+will teach you to use the C programming language (and possibly also Python) on a Linux system, but what you learn here will apply to
 many other languages and architectures. In fact, any of you who know another serious programming language are
-welcome to use it instead of C in my class; this list includes Fortran, Python, Java, Perl, and probably some others
-that I haven't heard of. 
+welcome to use it instead of C in my class; this list includes Fortran, Python, Julia, Java, Perl, and probably some others
+that I haven't heard of.
 
 First we’ll study the basics required to get around a Linux environment and learn some simple C programming. 
 Then we will learn how to use those skills to accomplish some
@@ -108,7 +112,7 @@ aspect/, even though you will spend a lot of time programming. However, the C-on
 The tools you will learn in my class are the same tools used to program ten-thousand-processor 
 supercomputers, and you can transfer these skills to other environments and languages (such as Python) if that's what you use in your research.
 
-If you are comfortable with any other programming languages (Python, Fortran, Java, Rust, Perl...) you may use those for my class as well. All of the 
+If you are comfortable with any other programming languages (Python, Fortran, Java, Julia, Perl...) you may use those for my class as well. All of the 
 graphics tools we will be using don't care what language generated the data.
 
 
@@ -146,7 +150,7 @@ programming is okay.) Your report should address questions like:
 Don't underestimate the effort it will take to do (2) and (3) well; in this class, writing your code is only the first step.
 
 We will grade the project reports and give you a grade, and give them back to you with comments. If you get a low grade, 
-you should meet with the teaching staff (probably Nick) and arrange to revise and resubmit your report for a higher grade.
+you should meet with the teaching staff and arrange to revise and resubmit your report for a higher grade.
 
 ### Grading philosophy:
 
@@ -164,9 +168,11 @@ This class, instead, has a different pattern:
 * You write about the stuff and what you learned from it
 * Your grade is based on the stuff you did and the insight you get from it
 
-We expect your grades to be quite high as a result.
-This class is a significant amount of work, but we will support you as you do it; in the past, grades 
-have been quite high.
+We expect your grades to be quite high as a result, since your grade is based on the things that you learn and achieve, 
+not a high-stakes exam that you either pass or fail.
+
+This class is a significant amount of work, but we will support you as you do it. If you feel like you're getting behind,
+please come talk to me; in the past, we've had multiple students fall behind and catch up.
 
 ### Grading
 
@@ -257,5 +263,7 @@ SU’s <a href="http://hendricks.syr.edu/spiritual-life/index.html">religious ob
 *(The following is specific to this class)*
 
 I believe SU’s religious observance policy discriminates against nonreligious people by privileging religious observances over secular events of equal importance. Thus, events of equal solemnity to major religious observances, occurring on inflexible dates, will be given the same deference as religious observances. This includes weddings and commitment ceremonies of immediate family members, funerals, caregiving duties for sick family members, other family emergencies or singularly-important events, job interviews, and the like. Note that I treat exceptionally close friends and romantic partners as family members.
+
+Additionally, participation in political activity occurring on inflexible dates – attending a demonstration, canvassing for a campaign, or the like – will be given this same deference, regardless of affiliation.
 
 If you need to miss class for such a reason, please notify Dr. Freeman as far in advance as practical to discuss arrangements.
