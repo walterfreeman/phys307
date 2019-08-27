@@ -19,7 +19,7 @@ In more detail, here are the instructions for the first day:
   * If you have a Linux or Mac laptop, then you should probably use it right away for everything
 * Join the Slack channel at [suphysics.slack.com](https://suphysics.slack.com) and send memes/say hi
 * Get started writing code in C, Python, or both:
-  * You can find notes about both C and Python on the [notes](notes.html) page, along with a comparison of the two. I'll also demonstrate
+  * You can find notes about both C and Python on the [notes](notes/) page, along with a comparison of the two. I'll also demonstrate
     both.
 * If you have time, experiment with plotting things. I'll demonstrate this if we have time. 
 
