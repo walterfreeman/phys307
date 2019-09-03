@@ -67,6 +67,8 @@ for how long calculations will take.<br><br>  From now on, you may use *any lang
 
 5. Create a directory called `project0` in your home directory using `mkdir`, then move all the files you have 
 created for this project into the new directory using `mv`. (Note that `*` is the wildcard character, so you can say
-something like `mv * project0/` to move every file in the current directory.)
+something like `mv * project0/` to move every file in the current directory.) On the course computer, you can run
+`pcmanfm` or `dolphin` to spawn a graphical file manager, too. (But you should know how to do this on the command
+line.)
 
 

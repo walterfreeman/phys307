@@ -13,8 +13,8 @@
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/projects/project1.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/phys307/projects/project1.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="http://localhost:4000/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -101,6 +101,8 @@
           
         
           
+        
+          
           <a class="page-link" href="/phys307/notes/">Notes</a>
           
         
@@ -116,6 +118,8 @@
           <a class="page-link" href="/phys307/projects/project0.html">Project 0</a>
           
         
+          
+          <a class="page-link" href="/phys307/projects/project1.html">Project 1</a>
           
         
           
@@ -150,6 +154,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       </div>
     </nav>
 
@@ -171,7 +181,7 @@
 
 <b>Due Tuesday, 10 September, by 5 PM</b><br />
 
-See <a href="../notes/math.html">the notes on math</a> and <a href="../notes/samples.html">the file of sample programs</a> for a few hints. 
+See <a href="../notes/math.html">the notes on math in C</a> or <a href="../notes/math-python.html">the notes on math in Python</a>, alongside <a href="../notes/samples.html">the file of sample programs</a> for a few hints. 
 <br /><br />
 
 </center>
@@ -195,16 +205,23 @@ way that you can think of.</p>
 
 <p>As a hint, you might consider using a variable <code class="highlighter-rouge">isprime</code> that is initially set to one, but is set to zero once you locate a factor for each number.</p>
 
-<p>Another hint: You will need two <code class="highlighter-rouge">for</code> loops for this problem: one to loop over numbers whose primacy you are checking, and another to loop over possible divisors as you check them. Remember <code class="highlighter-rouge">%</code> is the modulus operator, and that you can write something like</p>
+<p>Another hint: You will need two <code class="highlighter-rouge">for</code> loops for this problem: one to loop over numbers whose primacy you are checking, and another to loop over possible divisors as you check them. Remember <code class="highlighter-rouge">%</code> is the modulus operator, and that you can write something like (in C)</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// check whether the remainder of a/b is zero or not
-</span><span class="p">{</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// check whether the remainder of a/b is zero or not</span>
+<span class="p">{</span>
   <span class="k">do</span> <span class="n">something</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="k">else</span>
 <span class="p">{</span>
   <span class="k">do</span> <span class="n">something</span> <span class="k">else</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
+
+<p>or in Python:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span> <span class="o">//</span> <span class="n">check</span> <span class="n">whether</span> <span class="n">the</span> <span class="n">remainder</span> <span class="n">of</span> <span class="n">a</span><span class="o">/</span><span class="n">b</span> <span class="ow">is</span> <span class="n">zero</span> <span class="ow">or</span> <span class="ow">not</span>
+  <span class="n">do</span> <span class="n">something</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="n">do</span> <span class="n">something</span> <span class="k">else</span></code></pre></figure>
 
 <p>to check to see if one number evenly divides another. Note that you do not need the
 <code class="highlighter-rouge">else</code> clause, if you don’t want to do anything in the event that <code class="highlighter-rouge">b</code> does not evenly divide
@@ -219,7 +236,8 @@ way that you can think of.</p>
      arithmetic operations are required to do this with your code, and how long it will
      take. Go ahead and do it; was your estimate accurate? How long would it take
      for N = $10^9$? ? Is this a reasonable calculation to perform? (Note that if you do this the naive way, it may take fifteen minutes or so to run! You can leave it running while you do something else. 
-     Note that you can time how long a particular program takes to complete by saying, for instance, <code class="highlighter-rouge">time ./prime</code>.</p>
+     Note that you can time how long a particular program takes to complete by saying, for instance, <code class="highlighter-rouge">time ./prime</code>. Compare your 
+     performance to any colleagues using the other programming language.</p>
   </li>
   <li>
     <p>c) Can you think of any small modifications to your program that will speed it
@@ -229,7 +247,7 @@ way that you can think of.</p>
      There are two modifications I have in mind.</p>
   </li>
   <li>
-    <p>d) As a hint for optimizing your program (part c), the C command <code class="highlighter-rouge">break;</code> immediately exits the innermost <code class="highlighter-rouge">for</code> loop. There is some inspiration for how to use it in the sample programs linked on the website. There is a 
+    <p>d) As a hint for optimizing your program (part c), the C command <code class="highlighter-rouge">break;</code> or the Python command <code class="highlighter-rouge">break</code> immediately exits the innermost <code class="highlighter-rouge">for</code> loop. There is some inspiration for how to use it in the sample programs linked on the website. There is a 
    second optimization I have in mind that involves a very small change, but will also greatly speed up the program!</p>
   </li>
 </ul>

@@ -7,5 +7,7 @@ permalink: projects/
 use_math: true
 ---
 
-<a href="project0.html">Project 0, due Tuesday, September 4, at 5 PM</a> 
+<a href="project0.html">Project 0, due Tuesday, September 3, at 5 PM</a> 
+
+<a href="project1.html">Project 1, due Tuesday, September 10, at 5 PM</a> 
 

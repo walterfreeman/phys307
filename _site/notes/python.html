@@ -13,8 +13,8 @@
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/notes/python.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/phys307/notes/python.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="http://localhost:4000/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -101,6 +101,8 @@
           
         
           
+        
+          
           <a class="page-link" href="/phys307/notes/">Notes</a>
           
         
@@ -116,6 +118,8 @@
           <a class="page-link" href="/phys307/projects/project0.html">Project 0</a>
           
         
+          
+          <a class="page-link" href="/phys307/projects/project1.html">Project 1</a>
           
         
           
@@ -146,6 +150,12 @@
         
           
           <a class="page-link" href="/phys307/syllabus.html">Syllabus</a>
+          
+        
+          
+        
+          
+        
           
         
           
@@ -185,7 +195,8 @@ computer will execute each line as you input it. (This environment is called a �
 
 <p>Here is a very simple but complete Python program that you can try:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">)</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="k">print</span> <span class="p">(</span><span class="s">"Hello, world!"</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <hr />
 
@@ -193,13 +204,20 @@ computer will execute each line as you input it. (This environment is called a �
 
 <p>Here’s a slightly more complicated program that introduces how to do math in Python:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter a number: "</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter another number: "</span><span class="p">))</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="p">(</span><span class="s">"The hypotenuse of a triangle with legs of length"</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="s">"and"</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s">"is"</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></code></pre></figure>
+<span class="k">print</span> <span class="p">(</span><span class="s">"The hypotenuse of a triangle with legs of length"</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="s">"and"</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s">"is"</span><span class="p">,</span><span class="n">c</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>There are some new things here.</p>
 
@@ -259,9 +277,12 @@ to repeat something”.</p>
 
 <p>See if you can guess what this program does before you run it:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
     <span class="k">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s">"squared is"</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s">"All done!"</span><span class="p">)</span></code></pre></figure>
+<span class="k">print</span> <span class="p">(</span><span class="s">"All done!"</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Then run this code, and see how it works!</p>
 
@@ -281,11 +302,18 @@ two things look like they’re indented the same amount, if one uses tabs and an
 
 <p>Here’s another way to do the same thing:</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">):</span>
     <span class="k">print</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s">"squared is"</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="k">print</span> <span class="p">(</span><span class="s">"All done!"</span><span class="p">)</span></code></pre></figure>
+<span class="k">print</span> <span class="p">(</span><span class="s">"All done!"</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>You may end a loop prematurely using <code class="highlighter-rouge">break</code>.</p>
 
 <hr />
 
@@ -293,15 +321,24 @@ two things look like they’re indented the same amount, if one uses tabs and an
 
 <p>Here’s one more program that illustrates how to use the <code class="highlighter-rouge">if</code> statement to make the computer do one thing or another.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="c"># use the int() function to change text to integer</span>
-<span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter an integer: "</span><span class="p">))</span>  
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="c1"># use the int() function to change text to integer
+</span><span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s">"Enter an integer: "</span><span class="p">))</span>  
 
 <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
     <span class="k">print</span> <span class="p">(</span><span class="s">"The number is positive"</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
     <span class="k">print</span> <span class="p">(</span><span class="s">"The number is negative"</span><span class="p">)</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s">"The number is zero"</span><span class="p">)</span></code></pre></figure>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"The number is zero"</span><span class="p">)</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>A couple of new things here. The biggest one is the <code class="highlighter-rouge">if</code> statement, of course. Note the
 use of <code class="highlighter-rouge">==</code> rather than <code class="highlighter-rouge">=</code> to check for equality. Single-equals is the assignment operator that

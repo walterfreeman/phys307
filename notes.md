@@ -15,11 +15,17 @@ use_math: true
 
 <a href="python.html">An introduction to the Python programming language</a>
 
+<a href="math.html">Doing math in C</a>
+
+<a href="math-python.html">Doing math in Python</a>
+
 <a href="language-comparison.html">A comparison of C and Python</a>
 
 <a href="plot.html">Plotting data</a>
 
 <a href="laptop.html">Using your own laptop</a>
+
+<a href="samples.html">Sample programs</a>
 
 <!--
 <a href="string-notes.pdf">Notes on the vibrating string project</a>
@@ -30,7 +36,6 @@ use_math: true
 
 <a href="DE-notes.pdf">Notes on solving differential equations</a> 
 
-<a href="samples.html">Sample programs</a>
 
 <a href="function.html">Functions in C</a>
 

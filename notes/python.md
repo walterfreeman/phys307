@@ -128,6 +128,8 @@ while (i < 20):
 print ("All done!")
 {% endhighlight %}
 
+You may end a loop prematurely using `break`.
+
 ---
 
 ### 4. Conditional statements

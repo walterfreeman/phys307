@@ -164,6 +164,9 @@ This `for` statement means ”Before you do this, set `x` equal to 0. Then, repe
 following block of code so long as `x` is less than or equal to 20, and after each repetition add
 1 to `x`.” Note that it will run with `x` ranging from 0 to 19, not 1 to 20!
 
+You may end a loop prematurely using `break;`. This is useful if you want to do something like "Count
+up to 1000, but stop prematurely if *xyz* happens".
+
 ---
 
 ### 4. Conditional statements

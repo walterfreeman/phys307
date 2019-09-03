@@ -1,37 +1,52 @@
 <center>
 
-<b>Due Tuesday, 5 September, at 11 AM</b><br />
+<b>Due Tuesday, 3 September, at 5 PM</b><br />
 
 </center>
 
 <p><br /></p>
 
 <hr />
+<p>Remember, to submit your assignment, email to <a href="mailto:suphysics307@gmail.com">suphysics307@gmail.com</a>. Include all your code (<code class="highlighter-rouge">.c</code> files), your graph (the PDF of your plot), and your report.
+This report will be short (since in the beginning we’re mostly interested in developing some computer skills, rather than doing physics), but the reports will
+be a larger and larger portion of your submission as the semester goes on.</p>
+
+<p>If you need to copy files from the course computer to your local computer, use the <code class="highlighter-rouge">WinSCP</code> program installed on the lab computers. (You can also google this
+and download it for your own laptops.)
+—</p>
 
 <p><br /></p>
 
 <ol>
   <li>
-    <p>Use a text editor to create a file with the following information, and send it in an email to suphysics307@gmail.com
-with the following information:</p>
-
+    <p>Join the <a href="https://suphysics.slack.com">Slack team for Syracuse University Physics</a>. Say hi – introduce yourself, be silly, and ask questions! This is one of the best places for you to get help with your code, from your classmates or from me. We are sharing this Slack team with some other classes, so make sure you join the #physics307 channel and talk there, rather than in #general</p>
+  </li>
+  <li>Use a text editor to create a file in your home directory with the following information:
     <ul>
       <li>Your name, NetID, major, and academic year</li>
-      <li>Do you have any programming experience? If so, in which languages?</li>
-      <li>Have you used a Unix-like operating system before? If so, which one?</li>
-      <li>What physics classes have you taken/are you taking?</li>
-      <li>What math classes have you taken/are you taking? (Do not list calculus classes if you are beyond the calculus sequence.</li>
-      <li>Are there any physical systems you are interested in modeling in this course?</li>
-      <li>What are your thoughts on the “objective-based grading” approach I am taking for this course?</li>
+      <li>Do you have any programming experience? If so, in which languages? (Will you use any of them for this class?)</li>
+      <li>Are you interested in using your own laptop for this class? If you are, which of the following are you interested in doing:
+        <ul>
+          <li>Using a Mac or Linux system and running everything on your own computer</li>
+          <li>Using a Windows machine to connect to the course computer, like we do with the lab machines</li>
+          <li>Running a Linux system inside a “virtual machine” on your Windows box</li>
+          <li>Doing all your work off of a Linux system that lives on a USB key</li>
+          <li>Installing Linux on your own laptop alongside Windows</li>
+        </ul>
+      </li>
+      <li>What physics classes have you taken/are you taking now?</li>
+      <li>What math classes have you taken/are you taking? (Do not list calculus classes if you are beyond the calculus sequence.)</li>
+      <li>Are there any physical systems you are interested in modeling in this course?
+Include this file with your submission.</li>
     </ul>
   </li>
   <li>
-    <p>Write a C program that reads in a temperature in Celsius and prints the equivalent in Fahrenheit.
+    <p>Write a program that reads in a temperature in Celsius and prints the equivalent in Fahrenheit.
 Discuss any issues that arose in writing your code. (Even if there weren’t any, include a note saying so.
 All of your programs should be submitted with some accompanying discussion.)</p>
   </li>
   <li>
-    <p>Write a C program that prints two columns of numbers, corresponding to x and $\sin x$ over some
+    <p>Write a program that prints two columns of numbers, corresponding to x and $\sin x$ over some
 interesting range. Save the output to a file. Then modify your program to generate values for another
 function of your choice over that range. Finally, use the <code class="highlighter-rouge">plot</code> tool to generate a PDF of a graph 
 containing both functions, and submit your graph.</p>
@@ -40,15 +55,22 @@ containing both functions, and submit your graph.</p>
     <p>Think of a way to test (roughly) how many arithmetic operations your computer (either the course
 computer, or your own) can perform per second. Note that printing things to the screen is a far bigger
 task for the computer than adding or multiplying, so don’t slow the computer down by requesting lots
-of output. Discuss how your code measures this and how accurate you think your measurement is.
-Can you think of any factors that might cause you to get a lower result than you might otherwise?
+of output. There are hard ways to do this – and one very simple one. Choose the simple one! (Hint: Ask it 
+to do a lot of things and see how long it takes.) 
+<br /><br />
+Talk to your classmates who have used different programming languages. (If you used C, talk to someone
+who used Python, and vice versa.) How does
+the speed of Python compare to the speed of C? <br /><br /> You can measure how long a program takes to run by doing <code class="highlighter-rouge">time &lt;command&gt;</code> at the Linux command line. 
+<br /><br /> Discuss how your code measures this and how accurate you think your measurement is.
+<br /><br />Can you think of any factors that might cause you to get a lower result than you might otherwise?
 You should keep this value in your head throughout the semester as an order-of-magnitude estimate
-for how long calculations will take.</p>
+for how long calculations will take.<br /><br />  From now on, you may use <em>any language you like</em> to do all the assignments for this class. Whenever it is time
+  to learn a new programming idea, we will make sure to teach you whatever you need to know in both C and Python.</p>
   </li>
-  <li>
-    <p>(Graduate students) Think of a problem you encountered in your first-year classes that you could possibly solve using numerical
-calculations, and by doing so gain some kind of physical insight that either extends or complements the insight you got from
-attacking that problem analytically. Describe that problem and how you approached it analytically, and then explain why you think
-numerical study of that problem might be illuminating.</p>
-  </li>
+  <li>Create a directory called <code class="highlighter-rouge">project0</code> in your home directory using <code class="highlighter-rouge">mkdir</code>, then move all the files you have 
+created for this project into the new directory using <code class="highlighter-rouge">mv</code>. (Note that <code class="highlighter-rouge">*</code> is the wildcard character, so you can say
+something like <code class="highlighter-rouge">mv * project0/</code> to move every file in the current directory.) On the course computer, you can run
+<code class="highlighter-rouge">pcmanfm</code> or <code class="highlighter-rouge">dolphin</code> to spawn a graphical file manager, too. (But you should know how to do this on the command
+line.)</li>
 </ol>
+

@@ -33,13 +33,15 @@
 \begin{document}
 \Large
 \centerline{\sc{Physics 307 Project 3}}
-\centerline{Due Tuesday, 3 October, at 11 AM}
+\centerline{Due Tuesday, 2 October, by 5 PM}
 \normalsize
 
 \begin{enumerate}
 \item{
 
 First we will study a DE that we can solve analytically so we can compute error as a function of stepsize.
+
+Consider a cooling cup of tea. When the water is removed from the heat, it is at $100^\circ$. Suppose that room temperature is $30^\circ$, and that $k=0.1 {\rm {min}}^{-1}$.
 
 Newton's law of cooling says that the rate of temperature loss is proportional to the temperature difference between the cooling object and the ambient temperature $T_a$; that is,
 
@@ -53,7 +55,13 @@ where $k$ is a proportionality constant that depends on the materials involved a
 T(t) = T_a + (T(0) - T_a)e^{-kt}
 \end{equation}
   
-Consider a cooling cup of tea. When the water is removed from the heat, it is at $100^\circ$. Suppose that room temperature is $30^\circ$, and that $k=0.1 {\rm {min}}^{-1}$.
+{\bf Important note:} The point of these methods -- the Euler and RK2 algorithms -- is that you can use them to solve differential equations where you do not know the analytic solution, or where one doesn't exist. In the previous assignment, you
+used the computer to calculate $\int_0^2 \,\sin(x) dx$. You didn't need to know that the analytic answer was $1-\cos(2)$ to do this. Instead, the only thing you used this analytic solution for was to calculate the error in your numerical approximation.
+
+In this assignment, the same idea applies. You are not putting this into your Euler-algorithm solver; instead, you are letting the {\it computer} solve the differential equation, and comparing the answer to this to see how accurate your numeric solution is.
+
+For most of this class, we will be dealing with situations where there actually {\it is} no analytic solution -- like the example from {\it Hidden Figures}, where Katherine points out that there is no analytic solution to the problem they are trying to solve.
+
 
 \begin{enumerate}
 
@@ -68,25 +76,18 @@ Note: You should actually solve the DE numerically using Euler's method; the exa
 \end{enumerate}
 }
 
-\item{Repeat the preceding problem with the second-order Runge-Kutta method.}
+\item{Repeat the preceding problem with the second-order Runge-Kutta method. Comment on the accuracy of the Euler and RK2 methods.}
 
 \item{Now, using RK2, answer the question ``How long does it take the tea to cool to $T_f=70^\circ$?'' Make a plot of the error in your result vs. stepsize and verify that you're seeing second-order scaling. 
 
 Note that in order to achieve second-order accuracy, you will need to correct for ``overshoot'', as we will discuss in class. 
 
-Briefly, if you discover that the temperature is $T_1$ (greater than 70 degrees) at $t_1$, and $T_2$ (less than 70 degrees) at $t_2$, in order to achieve second-order precision you need to interpolate to figure out at what time you actually hit 70 degrees. That time is given by
+Briefly, if you discover that the temperature is $T_1$ (less than 70 degrees) at $t_1$, and you are trying to find the time $t_f$ when the temperature was equal to $T_f$ (70 degrees), in order to achieve second-order precision you need to interpolate to figure out at what time you actually hit 70 degrees. That time is given by
 
 \begin{equation}
-t_1 - \frac{t_1-t_2}{T_1-T_2} (T_1-T_f)
+t_f = t_1 + \left(\left.\PAR{T}{t}\right|_{t_1}\right)^{-1} (T_f-T_1)
 \end{equation}
 
-or alternatively
-
-\begin{equation}
-t_1 + \left(\left.\PAR{T}{t}\right|_{t_1}\right)^{-1} (T_1-T_f)
-\end{equation}
-
-(I find the second more intuitive and easier to apply, since you already have been calculating $\PAR{T}{t}$ many times already.)
 
 }
 
