@@ -5,6 +5,13 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 3 September agenda:
+
+* talk about what we're going to do about the registrar's mistake with the classroom
+* ensure everyone has finished Project 0
+* talk about a few programming concepts you'll need for Project 1
+* get started working on Project 1, the first "real" assignment for our class
+
 ### 29 August agenda:
 * introduce you to the C programming language
 * introduce you to a few other programming ideas in both Python and C

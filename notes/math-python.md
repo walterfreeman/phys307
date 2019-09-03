@@ -70,7 +70,7 @@ page on “Riemann sum” if youve forgotten how this works), or I will illustra
 
 Since this is not quite what the mathematics tells us to do, there will be a small error. That
 error will obviously be bigger the further you are away from the mathematically-precise thing
-to do (i.e. the larger your Riemann sum boxes are). If you compute $\int_0^10$ with five Riemann-sum boxes,
+to do (i.e. the larger your Riemann sum boxes are). If you compute $\int_0^{10}\, \sin x\, dx$ with five Riemann-sum boxes,
 then you will have more error than if you use five thousand or even five million.
 
 You'll notice that in math-land, where the Riemann sum boxes are infinitely skinny, it doesn't matter that they have flat tops and fail to reproduce the shape of a 

@@ -13,8 +13,8 @@
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/phys307/notes/c.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="http://localhost:4000/phys307/feed.xml">
+  <link rel="canonical" href="/phys307/notes/c.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -154,12 +154,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
       </div>
     </nav>
 
@@ -178,18 +172,12 @@ bewildering array of things. Linux, Windows, most of your favorite computer game
 running on 60,000-processor supercomputers, and even <code class="highlighter-rouge">gcc</code> itself are all written in C.
 Here’s a very simple C program. (The line numbers aren’t part of the program.)</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">"Hello, world!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span></code></pre></figure>
 
 <p>Line 1 instructs <code class="highlighter-rouge">gcc</code> that it should load the header file for the standard input/output
 library. This will be the first line of all your programs, since you need this to write text to
@@ -226,17 +214,7 @@ by doing <code class="highlighter-rouge">gcc myprogram.c -o myprogram</code> at 
 
 <p>Here’s a slightly more complicated program that introduces how to do math in C:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -245,7 +223,7 @@ by doing <code class="highlighter-rouge">gcc myprogram.c -o myprogram</code> at 
   <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
   <span class="n">xsquared</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">"The square of x is %d.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">xsquared</span><span class="p">);</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span></code></pre></figure>
 
 <p>There are some new things here. Line 5 creates two variables of type <code class="highlighter-rouge">int</code>, which store integer values.
 Their contents are garbage at the moment, whatever occupied that location in memory
@@ -281,15 +259,15 @@ remainder, even if the result is later set to a float. This code snippet, for in
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
 </span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
 <span class="kt">float</span> <span class="n">x</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">j</span><span class="o">/</span><span class="n">i</span><span class="p">;</span> <span class="c1">// 3/2 is 1, not 1.5, if you’re doing integer division!</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"x is %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span></code></pre></figure>
+<span class="n">x</span> <span class="o">=</span> <span class="n">j</span><span class="o">/</span><span class="n">i</span><span class="p">;</span> <span class="c1">// 3/2 is 1, not 1.5, if you’re doing integer division!
+</span><span class="n">printf</span><span class="p">(</span><span class="s">"x is %f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span></code></pre></figure>
 
 <p>Even numeric constants are treated as type int if they don’t have a decimal. Try this:</p>
 
 <figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
-</span><span class="n">printf</span><span class="p">(</span><span class="s">"3/2 is %f.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//integer division</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"3.0/2.0 is %f.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//floating-point division</span>
- </code></pre></figure>
+</span><span class="n">printf</span><span class="p">(</span><span class="s">"3/2 is %f.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//integer division
+</span><span class="n">printf</span><span class="p">(</span><span class="s">"3.0/2.0 is %f.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="mi">3</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//floating-point division
+</span> </code></pre></figure>
 
 <p>The difference between floating-point division and integer division will matter in your
 first homework assignment!</p>
@@ -313,17 +291,7 @@ for(what to do at the start ; under what conditions to keep going ; what to do a
 
 <p>See if you can guess what this program does before you run it:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -332,7 +300,7 @@ for(what to do at the start ; under what conditions to keep going ; what to do a
   <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"%d %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span></code></pre></figure>
 
 <p>Note that there is no semicolon after the for statement in line 6. This is because it is a
 control statement itself, rather than an actual instruction to the computer to do something! 
@@ -352,27 +320,7 @@ up to 1000, but stop prematurely if <em>xyz</em> happens”.</p>
 
 <p>Here’s one more program that illustrates how to use the <code class="highlighter-rouge">if</code> statement to make the computer do one thing or another.</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-</pre></td><td class="code"><pre><span class="cp">#include &lt;stdio.h&gt;
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
@@ -383,15 +331,15 @@ up to 1000, but stop prematurely if <em>xyz</em> happens”.</p>
   <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"The number is negative.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
   <span class="p">}</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// note the == rather than =</span>
-  <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// note the == rather than =
+</span>  <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"The number is zero.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">printf</span><span class="p">(</span><span class="s">"The number is positive.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
   <span class="p">}</span>
-<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="p">}</span></code></pre></figure>
 
 <p>A couple of new things here. The biggest one is the <code class="highlighter-rouge">if</code> statement, of course. Note the
 use of <code class="highlighter-rouge">==</code> rather than <code class="highlighter-rouge">=</code> to check for equality. Single-equals is the assignment operator that
