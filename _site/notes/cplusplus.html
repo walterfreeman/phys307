@@ -13,8 +13,8 @@
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/notes/cplusplus.html">
-  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/phys307/notes/cplusplus.html">
+  <link rel="alternate" type="application/rss+xml" title="Physics 307" href="http://localhost:4000/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -154,6 +154,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       </div>
     </nav>
 
@@ -174,17 +180,23 @@ to compile your code with <code class="highlighter-rouge">g++</code> rather than
 
 <p>Trick #1: initializing variables inside a for loop</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-  <span class="n">printf</span><span class="p">(</span><span class="s">"%d squared is %d.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">);</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">"%d squared is %d.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">);</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Trick #2: ``pass-by-reference’’ to functions</p>
 
 <p>You know how to use a function that takes a bunch of inputs and returns an output:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">double</span> <span class="nf">hypotenuse</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="kt">double</span> <span class="nf">hypotenuse</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">);</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>Sometimes, though, you want to write a function that <em>changes</em> its inputs, or that returns more than one thing. You can’t do this with <code class="highlighter-rouge">return</code>, since this only lets you send one value back.</p>
 
@@ -193,12 +205,18 @@ to compile your code with <code class="highlighter-rouge">g++</code> rather than
 <p>But in C++ you can also pass variables themselves by putting an ampersand before the variable name. When you do this, there is no second copy created; this means that if you change the variable
 inside the function, it “stays changed”. Consider the following function:</p>
 
-<figure class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">void</span> <span class="nf">leapfrog</span><span class="p">(</span><span class="kt">double</span> <span class="o">&amp;</span><span class="n">theta</span><span class="p">,</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">omega</span><span class="p">,</span> <span class="kt">double</span> <span class="n">dt</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="kt">void</span> <span class="nf">leapfrog</span><span class="p">(</span><span class="kt">double</span> <span class="o">&amp;</span><span class="n">theta</span><span class="p">,</span> <span class="kt">double</span> <span class="o">&amp;</span><span class="n">omega</span><span class="p">,</span> <span class="kt">double</span> <span class="n">dt</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-  <span class="n">omega</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span> <span class="c1">// take g and L to be 1
-</span>  <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
+  <span class="n">omega</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span><span class="p">;</span> <span class="c1">// take g and L to be 1</span>
+  <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">+</span> <span class="n">omega</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>The utility of something like this should be obvious.</p>
 

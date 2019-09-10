@@ -7,6 +7,10 @@ permalink: notes/
 use_math: true
 ---
 
+<a href="function.html">Functions in C and Python</a>
+
+<a href="integration-notes.pdf">Analysis of integration methods</a> (as pdf because of typeset mathematics)
+
 <a href="connect.html">Connecting to the course computer</a>
 
 <a href="linux.html">A short introduction to Linux</a>
@@ -37,9 +41,6 @@ use_math: true
 <a href="DE-notes.pdf">Notes on solving differential equations</a> 
 
 
-<a href="function.html">Functions in C</a>
-
-<a href="integration-notes.pdf">Analysis of integration methods</a> (as pdf because of typeset mathematics)
 
 <a href="symplectic.html">Notes on symplectic solvers</a>
 

@@ -33,7 +33,7 @@
 \begin{document}
 \Large
 \centerline{\sc{Physics 307 Homework 2}}
-\centerline{Due Monday, 21 September}
+\centerline{Due Thursday, 18 September}
 \normalsize
 
 This week, you will extend and modify your integration routine to study the numerical error in integration.
@@ -41,22 +41,30 @@ This week, you will extend and modify your integration routine to study the nume
 
 \item Post your favorite meme to the \#physics307 channel on Slack. (This is mandatory and we will not accept the assignment until you do this. The point is to make sure everyone is on the Slack channel!)
 
-\item{Modify your integration routine to call a function when evaluating the function to be integrated. This will make things easier in the long run.}
+\item{Write a separate function that performs your integration. It should take as arguments:
+	
+	\begin{itemize}
+		\item The lower bound of the integration interval
+		\item The upper bound of the integration interval
+		\item The number of integration bins to use. (You could pass in the stepsize instead, but
+		in that case make sure you only use stepsizes that go into the interval evenly!)
+	\end{itemize}
+	
+	This will make your life much easier in the long run.}
 
 \item{Analytically compute the value of $$\int_{0}^{2} \sin x\, dx.$$ Then use your integration routine to compute it numerically, using a range of Riemann sum stepsizes from $10^{0}$
-    to $10^{-7}$. (It will probably be easiest if you automate this last process by using a {\tt for} loop to cycle through the various values of your stepsize; don't forget to reset your
-  accumulator after each integral.) Do this using the left-hand rule, if you have been doing something else. 
+    to $10^{-7}$. It will be easiest if you automate this last process by using a {\tt for} loop to cycle through the various values of your stepsize; this is where putting your integrator in a separate function will save you work! Do this using the left-hand rule, if you have been doing something else. 
   Then make a log-log plot of the error (magnitude of the difference between the analytic and numeric answers) vs. the stepsize.
 
 Ensure that the interval (0,2) can be divided evenly into intervals of the stepsize you choose! (What happens if this isn't the case?)}
 
-\item{Now, modify your integration routine to use the midpoint rule. Again make a log-log plot of the error as a function of the stepsize, using stepsizes from $10^{0}$ to $10^{-7}$.
+\item{Now, write another integration routine that uses the midpoint rule. (Copy-paste from your previous function may save you a lot of work...) Again make a log-log plot of the error as a function of the stepsize, using stepsizes from $10^{0}$ to $10^{-7}$.
     Plot these graphs for both the midpoint rule and the left-hand rule on the same axis. Do the graphs look like you expect? How do you explain their behavior for large stepsizes?
   For very small stepsizes? How do you interpret their slopes?}
 
 \item{Repeat the previous problem using the trapezoid rule. Does it behave as you expect it to?}
 
-\item{Modify any or all of your programs to use {\tt double} variables rather than {\tt float}s. Does this have the effect you expect on the error?}
+\item{Modify any or all of your programs to use {\tt double} variables rather than {\tt float}s, if you are working in C. Does this have the effect you expect on the error?}
 
 \item{Finally, use one of your second-order integrators to compute $$\int_0^2 \sqrt{x}\,dx.$$ Plot the error vs. the stepsize again. Why do you think this is behaving badly?
   Hint: Compare this to a similar plot for $$\int_1^2 \sqrt{x}\,dx.$$}
@@ -73,7 +81,7 @@ FAQ:
 \item {\it Some of my data don't show! I get errors when I try to plot!}
 
 \begin{itemize}
-\item Look at your data file and make sure your values are sensible. Remember that if you're making a log-log plot, you can only plot positive values -- you may need the {\tt fabs()} function to take absolute values.
+\item Look at your data file and make sure your values are sensible. Remember that if you're making a log-log plot, you can only plot positive values -- you may need the {\tt fabs()} function (C) or the {\tt abs()} function (Python) to take absolute values.
 \end{itemize}
 
 \item {\it I get funny data! My error goes down for smaller stepsizes like I expect, but then back up again!} 
@@ -84,12 +92,17 @@ FAQ:
 \item {\it What stepsizes should I use?} 
 
 \begin{itemize}
-\item You want a range that's evenly scattered -- in {\it logarithmic space} -- in the range. So, instead of {\it adding} a fixed value to your stepsize in your outer {\tt for} loop, maybe you could {\it multiply} (or divide) by a fixed value?
+\item You want a range that's evenly scattered -- in {\it logarithmic space} -- in the range. So, instead of {\it adding} a fixed value to your stepsize in your outer {\tt for} loop, maybe you could {\it multiply} (or divide) by a fixed value? In Python, either write a {\tt while} loop to do the integration, or investigate the {\tt logspace} function that is part of {\tt numpy}.
 \end{itemize}
 \item {\it My error bounces around strangely!} 
 
 \begin{itemize}
-\item Remember the ``last step bug'' that we talked about in class. In brief, you want {\tt for(x=a; x<b-dx/2; x=x+dx)} to avoid the rounding issue that happens at the last step.
+\item Remember the ``last step bug'' that we might talk about in class. In brief, you want {\tt for(x=a; x<b-dx/2; x=x+dx)} to avoid the rounding issue that happens at the last step. It is even better to do {\tt for (bin=0; bin<nbins; bin=bin+1)} and then calculate values of {\tt x} on the fly, to avoid rounding issues entirely.
+\end{itemize}
+
+\item {\it My integrator is stuck -- it is suddenly taking forever to run and not stopping!}
+\begin{itemize}
+	\item Ask Walter about this, especially if you are using C. There's a subtle but interesting rounding bug that can happen.
 \end{itemize}
 \end{itemize}
 \end{document}

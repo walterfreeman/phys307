@@ -5,6 +5,12 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 10 September agenda:
+
+* talk about written reports and our expectations
+* talk about Taylor series and what they are good for
+* talk about how to use Taylor series to analyze the error in numerical integration methods
+
 ### 3 September agenda:
 
 * talk about what we're going to do about the registrar's mistake with the classroom
