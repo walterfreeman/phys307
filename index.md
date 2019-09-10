@@ -9,7 +9,12 @@ permalink: index.html
 
 * talk about written reports and our expectations
 * talk about Taylor series and what they are good for
+* talk about analysis of algorithms
 * talk about how to use Taylor series to analyze the error in numerical integration methods
+
+New assignment: [Project 2](projects/hw2.pdf)
+
+New notes: [Analysis of numerical integration methods](notes/integration-notes.pdf), [programming with functions](notes/function.html)
 
 ### 3 September agenda:
 

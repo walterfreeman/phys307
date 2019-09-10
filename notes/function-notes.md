@@ -42,12 +42,12 @@ int main(void)
     printf("x = %e     sin(x) = %e    derivative = %e\n",x,y,dydx);
   }
 }
-
+{% endhighlight %}
 or in Python
 
 {% highlight python linenos %}
 from numpy import *
-epsilon=1e-4 // our small value for doing derivatives
+epsilon=1e-4 # our small value for doing derivatives
 
 for x in arange(0, 10, 0.01):
     y=sin(x);
@@ -60,7 +60,7 @@ modify three different pieces of code. This is more work, and it adds a risk of 
 
 We have a sub-task here that we could pull out and put into a function, as follows:
 
-{% highlight C linenos %}
+{% highlight C %}
 #include <stdio.h>
 #include <math.h>
  
@@ -87,9 +87,9 @@ int main(void)
 
 or in Python
 
-{% highlight python linenos %}
+{% highlight python %}
 from numpy import *
-epsilon=1e-4 // our small value for doing derivatives
+epsilon=1e-4 # our small value for doing derivatives
 
 def f(value):
   y=sin(value)
@@ -141,7 +141,7 @@ also true in Python.
 3. A function must be declared before it is used. (This is why main() is at the bottom of my program
 above.) An alternative to this (perhaps two functions that can call each other!) is to use a prototype
 – a dummy line that tells C the properties of a function before it is actually written. This looks the
-same as the normal function declaration, but it has a semicolon after it. So, for instance, this is legal
+same as the normal function declaration, but it has a semicolon after it. So, for instance, this is legal C
 
 {% highlight C linenos %}
 float f(float value); // prototype
@@ -166,4 +166,4 @@ float f(float value)
 }
 {% endhighlight %}
 
-
+In Python, you generally do not have this problem -- talk to me if you have questions about how it works in Python.
