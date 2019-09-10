@@ -8,6 +8,8 @@ permalink: index.html
 ### 10 September agenda:
 
 * talk about written reports and our expectations
+  * See [a report from a student last year](laurel-white-project-5.pdf) as an example of what we're after
+  * Please don't emulate this format exactly -- this is an example of how to discuss data in general, not a model to copy
 * talk about Taylor series and what they are good for
 * talk about analysis of algorithms
 * talk about how to use Taylor series to analyze the error in numerical integration methods
