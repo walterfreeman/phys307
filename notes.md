@@ -7,6 +7,8 @@ permalink: notes/
 use_math: true
 ---
 
+<a href="DE-notes.pdf">Notes on solving differential equations</a> 
+
 <a href="function.html">Functions in C and Python</a>
 
 <a href="integration-notes.pdf">Analysis of integration methods</a> (as pdf because of typeset mathematics)
@@ -31,6 +33,7 @@ use_math: true
 
 <a href="samples.html">Sample programs</a>
 
+
 <!--
 <a href="string-notes.pdf">Notes on the vibrating string project</a>
 
@@ -38,7 +41,6 @@ use_math: true
 
 <a href="cplusplus.html">A few C++ tricks</a>
 
-<a href="DE-notes.pdf">Notes on solving differential equations</a> 
 
 
 

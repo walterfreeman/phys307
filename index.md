@@ -5,6 +5,13 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 19 September agenda:
+
+* recap your results from Project 2
+* introduce numerical solution of differential equations
+* introduce Project 3
+* watch (a bit of) a movie!
+
 ### 10 September agenda:
 
 * talk about written reports and our expectations
