@@ -9,7 +9,7 @@ permalink: index.html
 
 * Talk about "perfect" data vs. the kind of data we usually get
 * Introduce second-order differential equations
-* Introduce animations
+* Introduce animations and get [anim](anim.tar) set up on your computers
 * Introduce Project 4
 
 New notes:
