@@ -5,6 +5,20 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 1 October agenda:
+
+* Talk about "perfect" data vs. the kind of data we usually get
+* Introduce second-order differential equations
+* Introduce animations
+* Introduce Project 4
+
+New notes:
+
+* [Symplectic solvers for Newton's laws](notes/symplectic.html)
+* [Making animations](notes/anim.html)
+* [A few C++ tricks that are useful](notes/cplusplus.html) <it>(Optional, may make life easier for C programmers)</it>
+
+
 ### 19 September agenda:
 
 * recap your results from Project 2

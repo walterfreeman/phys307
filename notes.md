@@ -7,6 +7,13 @@ permalink: notes/
 use_math: true
 ---
 
+
+<a href="symplectic.html">Notes on symplectic solvers</a>
+
+<a href="anim.html">Notes on making animations</a>
+
+<a href="cplusplus.html">A few C++ tricks</a>
+
 <a href="DE-notes.pdf">Notes on solving differential equations</a> 
 
 <a href="function.html">Functions in C and Python</a>
@@ -39,14 +46,8 @@ use_math: true
 
 <a href="array-notes.pdf">Notes on using arrays</a>
 
-<a href="cplusplus.html">A few C++ tricks</a>
 
 
-
-
-<a href="symplectic.html">Notes on symplectic solvers</a>
-
-<a href="anim.html">Notes on making animations</a>
 
 
 #### Old notes

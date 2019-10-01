@@ -33,27 +33,31 @@
 \begin{document}
 \Large
 \centerline{\sc{Physics 307 Homework 4}}
-\centerline{Due Thursday, 11 October, by 5 PM}
+\centerline{Due Thursday, 10 October, by 5 PM}
 \normalsize
 
 
 \begin{center}
 \it Note: See the notes on symplectic integrators for summaries of the different solvers used in this project.
-\end{center}
 
+\bigskip
+
+\bf Note 2: Everyone should have a working code and have completed up to step 5 by the beginning of class on Tuesday, 8 October. We will be checking for this for a grade.
+\end{center}
+\rm
 Now we will graduate to second-order differential equations, and solve a DE that we can't do with pen and paper. The equation of motion for a pendulum is
 
 \begin{equation}
 \PARTWO{\theta}{t}=-\frac{g}{L} \sin \theta
 \end{equation}
 
-In mechanics class you solved this by taking the small-angle approximation $\sin \theta \approx \theta$; the equation then has a solution
+In mechanics class you may have solved this by taking the small-angle approximation $\sin \theta \approx \theta$; the equation then has a solution
 
 \begin{equation}
 \theta(t) = A \sin (\omega t + \phi)
 \end{equation}
 
-where $\omega=\sqrt\frac{g}{L}$ giving a period $T=2\pi\sqrt\frac{L}{g}$. This is valid only in the limit $\theta \rightarrow 0$.
+where $\omega=\sqrt\frac{g}{L}$ giving a period $\tau=2\pi\sqrt\frac{L}{g}$. This is valid only in the limit $\theta \rightarrow 0$.
 
 This equation is very difficult to solve without making this approximation using pen and paper, but you have a computer! 
 
@@ -78,14 +82,15 @@ data make sense? As a note, familiarize yourself with the {\tt !} bypass feature
 output at the same time.
 
 \item Modify your program to determine the period of the pendulum and print it out. You can determine when a period has elapsed by looking for sign changes in $\omega$; look at the graphs you 
-made in the last step for a reminder of how to do this.
+made in the last step for a reminder of how to do this. If you do this naively, your result will be accurate to first order in your timestep $dt$.
 
 \item Does your program give you the result you expect (\ie $T \approx 2\pi\sqrt\frac{L}{g}$) in the limit where the initial amplitude is small?
 
-\item Suppose a pendulum clock keeps accurate time when $\theta_{\rm max}=5^\circ$. How many seconds will it gain or lose per day if it is swinging at an angle of  $\theta_{\rm max}=20^\circ$?
+\item Suppose a pendulum clock keeps accurate time when $\theta_{\rm max}=5^\circ$. How many seconds will it gain or lose per day if it is swinging at an angle of  $\theta_{\rm max}=20^\circ$? (Hint: Measure the period of your 
+simulated pendulum with both and think of how to use your results to figure this out!)
 
 \item Modify your program to use the leapfrog algorithm, which is a second-order symplectic integrator that you will use for the rest of the semester. (This should be an easy, fast modification.) Note that if you want the added precision from the
-use of a second-order solver, you should use the second-order interpolation mechanism for $\omega$ that you worked out in Project 2.
+use of a second-order solver, you should use the second-order interpolation mechanism for $\omega$ that you worked out in Project 3 and used for the temperature.
 
 \item Make a plot of the fractional deviation in the period, defined as $\Delta = \frac{\tau-\tau_0}{\tau_0}$. Here $\tau_0$ is the small-angle-limiting period, $\tau_0=2\pi\sqrt\frac{L}{g}$. Calculate this for a range of $\theta_{\rm max}$ from $10^{-5}$ to 2 (radians). Make a log-log plot of $\Delta$ vs. $\theta_{\rm max}$. Your plot should
 cover amplitudes from around $10^{-6}$ to 2 radians. Here you might see

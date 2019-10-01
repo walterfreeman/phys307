@@ -9,16 +9,21 @@ use_math: true
 As we're going to now focus on simulating things that move, it's handy to be able to see animations of what they look like. You can do this with a little program
 `anim` that I wrote. This program reads in lines of text (using `scanf`), interprets them as instructions to draw on the screen, and then does so.
 
-If you have a Mac or Linux laptop that you're using for my class, you'll first need to get `anim` on your computer. You can do this as follows:
+You'll first need to get `anim` on your computer. You can do this as follows:
 
-1. Download the source code to `anim`. For a Linux machine, it's <a href="anim.c">here</a>, and for a Mac, it's <a href="anim-mac.c">here</a>.
+1. Download the source code to `anim`. It lives at <a href="https://walterfreeman.github.io/phys307/anim.tar">https://walterfreeman.github.io/phys307/anim.tar</a>. Download this 
+and unpack it using `tar xvf anim.tar`.
 2. In your terminal, go to the directory where you saved the file. This is an ordinary C file, so you can look at it if you want (or make changes!)
+3. You'll need to install some packages first. 
+  * On a Linux system, you'll need to do `sudo apt install freeglut3-dev libglew-dev libpng-dev imagemagick libpng-dev`. 
+  * On a Mac, in the past you just needed `xquartz`. I'm not sure now; we'll figure this out in class, no doubt~
+  * On Ubuntu-on-Windows, try `sudo apt install freeglut3-dev libglew-dev libpng-dev imagemagick libpng-dev`. Sol is expert at installing this on Windows and he can help us.
 3. Compile it:
-  * Linux: `gcc anim.c -lm -lGL -lGLU -lglut -o anim`
-  * Mac: `gcc anim-mac.c -framework GLUT -framework OpenGL -framework Cocoa -o anim`
-4. Copy it to your system directory: `sudo cp anim /usr/local/bin/`
+  * Linux/Windows: `make anim`
+  * Mac: `make anim-mac`
+4. Copy it to your system directory: `sudo make install` 
 
-You can try it by running `anim` on the course computer, and then typing things in. Here are some simple commands; note that monospace Roman letters `like this` are
+You can try it by running `anim`  and then typing things in. Here are some simple commands; note that monospace Roman letters `like this` are
 meant to be typed literally, while Italic letters *like this* are to be replaced with numerical values.
 
 * `c` *x* *y* *r* -- draw a circle at location *x,y* with radius *r*
