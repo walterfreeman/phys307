@@ -9,7 +9,7 @@ Compile (on Mac) with
 gcc anim.c -framework GLUT -framework OpenGL -framework Cocoa
 **********************************************/
 
-#include <GL/glew.h>
+//#include <GL/glew.h>
 //#include <GL/glut.h>      // for Linux
 //#include <GL/freeglut.h>      // for Linux
 //#include <GL/glext.h>      // for Linux
@@ -296,27 +296,6 @@ void myColor4f(float r, float g, float b, float a)
 
 void transform(double x, double y, double z, double *X, double *Y, double *Z);
 void transform(vector v1, vector v2);
-
-
-void renderBitmapStringTry(double x, double y, double z, void *font, char *string) 
-{  
-  glDisable(GL_LIGHTING);
-  glMatrixMode(GL_PROJECTION);
-  glPushMatrix();
-  glLoadIdentity();
-  gluOrtho2D(-1.0, 1.0, -1.0, 1.0);
-  glMatrixMode(GL_MODELVIEW);
-  glPushMatrix();
-  glLoadIdentity();
- 
-  glRasterPos3f(x,y,z);
-  glutBitmapString(font, (unsigned char*)string);
-  glPopMatrix();
-  glMatrixMode(GL_PROJECTION);
-  glPopMatrix();
-  glEnable(GL_LIGHTING);
-}
-
 
 void renderBitmapString(double x, double y, double z, void *font, char *string) 
 {  
@@ -907,7 +886,7 @@ void idle(void)
     if (fgets(line2,300,stdin) == NULL) {}
 //    myColor4f(red,green,blue,1);
     glDisable(GL_LIGHTING);
-    renderBitmapStringTry(x,y,0,GLUT_BITMAP_TIMES_ROMAN_24,line2);
+    renderBitmapString(x,y,0,GLUT_BITMAP_TIMES_ROMAN_24,line2);
     glEnable(GL_LIGHTING);
   }
   else if (line[0] == 't' && line[1] == '3')
@@ -1127,7 +1106,7 @@ void resize(int w, int h)
 void keyb(unsigned char key, int x, int y)
 {
 
-  if (key == 'Q') {save_config(); glutLeaveMainLoop();}
+  if (key == 'Q') {save_config(); exit(0);}
   if (key == 'A') {axes=1-axes; adef=0; update=1;}
   if (key == 'F') {fpsdisplay = 1-fpsdisplay; update=1;}
   if (key == 'n') {circfaces++; if (circfaces>15) circfaces=15; update=1; fprintf(stderr,"circfaces -> %d\n",circfaces);}
