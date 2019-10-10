@@ -5,6 +5,13 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+### 10 October agenda:
+
+* Do a retrospective on Project 4
+* Talk about systems that move in more than one dimension
+* Introduce Project 5
+
+
 ### 1 October agenda:
 
 * Talk about "perfect" data vs. the kind of data we usually get

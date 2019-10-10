@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.8.22)  11 OCT 2018 17:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.13)  10 OCT 2019 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -191,13 +191,13 @@ LaTeX Font Info:    ... okay on input line 38.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 135
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 136
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (13.43378pt too wide) in paragraph at lines 134--136
+Overfull \hbox (13.43378pt too wide) in paragraph at lines 135--137
 \OT1/cmr/m/n/12 the \OT1/cmtt/m/n/12 ct3 \OT1/cmr/m/n/12 an-i-ma-tion com-mand.
  Its syn-tax is \OT1/cmtt/m/n/12 ct3 \TS1/cmtt/m/n/12 <\OT1/cmtt/m/n/12 trail i
 ndex\TS1/cmtt/m/n/12 ><\OT1/cmtt/m/n/12 x\TS1/cmtt/m/n/12 ><\OT1/cmtt/m/n/12 y\
@@ -206,7 +206,7 @@ TS1/cmtt/m/n/12 >\OT1/cmr/m/n/12 ,
  []
 
 [3]
-Overfull \hbox (59.79492pt too wide) in paragraph at lines 170--170
+Overfull \hbox (59.79492pt too wide) in paragraph at lines 171--171
  []\OT1/cmtt/m/n/12 printf("Energy (U + V = E): %e + %e = %e\n",potential,kinet
 ic,potential+kinetic);[] 
  []
@@ -214,8 +214,8 @@ ic,potential+kinetic);[]
 [4] (./hw-gravity.aux) ) 
 Here is how much of TeX's memory you used:
  1380 strings out of 492982
- 17576 string characters out of 6134896
- 70872 words of memory out of 5000000
+ 17576 string characters out of 6134895
+ 70874 words of memory out of 5000000
  4982 multiletter control sequences out of 15000+600000
  9868 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -237,7 +237,7 @@ b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf
 /fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/
 cm-super/sftt1200.pfb>
-Output written on hw-gravity.pdf (4 pages, 179353 bytes).
+Output written on hw-gravity.pdf (4 pages, 179378 bytes).
 PDF statistics:
  86 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream
