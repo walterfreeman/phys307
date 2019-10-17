@@ -7,6 +7,9 @@ permalink: notes/
 use_math: true
 ---
 
+<a href="vectors-c.html">Doing mathematics with vectors in C</a>
+
+<a href="vectors-python.html">Doing mathematics with vectors in Python</a>
 
 <a href="symplectic.html">Notes on symplectic solvers</a>
 

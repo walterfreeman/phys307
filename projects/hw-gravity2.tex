@@ -37,22 +37,20 @@
 \begin{document}
 \Large
 \centerline{\sc{Physics 307 Homework 6}}
-\centerline{Due Tuesday, 30 October, at 5 PM}
+\centerline{Due Tuesday, 29 October, at 5 PM}
 \normalsize
 
-In this homework assignment, you will use your orbit program to simulate
+\begin{center} \it This assignment will be modified significantly soon; it is not complete yet. \end{center}
+
+
+
+In this homework assignment
 a highly elliptical orbits, and then some other things. If you don't finish by Tuesday, turn in what you have, and let Nick know when you'll have the finished product. 
 
 \begin{enumerate}
 
-  \item{Consider a highly elliptical orbit such as a comet. At aphelion, Halley's comet is 35.1 AU from the Sun and has a velocity of 0.193 AU/year.
-    Use your program to simulate the orbit of Halley's comet. How close does it come to the Sun at perihelion, and how fast is it traveling there? 
-    
-    About how many timesteps are required to simulate this orbit reasonably accurately? Compare this to the value for a circular orbit that you determined
-
-\item{{\bf Extra credit:} Can you think of any way to mitigate this and simulate the orbit with fewer timesteps? Implement it.}
-
-  last week. What makes cometary orbits so much harder to simulate accurately?}
+\item Modify your orbit simulation to use either the vector data type in {\tt vector.h} (if you're writing in C) or NumPy arrays to do vector math (if you're
+writing in Python).
 
 \item If you're not familiar with Kepler's laws of orbital motion, look them up. Does the
 behavior of your simulation reflect Kepler's second law (qualitatively; you do not need
@@ -60,7 +58,7 @@ to measure areas!)
   
 \item{Now, modify your program to simulate a binary star system with two stars
 of unequal mass-- that is, two objects
-responding to each other's gravity. 
+responding to each other's gravity, in which they are permitted to move in 3D} 
 
     Hints:
 
@@ -68,30 +66,32 @@ responding to each other's gravity.
       \item{If you measure mass in solar masses, $G$ still has a value of $4\pi^2$.}
       \item{You will now need to use $\vec F=m\vec a$ and $\vec F=\frac{Gm_1m_2}{r_{12}^2}$
              together to find the accelerations.}
-      \item{Your count of dynamical variables has now doubled to eight:
+      \item{Your count of dynamical variables has now ballooned to twelve, if you think of components separately:
           \begin{itemize}
-            \item{$x_1, y_1, v_{x_1}, v_{y_1}$ for the first star}
-            \item{$x_2, y_2, v_{x_2}, v_{y_2}$ for the second star}
+            \item{$x_1, y_1, z_1, v_{x_1}, v_{y_1}, v_{z_1}$ for the first star}
+            \item{$x_2, y_2, z_2, v_{x_2}, v_{y_2}, v_{z_2}$ for the second star}
           \end{itemize}
+      \item You won't need to have all this complexity in your code, though, since you've taught your code to do vector math. You really have only four dynamical variables, each of which is a vector:
+           \begin{itemize}
+             \item {$\vec s_1$, $\vec v_1$ for the first star}
+             \item {$\vec s_2$, $\vec v_2$ for the second star}
+           \end{itemize}
        }
      \item {
           The leapfrog prescription is still the same: 
             \begin{enumerate}
-              \item Evolve the position variables (all four of them!) forward by $dt/2$
-              \item Evolve the velocity variables (all four of them!) forward by $dt$ (this is the hard part)
+              \item Evolve the position variables (both of them!) forward by $dt/2$
+              \item Evolve the velocity variables (both of them!) forward by $dt$ (this is the hard part)
               \item Evolve the position variables forward by $dt/2$ again
             \end{enumerate}
-            Your cut-and-paste skills will come in handy here, as you will be typing
-            multiple copies of very similar code. But be careful of editing errors when doing this!
           }
   
       \item{The radius vector that appears in the differential equations is now the {\it separation vector} between the two stars. The origin no longer plays any special role in the dynamics.}
-      \item{Since the $x$ and $y$ that appear explicitly in the differential equations come from the components of $\hat r_{12}$, they will become $x_1-x_2$, etc.}
+      \item{You shouldn't need to individually address the components of your vectors {\it anywhere} in your leapfrog code. (You will when you print things for {\tt anim}.) If you think you do, come talk to me and we'll talk about alternatives.}
     \end{itemize}
 
 \item Important: if you don't want your simulation to ``drift'' out of the viewport, 
-then you will want to ensure that the total momentum is zero. See the end of this document
-for how to do this.
+then you will want to ensure that the total momentum is zero.
 
    Run your simulation, and monitor conservation of total energy to ensure that it is behaving properly. You now can't compute energy per unit mass, since you have two masses; the total energy will be
 
@@ -105,12 +105,20 @@ to do, since each object now feels the force from {\it two} neighbors, rather th
 
 Play around with what you can create -- make things move in three dimensions, etc. Note that if two bodies get too close together,
 they will experience a very large force that is probably too big for your timestep to accurately simulate. 
-}
+
   \end{enumerate}
+
+\bigskip
+
+\begin{center}
+{\bf The remainder of this assignment might change significantly over the weekend. (This text is from last year's assignment.)}
+\end{center}
+
+\bigskip
 
 Then, I want you to do one (or both) of the following:
 
-\section{Option 1: Detection of exoplanets}
+\section{Option 1: Detection of exoplanets (this year's Nobel Prize)}
 
 Planets are small, close to stars, and don't give off their own light. They are very difficult to see directly with telescopes, although we can get some signatures if they go directly in front of their stars and block a bit of the light.
 
@@ -127,6 +135,7 @@ such a detection would have for the possibility of extraterrestrial life.
 
 \begin{itemize}
 \item Earth orbiting the Sun. Earth has a mass of $3 \times 10^{-6}$ solar masses.
+\item 51 Pegasi b orbiting 51 Pegasi. (You'll need to look up their parameters.) 
 \item Jupiter orbiting the Sun. Jupiter has a mass of 0.001 solar mass (300 Earths) and orbits roughly 5 AU from the Sun. (You'll need to work out initial conditions for a nearly-circular orbit with radius 5 AU.)
 \item A ``super-Earth'' of mass $1.5 \times 10^{-5}$ solar masses (5 times the mass of the Earth) orbiting Proxima Centauri, a small star with a mass of 0.12 solar mass, at a radius of 0.1 AU away
 \end{itemize}

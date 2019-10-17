@@ -13,7 +13,7 @@
 ">
 
   <link rel="stylesheet" href="/phys307/css/main.css">
-  <link rel="canonical" href="/phys307/notes/membrane-notes.html">
+  <link rel="canonical" href="/phys307/notes/vectors-python.html">
   <link rel="alternate" type="application/rss+xml" title="Physics 307" href="/phys307/feed.xml">
 
 <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -172,7 +172,55 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <p>These notes are available as a PDF <a href="notes-membrane.pdf">here</a>.</p>
+        <h3 id="background">Background</h3>
+
+<p>NumPy comes with a very powerful data type that can be used to do linear algebra called an <em>array</em>. This is a single variable that contains multiple numbers.</p>
+
+<p>They are different from a <em>list</em>, which is also a single variable that contains multiple numbers. The differences are:</p>
+
+<p>Lists:</p>
+
+<ul>
+  <li>Lists are a feature of standard Python, not NumPy</li>
+  <li>They are intended to collect, sort, and count things, not to do math with them</li>
+  <li>Doing math with lists will almost never do what you want</li>
+  <li>They are almost never going to be useful to us in this class</li>
+</ul>
+
+<p>Arrays:</p>
+
+<ul>
+  <li>Arrays are a feature of NumPy</li>
+  <li>They are designed to do math with</li>
+  <li>You can often do a whole set of calculations on an array in one line, in a way that is much faster than writing a <code class="highlighter-rouge">for</code> loop</li>
+  <li>They can be one-dimensional (a three-component Cartesian vector), two-dimensional (a whole collection of Cartesian vectors; a matrix), or even more</li>
+</ul>
+
+<p>For now, we’ll only be using this for Cartesian vectors – arrays that have one dimension that is three elements long. Some of the workings of NumPy for arrays of more than one dimension can get hairy (but very powerful).</p>
+
+<p>The best way to learn how to use vectors in NumPy is to fiddle with things yourself and see what they do. You can use the Python REPL to do this; just type <code class="highlighter-rouge">python</code> or <code class="highlighter-rouge">python3</code> at the command line.</p>
+
+<p>Here are some things to try:</p>
+
+<ul>
+  <li>Define a vector: <code class="highlighter-rouge">A = array([1,2,3])</code>. Note the funny use of brackets and parentheses.</li>
+  <li>Refer to particular components of a vector: <code class="highlighter-rouge">print (A[0])</code>. Note that <code class="highlighter-rouge">A[0]</code> is the <em>first</em> element; our three-component vector has indices 0, 1, and 2.</li>
+  <li>You can change them individually: <code class="highlighter-rouge">A[0] = 4</code></li>
+  <li>Define another vector: <code class="highlighter-rouge">B = array([4,5,6])</code></li>
+  <li>Try typing <code class="highlighter-rouge">A*B</code> into the REPL and see what happens. Notice that this is <em>not</em> the dot product that you were expecting!</li>
+  <li>In vector math you can’t add a vector to a scalar, but Python will let you do it! Try <code class="highlighter-rouge">A+1</code> and see what happens.</li>
+  <li>Try <code class="highlighter-rouge">dot(A,B)</code> and <code class="highlighter-rouge">cross(A,B)</code> and see if they do what you want</li>
+  <li>Writing <code class="highlighter-rouge">sqrt(A[0]**2 + A[1]**2 + A[2]**2)</code> to find the length of a vector is going to get very old! Instead, there is a function for it. Try <code class="highlighter-rouge">linalg.norm(A)</code>.</li>
+  <li>All the combinations you would think will work should. Try <code class="highlighter-rouge">linalg.norm(A-B)</code>.</li>
+</ul>
+
+<p>Once you’ve finished this, modify your orbits code to use NumPy vectors for the position and velocity of the planet (and, if the Sun is not at the origin,
+the Sun). This can make your code much simpler; I just wrote a simulation that solves the orbit problem in 10 lines of code!</p>
+
+<p>Then, once you’re done, think about what you need to do for the case where both the Sun and the Earth move. Now you’ll need two position variables
+and two velocities (each of which is a three-component vector), and will need to update both positions and velocities each time.</p>
+
+<p>Work on coding this, and I’ll see you all Tuesday!</p>
 
       </div>
     </div>

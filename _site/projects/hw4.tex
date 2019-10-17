@@ -38,11 +38,12 @@
 \begin{document}
 \Large
 \centerline{\sc{Physics 307 Homework 5}}
-\centerline{Due Tuesday, 18 October, at 11 AM}
+\centerline{Due Thursday, 17 October, at 5 PM}
 \normalsize
 
 In this homework assignment, you will simulate the Earth going around the Sun,
-and then generalize your work to other orbits.
+and then generalize your work to other orbits. This assignment is the first of two parts; Project 6 will
+also require you to simulate orbits.
 
 To review the discussion in class: 
 For an orbit in the x-y plane, you have four dynamical variables $x$, $y$,
@@ -59,12 +60,12 @@ where $M$ is the mass of the Sun.
 
 \begin{enumerate}
 \item First we will pretend that the Earth is in an exactly circular orbit;
-  this is approximately the case. If we measure distance in astronomical units
+  this is approximately the case. If we measure distance in astronomical units, mass in solar masses,
     and time in years,
 	\begin{itemize}
   \item{what initial conditions for the Earth's position and velocity 
     vectors will give a circular orbit with the correct radius, and}
-  \item{what is the numerical value of GM?}
+  \item{what is the numerical value of G?}
   \end{itemize}
 
   (Hint: Remember your freshman physics; what is $v^2/r$? I know some of you 
@@ -74,20 +75,20 @@ where $M$ is the mass of the Sun.
 
 \item Write code that simulates the Earth's orbit around the Sun using the Euler-Cromer algorithm. Animate your simulation. Some hints for animation:
 
-%\begin{itemize}
-%\item { You can make your planet leave behind a ``trail'' so you can visualize its orbit with the {\tt ct3} animation command. Its syntax is 
-%{\tt ct3 \LT trail index\RT  \LT x\RT  \LT y\RT  \LT z\RT  \LT radius\RT }, where:
+\begin{itemize}
+\item { You can make your planet leave behind a ``trail'' so you can visualize its orbit with the {\tt ct3} animation command. Its syntax is 
+{\tt ct3 \LT trail index\RT  \LT x\RT  \LT y\RT  \LT z\RT  \LT radius\RT }, where:
 
-%\begin{itemize}
-%\item {\tt \LT trail index \RT} controls which trail you are adding to in this case you only want to leave behind one trail, so just set this to 0
-%\item {\tt \LT (x,y,z) \RT} is the location to draw the object. Since you are simulating orbits in the $xy$-plane, just set $z$ to zero.
-%\item {\tt \LT r \RT} is the radius of the ball to draw.
-%\end{itemize}
-%}
+\begin{itemize}
+\item {\tt \LT trail index \RT} controls which trail you are adding to in this case you only want to leave behind one trail, so just set this to 0
+\item {\tt \LT (x,y,z) \RT} is the location to draw the object. Since you are simulating orbits in the $xy$-plane, just set $z$ to zero.
+\item {\tt \LT r \RT} is the radius of the ball to draw.
+\end{itemize}
+}
 
-%\item Since the Sun doesn't move, you can draw it at the origin with the {\tt c3} command.
-%\item If your simulation runs too fast, reduce the timestep; if it runs too slowly, you can draw only one animation frame every 10, 100, etc. timesteps.
-%To do this you might write something like:
+\item Since the Sun doesn't move (yet!), you can draw it at the origin with the {\tt c3} command.
+\item If your simulation runs too fast, reduce the timestep; if it runs too slowly, you can draw only one animation frame every 10, 100, etc. timesteps.
+To do this you might write something like:
 
 %\begin{verbatim}
 %
@@ -106,7 +107,7 @@ where $M$ is the mass of the Sun.
       %\end{verbatim}  
       % 
 
- %     \end{itemize}
+      \end{itemize}
 
       \item{Now, let's check to see if the simulation is accurate. Since you put in initial conditions that are explicitly designed to simulate a planet orbiting in a circular
 	orbit with a period of one year, you can check a couple of things:
@@ -128,7 +129,7 @@ where $M$ is the mass of the Sun.
 	  \end{equation}
 
 	Even without an exact analytic solution for orbits (in general), we can look at departures from conservation of 
-	  energy as another way to gauge the error in the simulation. Modify your 
+	  energy as another way to gauge the error in the simulation. 
 
 	  Modify your code to display this on the screen as the animation runs. You can do this with the {\tt T} animation command. An example of an elaborate way to do this 
 	  would be:
@@ -136,6 +137,12 @@ where $M$ is the mass of the Sun.
 	  \begin{verbatim}
 	printf("T 0.9 -0.9\nEnergy (U + V = E): %e + %e = %e\n",potential,kinetic,potential+kinetic);
 	\end{verbatim}
+
+or in Python
+
+\begin{verbatim}
+	print("T 0.9 -0.9\nEnergy (U + V = E): %e + %e = %e" % (potential,kinetic,potential+kinetic))
+\end{verbatim}
 
 	(Notice that this is a {\it two-line} anim command: the first line ({\tt T 0.9 -0.9}) instructs the computer to print some text at a specified point in the window,
 	 in this case near the top left. The second line contains the text to be printed.) Remember, the more information you have about what your code is doing, the more
@@ -149,6 +156,11 @@ where $M$ is the mass of the Sun.
 \item{Modify your initial conditions to simulate a non-circular orbit, changing the initial velocity and position of the Earth. (Note that if the total energy becomes positive, the Earth will escape the Sun's gravity.) What shape do these orbits take? At what part of the planet's orbit does it move faster? Spend at 
   least half an hour playing around with different initial conditions and seeing
     what happens, and write about that in your report.}
+
+
+
+\item Increase your timestep until your simulation clearly becomes ``wrong''. Estimate how many timesteps were required to 
+simulate one orbit with reasonable precision.
 
     \item With initial conditions appropriate for an elliptical orbit, modify Newton's law of gravity a bit. Specifically, change the force law to $F_g = \frac{GMm}{r^{2 \pm \epsilon}}$, where $\epsilon$ is some small value. Simulate your orbit again, ensuring that the planet leaves trails behind it. What happens?\footnote{
       It turns out there is some history here. In regions of very strong gravity, Einstein's general relativity modifies the force from gravity in a similar way. The orbit of 

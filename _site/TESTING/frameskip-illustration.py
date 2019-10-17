@@ -1,17 +1,12 @@
 import numpy as np
 
-dt=0.0001
+dt=1e-4
 drawinterval=300
 frame=0
-g=9.8
-L=3
-theta=1
-omega=0
+theta=0
 
 while True: 
-    # Euler-Cromer-Aspel update
-    theta=theta+omega*dt
-    omega=omega-g/L*np.sin(theta)*dt
+    theta=theta+1e-4
    
     # only draw a frame every drawinterval steps
     if (frame % drawinterval == 0):
