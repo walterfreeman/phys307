@@ -17,3 +17,7 @@ use_math: true
 
 <a href="project4.html">Project 4, due Thursday, October 10, at 5 PM, with a checkpoint before class Tuesday</a> 
 
+<a href="project5.html">Project 5</a>
+
+<a href="project6.html">Project 6, due Thursday, October 31, before class</a>
+

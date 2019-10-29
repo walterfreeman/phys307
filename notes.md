@@ -6,6 +6,9 @@ title: Notes
 permalink: notes/
 use_math: true
 ---
+<a href="string-notes.pdf">Notes on the vibrating string project</a>
+
+<a href="array-notes.pdf">Notes on using arrays in C</a>
 
 <a href="vectors-c.html">Doing mathematics with vectors in C</a>
 
@@ -45,9 +48,6 @@ use_math: true
 
 
 <!--
-<a href="string-notes.pdf">Notes on the vibrating string project</a>
-
-<a href="array-notes.pdf">Notes on using arrays</a>
 
 
 
