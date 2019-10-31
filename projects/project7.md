@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Project 7
+category: top
 permalink: projects/project7.html
 use_math: true
 ---

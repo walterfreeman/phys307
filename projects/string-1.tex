@@ -34,11 +34,11 @@
 \begin{document}
 \Large
 \centerline{\sc{Physics 307 Homework 7}}
-\centerline{Due Tuesday, 13 November, at 5 PM}
+\centerline{Due Tuesday, 12 November, at 5 PM}
 \centerline{Progress report due 6 November before class}
 \normalsize
 
-This homework assignment is the first of three parts. I encourage you to try to finish this assignment ahead of time
+This homework assignment is the first of several parts. I encourage you to try to finish this assignment ahead of time
 and begin the next one before the deadline of this one. This assignment requires you to write some code; the next assignment will involve using that code to study
 some physics.
 
@@ -55,21 +55,13 @@ In this assignment, you will model a stretched string (as in a guitar or violin)
 For reference, the force law on any given node $i$ (given in more detail in class) is:
 
 \begin{align}
-  \dot v_{x_i} &= \frac{1}{m} \left[ k \hat r_{{i,i-1}_x} (r_{i,i-1} - r_0) + k \hat r_{i,i+1} (r_{i,i+1} - r_0) \right] \\
-  \dot v_{y_i} &= \frac{1}{m} \left[ k \hat r_{{i,i-1}_y} (r_{i,i-1} - r_0) + k \hat r_{i,i+1} (r_{i,i+1} - r_0) \right]
+  \dot \vec v_{x_i} &= \frac{1}{m} \left[ k \hat r_{{i,i-1}_x} (r_{i,i-1} - r_0) + k \hat r_{i,i+1} (r_{i,i+1} - r_0) \right] \\
+  \dot \vec v_{y_i} &= \frac{1}{m} \left[ k \hat r_{{i,i-1}_y} (r_{i,i-1} - r_0) + k \hat r_{i,i+1} (r_{i,i+1} - r_0) \right]
 \end{align}
 
 where
 
 $\vec r_{i,j}$ is a vector pointing from the $i$'th node to the $j$'th one, and is thus equal to $(x_j-x_i)\hat i + (y_j-y_i)\hat j$, $k$ is the spring constant of a single spring, $r_0$ is its unstretched length, and $m$ is the mass of each node.
-As before, you can use the ``unit vector trick'' to write $\hat r_{i,j}$ in terms of the dynamical variables in the problem:
-
-\begin{align}
-  \hat r_{{i,j}_x} &= \frac{x_i - x_j}{\sqrt{(x_i-x_j)^2 + (y_i-y_j)^2}}\\
-  \hat r_{{i,j}_y} &= \frac{y_i - y_j}{\sqrt{(x_i-x_j)^2 + (y_i-y_j)^2}}
-\end{align}
-
-
   
   A lattice simulation of a stretched string has the following parameters:
     \begin{itemize}
