@@ -5,6 +5,13 @@ permalink: index.html
 
 <h1> Welcome to Physics 307!</h1>
 
+
+### 5 November agenda:
+
+* Talk about how to go about attacking this string project
+* Talk about programming with arrays in both C and Python
+* Get started hacking! :)
+
 ### 10 October agenda:
 
 * Do a retrospective on Project 4

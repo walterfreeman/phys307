@@ -10,6 +10,8 @@ use_math: true
 
 <a href="array-notes.pdf">Notes on using arrays in C</a>
 
+<a href="array-notes.pdf">Notes on using arrays in Python</a>
+
 <a href="vectors-c.html">Doing mathematics with vectors in C</a>
 
 <a href="vectors-python.html">Doing mathematics with vectors in Python</a>
